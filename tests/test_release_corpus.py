@@ -26,14 +26,23 @@ class ReleaseTests(unittest.TestCase):
                 self.assertIn('ESMF_8_9_1',result['url'])
                 self.assertIn('#',result['url'])
     def test_real_driver_and_cap_patterns_and_commit(self):
-        for name in ('NUOPC_DriverAddComp','label_Advertise','label_Advance'):
-            hits=self.store.search(name,'example',6)
-            self.assertTrue(hits)
-            result=self.store.get(hits[0]['id'])
+        # Anchored to each pattern's in-tree example file so the added
+        # nuopc-app-prototypes example corpus cannot crowd it out of the top
+        # hits; ranks are not pinned, only that the official ESMF example
+        # remains discoverable for its own revision.
+        cases=(('NUOPC_DriverAddComp','NUOPC_DriverAddComp ESMF_NUOPCAtmModelEx'),
+               ('label_Advertise','label_Advertise ESMF_NUOPCBasicModelEx'),
+               ('label_Advance','label_Advance ESMF_NUOPCBasicModelEx'))
+        for name,query in cases:
+            hits=self.store.search(query,'example',8)
+            intree=[hit for hit in hits if 'esmf/NUOPC/examples' in hit['source']]
+            self.assertTrue(intree,name)
+            children=[hit for hit in intree if hit['parent']]
+            result=self.store.get((children or intree)[0]['id'],max_characters=32000)
             self.assertIn(name,result['text'])
             self.assertEqual(result['provenance']['revision'],'bd03a249df907464fdad91b7c43985dedbc472c7')
             if result['parent']:
-                self.assertIn('use NUOPC',self.store.get(result['parent'])['text'])
+                self.assertIn('use NUOPC',self.store.get(result['parent'],max_characters=32000)['text'])
     def test_context_evidence_categories(self):
         result=self.store.context('NUOPC_DriverAddComp','driver')
         self.assertTrue(result['documentation']);self.assertTrue(result['examples'])

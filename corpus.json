@@ -1,53 +1,6 @@
 {
   "sources": [
     {
-      "name": "NUOPC_refdoc",
-      "path": "corpus/manuals/NUOPC_refdoc",
-      "version": "8.9.1",
-      "kind": "documentation",
-      "url": "https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/NUOPC_refdoc/",
-      "managed": true,
-      "version_basis": "Official 8.9.1 release URL and release label checked on manual index"
-    },
-    {
-      "name": "NUOPC_howtodoc",
-      "path": "corpus/manuals/NUOPC_howtodoc",
-      "version": "8.9.1",
-      "kind": "documentation",
-      "url": "https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/NUOPC_howtodoc/",
-      "managed": true,
-      "version_basis": "Official 8.9.1 release URL and release label checked on manual index"
-    },
-    {
-      "name": "ESMF_refdoc",
-      "path": "corpus/manuals/ESMF_refdoc",
-      "version": "8.9.1",
-      "kind": "documentation",
-      "url": "https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/ESMF_refdoc/",
-      "managed": true,
-      "version_basis": "Official 8.9.1 release URL and release label checked on manual index"
-    },
-    {
-      "name": "esmf/NUOPC/examples",
-      "path": "corpus/examples",
-      "version": "8.9.1",
-      "kind": "example",
-      "url": "https://github.com/esmf-org/esmf/blob/bd03a249df907464fdad91b7c43985dedbc472c7/src/addon/NUOPC/examples",
-      "revision": "bd03a249df907464fdad91b7c43985dedbc472c7",
-      "managed": true,
-      "version_basis": "Clean release checkout verified by commit"
-    },
-    {
-      "name": "esmf/NUOPC/src",
-      "path": "corpus/src",
-      "version": "8.9.1",
-      "kind": "implementation",
-      "url": "https://github.com/esmf-org/esmf/blob/bd03a249df907464fdad91b7c43985dedbc472c7/src/addon/NUOPC/src",
-      "revision": "bd03a249df907464fdad91b7c43985dedbc472c7",
-      "managed": true,
-      "version_basis": "Clean release checkout verified by commit"
-    },
-    {
       "name": "kokkos-docs",
       "path": "corpus/kokkos/source",
       "library": "kokkos",
@@ -108,6 +61,63 @@
       "url": "https://github.com/JCSDA/jedi-docs/blob/7cd222915252711893bf341bc1b67ffef3b2824a/docs",
       "version_basis": "Rolling develop snapshot matching RTD /en/latest/; docs/conf.py declares release 8.0.0; not release-certified",
       "target_release": "8.0.0"
+    },
+    {
+      "name": "NUOPC_refdoc",
+      "path": "corpus/manuals/NUOPC_refdoc",
+      "version": "8.9.1",
+      "kind": "documentation",
+      "url": "https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/NUOPC_refdoc/",
+      "managed": true,
+      "version_basis": "Official 8.9.1 release URL and release label checked on manual index"
+    },
+    {
+      "name": "NUOPC_howtodoc",
+      "path": "corpus/manuals/NUOPC_howtodoc",
+      "version": "8.9.1",
+      "kind": "documentation",
+      "url": "https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/NUOPC_howtodoc/",
+      "managed": true,
+      "version_basis": "Official 8.9.1 release URL and release label checked on manual index"
+    },
+    {
+      "name": "ESMF_refdoc",
+      "path": "corpus/manuals/ESMF_refdoc",
+      "version": "8.9.1",
+      "kind": "documentation",
+      "url": "https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/ESMF_refdoc/",
+      "managed": true,
+      "version_basis": "Official 8.9.1 release URL and release label checked on manual index"
+    },
+    {
+      "name": "esmf/NUOPC/examples",
+      "path": "corpus/examples",
+      "version": "8.9.1",
+      "kind": "example",
+      "url": "https://github.com/esmf-org/esmf/blob/bd03a249df907464fdad91b7c43985dedbc472c7/src/addon/NUOPC/examples",
+      "revision": "bd03a249df907464fdad91b7c43985dedbc472c7",
+      "managed": true,
+      "version_basis": "Clean release checkout verified by commit"
+    },
+    {
+      "name": "esmf/NUOPC/src",
+      "path": "corpus/src",
+      "version": "8.9.1",
+      "kind": "implementation",
+      "url": "https://github.com/esmf-org/esmf/blob/bd03a249df907464fdad91b7c43985dedbc472c7/src/addon/NUOPC/src",
+      "revision": "bd03a249df907464fdad91b7c43985dedbc472c7",
+      "managed": true,
+      "version_basis": "Clean release checkout verified by commit"
+    },
+    {
+      "name": "nuopc-app-prototypes",
+      "path": "corpus/nuopc-app-prototypes",
+      "version": "8.9.1",
+      "kind": "example",
+      "url": "https://github.com/esmf-org/nuopc-app-prototypes/blob/1645f4471da271e518213ceb574b0ada0ff3a169",
+      "revision": "1645f4471da271e518213ceb574b0ada0ff3a169",
+      "managed": true,
+      "version_basis": "patch/8.9.1 branch tip verified by commit; no 8.9.1 tag exists upstream; repository has no license file (sources carry the Illinois-NCSA header)"
     }
   ]
 }

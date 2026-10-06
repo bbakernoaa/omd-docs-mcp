@@ -14,6 +14,9 @@ ROOT=Path(__file__).resolve().parent
 COMMIT='bd03a249df907464fdad91b7c43985dedbc472c7'
 BASE='https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/'
 MANUALS=('NUOPC_refdoc','NUOPC_howtodoc','ESMF_refdoc')
+PROTOS_REPO='https://github.com/esmf-org/nuopc-app-prototypes.git'
+PROTOS_REF='patch/8.9.1'
+PROTOS_COMMIT='1645f4471da271e518213ceb574b0ada0ff3a169'
 
 
 def download(url):
@@ -56,6 +59,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--esmf-repo',type=Path,help='Existing clean checkout at the pinned v8.9.1 commit')
     parser.add_argument('--skip-manuals',action='store_true',help='Reuse already downloaded corpus/manuals')
+    parser.add_argument('--protos-repo',type=Path,help='Existing clean checkout at the pinned prototypes patch/8.9.1 commit')
     args=parser.parse_args()
     manifest_path=ROOT/'corpus.json'
     if manifest_path.exists():
@@ -84,8 +88,15 @@ def main():
             shutil.copytree(path,staging/name)
         license_files=[p for p in repo.iterdir() if p.is_file() and ('license' in p.name.lower() or p.name.lower()=='readme')]
         for path in license_files:shutil.copy2(path,staging/path.name)
+        protos=args.protos_repo.resolve() if args.protos_repo else staging/'protos-repo'
+        if not args.protos_repo:
+            subprocess.run(['git','clone','--depth','1','--branch',PROTOS_REF,PROTOS_REPO,str(protos)],check=True)
+        if run(['git','-C',str(protos),'rev-parse','HEAD'])!=PROTOS_COMMIT:raise ValueError('Prototypes checkout does not match pinned patch/8.9.1 commit')
+        if run(['git','-C',str(protos),'status','--porcelain']):raise ValueError('Prototypes checkout has modifications; refusing to snapshot it')
+        shutil.copytree(protos,staging/'nuopc-app-prototypes',ignore=shutil.ignore_patterns('.git'))
+        if not any((staging/'nuopc-app-prototypes').rglob('*.F90')):raise ValueError('Prototypes tree contains no Fortran sources')
         target=ROOT/'corpus';target.mkdir(exist_ok=True)
-        for name in ('manuals','examples','src'):
+        for name in ('manuals','examples','src','nuopc-app-prototypes'):
             destination=target/name
             if destination.exists():shutil.rmtree(destination)
             shutil.move(str(staging/name),str(destination))
@@ -99,6 +110,10 @@ def main():
             sources.append({'name':f'esmf/NUOPC/{name}','path':f'corpus/{name}','version':'8.9.1','kind':kind,
                 'url':f'https://github.com/esmf-org/esmf/blob/{COMMIT}/src/addon/NUOPC/{name}',
                 'revision':COMMIT,'managed':True,'version_basis':'Clean release checkout verified by commit'})
+        sources.append({'name':'nuopc-app-prototypes','path':'corpus/nuopc-app-prototypes','version':'8.9.1',
+            'kind':'example','url':f'https://github.com/esmf-org/nuopc-app-prototypes/blob/{PROTOS_COMMIT}',
+            'revision':PROTOS_COMMIT,'managed':True,
+            'version_basis':'patch/8.9.1 branch tip verified by commit; no 8.9.1 tag exists upstream; repository has no license file (sources carry the Illinois-NCSA header)'})
         manifest_path.write_text(json.dumps({'sources':sources},indent=2)+'\n')
         print('Pinned corpus ready. Run uv run ingest.py',flush=True)
 

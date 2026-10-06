@@ -1,0 +1,11 @@
+application:
+  link_packages: OpenMP
+
+components:
+
+  Lumo:
+
+  tawas:
+    source_dir: TaWaS
+    install_prefix: TaWaS
+
