@@ -34,8 +34,9 @@ REQUESTS = [
     call(6, "search_docs", {"query": "gemm", "library": "kokkos-kernels", "limit": 6}),
     call(7, "get_nws_context", {"query": "compath", "limit": 4}),
     call(8, "get_jedi_context", {"query": "ObsGroup", "limit": 4}),
+    call(9, "get_ccpp_context", {"query": "scheme template", "limit": 4}),
 ]
-EXPECTED_IDS = {1, 2, 3, 4, 5, 6, 7, 8}
+EXPECTED_IDS = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 
 
 def _payload(result):
@@ -143,7 +144,8 @@ class DockerMcpSmoke(unittest.TestCase):
         self.assertEqual({t["name"] for t in tools}, {
             "search_docs", "search_code", "get_section", "get_routine",
             "get_nuopc_context", "list_sources", "get_kokkos_context",
-            "get_nws_context", "get_jedi_context", "list_collections"})
+            "get_nws_context", "get_jedi_context", "get_ccpp_context",
+            "list_collections"})
 
     def test_list_collections(self):
         payload = _payload(self._exchange()[3]["result"])
@@ -154,7 +156,8 @@ class DockerMcpSmoke(unittest.TestCase):
         for c in rows:
             key = (c["library"], c["version"])
             units[key] = units.get(key, 0) + c["units"]
-        self.assertEqual(units.get(("esmf", "8.9.1")), 2138)
+        self.assertEqual(units.get(("esmf", "8.9.1")), 3159)
+        self.assertEqual(units.get(("ccpp", "snapshot-a2f65334fda9")), 140)
         self.assertEqual(units.get(("kokkos", "snapshot-3cf2e0638b24")), 1610)
         self.assertEqual(units.get(("kokkos-kernels", "5.2.2")), 641)
         self.assertEqual(units.get(("nws-hpc-standards", "11.0.0")), 22)
@@ -172,6 +175,9 @@ class DockerMcpSmoke(unittest.TestCase):
         kok = _payload(resp[6]["result"])
         kok = kok.get("result", kok) if isinstance(kok, dict) else kok
         self.assertTrue(any("gemm" in (h.get("title", "").lower()) for h in kok))
+        ccpp = _payload(resp[9]["result"])
+        self.assertIn("collections", ccpp)
+        self.assertIn("ccpp", ccpp["collections"])
 
 
 if __name__ == "__main__":

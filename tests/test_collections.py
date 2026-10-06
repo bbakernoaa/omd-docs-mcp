@@ -119,3 +119,41 @@ class StandardsReleaseTests(unittest.TestCase):
         section=self.store.get(hits[0]['id'],include_subsections=True)
         self.assertIn('ObsGroup',section['text'])
         self.assertIn(revision,section['provenance']['url'])
+    def test_ccpp_scheme_templates_resolve_as_included_code(self):
+        lock=json.loads((ROOT/'standards-lock.json').read_text())
+        revision=lock['ccpp']['commit'];version=lock['ccpp']['version']
+        hits=self.store.search('Compliant Physics Parameters','documentation',6,library='ccpp',version=version)
+        self.assertTrue(hits)
+        page=[h for h in hits if h['source'].endswith('CompliantPhysicsParams.rst')][0]
+        names=set();offset=0
+        while True:
+            result=self.store.get(page['id'],offset,include_subsections=True,max_characters=32000)
+            names.update(i['source'].split('/')[-1] for i in result['included_code'])
+            self.assertEqual([m for m in result['missing_included_code'] if m.split('/')[-1] in ('scheme_template.F90','scheme_template.meta')],[])
+            if result['next_offset'] is None:break
+            offset=result['next_offset']
+        self.assertEqual(names,{"scheme_template.F90","scheme_template.meta"})
+        self.assertIn(revision,self.store.get(page['id'])['provenance']['url'])
+    def test_ccpp_auxiliary_files_are_whole_file_units(self):
+        for query,suffix in (('prolog','.inc'),('ccpp_physics','.txt')):
+            hits=self.store.search(query,'documentation',8,library='ccpp')
+            self.assertTrue([h for h in hits if h['source'].endswith(suffix)],f'no {suffix} unit for {query}')
+
+@unittest.skipUnless((ROOT/'corpus.json').exists() and (ROOT/'standards-lock.json').exists() and (ROOT/'kokkos-lock.json').exists(),'Full corpus not imported')
+class PrototypeAndCcppCountTests(unittest.TestCase):
+    def test_counts_isolated_to_new_sources(self):
+        import sqlite3
+        db=ROOT/'data'/'nuopc.sqlite3'
+        con=sqlite3.connect(f'file:{db}?mode=ro',uri=True)
+        counts={(r[0],r[1],r[2]):r[3] for r in con.execute('SELECT library,version,kind,count(*) FROM units GROUP BY 1,2,3')}
+        con.close()
+        self.assertEqual(counts[('esmf','8.9.1','documentation')],1764)
+        self.assertEqual(counts[('esmf','8.9.1','implementation')],356)
+        self.assertEqual(counts[('esmf','8.9.1','example')],1039)
+        self.assertEqual(counts[('kokkos','snapshot-3cf2e0638b24','documentation')],1610)
+        self.assertEqual(counts[('kokkos-kernels','5.2.2','documentation')],595)
+        self.assertEqual(counts[('kokkos-kernels','5.2.2','example')],46)
+        self.assertEqual(counts[('nws-hpc-standards','11.0.0','documentation')],22)
+        self.assertEqual(counts[('jedi','snapshot-7cd222915252','documentation')],1900)
+        self.assertEqual(counts[('ccpp','snapshot-a2f65334fda9','documentation')],137)
+        self.assertEqual(counts[('ccpp','snapshot-a2f65334fda9','example')],3)

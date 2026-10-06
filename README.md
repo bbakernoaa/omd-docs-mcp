@@ -1,8 +1,8 @@
 # OMD Library Docs MCP Server
 
 A local, read-only documentation retrieval server for GitHub Copilot Agent
-mode. **omd** indexes five curated collections — ESMF/NUOPC, Kokkos, Kokkos
-Kernels, NWS-HPC production standards and JEDI — and retrieves complete
+mode. **omd** indexes six curated collections — ESMF/NUOPC, Kokkos, Kokkos
+Kernels, NWS-HPC production standards, JEDI and CCPP — and retrieves complete
 manual sections, Fortran routines and C++ examples with release provenance
 and citations. It separates API requirements, examples, framework
 implementation, and your application code.
@@ -13,20 +13,22 @@ changes. This replaces the earlier general PDF/Ollama server.
 
 ## Collections
 
-All five collections are bundled in the committed index and pinned in the
+All six collections are bundled in the committed index and pinned in the
 lock files; nothing refreshes automatically.
 
 | Collection | Content | Version label | Units |
 | --- | --- | --- | --- |
-| `esmf` | NUOPC Layer Reference Manual (9 pages), Building a NUOPC Model guide (6 files), Fortran Reference Manual (10 files), NUOPC model/cap **and driver** examples, and the NUOPC framework implementation — all official ESMF **8.9.1** (source commit `bd03a249df907464fdad91b7c43985dedbc472c7`) | `8.9.1` | 2138 |
+| `esmf` | NUOPC Layer Reference Manual (9 pages), Building a NUOPC Model guide (6 files), Fortran Reference Manual (10 files), NUOPC model/cap **and driver** examples, the 51 NUOPC application prototypes (`nuopc-app-prototypes`, patch/8.9.1 commit `1645f4471da271e518213ceb574b0ada0ff3a169`), and the NUOPC framework implementation — all official ESMF **8.9.1** sources | `8.9.1` | 3159 |
 | `kokkos` | Kokkos core wiki/docs repository at commit `3cf2e0638b2419f4631fa85ea2b9aca47004dc18` | `snapshot-3cf2e0638b24` | 1610 |
 | `kokkos-kernels` | Kokkos Kernels release documentation at commit `30ad8eddc07f98f73ad22d5ed59cbea78277b03e`, plus referenced C++ examples | `5.2.2` | 641 |
 | `nws-hpc-standards` | NWS/WCOSS NCEP implementation standards, tag `v11.0.0` (commit `d0e8f079b66891d39fe7494a1c68bd7c77639425`), matching RTD `/en/stable/` | `11.0.0` | 22 |
 | `jedi` | JEDI data assimilation documentation, develop commit `7cd222915252711893bf341bc1b67ffef3b2824a`, matching RTD `/en/latest/` | `snapshot-7cd222915252` | 1900 |
+| `ccpp` | CCPP technical documentation (`NCAR/ccpp-doc` main commit `a2f65334fda991fb7aa6a37716c003533529370e`), matching RTD `/en/latest/` | `snapshot-a2f65334fda9` | 140 |
 
 Unit counts come from the committed index; `list_collections` reports them
 live. Kokkos pins are recorded in `kokkos-lock.json` (stable releases checked
-2026-10-05), NWS/JEDI pins in `standards-lock.json` (checked 2026-10-06).
+2026-10-05), NWS/JEDI/CCPP pins in `standards-lock.json` (checked 2026-10-06),
+and `fetch_corpus.py` pins the NUOPC application prototypes in `corpus.json`.
 
 The importer verified each clean checkout and the official release labels.
 The ESMF examples are release examples, not examples compiled/tested by this
@@ -34,7 +36,9 @@ project. HTML is preferred over PDF because API boundaries and section anchors
 are explicit, keeping original signatures, argument descriptions and examples
 together. The ESMF source license is in `corpus/LICENSE`; the JEDI license is
 `corpus/jedi/COPYING` and the NWS disclaimer is
-`corpus/nws-hpc-standards/DISCLAIMER.md`.
+`corpus/nws-hpc-standards/DISCLAIMER.md`. The prototypes repository and
+`NCAR/ccpp-doc` do not ship a top-level license file in the fetched trees;
+prototype source files carry the Illinois-NCSA header.
 
 ### Kokkos
 
@@ -89,6 +93,21 @@ Ask Copilot:
 
 > Use get_jedi_context to look up ObsGroup and ObsSpace conventions. Read the
 > full conventions section, then check it against the JEDI version in my build.
+
+### CCPP
+
+The CCPP collection is a rolling snapshot of the `NCAR/ccpp-doc` main branch.
+Its `conf.py` declares release `6.0.0`, but that `target_release` value is
+informational metadata rather than certification of a frozen CCPP framework
+release. Verify conventions against the CCPP framework actually built in your
+environment. Two `literalinclude` scheme templates are indexed as
+`included_code` and can be retrieved with `get_routine`.
+
+Ask Copilot:
+
+> Use get_ccpp_context to find the scheme template guidance for adding a new
+> CCPP physics scheme. Read the full section, retrieve the included templates,
+> and compare the conventions to the framework version in my checkout.
 
 ## Quick start
 
@@ -221,6 +240,7 @@ manifest entries. Paths are relative to the manifest location or absolute.
 | `get_kokkos_context(query, library, limit)` | Separate core and Kernels documentation results; library `kokkos`, `kokkos-kernels` or `both` |
 | `get_nws_context(query, limit)` | NWS/WCOSS production-standards sections (env vars, file naming, delivery utilities); pinned 11.0.0 snapshot |
 | `get_jedi_context(query, limit)` | JEDI data assimilation documentation; rolling develop snapshot |
+| `get_ccpp_context(query, limit)` | CCPP physics-framework documentation and included scheme-template guidance; rolling main snapshot |
 | `list_collections()` | List available library/version collections and counts |
 | `list_sources()` | Inspect indexed sources, versions and evidence categories |
 
@@ -280,6 +300,12 @@ If you already have a clean release checkout:
 uv run fetch_corpus.py --esmf-repo /path/to/esmf-v8.9.1
 ```
 
+To override the pinned prototypes checkout as well:
+
+```sh
+uv run fetch_corpus.py --esmf-repo /path/to/esmf-v8.9.1 --protos-repo /path/to/nuopc-app-prototypes
+```
+
 Use `--skip-manuals` to reuse the cached manual directories. The fetcher refuses
 to overwrite a manifest containing custom entries. Save your custom entries
 separately, refresh official sources, then merge them back and re-ingest.
@@ -296,7 +322,8 @@ NWS-HPC standards and JEDI docs (requires Git and internet):
 
 ```sh
 uv run fetch_standards.py          # reproduce the pinned sources
-uv run fetch_standards.py --latest # newest NWS release tag and current JEDI develop
+uv run fetch_standards.py --ccpp-repo /path/to/ccpp-doc
+uv run fetch_standards.py --latest # newest NWS release tag, current JEDI develop and current CCPP main
 uv run ingest.py
 ```
 
@@ -320,11 +347,13 @@ source context, full-text pagination, version/source-kind filtering, stable IDs,
 invalid requests and rollback. Regression tests against the actual bundled
 manuals check signatures, arguments, overload discovery and release URLs for
 NUOPC_CompSpecialize, NUOPC_DriverAddComp and NUOPC_Advertise. Real example searches
-check driver registration and cap labels against the pinned source commit.
-Further tests cover collection/version isolation across all five libraries,
+check driver registration and cap labels against the pinned source commit, and
+regression coverage now pins prototype discoverability plus CCPP included-code
+and auxiliary-file handling.
+Further tests cover collection/version isolation across all six libraries,
 Markdown and RST parsing, included-code retrieval, fetcher helpers, and real
-documentation from the Kokkos, NWS and JEDI collections (25 unit tests total).
-The smoke test exercises all ten tools through a real MCP stdio client/server;
+documentation from the Kokkos, NWS, JEDI and CCPP collections (32 unit tests total).
+The smoke test exercises all eleven tools through a real MCP stdio client/server;
 `tests.smoke_docker` replays the same calls inside the built image.
 
 This validates retrieval, **not ESMF compilation, MPI execution, scientific
@@ -356,3 +385,5 @@ and index may contain confidential code; keep them protected accordingly.
 - [Kokkos Kernels documentation](https://kokkos.org/kokkos-kernels/docs/)
 - [NWS HPC standards](https://nws-hpc-standards.readthedocs.io/en/stable/) — [source](https://github.com/NCO-HPC/nws-hpc-standards)
 - [JEDI documentation](https://jcsda-jedi-docs.readthedocs-hosted.com/en/latest/) — [source](https://github.com/JCSDA/jedi-docs)
+- [CCPP documentation](https://ccpp-doc.readthedocs.io/en/latest/) — [source](https://github.com/NCAR/ccpp-doc)
+- [NUOPC application prototypes](https://github.com/esmf-org/nuopc-app-prototypes/tree/patch/8.9.1)

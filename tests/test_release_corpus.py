@@ -49,3 +49,14 @@ class ReleaseTests(unittest.TestCase):
         self.assertTrue(all(h['kind']=='documentation' for h in result['documentation']))
         self.assertTrue(all(h['kind']=='example' for h in result['examples']))
         self.assertEqual(result['application'],[])
+    def test_prototypes_are_discoverable_examples(self):
+        hits=self.store.search('SetServices','example',8)
+        protos=[hit for hit in hits if 'nuopc-app-prototypes' in hit['source']]
+        self.assertTrue(protos)
+        result=self.store.get(protos[0]['id'])
+        self.assertEqual(result['provenance']['revision'],'1645f4471da271e518213ceb574b0ada0ff3a169')
+        self.assertIn('1645f4471da2',result['url'])
+        readme=[hit for hit in self.store.search('connector options','example',8) if hit['source'].endswith('AtmOcnConOptsProto/README')]
+        self.assertTrue(readme)
+        config=[hit for hit in self.store.search('ATM_petlist','example',8) if hit['source'].endswith('AtmOcnPetListProto/nuopcRun.config')]
+        self.assertTrue(config)
