@@ -32,8 +32,10 @@ REQUESTS = [
     call(4, "search_docs", {"query": "NUOPC", "limit": 6}),
     call(5, "get_nuopc_context", {"query": "driver SetServices", "focus": "driver", "limit": 4}),
     call(6, "search_docs", {"query": "gemm", "library": "kokkos-kernels", "limit": 6}),
+    call(7, "get_nws_context", {"query": "compath", "limit": 4}),
+    call(8, "get_jedi_context", {"query": "ObsGroup", "limit": 4}),
 ]
-EXPECTED_IDS = {1, 2, 3, 4, 5, 6}
+EXPECTED_IDS = {1, 2, 3, 4, 5, 6, 7, 8}
 
 
 def _payload(result):
@@ -141,7 +143,7 @@ class DockerMcpSmoke(unittest.TestCase):
         self.assertEqual({t["name"] for t in tools}, {
             "search_docs", "search_code", "get_section", "get_routine",
             "get_nuopc_context", "list_sources", "get_kokkos_context",
-            "list_collections"})
+            "get_nws_context", "get_jedi_context", "list_collections"})
 
     def test_list_collections(self):
         payload = _payload(self._exchange()[3]["result"])
@@ -155,6 +157,8 @@ class DockerMcpSmoke(unittest.TestCase):
         self.assertEqual(units.get(("esmf", "8.9.1")), 2138)
         self.assertEqual(units.get(("kokkos", "snapshot-3cf2e0638b24")), 1610)
         self.assertEqual(units.get(("kokkos-kernels", "5.2.2")), 641)
+        self.assertEqual(units.get(("nws-hpc-standards", "11.0.0")), 22)
+        self.assertEqual(units.get(("jedi", "snapshot-7cd222915252")), 1900)
 
     def test_search_and_context(self):
         resp = self._exchange()

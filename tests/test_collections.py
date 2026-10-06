@@ -92,3 +92,30 @@ class KokkosReleaseTests(unittest.TestCase):
         for hit in hits:included.extend(self.store.get(hit['id'],include_subsections=True)['included_code'])
         self.assertTrue(included)
         self.assertTrue(all(h['library']=='kokkos-kernels' for h in included))
+
+@unittest.skipUnless((ROOT/'standards-lock.json').exists(),'NWS/JEDI corpus not imported')
+class StandardsReleaseTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.temp=tempfile.TemporaryDirectory();cls.db=Path(cls.temp.name)/'index.sqlite3'
+        build(ROOT/'corpus.json',cls.db);cls.store=Knowledge(cls.db)
+    @classmethod
+    def tearDownClass(cls):cls.temp.cleanup()
+    def test_nws_environment_variables(self):
+        lock=json.loads((ROOT/'standards-lock.json').read_text())
+        revision=lock['nws-hpc-standards']['commit']
+        hits=self.store.search('Standard Environment Variables','documentation',library='nws-hpc-standards')
+        self.assertTrue(hits)
+        self.assertTrue(all(h['version']=='11.0.0' for h in hits))
+        section=self.store.get(hits[0]['id'],include_subsections=True)
+        self.assertIn('PACKAGEROOT',section['text'])
+        self.assertIn(revision,section['provenance']['url'])
+    def test_jedi_obsgroup_conventions(self):
+        lock=json.loads((ROOT/'standards-lock.json').read_text())
+        revision=lock['jedi']['commit']
+        hits=self.store.search('ObsGroup','documentation',library='jedi')
+        self.assertTrue(hits)
+        self.assertTrue(all(h['version'].startswith('snapshot-') for h in hits))
+        section=self.store.get(hits[0]['id'],include_subsections=True)
+        self.assertIn('ObsGroup',section['text'])
+        self.assertIn(revision,section['provenance']['url'])
