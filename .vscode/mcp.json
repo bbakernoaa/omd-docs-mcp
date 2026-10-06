@@ -1,9 +1,9 @@
 {
   "servers": {
-    "esmf-nuopc": {
+    "omd": {
       "type": "stdio",
-      "command": "uv",
-      "args": ["run", "--directory", "${workspaceFolder}", "server.py"]
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "--read-only", "--memory=512m", "omd-mcp"]
     }
   }
 }
