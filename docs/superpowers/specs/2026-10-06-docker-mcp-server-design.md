@@ -118,7 +118,7 @@ scripts and network that are also excluded.
       "type": "stdio",
       "command": "docker",
       "args": ["run", "-i", "--rm", "--read-only",
-               "--memory=512m", "omd-mcp"]
+               "--pull=never", "--memory=512m", "omd-mcp"]
     }
   }
 }

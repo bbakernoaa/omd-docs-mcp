@@ -100,8 +100,8 @@ repository and Copilot runs the server in a read-only container:
 docker build -t omd-mcp .
 ```
 
-`.vscode/mcp.json` launches `docker run -i --rm --read-only --memory=512m
-omd-mcp`. Enable it from `MCP: List Servers`. The image bundles the
+`.vscode/mcp.json` launches `docker run -i --rm --read-only --pull=never
+--memory=512m omd-mcp`. Enable it from `MCP: List Servers`. The image bundles the
 committed `data/nuopc.sqlite3`, so a fresh clone plus Docker is enough.
 
 **Refreshing the index.** The container serves the index baked at build time.
@@ -158,7 +158,7 @@ is open. When working on your model, merge the following into **your model's**
     "omd": {
       "type": "stdio",
       "command": "docker",
-      "args": ["run", "-i", "--rm", "--read-only", "--memory=512m", "omd-mcp"]
+      "args": ["run", "-i", "--rm", "--read-only", "--pull=never", "--memory=512m", "omd-mcp"]
     }
   }
 }

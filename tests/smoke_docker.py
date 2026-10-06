@@ -11,7 +11,7 @@ import threading
 import unittest
 
 IMAGE = "omd-mcp"
-RUN = ["docker", "run", "-i", "--rm", "--read-only", "--memory=512m", IMAGE]
+RUN = ["docker", "run", "-i", "--rm", "--read-only", "--pull=never", "--memory=512m", IMAGE]
 EXCHANGE_TIMEOUT = 60
 
 INIT = {"jsonrpc": "2.0", "id": 1, "method": "initialize",

@@ -3,7 +3,7 @@
     "omd": {
       "type": "stdio",
       "command": "docker",
-      "args": ["run", "-i", "--rm", "--read-only", "--memory=512m", "omd-mcp"]
+      "args": ["run", "-i", "--rm", "--read-only", "--pull=never", "--memory=512m", "omd-mcp"]
     }
   }
 }
