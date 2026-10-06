@@ -43,3 +43,13 @@ synchronization, lifetimes and numeric operation contracts from the sources.
 For mixed Fortran/C++ work, inspect the application's actual interoperability
 layer; separate library manuals do not establish that bridge's behavior.
 Compile and run project tests on the configured backends and report actual results.
+
+## NWS-HPC Standards and JEDI
+
+For NWS/WCOSS production-standards questions call get_nws_context; for JEDI data
+assimilation questions call get_jedi_context, or use search_docs with library
+nws-hpc-standards or jedi. The NWS collection is a pinned 11.0.0 snapshot of an
+operational policy document; cite the section URL and RST line range and treat
+"must" statements as requirements and appendices as examples. The JEDI collection
+is a rolling develop snapshot (not release-certified): verify against the JEDI
+version actually built and treat YAML examples as configuration illustrations.

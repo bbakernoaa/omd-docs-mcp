@@ -1,4 +1,4 @@
-x# ESMF / NUOPC + Kokkos documentation MCP
+# ESMF / NUOPC + Kokkos documentation MCP
 
 A local, read-only reference server for GitHub Copilot Agent mode, focused on
 NUOPC caps and drivers, with separate Kokkos and Kokkos Kernels collections. It retrieves complete manual sections and complete
@@ -90,6 +90,49 @@ The refresh records new commits/version labels in `kokkos-lock.json`; it does
 not happen automatically. It preserves ESMF collections. Custom Kokkos entries
 must be saved separately and merged back afterward; the fetcher refuses to
 silently overwrite them. ESMF refresh also preserves the Kokkos collections.
+
+## Added NWS-HPC Standards and JEDI collections
+
+Sources are pinned in `standards-lock.json`.
+
+| Collection | Included documentation | Version label |
+| --- | --- | --- |
+| `nws-hpc-standards` | NWS/WCOSS NCEP implementation standards (`NCO-HPC/nws-hpc-standards` tag `v11.0.0`), matching RTD `/en/stable/` | `11.0.0` |
+| `jedi` | JEDI data assimilation documentation (`JCSDA/jedi-docs` develop commit `7cd222915252711893bf341bc1b67ffef3b2824a`), matching RTD `/en/latest/` | `snapshot-7cd222915252` |
+
+The NWS collection is a pinned release-tag snapshot of an operational policy
+document that NCO updates over time. The JEDI collection is a **rolling develop
+snapshot**, not certified against any single JEDI software release; its
+`docs/conf.py` declares release `8.0.0` (recorded as `target_release`). Verify
+against the version you actually build. Neither repo uses `literalinclude`, so no
+included-code retrieval applies to these collections.
+
+Ask Copilot:
+
+> Use get_nws_context to find the standard environment variables and the
+> compath.py utility. Read the full section and cite the RST line range before
+> I adjust my J-job.
+
+> Use get_jedi_context to look up ObsGroup and ObsSpace conventions. Read the
+> full conventions section, then check it against the JEDI version in my build.
+
+To reproduce the bundled NWS/JEDI sources (requires Git and internet):
+
+```sh
+uv run fetch_standards.py
+uv run ingest.py
+```
+
+To explicitly refresh to the newest NWS release tag and current JEDI develop:
+
+```sh
+uv run fetch_standards.py --latest
+uv run ingest.py
+```
+
+The refresh records new commits/version labels in `standards-lock.json`; it does
+not happen automatically. It preserves ESMF and Kokkos collections. Custom NWS or
+JEDI entries must be saved separately; the fetcher refuses to overwrite them.
 
 ## Quick start
 
@@ -220,6 +263,8 @@ manifest entries. Paths are relative to the manifest location or absolute.
 | `get_section(section_id, offset, max_characters, include_subsections)` | Read a complete section and its nested subsections, with explicit pagination |
 | `get_routine(routine_id, offset, max_characters)` | Read original routine/file text, source lines, module context and provenance |
 | `get_kokkos_context(query, library, limit)` | Separate core and Kernels documentation results; library `kokkos`, `kokkos-kernels` or `both` |
+| `get_nws_context(query, limit)` | NWS/WCOSS production-standards sections (env vars, file naming, delivery utilities); pinned 11.0.0 snapshot |
+| `get_jedi_context(query, limit)` | JEDI data assimilation documentation; rolling develop snapshot |
 | `list_collections()` | List available library/version collections and counts |
 | `list_sources()` | Inspect indexed sources, versions and evidence categories |
 
@@ -295,7 +340,7 @@ NUOPC_CompSpecialize, NUOPC_DriverAddComp and NUOPC_Advertise. Real example sear
 check driver registration and cap labels against the pinned source commit.
 Eight further tests cover collection/version isolation, Markdown code fences,
 RST sections, included-code retrieval and real Kokkos/Kernels API documentation.
-The smoke test exercises all eight tools through a real MCP stdio client/server.
+The smoke test exercises all ten tools through a real MCP stdio client/server.
 
 This validates retrieval, **not ESMF compilation, MPI execution, scientific
 correctness, or an improvement in agent-generated code**. Those need evaluation
@@ -324,3 +369,5 @@ and index may contain confidential code; keep them protected accordingly.
 - [Kokkos documentation](https://kokkos.org/kokkos-core-wiki/)
 - [Kokkos Kernels releases](https://github.com/kokkos/kokkos-kernels/releases)
 - [Kokkos Kernels documentation](https://kokkos.org/kokkos-kernels/docs/)
+- [NWS HPC standards](https://nws-hpc-standards.readthedocs.io/en/stable/) — [source](https://github.com/NCO-HPC/nws-hpc-standards)
+- [JEDI documentation](https://jcsda-jedi-docs.readthedocs-hosted.com/en/latest/) — [source](https://github.com/JCSDA/jedi-docs)
