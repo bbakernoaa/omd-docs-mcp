@@ -11,7 +11,7 @@
     ],
     "license": "disclaimer",
     "rtd_url": "https://nws-hpc-standards.readthedocs.io/en/stable/",
-    "checked_at": "2026-10-06T18:36:11.377559+00:00"
+    "checked_at": "2026-10-06T19:00:17.755188+00:00"
   },
   "jedi": {
     "repo": "JCSDA/jedi-docs",
@@ -28,7 +28,7 @@
     "conf_path": "docs/conf.py",
     "license": "required",
     "rtd_url": "https://jcsda-jedi-docs.readthedocs-hosted.com/en/latest/",
-    "checked_at": "2026-10-06T18:36:12.749863+00:00"
+    "checked_at": "2026-10-06T19:00:24.234227+00:00"
   },
   "ccpp": {
     "repo": "NCAR/ccpp-doc",
@@ -58,6 +58,6 @@
       "_static/scheme_template.meta"
     ],
     "rtd_url": "https://ccpp-doc.readthedocs.io/en/latest/",
-    "checked_at": "2026-10-06T18:36:13.506634+00:00"
+    "checked_at": "2026-10-06T19:00:26.117613+00:00"
   }
 }

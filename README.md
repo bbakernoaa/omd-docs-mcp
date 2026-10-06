@@ -18,7 +18,7 @@ lock files; nothing refreshes automatically.
 
 | Collection | Content | Version label | Units |
 | --- | --- | --- | --- |
-| `esmf` | NUOPC Layer Reference Manual (9 pages), Building a NUOPC Model guide (6 files), Fortran Reference Manual (10 files), NUOPC model/cap **and driver** examples, the 51 NUOPC application prototypes (`nuopc-app-prototypes`, patch/8.9.1 commit `1645f4471da271e518213ceb574b0ada0ff3a169`), and the NUOPC framework implementation — all official ESMF **8.9.1** sources | `8.9.1` | 3159 |
+| `esmf` | NUOPC Layer Reference Manual (9 pages), Building a NUOPC Model guide (6 files), Fortran Reference Manual (10 files), NUOPC model/cap **and driver** examples, and the NUOPC framework implementation — official ESMF **8.9.1** release sources — plus the 51 NUOPC application prototypes from the separate `nuopc-app-prototypes` repository (patch/8.9.1 branch commit `1645f4471da271e518213ceb574b0ada0ff3a169`) | `8.9.1` | 3159 |
 | `kokkos` | Kokkos core wiki/docs repository at commit `3cf2e0638b2419f4631fa85ea2b9aca47004dc18` | `snapshot-3cf2e0638b24` | 1610 |
 | `kokkos-kernels` | Kokkos Kernels release documentation at commit `30ad8eddc07f98f73ad22d5ed59cbea78277b03e`, plus referenced C++ examples | `5.2.2` | 641 |
 | `nws-hpc-standards` | NWS/WCOSS NCEP implementation standards, tag `v11.0.0` (commit `d0e8f079b66891d39fe7494a1c68bd7c77639425`), matching RTD `/en/stable/` | `11.0.0` | 22 |
@@ -224,7 +224,9 @@ No application files are included in the supplied corpus.
 
 Supported inputs: HTML/RST/Markdown manuals, free-form Fortran source, whole-file C++
 examples, text and YAML,
-`.rc`/`.mk`, Makefiles and CMakeLists.txt. Configurations and unrecognized source
+`.rc`/`.mk`, Makefiles and CMakeLists.txt, C sources, shell scripts, CMake files,
+`.config`/`.cfg`/`.runconfig` run configurations, Julia, and CCPP `.inc`/`.meta`
+fragments; bare `README` files are indexed by name. Configurations and unrecognized source
 syntax retain a full-file record. A separate `corpus.example.json` shows custom
 manifest entries. Paths are relative to the manifest location or absolute.
 

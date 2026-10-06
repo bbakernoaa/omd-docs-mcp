@@ -500,7 +500,7 @@ In `main()`:
             for reference in config.get('included_code',[]):
                 file=source/reference
                 if not file.is_file():raise ValueError(f'{library}: literalinclude target missing: {reference}')
-                destination=target/'included-code'/Path(reference).name
+                destination=target/'included-code'/reference
                 destination.parent.mkdir(parents=True,exist_ok=True)
                 shutil.copy2(file,destination);included_files.append(destination)
 ```
@@ -547,15 +547,17 @@ names=[e['name'] for e in s];print(len(s),names)
 assert 'ccpp-docs' in names and 'ccpp-included-code' in names
 lock=json.load(open('standards-lock.json'));assert lock['ccpp']['commit']=='a2f65334fda991fb7aa6a37716c003533529370e'
 docs=list(pathlib.Path('corpus/ccpp/source').rglob('*'));print('ccpp docs files:',len([d for d in docs if d.is_file()]))
-inc=list(pathlib.Path('corpus/ccpp/included-code').iterdir());print('included:',sorted(p.name for p in inc))
-assert len([d for d in docs if d.is_file()])==19 and len(inc)==2
+inc=[p for p in pathlib.Path('corpus/ccpp/included-code').rglob('*') if p.is_file()]
+print('included:',sorted(str(p.relative_to('corpus/ccpp/included-code')) for p in inc))
+assert len([d for d in docs if d.is_file()])==19
+assert sorted(str(p.relative_to('corpus/ccpp/included-code')) for p in inc)==['_static/scheme_template.F90','_static/scheme_template.meta']
 # nws/jedi unchanged
 assert list(pathlib.Path('corpus/nws-hpc-standards/source').rglob('*.rst'))
 assert (pathlib.Path('corpus/jedi/COPYING')).is_file()
 "
 ```
 
-Expected: `13 [...]` (11 + 2 new); `ccpp docs files: 19`; `included: ['scheme_template.F90','scheme_template.meta']`.
+Expected: `13 [...]` (11 + 2 new); `ccpp docs files: 19`; included-code files keep their `_static/` prefix so the per-unit GitHub citation resolves to the true upstream path (`knowledge.py` builds it as entry-url + '/' + file-relative path). Final-review fix: the original flattened `Path(reference).name` copy produced `…/CCPPtechnical/source/scheme_template.F90` citations pointing at a nonexistent upstream location.
 
 - [ ] **Step 6: Commit**
 

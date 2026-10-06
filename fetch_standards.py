@@ -136,7 +136,7 @@ def main():
             for reference in config.get('included_code',[]):
                 file=source/reference
                 if not file.is_file():raise ValueError(f'{library}: literalinclude target missing: {reference}')
-                destination=target/'included-code'/Path(reference).name
+                destination=target/'included-code'/reference
                 destination.parent.mkdir(parents=True,exist_ok=True)
                 shutil.copy2(file,destination);included_files.append(destination)
             if library=='nws-hpc-standards':
