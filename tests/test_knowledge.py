@@ -33,10 +33,15 @@ class Tests(unittest.TestCase):
         self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name)
         (self.root/'manual.html').write_text(HTML)
         (self.root/'cap.F90').write_text(CODE)
+        protos=self.root/'protos';protos.mkdir()
+        (protos/'README').write_text('README for demo prototype\n---------------------\n\nA pattern example.\n')
+        (protos/'run.config').write_text('ATM_petlist: 0-1\n')
+        (protos/'mesh.nc').write_bytes(b'\xcdf\xce binary mesh data')
         self.manifest=self.root/'corpus.json';self.db=self.root/'index.sqlite3'
         self.entries=[{'name':'manual','path':'manual.html','version':'8.9.1','kind':'documentation','url':'https://example.com/manual.html'},
                       {'name':'example','path':'cap.F90','version':'8.9.1','kind':'example'},
-                      {'name':'app','path':'cap.F90','version':'8.9.1','kind':'application'}]
+                      {'name':'app','path':'cap.F90','version':'8.9.1','kind':'application'},
+                      {'name':'protos','path':'protos','version':'8.9.1','kind':'example'}]
         self.manifest.write_text(json.dumps({'sources':self.entries})); build(self.manifest,self.db);self.store=Knowledge(self.db)
     def tearDown(self):self.temp.cleanup()
     def test_whole_api_section_and_anchor(self):
@@ -93,6 +98,17 @@ class Tests(unittest.TestCase):
         text='subroutine Unusual()\n! uncommon bare END syntax\nend\n'
         units=code_units(text,'odd.F90','')
         self.assertEqual(units[0]['text'],text)
+    def test_extended_whitelist_admits_configs_skips_binaries(self):
+        readme=[h for h in self.store.search('demo prototype','example')
+                if h['source'].endswith('protos/README')]
+        self.assertTrue(readme)
+        self.assertIn('Full source file:',readme[0]['title'])
+        config=[h for h in self.store.search('ATM_petlist','example')
+                if h['source'].endswith('protos/run.config')]
+        self.assertTrue(config)
+        self.assertEqual(self.store.search('mesh','example'),[])
+        from knowledge import LIBRARIES
+        self.assertIn('ccpp',LIBRARIES)
     def test_new_libraries_accepted(self):
         from knowledge import LIBRARIES
         self.assertIn('nws-hpc-standards',LIBRARIES);self.assertIn('jedi',LIBRARIES)

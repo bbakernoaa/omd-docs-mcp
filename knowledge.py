@@ -7,7 +7,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 VERSION = '8.9.1'
-LIBRARIES = ('esmf','kokkos','kokkos-kernels','nws-hpc-standards','jedi')
+LIBRARIES = ('esmf','kokkos','kokkos-kernels','nws-hpc-standards','jedi','ccpp')
 SCHEMA = '''
 CREATE TABLE meta(key TEXT PRIMARY KEY,value TEXT);
 CREATE TABLE units(id TEXT PRIMARY KEY, library TEXT, version TEXT, kind TEXT, title TEXT, source TEXT,
@@ -154,7 +154,7 @@ def build(manifest_path, database):
             if not path.exists(): raise ValueError(f'Missing source: {path}')
             files=sorted(path.rglob('*')) if path.is_dir() else [path]
             for file in files:
-                if not file.is_file() or file.suffix.lower() not in ('.html','.htm','.f90','.f','.f95','.f03','.f08','.md','.rst','.cpp','.hpp','.h','.cc','.cxx','.txt','.yaml','.yml','.rc','.mk') and file.name.lower() not in ('makefile','cmakelists.txt'): continue
+                if not file.is_file() or file.suffix.lower() not in ('.html','.htm','.f90','.f','.f95','.f03','.f08','.md','.rst','.cpp','.hpp','.h','.cc','.cxx','.txt','.yaml','.yml','.rc','.mk','.c','.config','.cfg','.cmake','.sh','.runconfig','.jl','.inc','.meta') and file.name.lower() not in ('makefile','cmakelists.txt','readme'): continue
                 if path.is_dir() and not file.resolve().is_relative_to(path): raise ValueError('Source symlink escapes its configured root')
                 relative=file.relative_to(path).as_posix() if path.is_dir() else file.name
                 source=library+'/'+version+'/'+entry['name']+'/'+relative
