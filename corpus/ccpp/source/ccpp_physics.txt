@@ -1,0 +1,5 @@
+├── physics                 # CCPP physics source code
+│   ├── docs                # Scientific documentation (doxygen)
+│   │   ├── img             # Figures for doxygen
+│   │   └── pdftxt          # Text files for documentation
+

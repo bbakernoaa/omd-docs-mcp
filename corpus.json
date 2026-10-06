@@ -40,29 +40,6 @@
       ]
     },
     {
-      "name": "nws-hpc-standards-docs",
-      "path": "corpus/nws-hpc-standards/source",
-      "library": "nws-hpc-standards",
-      "version": "11.0.0",
-      "kind": "documentation",
-      "managed": true,
-      "revision": "d0e8f079b66891d39fe7494a1c68bd7c77639425",
-      "url": "https://github.com/NCO-HPC/nws-hpc-standards/blob/d0e8f079b66891d39fe7494a1c68bd7c77639425/docs",
-      "version_basis": "Official release tag v11.0.0; matches RTD /en/stable/"
-    },
-    {
-      "name": "jedi-docs",
-      "path": "corpus/jedi/source",
-      "library": "jedi",
-      "version": "snapshot-7cd222915252",
-      "kind": "documentation",
-      "managed": true,
-      "revision": "7cd222915252711893bf341bc1b67ffef3b2824a",
-      "url": "https://github.com/JCSDA/jedi-docs/blob/7cd222915252711893bf341bc1b67ffef3b2824a/docs",
-      "version_basis": "Rolling develop snapshot matching RTD /en/latest/; docs/conf.py declares release 8.0.0; not release-certified",
-      "target_release": "8.0.0"
-    },
-    {
       "name": "NUOPC_refdoc",
       "path": "corpus/manuals/NUOPC_refdoc",
       "version": "8.9.1",
@@ -118,6 +95,52 @@
       "revision": "1645f4471da271e518213ceb574b0ada0ff3a169",
       "managed": true,
       "version_basis": "patch/8.9.1 branch tip verified by commit; no 8.9.1 tag exists upstream; repository has no license file (sources carry the Illinois-NCSA header)"
+    },
+    {
+      "name": "nws-hpc-standards-docs",
+      "path": "corpus/nws-hpc-standards/source",
+      "library": "nws-hpc-standards",
+      "version": "11.0.0",
+      "kind": "documentation",
+      "managed": true,
+      "revision": "d0e8f079b66891d39fe7494a1c68bd7c77639425",
+      "url": "https://github.com/NCO-HPC/nws-hpc-standards/blob/d0e8f079b66891d39fe7494a1c68bd7c77639425/docs",
+      "version_basis": "Official release tag v11.0.0; matches RTD /en/stable/"
+    },
+    {
+      "name": "jedi-docs",
+      "path": "corpus/jedi/source",
+      "library": "jedi",
+      "version": "snapshot-7cd222915252",
+      "kind": "documentation",
+      "managed": true,
+      "revision": "7cd222915252711893bf341bc1b67ffef3b2824a",
+      "url": "https://github.com/JCSDA/jedi-docs/blob/7cd222915252711893bf341bc1b67ffef3b2824a/docs",
+      "version_basis": "Rolling develop snapshot matching RTD /en/latest/; docs/conf.py declares release 8.0.0; not release-certified",
+      "target_release": "8.0.0"
+    },
+    {
+      "name": "ccpp-docs",
+      "path": "corpus/ccpp/source",
+      "library": "ccpp",
+      "version": "snapshot-a2f65334fda9",
+      "kind": "documentation",
+      "managed": true,
+      "revision": "a2f65334fda991fb7aa6a37716c003533529370e",
+      "url": "https://github.com/NCAR/ccpp-doc/blob/a2f65334fda991fb7aa6a37716c003533529370e/CCPPtechnical/source",
+      "version_basis": "Rolling main snapshot matching RTD /en/latest/; conf.py declares release 6.0.0; not release-certified; repository has no license file",
+      "target_release": "6.0.0"
+    },
+    {
+      "name": "ccpp-included-code",
+      "path": "corpus/ccpp/included-code",
+      "library": "ccpp",
+      "version": "snapshot-a2f65334fda9",
+      "kind": "example",
+      "managed": true,
+      "revision": "a2f65334fda991fb7aa6a37716c003533529370e",
+      "url": "https://github.com/NCAR/ccpp-doc/blob/a2f65334fda991fb7aa6a37716c003533529370e/CCPPtechnical/source",
+      "version_basis": "Files referenced by documentation literalinclude directives"
     }
   ]
 }

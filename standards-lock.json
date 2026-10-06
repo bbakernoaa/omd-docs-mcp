@@ -4,8 +4,14 @@
     "ref": "v11.0.0",
     "commit": "d0e8f079b66891d39fe7494a1c68bd7c77639425",
     "version": "11.0.0",
+    "doc_dir": "docs",
+    "exts": [
+      ".rst",
+      ".md"
+    ],
+    "license": "disclaimer",
     "rtd_url": "https://nws-hpc-standards.readthedocs.io/en/stable/",
-    "checked_at": "2026-10-06T15:45:52.195176+00:00"
+    "checked_at": "2026-10-06T18:36:11.377559+00:00"
   },
   "jedi": {
     "repo": "JCSDA/jedi-docs",
@@ -14,7 +20,44 @@
     "commit": "7cd222915252711893bf341bc1b67ffef3b2824a",
     "version": "snapshot-7cd222915252",
     "doc_release": "8.0.0",
+    "doc_dir": "docs",
+    "exts": [
+      ".rst",
+      ".md"
+    ],
+    "conf_path": "docs/conf.py",
+    "license": "required",
     "rtd_url": "https://jcsda-jedi-docs.readthedocs-hosted.com/en/latest/",
-    "checked_at": "2026-10-06T15:45:53.575821+00:00"
+    "checked_at": "2026-10-06T18:36:12.749863+00:00"
+  },
+  "ccpp": {
+    "repo": "NCAR/ccpp-doc",
+    "ref": "a2f65334fda991fb7aa6a37716c003533529370e",
+    "branch": "main",
+    "commit": "a2f65334fda991fb7aa6a37716c003533529370e",
+    "version": "snapshot-a2f65334fda9",
+    "doc_release": "6.0.0",
+    "doc_dir": "CCPPtechnical/source",
+    "exts": [
+      ".rst",
+      ".inc",
+      ".txt"
+    ],
+    "conf_path": "CCPPtechnical/source/conf.py",
+    "license": "none",
+    "skip_dirs": [
+      "_static",
+      "_templates",
+      ".git",
+      "__pycache__",
+      "_build",
+      "venv"
+    ],
+    "included_code": [
+      "_static/scheme_template.F90",
+      "_static/scheme_template.meta"
+    ],
+    "rtd_url": "https://ccpp-doc.readthedocs.io/en/latest/",
+    "checked_at": "2026-10-06T18:36:13.506634+00:00"
   }
 }
