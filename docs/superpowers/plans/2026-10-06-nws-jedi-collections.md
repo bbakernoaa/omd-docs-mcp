@@ -391,7 +391,7 @@ Verify:
 find corpus/nws-hpc-standards/source -type f | wc -l   # 2 (.rst)
 find corpus/jedi/source -type f | wc -l                # ~343 (.rst/.md)
 test -f corpus/jedi/COPYING && test -f corpus/nws-hpc-standards/DISCLAIMER.md && echo ok
-python -c "import json;d=json.load(open('corpus.json'));print(sorted(s['library'] for s in d['sources']))"
+python -c "import json;d=json.load(open('corpus.json'));print(sorted(s.get('library','esmf') for s in d['sources']))"
 ```
 Expected: `ok`, and the library list contains `nws-hpc-standards` and `jedi` alongside `esmf`/`kokkos`/`kokkos-kernels`.
 
