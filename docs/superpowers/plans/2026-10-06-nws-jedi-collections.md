@@ -259,6 +259,11 @@ def read_license(repo,marker):
         return ''.join(lines[start:end]).rstrip()+'\n'
     return ''
 
+def commit_tag_version(repo,ref):
+    """For NWS, derive the numeric version from the tag (strip leading v)."""
+    tag=ref.split('/')[-1]
+    return re.sub(r'^v','',tag)
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--nws-repo',type=Path,help='Use a local NWS-HPC standards checkout')
@@ -326,11 +331,6 @@ def main():
         manifest.write_text(json.dumps({'sources':sources},indent=2)+'\n')
         (ROOT/'standards-lock.json').write_text(json.dumps(lock,indent=2)+'\n')
     print('NWS-HPC standards and JEDI documentation imported. Run uv run ingest.py')
-
-def commit_tag_version(repo,ref):
-    """For NWS, derive the numeric version from the tag (strip leading v)."""
-    tag=ref.split('/')[-1]
-    return re.sub(r'^v','',tag)
 
 if __name__=='__main__':main()
 ```
