@@ -311,6 +311,7 @@ def main():
                 for name in ('COPYING','LICENSE'):
                     file=repo/name
                     if file.is_file():shutil.copy2(file,target/name);break
+                else:raise ValueError('jedi: no COPYING or LICENSE file found')
             else:
                 disclaimer=read_license(repo,'Disclaimer')
                 (target/'DISCLAIMER.md').write_text(disclaimer or 'No license file; see upstream repository disclaimer.\n')
