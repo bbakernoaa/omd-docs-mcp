@@ -1,0 +1,642 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>4 An Example Cap</TITLE>
+<META NAME="description" CONTENT="4 An Example Cap">
+<META NAME="keywords" CONTENT="NUOPC_howtodoc">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="NUOPC_howtodoc.css">
+
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="NUOPC_howtodoc.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+
+<BODY BGCOLOR=white LINK=#083194 VLINK=#21004A>
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html163"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html159"
+  HREF="NUOPC_howtodoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html153"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html161"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html164"
+  HREF="node6.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html160"
+  HREF="NUOPC_howtodoc.html">NUOPC_howtodoc</A>
+<B> Previous:</B> <A NAME="tex2html154"
+  HREF="node4.html">3 Writing and Testing</A>
+ &nbsp; <B>  <A NAME="tex2html162"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html165"
+  HREF="node5.html#SECTION00051000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Module Imports</A>
+<LI><A NAME="tex2html166"
+  HREF="node5.html#SECTION00052000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> SetServices</A>
+<LI><A NAME="tex2html167"
+  HREF="node5.html#SECTION00053000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN> Checking Return Codes</A>
+<LI><A NAME="tex2html168"
+  HREF="node5.html#SECTION00054000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">4</SPAN> Initialize Phase - Advertise Fields</A>
+<LI><A NAME="tex2html169"
+  HREF="node5.html#SECTION00055000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">5</SPAN> Initialize Phase - Realize Fields</A>
+<LI><A NAME="tex2html170"
+  HREF="node5.html#SECTION00056000000000000000"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">6</SPAN> Model Advance Specialization</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00050000000000000000">
+<SPAN CLASS="arabic">4</SPAN> An Example Cap</A>
+</H1>
+
+<P>
+
+<P>
+
+<P>
+<A NAME="sec:atmexample"></A>
+<P>
+In this section we'll look at code for an example NUOPC Model cap.
+   The example shows the basic structure of a NUOPC Model cap for a fictitious
+   atmosphere model called ATM. It is slightly simpler than a &ldquo;real&rdquo; cap,
+   but has enough detail to show the basic coding structures.
+   Each section of the example cap code will be broken down and described separately.
+
+<P>
+<SPAN  CLASS="textbf">Finding More NUOPC Code Examples</SPAN>
+   
+<BR>
+In addition to the example code in this section, the
+   <A NAME="tex2html22"
+  HREF="https://github.com/esmf-org/nuopc-app-prototypes">NUOPC Prototypes</A>
+repository contains many small example applications that are helpful
+   for understanding the architecture of NUOPC applications and showing
+   example uses of the NUOPC API.  These example applications can be
+   compiled and executed on your system.
+
+<P>
+A good starting point is the
+   <A NAME="tex2html23"
+  HREF="https://github.com/esmf-org/nuopc-app-prototypes/tree/develop/SingleModelProto">SingleModelProto application</A>,
+
+which includes a single Model with a Driver and the
+   <A NAME="tex2html24"
+  HREF="https://github.com/esmf-org/nuopc-app-prototypes/tree/develop/AtmOcnProto">AtmOcnProto application</A>
+which includes two Models, a Connector, and a Driver.
+
+<P>
+
+<H2><A NAME="SECTION00051000000000000000"></A>
+   <A NAME="sec:atmexample_moduleimports"></A>
+<BR>
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Module Imports
+</H2>
+   The required NUOPC subroutines in the cap are grouped into a Fortran module,
+   here called ATM.  All NUOPC Model caps will import the <TT>ESMF</TT>, <TT>NUOPC</TT>, and
+   <TT>NUOPC_Model</TT> modules.  Typically, other <TT>use</TT> statements will appear
+   as well to import subroutines and variables from your model code. The module
+   exposes only a single public entry point (subroutine) called <TT>SetServices</TT>.
+   This should be true for all NUOPC Model caps.
+<P>
+<PRE>
+module ATM
+
+  !-----------------------------------------------------------------------------
+  ! Basic NUOPC Model cap for ATM component (a fictitious atmosphere model).
+  !-----------------------------------------------------------------------------
+
+  use ESMF
+  use NUOPC
+  use NUOPC_Model, &amp;
+    modelSS    =&gt; SetServices
+  
+  implicit none
+  
+  private
+  
+  public :: SetServices
+  
+  !-----------------------------------------------------------------------------
+  contains
+  !-----------------------------------------------------------------------------
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00052000000000000000"></A>
+  <A NAME="sec:atmexample_setservices"></A>
+<BR>
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> SetServices
+</H2>
+   Every NUOPC Component must include a <TT>SetServices</TT> subroutine similar to the one
+   shown below.  All NUOPC <TT>SetServices</TT> routines have the same parameter list
+   and should do several things:
+   
+<UL>
+<LI>indicate the generic component being specialized,
+</LI>
+<LI>register any specialization points.
+   
+</LI>
+</UL>
+
+<P>
+In the example code, the call to <TT>NUOPC_CompDerive()</TT> indicates that
+   this component derives from (and specializes) the generic <TT>NUOPC_Model</TT>
+   component.  In other words, this is a <TT>NUOPC_Model</TT> component customized
+   for a specific model.
+
+<P>
+The calls to <TT>NUOPC_CompSpecialize()</TT> register
+   subroutines that are implemented in the cap.
+   The <TT>specLabel</TT> argument specifies NUOPC-defined specialization labels.
+   NUOPC defines explicitly what happens during each phase of the
+   initialization and these labels uniquely define any specialization that might
+   be supplied by the user.  For example, 
+   <TT>label_Advertise</TT> is responsible for advertising field in the import- and
+   exportState of the component. The  <TT>NUOPC_CompSpecialize()</TT> also takes
+   the <TT>specRoutine</TT> argument to indicate what routine provides the actual
+   specialization. This subroutine appears later on in the cap and the name of
+   the registered subroutine is entirely up to you.
+
+<P>
+The same specialization approach is used to specialize the generic Run method.
+   Here <TT>label_Advance</TT> is specialized by subroutine <TT>Advance</TT>.
+   The Advance specialization point is called by NUOPC whenever it needs
+   your model to take a single timestep forward.  Basically, this means
+   you'll need to add a call inside the specialization subroutine to your
+   model's timestepping subroutine.
+<P>
+<PRE>
+  subroutine SetServices(model, rc)
+    type(ESMF_GridComp)  :: model
+    integer, intent(out) :: rc
+    
+    rc = ESMF_SUCCESS
+    
+    ! the NUOPC model component will register the generic methods
+    call NUOPC_CompDerive(model, modelSS, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    
+    ! specialize model
+    call NUOPC_CompSpecialize(model, specLabel=label_Advertise, &amp;
+      specRoutine=Advertise, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    call NUOPC_CompSpecialize(model, specLabel=label_RealizeProvided, &amp;
+      specRoutine=Realize, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    call NUOPC_CompSpecialize(model, specLabel=label_Advance, &amp;
+      specRoutine=Advance, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    
+  end subroutine
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00053000000000000000"></A>
+  <A NAME="sec:atmexample_retcodes"></A>
+<BR>
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN> Checking Return Codes
+</H2>
+   Essentially all ESMF and NUOPC methods have an optional integer
+   return code parameter.  You are highly encouraged to call
+   <TT>ESMF_LogFoundError</TT> after every ESMF/NUOPC call in order to
+   check the return code and record any errors in the log files
+   that ESMF generates during the run.  Including the <TT>line</TT> and
+   <TT>file</TT> parameters will help to located where errors occur in the code.
+   These parameter values are typically filled in by the pre-processor.
+
+<P>
+
+<H2><A NAME="SECTION00054000000000000000"></A>
+  <A NAME="sec:atmexample_advertisefields"></A>
+<BR>
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">4</SPAN> Initialize Phase - Advertise Fields
+</H2>
+   In this section we see the implementation of the <TT>Advertise</TT> subroutine,
+   which is registered for the <TT>label_Advertise</TT> specialization.
+   The full list of specialization labels is described in the NUOPC Reference
+   Manual.
+
+<P>
+For now you should notice a few things:
+   
+<UL>
+<LI>All specialization subroutines are standard ESMF attachable methods
+   with the same parameter list:
+     
+<UL>
+<LI><TT>model</TT> - a reference to the component itself (<TT>ESMF_GridComp</TT>)
+</LI>
+<LI><TT>rc</TT> - an <TT>integer</TT> return code
+     
+</LI>
+</UL>
+</LI>
+<LI>If the subroutine succeeds, it should return <TT>ESMF_SUCCESS</TT> in
+    the return code.  Otherwise it should return an error code. The
+    list of pre-defined ESMF error codes is provided in the
+    <A NAME="tex2html25"
+  HREF="http://www.earthsystemmodeling.org/esmf_releases/public/last/ESMF_refdoc/node9.html#SECTION09030000000000000000">ESMF Reference Manual</A>.
+
+</LI>
+</UL>
+
+<P>
+The purpose of this phase is for your model to <SPAN  CLASS="textbf">advertise its import and
+   export fields</SPAN>.  This means that your model announces which model variables
+   it is capable of exporting (e.g., an atmosphere might export air pressure at sea level)
+   and which model variables it requires (e.g., an atmosphere might require
+   sea surface temperature as a boundary condition).  The reason there is an
+   explicit <SPAN  CLASS="textbf">advertise</SPAN> phase is because NUOPC dynamically matches fields among
+   all the models participating in a coupled simulation during runtime. So, we
+   need to collect the list of possible input and output fields from all the
+   models during their initialization.
+
+<P>
+As shown in the code below, to advertise a field you call
+   <TT>NUOPC_Advertise</TT> with the following parameters:
+   
+<UL>
+<LI>either the <TT>importState</TT> or <TT>exportState</TT> object
+</LI>
+<LI>the standard name of the field, based on the
+   <A NAME="tex2html26"
+  HREF="http://cfconventions.org/standard-names.html">CF conventions</A>
+</LI>
+<LI>an optional name for the field, which can be used to
+    retrieve it later from its <TT>ESMF_State</TT>; if ommited
+    the standard name will be used as the field name
+</LI>
+<LI>a return code
+  
+</LI>
+</UL>
+
+<P>
+The example code below advertises one import field with the standard
+   name <TT>"sea_surface_temperature"</TT>, and two export fields with standard
+   names <TT>"air_pressure_at_sea_level"</TT> and <TT>"surface_net_downward_shortwave_flux"</TT>.
+
+<P>
+<SPAN  CLASS="textbf">Advertising a Field does NOT allocate memory</SPAN>
+   
+<BR>
+Note that NUOPC does not allocate memory for fields during the
+   advertise phase or when <TT>NUOPC_Advertise</TT> is called.
+   Instead, this is simply a way for models to communicate the
+   standard names of fields.  During a later phase, only those fields that
+   are <SPAN  CLASS="textit">connected</SPAN> (e.g., a field exported from one model that is
+   imported by another) need to have memory allocated.
+   Also, since ESMF will accept pointers to pre-allocated memory, it is usually not
+   necessary to change how memory is allocated for your model's variables.
+ 
+<P>
+<PRE>
+  
+  !-----------------------------------------------------------------------------
+
+  subroutine Advertise(model, rc)
+    type(ESMF_GridComp)  :: model
+    integer, intent(out) :: rc
+
+    ! local variables
+    type(ESMF_State)        :: importState, exportState
+
+    rc = ESMF_SUCCESS
+
+    ! query for importState and exportState
+    call NUOPC_ModelGet(model, importState=importState, &amp;
+      exportState=exportState, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    
+    ! importable field: sea_surface_temperature
+    call NUOPC_Advertise(importState, &amp;
+      StandardName="sea_surface_temperature", name="sst", &amp; 
+      TransferOfferGeomObject="will provide", rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    
+    ! exportable field: air_pressure_at_sea_level
+    call NUOPC_Advertise(exportState, &amp;
+      StandardName="air_pressure_at_sea_level", name="pmsl", &amp; 
+      TransferOfferGeomObject="will provide", rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    
+    ! exportable field: surface_net_downward_shortwave_flux
+    call NUOPC_Advertise(exportState, &amp;
+      StandardName="surface_net_downward_shortwave_flux", name="rsns", &amp; 
+      TransferOfferGeomObject="will provide", rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+
+  end subroutine
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00055000000000000000"></A>
+  <A NAME="sec:atmexample_realizefields"></A>
+<BR>
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">5</SPAN> Initialize Phase - Realize Fields
+</H2>
+
+<P>
+The following code fragment shows the <TT>Realize</TT> subroutine, which
+   specializes <TT>label_RealizeProvided</TT>.   During this phase, fields that
+   were previously advertised should now be <SPAN  CLASS="textbf">realized</SPAN>.  Realizing a field
+   means that an <TT>ESMF_Field</TT> object is created and it is added to the appropriate
+   <TT>ESMF_State</TT>, either import or export.
+
+<P>
+In order to create an <TT>ESMF_Field</TT>, you'll first need to create one of the
+   ESMF geometric types, <TT>ESMF_Grid</TT>, <TT>ESMF_Mesh</TT>, or <TT>ESMF_LocStream</TT>.
+   For 2D and 3D logically rectangular grids (such as a lat-lon grid), the
+   typical choice is <TT>ESMF_Grid</TT>.  For unstructured grids, use an <TT>ESMF_Mesh</TT>.
+
+<P>
+Describing your model's grid (physical discretization) in the
+   ESMF representation is  one of the most important parts of creating
+   a NUOPC cap. The ESMF geometric types are described in detail in the ESMF Reference Manual:
+   
+<UL>
+<LI><A NAME="tex2html27"
+  HREF="http://www.earthsystemmodeling.org/esmf_releases/public/last/ESMF_refdoc/node5.html#SECTION05080000000000000000">ESMF_Grid</A>
+- logically rectangular grids
+</LI>
+<LI><A NAME="tex2html28"
+  HREF="http://www.earthsystemmodeling.org/esmf_releases/public/last/ESMF_refdoc/node5.html#SECTION050100000000000000000">ESMF_Mesh</A>
+- unstructured grids
+</LI>
+<LI><A NAME="tex2html29"
+  HREF="http://www.earthsystemmodeling.org/esmf_releases/public/last/ESMF_refdoc/node5.html#SECTION05090000000000000000">ESMF_LocStream</A>
+- a set of observational points
+   
+</LI>
+</UL>
+
+<P>
+For the sake a simplicity, a 10x100 Cartesian grid is created in the code below
+   and assigned to the variable <TT>gridIn</TT>.
+
+<P>
+An <TT>ESMF_Field</TT> is created by by passing in the field
+   name (should be the same as advertised), the grid, and the data type of the
+   field to <TT>ESMF_FieldCreate</TT>.
+
+<P>
+Fields are put into import or export States by calling <TT>NUOPC_Realize</TT>.  
+   The example code realizes three fields in total, one import and two export, 
+   and all three share the same grid.
+ 
+<P>
+<PRE>
+  subroutine Realize(model, rc)
+    type(ESMF_GridComp)  :: model
+    integer, intent(out) :: rc
+
+    ! local variables
+    type(ESMF_State)        :: importState, exportState
+    type(ESMF_Field)        :: field
+    type(ESMF_Grid)         :: gridIn
+    type(ESMF_Grid)         :: gridOut
+    
+    rc = ESMF_SUCCESS
+    
+    ! query for importState and exportState
+    call NUOPC_ModelGet(model, importState=importState, &amp;
+      exportState=exportState, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+
+    ! create a Grid object for Fields
+    gridIn = ESMF_GridCreateNoPeriDimUfrm(maxIndex=(/10, 100/), &amp;
+      minCornerCoord=(/10._ESMF_KIND_R8, 20._ESMF_KIND_R8/), &amp;
+      maxCornerCoord=(/100._ESMF_KIND_R8, 200._ESMF_KIND_R8/), &amp;
+      coordSys=ESMF_COORDSYS_CART, staggerLocList=(/ESMF_STAGGERLOC_CENTER/), &amp;
+      rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    gridOut = gridIn ! for now out same as in
+
+    ! importable field: sea_surface_temperature
+    field = ESMF_FieldCreate(name="sst", grid=gridIn, &amp;
+      typekind=ESMF_TYPEKIND_R8, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    call NUOPC_Realize(importState, field=field, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+
+    ! exportable field: air_pressure_at_sea_level
+    field = ESMF_FieldCreate(name="pmsl", grid=gridOut, &amp;
+      typekind=ESMF_TYPEKIND_R8, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    call NUOPC_Realize(exportState, field=field, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+
+    ! exportable field: surface_net_downward_shortwave_flux
+    field = ESMF_FieldCreate(name="rsns", grid=gridOut, &amp;
+      typekind=ESMF_TYPEKIND_R8, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    call NUOPC_Realize(exportState, field=field, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+
+  end subroutine
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00056000000000000000"></A>
+   <A NAME="sec:atmexample_advancespec"></A>
+<BR>
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">6</SPAN> Model Advance Specialization
+</H2>
+
+<P>
+As described in the section <A HREF="#sec:atmexample_setservices">4.2</A>,
+   the subroutine <TT>Advance</TT> (shown below) has been
+   registered to the <SPAN  CLASS="textit">specialization point</SPAN> with the label
+   <TT>model_label_Advance</TT> in the <TT>SetServices</TT> subroutine. This
+   specialization point subroutine is called within the generic <TT>NUOPC_Model</TT>
+   run phase in order to request that your model take a timestep
+   forward.  The code to do this is model dependent, so it does not appear
+   in the subroutine below.
+
+<P>
+<SPAN  CLASS="textbf">Each NUOPC component maintains its own clock</SPAN> (an <TT>ESMF_Clock</TT> object).
+   The clock is used here to indicate the current model time and the
+   timestep size. When the subroutine finishes, your model should be
+   moved ahead in time from the current time by one timestep.  NUOPC will
+   automatically advance the clock for you, so there is no explicit call
+   to do that here.
+
+<P>
+Since there is no actual model for us to advance in this example,
+   the code below simply prints the current time and stop time (current time + timestep)
+   to standard out.
+
+<P>
+With respect to specialization point subroutines in general, note that:
+   
+<UL>
+<LI>All specialization point subroutines rely on the ESMF attachable
+      methods capability, and therefore all share the same parameter list:
+   
+<UL>
+<LI>a pointer to the component (<TT>ESMF_GridComp</TT>)
+</LI>
+<LI>an <TT>integer</TT> return code
+   
+</LI>
+</UL>
+</LI>
+<LI>Because the import/export states and the clock do not come in through
+     the parameter list, they must be accessed via a call to <TT>NUOPC_ModelGet</TT>
+     as shown in the code below.
+  
+</LI>
+</UL>
+<P>
+<PRE>
+  subroutine Advance(model, rc)
+    type(ESMF_GridComp)  :: model
+    integer, intent(out) :: rc
+    
+    ! local variables
+    type(ESMF_Clock)              :: clock
+    type(ESMF_State)              :: importState, exportState
+
+    rc = ESMF_SUCCESS
+    
+    ! query the Component for its clock, importState and exportState
+    call NUOPC_ModelGet(model, modelClock=clock, importState=importState, &amp;
+      exportState=exportState, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+
+    ! HERE THE MODEL ADVANCES: currTime -&gt; currTime + timeStep
+    
+    ! Because of the way that the internal Clock was set by default,
+    ! its timeStep is equal to the parent timeStep. As a consequence the
+    ! currTime + timeStep is equal to the stopTime of the internal Clock
+    ! for this call of the Advance() routine.
+    
+    call ESMF_ClockPrint(clock, options="currTime", &amp;
+      preString="------&gt;Advancing ATM from: ", rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    
+    call ESMF_ClockPrint(clock, options="stopTime", &amp;
+      preString="--------------------------------&gt; to: ", rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+
+  end subroutine
+
+end module
+</PRE>
+
+<P>
+
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html163"
+  HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html159"
+  HREF="NUOPC_howtodoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html153"
+  HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html161"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html164"
+  HREF="node6.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html160"
+  HREF="NUOPC_howtodoc.html">NUOPC_howtodoc</A>
+<B> Previous:</B> <A NAME="tex2html154"
+  HREF="node4.html">3 Writing and Testing</A>
+ &nbsp; <B>  <A NAME="tex2html162"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<A HREF=mailto:esmf_support@ucar.edu>esmf_support@ucar.edu</A>
+</ADDRESS>
+</BODY>
+</HTML>

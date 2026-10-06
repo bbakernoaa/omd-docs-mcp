@@ -1,0 +1,739 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>3 Writing and Testing a NUOPC Cap for your Model</TITLE>
+<META NAME="description" CONTENT="3 Writing and Testing a NUOPC Cap for your Model">
+<META NAME="keywords" CONTENT="NUOPC_howtodoc">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="NUOPC_howtodoc.css">
+
+<LINK REL="next" HREF="node5.html">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="NUOPC_howtodoc.html">
+<LINK REL="next" HREF="node5.html">
+</HEAD>
+
+<BODY BGCOLOR=white LINK=#083194 VLINK=#21004A>
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html140"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html136"
+  HREF="NUOPC_howtodoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html130"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html138"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html141"
+  HREF="node5.html">4 An Example Cap</A>
+<B> Up:</B> <A NAME="tex2html137"
+  HREF="NUOPC_howtodoc.html">NUOPC_howtodoc</A>
+<B> Previous:</B> <A NAME="tex2html131"
+  HREF="node3.html">2 The Big Idea</A>
+ &nbsp; <B>  <A NAME="tex2html139"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html142"
+  HREF="node4.html#SECTION00041000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Install ESMF and NUOPC on the Target Machine</A>
+<LI><A NAME="tex2html143"
+  HREF="node4.html#SECTION00042000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Prepare Your Model Code</A>
+<LI><A NAME="tex2html144"
+  HREF="node4.html#SECTION00043000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Choose a Configuration of Your Model for Development</A>
+<LI><A NAME="tex2html145"
+  HREF="node4.html#SECTION00044000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Integrate a Cap Template into Your Codebase</A>
+<LI><A NAME="tex2html146"
+  HREF="node4.html#SECTION00045000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Modify Your Build to Generate a NUOPC Makefile Fragment</A>
+<LI><A NAME="tex2html147"
+  HREF="node4.html#SECTION00046000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> Initialize Your Model from the Cap</A>
+<LI><A NAME="tex2html148"
+  HREF="node4.html#SECTION00047000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">7</SPAN> Call Your Model's Run Subroutine from the Cap</A>
+<LI><A NAME="tex2html149"
+  HREF="node4.html#SECTION00048000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">8</SPAN> Run the Cap with a NUOPC Driver</A>
+<LI><A NAME="tex2html150"
+  HREF="node4.html#SECTION00049000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">9</SPAN> Split Up the Initialization Phases</A>
+<LI><A NAME="tex2html151"
+  HREF="node4.html#SECTION000410000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">10</SPAN> Test and Validate Your Cap</A>
+<LI><A NAME="tex2html152"
+  HREF="node4.html#SECTION000411000000000000000"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">11</SPAN> Example NUOPC Model cap</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00040000000000000000">
+<SPAN CLASS="arabic">3</SPAN> Writing and Testing a NUOPC Cap for your Model</A>
+</H1>
+
+<P>
+<A NAME="sec:approach"></A>
+<P>
+While there is no one right way to write the <SPAN  CLASS="textit">NUOPC Model cap</SPAN> code, the following
+recommended steps represent an incremental approach to developing the cap.
+
+<OL>
+<LI>Install ESMF and NUOPC on the Target Machine (<A HREF="#sec:installesmf">3.1</A>)
+</LI>
+<LI>Prepare Your Model Code (<A HREF="#sec:preparemodel">3.2</A>)
+</LI>
+<LI>Choose a Configuration of Your Model for Development (<A HREF="#sec:chooseconfig">3.3</A>)
+</LI>
+<LI>Integrate a Cap Template into Your Codebase (<A HREF="#sec:integratecap">3.4</A>)
+</LI>
+<LI>Modify Your Build to Generate a NUOPC Makefile Fragment (<A HREF="#sec:genmakefrag">3.5</A>)
+</LI>
+<LI>Initialize Your Model from the Cap (<A HREF="#sec:initmodelfromcap">3.6</A>)
+</LI>
+<LI>Call Your Model's Run Subroutine from the Cap (<A HREF="#sec:callrunfromcap">3.7</A>)
+</LI>
+<LI>Run the Cap with a NUOPC Driver (<A HREF="#sec:runcapwithdriver">3.8</A>)
+</LI>
+<LI>Split Up the Initialization Phases (<A HREF="#sec:splitinit">3.9</A>)
+</LI>
+<LI>Test and Validate Your Cap (<A HREF="#sec:validatecap">3.10</A>)
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION00041000000000000000"></A>
+<A NAME="sec:installesmf"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Install ESMF and NUOPC on the Target Machine
+</H2>
+First, you need to ensure the prerequisite
+software is available on the target system.
+
+<P>
+The primary prerequisite software is the NUOPC library, which is
+included with the ESMF distribution, and your model, including
+any of its dependencies.
+
+<P>
+Acquire the latest ESMF release from GitHub:
+
+<P>
+<PRE>
+$ git clone https://github.com/esmf-org/esmf.git --branch main --depth 1
+</PRE>
+
+<P>
+<SPAN  CLASS="textbf">Compile and install ESMF.</SPAN>  Full installation details can be found in the <A NAME="tex2html12"
+  HREF="http://www.earthsystemmodeling.org/esmf_releases/public/last/ESMF_usrdoc/node6.html#SECTION00064000000000000000">ESMF User Guide</A>.  An example of the basic procedure
+for one particular system is outlined below.
+
+<P>
+<PRE>
+ # set environment variables for build
+ # the actual settings depend on your platform
+ # and the compilation options you select
+ $ export ESMF_DIR=/path/to/esmf
+ $ export ESMF_COMPILER=gfortran
+ $ export ESMF_COMM=openmpi
+ $ export ESMF_PIO=internal
+ $ export ESMF_NETCDF=split
+ $ export ESMF_NETCDF_INCLUDE=/usr/include
+ $ export ESMF_NETCDF_LIBS="-lnetcdff -lnetcdf"
+ $ export ESMF_NETCDF_LIBPATH=/usr/lib
+ $ export ESMF_INSTALL_PREFIX=/path/to/install
+
+ # build
+ $ cd /path/to/esmf
+ $ gmake
+ $ gmake check
+ $ gmake install
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00042000000000000000"></A>
+<A NAME="sec:preparemodel"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Prepare Your Model Code
+</H2>
+Before starting a NUOPC cap implementation, your model must already
+be modularized such that it can be built by itself and does not
+contain hard dependencies to other model components.  For example,
+if the model targeted for NUOPC compliance is a subsystem embedded
+in a larger application, the model will first need to be extracted
+such that it can be built by itself as a library.
+
+<P>
+The model also needs to be roughly divided into several execution
+methods: initialize, run, and finalize.  Each of these methods may
+contain several phases.  The run method should allow the model to
+execute a single timestep, or accept a parameter defining the number of
+timesteps or a &ldquo;run until&rdquo; time.
+
+<P>
+Your NUOPC cap code will be cleanest if your model exposes data
+structures for input and output variables with clear, well-documented
+naming conventions. This will simplify the process of hooking up fields
+in the NUOPC cap to your model's data structures.  The NUOPC Field
+Dictionary uses the <A NAME="tex2html13"
+  HREF="http://cfconventions.org/">Climate and Forecast conventions</A>
+for defining field standard names, but can support field name aliases.
+
+<P>
+Finally, the model should not use the global MPI_COMM_WORLD communicator
+explicitly, but should accept a communicator at some point during
+startup.  A global search and replace can be used to replace
+all uses of MPI_COMM_WORLD with a different communicator defined
+as a global variable in your model.
+
+<P>
+
+<H2><A NAME="SECTION00043000000000000000"></A>
+<A NAME="sec:chooseconfig"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Choose a Configuration of Your Model for Development
+</H2>
+When implementing the NUOPC interfaces for your model, you want to
+get into an efficient edit-compile-debug cycle.  This will require
+running a configuration of your model that can be used to test the
+NUOPC code you will write.
+
+<P>
+You should choose a configuration of your model that is
+simple and stable. Many models have regression test configurations
+that can be run quickly and have small output files.  These configurations
+are typically low resolution, have short execution times, and sometimes
+have idealized initial conditions.  Some models can also be configured
+with some of the physics options turned off to reduce the total amount
+of computation.  More scientifically interesting or higher resolution configurations
+can be used after ensuring that the NUOPC cap is working for the
+basic case.
+
+<P>
+<SPAN  CLASS="textbf">Compile your model on the target system and generate baseline output for the
+selected configuration.</SPAN>   This will typically be a small set of history or restart
+files.  We'll use these files later to ensure that your model is reproducing the
+expected output when executed through the NUOPC cap.  In most cases, when
+your model is executed through its NUOPC cap, the output should be bit-for-bit
+identical with non-NUOPC runs.  (The one caveat to this is that when your
+model is used in a coupled system, roundoff error may occur due to slight
+differences introduced when grid interpolation is used between models.)
+
+<P>
+If your model is already using ESMF, <SPAN  CLASS="textbf">you will need to
+update your build to link against ESMF version 7 or later.</SPAN>  Instructions for checking out this version of ESMF
+appear in section <A HREF="#sec:installesmf">3.1</A>.
+
+<P>
+
+<H2><A NAME="SECTION00044000000000000000"></A>
+<A NAME="sec:integratecap"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Integrate a Cap Template into Your Codebase
+</H2>
+An important question is where you will put your NUOPC cap source code.
+The NUOPC cap code added to a model is minimal and is typically
+contained either in a single source file or a small set of files.  <SPAN  CLASS="textbf">We recommend
+including the NUOPC cap code in the same code repository with the rest of your
+model code as this helps to ensure the cap evolves with your code and simplifies
+the process of acquiring a NUOPC-compliant version of your model.</SPAN>
+The exact right place to put the cap code is your decision and largely depends
+on your model's directory structure.
+
+<P>
+Including the cap code in your model's codebase does <SPAN  CLASS="textit">not</SPAN> imply that your
+model must always be run in NUOPC mode.  Instead, when the cap is complete,
+the NUOPC mode can be viewed as a configuration option of your model.
+
+<P>
+You need not start from scratch.  Instead start with a NUOPC cap template.
+To acquire a cap template you can:
+
+<UL>
+<LI>use the cap template below,
+
+<P>
+</LI>
+<LI>copy code from one of the <A NAME="tex2html14"
+  HREF="https://github.com/esmf-org/nuopc-app-prototypes">NUOPC Prototype Applications</A>
+or
+
+<P>
+</LI>
+<LI>use the <A NAME="tex2html15"
+  HREF="https://www.earthsystemcog.org/projects/cupid/">Cupid plugin for Eclipse</A>
+to generate code.  Cupid automatically generates NUOPC compliant
+code fragments for specialization points and presents NUOPC API reference
+documentation based on where you are in your NUOPC cap code.
+Installation instructions are provided on the Cupid website, and for additional support please
+<A NAME="tex2html16"
+  HREF="mailto:esmf_support@ucar.edu">email the ESMF support list</A>.
+
+<P>
+</LI>
+</UL>
+
+<P>
+Put the initial cap code into your model source tree.  Then, modify
+your Makefile or build scripts so that the cap is compiled with the
+rest of your model code.  Unless your model is already using ESMF,
+you'll need to add ESMF compile and linking flags in order to build
+the cap.  <SPAN  CLASS="textbf">When ESMF is installed, a Makefile fragment named esmf.mk
+is generated that contains variables that can be appended to your compile and
+link flags.</SPAN>  The <A NAME="tex2html17"
+  HREF="http://www.earthsystemmodeling.org/esmf_releases/public/last/ESMF_usrdoc/node7.html">ESMF User Guide</A>
+explains how to use these variables in your Makefile.
+
+<P>
+
+<H2><A NAME="SECTION00045000000000000000"></A>
+<A NAME="sec:genmakefrag"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Modify Your Build to Generate a NUOPC Makefile Fragment
+</H2>
+The goal of adding a NUOPC cap to your model is so that it can be used
+with other NUOPC-compliant models in a coupled system.  From a technical
+standpoint, there are several ways that your model code can be included into
+a final coupled system binary.  Two common options are to link to your model
+statically and to link it in dynamically from a shared library.
+
+<P>
+In either case, to simplify the process of compiling and linking against
+your model, <SPAN  CLASS="textbf">your model's build process should produce a Makefile fragment file
+that defines the following six variables:</SPAN><DL>
+<DT><STRONG><SPAN  CLASS="textbf">ESMF_DEP_FRONT</SPAN></STRONG></DT>
+<DD>
+The name of the Fortran module to be used in a USE statement,
+or (if it ends in &rdquo;.h&rdquo;) the name of the header file to be used
+in an #include statement, or (if it ends in &rdquo;.so&rdquo;) the name of
+the shared object to be loaded at run-time.
+
+<P>
+</DD>
+<DT><STRONG><SPAN  CLASS="textbf">ESMF_DEP_INCPATH</SPAN></STRONG></DT>
+<DD>
+The include path to find module or header files during compilation. Must be specified as absolute path.
+
+<P>
+</DD>
+<DT><STRONG><SPAN  CLASS="textbf">ESMF_DEP_CMPL_OBJS</SPAN></STRONG></DT>
+<DD>
+Object files that need to be considered as compile dependencies. Must be specified with absolute path.
+
+<P>
+</DD>
+<DT><STRONG><SPAN  CLASS="textbf">ESMF_DEP_LINK_OBJS</SPAN></STRONG></DT>
+<DD>
+Object files that need to be considered as link dependencies. Must be specified with absolute path.
+
+<P>
+</DD>
+<DT><STRONG><SPAN  CLASS="textbf">ESMF_DEP_SHRD_PATH</SPAN></STRONG></DT>
+<DD>
+The path or list of paths to find shared libraries during link-time (and during run-time unless overridden by LD_LIBRARY_PATH). Must be specified as absolute paths.
+
+<P>
+</DD>
+<DT><STRONG><SPAN  CLASS="textbf">ESMF_DEP_SHRD_LIBS</SPAN></STRONG></DT>
+<DD>
+Shared libraries that need to be specified during link-time, and must be available during run-time. Must be specified with absolute path.
+
+<P>
+</DD>
+</DL>
+
+<P>
+An example makefile fragment useful for statically linking against your model looks like this:
+
+<P>
+<PRE>
+   #file: abc.mk
+ 
+   ESMF_DEP_FRONT      = ABC
+   ESMF_DEP_INCPATH    = &lt;absolute path to associated ABC module file&gt;
+   ESMF_DEP_CMPL_OBJS  = &lt;absolute path&gt;/abc.o
+   ESMF_DEP_LINK_OBJS  = &lt;absolute path&gt;/abc.o &lt;absolute path&gt;/xyz.o
+   ESMF_DEP_SHRD_PATH  = 
+   ESMF_DEP_SHRD_LIBS  =
+</PRE>
+
+<P>
+The variables in the makefile fragment expose a set of dependencies that the
+higher-level build system can use to compile and link against your model.
+An easy way to generate the makefile fragment is to modify your model's
+Makefile to include a new target:
+
+<P>
+<PRE>
+   .PRECIOUS: %.o
+
+   %.mk: %.o
+      @echo "# ESMF self-describing build dependency makefile fragment" &gt; $@
+      @echo &gt;&gt; $@
+      @echo "ESMF_DEP_FRONT     = ABC"                          &gt;&gt; $@
+      @echo "ESMF_DEP_INCPATH   = `pwd`"                        &gt;&gt; $@
+      @echo "ESMF_DEP_CMPL_OBJS = `pwd`/"$&lt;                     &gt;&gt; $@
+      @echo "ESMF_DEP_LINK_OBJS = "$(addprefix `pwd`/, $(OBJS)) &gt;&gt; $@
+      @echo "ESMF_DEP_SHRD_PATH = "                             &gt;&gt; $@
+      @echo "ESMF_DEP_SHRD_LIBS = "                             &gt;&gt; $@
+
+   abc.mk: $(OBJS)
+</PRE>
+
+<P>
+The <A NAME="tex2html18"
+  HREF="http://www.earthsystemmodeling.org/esmf_releases/last_built/NUOPC_refdoc/node5.html">Standardized Component Dependencies</A>
+section of the NUOPC Reference Manual contains more details on setting up NUOPC makefile fragments.
+
+<P>
+<SPAN  CLASS="textbf">Finally, if your build procedure typically produces an executable, it is
+recommended that you add a Makefile target (or similar build option)
+that produces a library instead of an executable.</SPAN>  When used in a NUOPC
+system, your model's main program will not be used-instead, a <TT>NUOPC_Driver</TT>
+will be linked to your cap and it will be the locus of control
+(i.e., the main program).
+
+<P>
+<SPAN  CLASS="textbf">Makefile Target Conventions</SPAN>
+
+<P>
+If your model is built using Make, a common convention is to add
+two special targets that build your model and also compile the NUOPC
+code you will write.
+
+<P>
+<PRE> 
+ # this target builds your model and your NUOPC cap 
+ $ make nuopc
+ # this target installs your NUOPC-compliant model to a particular directory
+ $ make nuopcinstall DESTDIR=/path/to/install
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00046000000000000000"></A>
+<A NAME="sec:initmodelfromcap"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> Initialize Your Model from the Cap
+</H2>
+The cap template you placed in your source tree is not yet connected
+to your model.  You now need to add a call into your model's existing
+initialization subroutine(s).
+
+<P>
+NUOPC defines a precise initialization sequence-i.e., a series of
+steps that all NUOPC components are expected to take when starting
+up.  A user component cap interacts with the NUOPC initialization
+sequence through specific specialization points. Specifically this means
+using the <TT>NUOPC_CompSpecialize()</TT> method during the component's
+SetServices method for each of the required specializations, and providing the
+necessary implementation. The <TT>NUOPC_CompSpecialize()</TT> method takes a
+<TT>specLabel</TT> argument to indicate the targeted specialization. All available
+specialization labels for model components are listed in the NUOPC
+reference manual under the NUOPC_Model API section.
+
+<P>
+Instead of tackling the full NUOPC initialization sequence at this point in
+developing your cap, we recommend that you start by adding calls in your cap's
+first initialization phase to your model's existing initialization subroutine(s).
+A good place to do this is within the Advertise Fields initialization phase.
+This is the phase where each component &ldquo;advertises&rdquo; the fields it
+requires and can potentially provide.  
+
+<P>
+You will need to add <TT>use</TT> statements at the top if your cap to import the relevant
+initialization subroutines from your model into the NUOPC cap module.
+The example code in section <A HREF="#sec:basicexamplecap">3.11</A> shows where to add the 
+call to your model's initialization subroutine(s).
+
+<P>
+In the next section you will add another call into your model code
+before attempting to execute your NUOPC cap.
+
+<P>
+
+<H2><A NAME="SECTION00047000000000000000"></A>
+<A NAME="sec:callrunfromcap"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">7</SPAN> Call Your Model's Run Subroutine from the Cap
+</H2>
+The Advance specialization point provided by the NUOPC Model
+generic component is the place where you will call your
+model's timestep subroutine.  You should add this call now. 
+Refer to the example code in section <A HREF="#sec:basicexamplecap">3.11</A> 
+below to see where to add this call.
+
+<P>
+This call should only move the model forward a single timestep,
+not the full run length.  If the subroutine requires a parameter 
+such as the timestep length or the time to stop, then these 
+parameters can be retrieved from the cap's <TT>ESMF_Clock</TT> object.
+
+<P>
+If your model does not have a subroutine that takes a single timestep,
+you will need to create one now.
+
+<P>
+
+<H2><A NAME="SECTION00048000000000000000"></A>
+<A NAME="sec:runcapwithdriver"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">8</SPAN> Run the Cap with a NUOPC Driver
+</H2>
+Now you should test the basic cap you have implemented. First,
+build your model along with the cap code using your model's build
+script or Makefile.  If you followed the procedure in section <A HREF="#sec:genmakefrag">3.5</A>, 
+your build process should have produced a NUOPC Makefile
+fragment file in addition to the compiled object files (or library).
+
+<P>
+One option for testing the cap is to run it using the <A NAME="tex2html19"
+  HREF="https://www.earthsystemcog.org/projects/nuopc/compliance_testing">NUOPC Component Explorer</A>, a specialized <TT>NUOPC_Driver</TT> designed to execute any <TT>NUOPC_Model</TT>.  
+<A NAME="tex2html20"
+  HREF="https://www.earthsystemcog.org/projects/nuopc/compliance_test">Complete instructions</A>
+for acquiring 
+the Component Explorer and linking it to your NUOPC cap are available.
+
+<P>
+The instructions above also describe how to turn on the <A NAME="tex2html21"
+  HREF="https://www.earthsystemcog.org/projects/nuopc/compliance_testing">NUOPC Compliance Checker</A>
+while running the Component Explorer.  The
+Compliance Checker produces additional output in the ESMF log
+files that is useful for debugging.  It also produces WARNINGS
+in the logs if a compliance issue is identified.  When running with
+the basic cap, you should not necessarily expect to have all compliance issues
+resolved.
+
+<P>
+
+<H2><A NAME="SECTION00049000000000000000"></A>
+<A NAME="sec:splitinit"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">9</SPAN> Split Up the Initialization Phases
+</H2>
+Once the basic cap described above can be executed using the Component Explorer,
+you should modify the cap to implement the required initialization sequence
+as described in the NUOPC reference manual. This
+includes advertising fields with standard names and realizing fields by creating
+<TT>ESMF_Field</TT> objects to wrap your model variables.  As part of this process,
+you will need to describe your model's grid structure using the ESMF geometric
+classes, e.g., <TT>ESMF_Grid</TT> and <TT>ESMF_Mesh</TT>.
+
+<P>
+
+<H2><A NAME="SECTION000410000000000000000"></A>
+<A NAME="sec:validatecap"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">10</SPAN> Test and Validate Your Cap
+</H2>
+After splitting up the initilization phases, rebuild your model and execute it again using
+the Component Explorer with the Compliance Checker turned on.  Ideally, you
+should see no compliance WARNINGS in the generated log files.
+
+<P>
+<SPAN  CLASS="textbf">To validate that the NUOPC cap is faithfully reproducing your model's
+behavior when run in non-NUOPC mode, you should compare your model's
+output when run with the NUOPC cap against a baseline run.</SPAN>
+This is the best test to ensure that the cap is working correctly.
+If the NUOPC cap reproduces your baseline run, you are ready to integrate
+your NUOPC Model cap into a coupled system with other NUOPC components.
+
+<P>
+
+<P>
+
+<P>
+
+<H2><A NAME="SECTION000411000000000000000"></A>
+  <A NAME="sec:basicexamplecap"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">11</SPAN> Example NUOPC Model cap
+</H2>
+
+<P>
+The following code is a starting point for creating a basic NUOPC 
+   Model cap.  
+   
+<P>
+<PRE>
+module MYMODEL
+
+  !-----------------------------------------------------------------------------
+  ! Basic NUOPC Model cap
+  !-----------------------------------------------------------------------------
+
+  use ESMF
+  use NUOPC
+  use NUOPC_Model, &amp;
+    modelSS    =&gt; SetServices
+    
+  ! add use statements for your model's initialization
+  ! and run subroutines
+  
+  implicit none
+  
+  private
+  
+  public :: SetServices
+  
+  !-----------------------------------------------------------------------------
+  contains
+  !-----------------------------------------------------------------------------
+
+  subroutine SetServices(model, rc)
+    type(ESMF_GridComp)  :: model
+    integer, intent(out) :: rc
+
+    rc = ESMF_SUCCESS
+
+    ! derive from NUOPC_Model
+    call NUOPC_CompDerive(model, modelSS, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+
+    ! specialize model
+    call NUOPC_CompSpecialize(model, specLabel=label_Advertise, &amp;
+      specRoutine=Advertise, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    call NUOPC_CompSpecialize(model, specLabel=label_RealizeProvided, &amp;
+      specRoutine=Realize, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    call NUOPC_CompSpecialize(model, specLabel=label_Advance, &amp;
+      specRoutine=Advance, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+
+  end subroutine
+
+  !-----------------------------------------------------------------------------
+
+  subroutine Advertise(model, rc)
+    type(ESMF_GridComp)  :: model
+    integer, intent(out) :: rc
+
+    rc = ESMF_SUCCESS
+
+    ! Eventually, you will advertise your model's import and
+    ! export fields in this phase.  For now, however, call
+    ! your model's initialization routine(s).
+
+    ! call my_model_init()
+
+  end subroutine
+
+  !-----------------------------------------------------------------------------
+
+  subroutine Realize(model, rc)
+    type(ESMF_GridComp)  :: model
+    integer, intent(out) :: rc
+
+    rc = ESMF_SUCCESS  
+
+    ! Eventually, you will realize your model's fields here,
+    ! but leave empty for now.
+
+  end subroutine
+
+  !-----------------------------------------------------------------------------
+
+  subroutine Advance(model, rc)
+    type(ESMF_GridComp)  :: model
+    integer, intent(out) :: rc
+    
+    ! local variables
+    type(ESMF_Clock)              :: clock
+    type(ESMF_State)              :: importState, exportState
+
+    rc = ESMF_SUCCESS
+    
+    ! query the Component for its clock, importState and exportState
+    call NUOPC_ModelGet(model, modelClock=clock, importState=importState, &amp;
+      exportState=exportState, rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+
+    ! HERE THE MODEL ADVANCES: currTime -&gt; currTime + timeStep
+    
+    ! Because of the way that the internal Clock was set by default,
+    ! its timeStep is equal to the parent timeStep. As a consequence the
+    ! currTime + timeStep is equal to the stopTime of the internal Clock
+    ! for this call of the Advance() routine.
+
+    call ESMF_ClockPrint(clock, options="currTime", &amp;
+      preString="------&gt;Advancing MODEL from: ", rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+    
+    call ESMF_ClockPrint(clock, options="stopTime", &amp;
+      preString="--------------------------------&gt; to: ", rc=rc)
+    if (ESMF_LogFoundError(rcToCheck=rc, msg=ESMF_LOGERR_PASSTHRU, &amp;
+      line=__LINE__, &amp;
+      file=__FILE__)) &amp;
+      return  ! bail out
+
+    ! Call your model's timestep routine here
+    
+    ! call my_model_update()
+      
+  end subroutine
+
+end module
+</PRE>
+
+<P>
+
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html140"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html136"
+  HREF="NUOPC_howtodoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html130"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html138"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html141"
+  HREF="node5.html">4 An Example Cap</A>
+<B> Up:</B> <A NAME="tex2html137"
+  HREF="NUOPC_howtodoc.html">NUOPC_howtodoc</A>
+<B> Previous:</B> <A NAME="tex2html131"
+  HREF="node3.html">2 The Big Idea</A>
+ &nbsp; <B>  <A NAME="tex2html139"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<A HREF=mailto:esmf_support@ucar.edu>esmf_support@ucar.edu</A>
+</ADDRESS>
+</BODY>
+</HTML>

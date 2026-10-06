@@ -1,0 +1,90 @@
+{
+  "sources": [
+    {
+      "name": "NUOPC_refdoc",
+      "path": "corpus/manuals/NUOPC_refdoc",
+      "version": "8.9.1",
+      "kind": "documentation",
+      "url": "https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/NUOPC_refdoc/",
+      "managed": true,
+      "version_basis": "Official 8.9.1 release URL and release label checked on manual index"
+    },
+    {
+      "name": "NUOPC_howtodoc",
+      "path": "corpus/manuals/NUOPC_howtodoc",
+      "version": "8.9.1",
+      "kind": "documentation",
+      "url": "https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/NUOPC_howtodoc/",
+      "managed": true,
+      "version_basis": "Official 8.9.1 release URL and release label checked on manual index"
+    },
+    {
+      "name": "ESMF_refdoc",
+      "path": "corpus/manuals/ESMF_refdoc",
+      "version": "8.9.1",
+      "kind": "documentation",
+      "url": "https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/ESMF_refdoc/",
+      "managed": true,
+      "version_basis": "Official 8.9.1 release URL and release label checked on manual index"
+    },
+    {
+      "name": "esmf/NUOPC/examples",
+      "path": "corpus/examples",
+      "version": "8.9.1",
+      "kind": "example",
+      "url": "https://github.com/esmf-org/esmf/blob/bd03a249df907464fdad91b7c43985dedbc472c7/src/addon/NUOPC/examples",
+      "revision": "bd03a249df907464fdad91b7c43985dedbc472c7",
+      "managed": true,
+      "version_basis": "Clean release checkout verified by commit"
+    },
+    {
+      "name": "esmf/NUOPC/src",
+      "path": "corpus/src",
+      "version": "8.9.1",
+      "kind": "implementation",
+      "url": "https://github.com/esmf-org/esmf/blob/bd03a249df907464fdad91b7c43985dedbc472c7/src/addon/NUOPC/src",
+      "revision": "bd03a249df907464fdad91b7c43985dedbc472c7",
+      "managed": true,
+      "version_basis": "Clean release checkout verified by commit"
+    },
+    {
+      "name": "kokkos-docs",
+      "path": "corpus/kokkos/source",
+      "library": "kokkos",
+      "version": "snapshot-3cf2e0638b24",
+      "kind": "documentation",
+      "managed": true,
+      "revision": "3cf2e0638b2419f4631fa85ea2b9aca47004dc18",
+      "url": "https://github.com/kokkos/kokkos-core-wiki/blob/3cf2e0638b2419f4631fa85ea2b9aca47004dc18/docs/source",
+      "version_basis": "Official rolling core documentation snapshot; not release-certified",
+      "target_release": "5.2.2"
+    },
+    {
+      "name": "kokkos-kernels-docs",
+      "path": "corpus/kokkos-kernels/source",
+      "library": "kokkos-kernels",
+      "version": "5.2.2",
+      "kind": "documentation",
+      "managed": true,
+      "revision": "30ad8eddc07f98f73ad22d5ed59cbea78277b03e",
+      "url": "https://github.com/kokkos/kokkos-kernels/blob/30ad8eddc07f98f73ad22d5ed59cbea78277b03e/docs/source",
+      "version_basis": "Official documentation from verified release commit",
+      "target_release": "5.2.2"
+    },
+    {
+      "name": "kokkos-kernels-includes",
+      "path": "corpus/kokkos-kernels/included-code",
+      "library": "kokkos-kernels",
+      "version": "5.2.2",
+      "kind": "example",
+      "managed": true,
+      "revision": "30ad8eddc07f98f73ad22d5ed59cbea78277b03e",
+      "url": "https://github.com/kokkos/kokkos-kernels/blob/30ad8eddc07f98f73ad22d5ed59cbea78277b03e",
+      "version_basis": "Example files referenced by release documentation",
+      "missing_includes": [
+        "../../../../../example/apply_householder.cpp",
+        "../../../../../example/householder.cpp"
+      ]
+    }
+  ]
+}

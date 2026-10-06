@@ -1,0 +1,16 @@
+{
+  "kokkos": {
+    "repo": "kokkos/kokkos-core-wiki",
+    "commit": "3cf2e0638b2419f4631fa85ea2b9aca47004dc18",
+    "version": "snapshot-3cf2e0638b24",
+    "target_release": "5.2.2",
+    "checked_at": "2026-10-06T13:02:23.856763+00:00"
+  },
+  "kokkos-kernels": {
+    "repo": "kokkos/kokkos-kernels",
+    "commit": "30ad8eddc07f98f73ad22d5ed59cbea78277b03e",
+    "version": "5.2.2",
+    "tag": "5.2.2",
+    "checked_at": "2026-10-06T13:02:29.048262+00:00"
+  }
+}

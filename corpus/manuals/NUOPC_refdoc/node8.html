@@ -1,0 +1,1589 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>7 Appendix B: Initialize Phase Definition Versions</TITLE>
+<META NAME="description" CONTENT="7 Appendix B: Initialize Phase Definition Versions">
+<META NAME="keywords" CONTENT="NUOPC_refdoc">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="NUOPC_refdoc.css">
+
+<LINK REL="next" HREF="node9.html">
+<LINK REL="previous" HREF="node7.html">
+<LINK REL="up" HREF="NUOPC_refdoc.html">
+<LINK REL="next" HREF="node9.html">
+</HEAD>
+
+<BODY BGCOLOR=white LINK=#083194 VLINK=#21004A>
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html639"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html635"
+  HREF="NUOPC_refdoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html629"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html637"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html640"
+  HREF="node9.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html636"
+  HREF="NUOPC_refdoc.html">NUOPC_refdoc</A>
+<B> Previous:</B> <A NAME="tex2html630"
+  HREF="node7.html">6 Appendix A: Run</A>
+ &nbsp; <B>  <A NAME="tex2html638"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html641"
+  HREF="node8.html#SECTION00081000000000000000"><SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">1</SPAN> NUOPC_Driver IPD implementation</A>
+<LI><A NAME="tex2html642"
+  HREF="node8.html#SECTION00082000000000000000"><SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">2</SPAN> NUOPC_ModelBase IPD implementation</A>
+<LI><A NAME="tex2html643"
+  HREF="node8.html#SECTION00083000000000000000"><SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN> NUOPC_Model IPD implementation</A>
+<UL>
+<LI><A NAME="tex2html644"
+  HREF="node8.html#SECTION00083100000000000000"><SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Initialize Phase Specialization - label_SetClock</A>
+<LI><A NAME="tex2html645"
+  HREF="node8.html#SECTION00083200000000000000"><SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Initialize Phase Specialization - label_DataInitialize</A>
+<LI><A NAME="tex2html646"
+  HREF="node8.html#SECTION00083300000000000000"><SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Run Phase Specialization - label_SetRunClock</A>
+<LI><A NAME="tex2html647"
+  HREF="node8.html#SECTION00083400000000000000"><SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Run Phase Specialization - label_CheckImport</A>
+<LI><A NAME="tex2html648"
+  HREF="node8.html#SECTION00083500000000000000"><SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Run Phase Specialization - label_Advance</A>
+<LI><A NAME="tex2html649"
+  HREF="node8.html#SECTION00083600000000000000"><SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> Run Phase Specialization - label_TimestampExport</A>
+<LI><A NAME="tex2html650"
+  HREF="node8.html#SECTION00083700000000000000"><SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">7</SPAN> Finalize Phase Specialization - label_Finalize</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html651"
+  HREF="node8.html#SECTION00084000000000000000"><SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">4</SPAN> NUOPC_Mediator IPD implementation</A>
+<LI><A NAME="tex2html652"
+  HREF="node8.html#SECTION00085000000000000000"><SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">5</SPAN> NUOPC_Connector IPD implementation</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00080000000000000000">
+<SPAN CLASS="arabic">7</SPAN> Appendix B: Initialize Phase Definition Versions</A>
+</H1>
+
+<P>
+<A NAME="IPD"></A>
+<P>
+<B>IMPORTANT:  Use of explicit Initialize Phase Definition versions and phase labels is deprecated - this section is provided only for reference for NUOPC caps that still use the IPD syntax.  See the section on Semantic Specialization Labels for the preferred method of specializing NUOPC caps.</B>
+
+<P>
+The interaction between NUOPC compliant components during the initialization process is regulated by the <B>Initialize Phase Definition</B> or <B>IPD</B>. The IPDs are versioned, with a higher version number indicating backward compatibility with all previous versions.
+
+<P>
+There are two perspectives of looking at the IPD. From the driver perspective the IPD regulates the sequence in which it must call the different phases of the Initialize() routines of its child components. To this end the generic <TT>NUOPC_Driver</TT> component implements support for IPDs up to a version specified in the API documentation.
+
+<P>
+The other angle of looking at the IPD is from the driver's child components. From this perspective the IPD assigns specific meaning to each initialize phase. The child components of a driver can be divided into two groups with respect to the meaning the IPD assigns to each initialize phase. In one group are the model, mediator, and driver components, and in the other group are the connector components. Child components publish their available initialize phases through the <TT>InitializePhaseMap</TT> attribute.
+
+<P>
+The driver also calls into its own internal initialize methods. This allows the driver to participate in the initialization of its children in a structured fashion. The internal initialization phases of a driver are published via the <TT>InternalInitializePhaseMap</TT> attribute.
+
+<P>
+The following tables document the meaning of each initialization phase of the available IPD versions for the child components and for the driver component itself. The phases are listed in the sequence in which the driver calls them.
+<BR>
+
+<P>
+<BR>
+<BR>
+<BR>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><B>IPDv00 label</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125><B>Component</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><B>Meaning</B></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv00p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv00p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Advertise their import and export Fields.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv00p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Construct their <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv00p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv00p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Realize their import and export Fields.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv00p2a</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Set the <TT>Connected</TT> Attribute on each import and export Field according to the <TT>CplList</TT> Attribute. Reconcile the import and export States.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv00p2b</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Precompute the RouteHandle.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv00p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv00p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Check for compatibility of their Fields' <TT>Connected</TT> status.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv00p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv00p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Handle Field data initialization. Timestamp their export Fields.</TD>
+</TR>
+</TABLE>
+
+<P>
+<BR>
+<BR>
+<BR>
+<BR>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><B>IPDv01 label</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125><B>Component</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><B>Meaning</B></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Advertise their import and export Fields.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Construct their <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Modify the <TT>CplList</TT> Attributes on the Connectors.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified/unused by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Set the <TT>Connected</TT> Attribute on each import and export Field according to the <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Realize their "connected" import and export Fields.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p3a</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Reconcile the import and export States.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p3b</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Precompute the RouteHandle according to the <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Check for compatibility of their Fields' <TT>Connected</TT> status.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p5</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv01p5</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Handle Field data initialization. Timestamp their export Fields.</TD>
+</TR>
+</TABLE>
+
+<P>
+<BR>
+<BR>
+<BR>
+<BR>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><B>IPDv02 label</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125><B>Component</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><B>Meaning</B></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Advertise their import and export Fields.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Construct their <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Modify the <TT>CplList</TT> Attributes on the Connectors.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified/unused by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Set the <TT>Connected</TT> Attribute on each import and export Field according to the <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Realize their "connected" import and export Fields.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p3a</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Reconcile the import and export States.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p3b</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Precompute the RouteHandle according to the <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Check for compatibility of their Fields' <TT>Connected</TT> status.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p5</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p5</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Handle Field data initialization. Timestamp their export Fields.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=383 COLSPAN=3><SPAN><I>A loop is entered over all those model, mediator, driver Components that use IPDv02 and have
+     unsatisfied data dependencies, repeating the following two steps:</I></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>Run()</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Loop over all Connectors that connect <I>to</I> the Component that is currently indexed by the outer loop.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv02p5</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Handle Field data initialization. Timestamp their export Fields and set the <TT>Updated</TT> and <TT>InitializeDataComplete</TT> Attributes accordingly.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=383 COLSPAN=3><SPAN><I>Repeat these two steps until all data
+     dependencies have been statisfied, or a dead-lock situation is detected.</I></SPAN></TD>
+</TR>
+</TABLE>
+
+<P>
+<BR>
+<BR>
+<BR>
+<BR>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><B>IPDv03 label</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125><B>Component</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><B>Meaning</B></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Advertise their import and export Fields and set the <TT>TransferOfferGeomObject</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Construct their <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Modify the <TT>CplList</TT> Attributes on the Connectors.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified/unused by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Set the <TT>Connected</TT> Attribute on each import and export Field according to the <TT>CplList</TT> Attribute. Set the <TT>TransferActionGeomObject</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Realize their "connected" import and export Fields that have <TT>TransferActionGeomObject</TT> equal to "provide".</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Transfer the Grid/Mesh/LocStream objects (only DistGrid) for Field pairs that have a provider and an acceptor side.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Optionally modify the decomposition and distribution information of the accepted Grid/Mesh/LocStream by replacing the DistGrid.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Transfer the full Grid/Mesh/LocStream objects (with coordinates) for Field pairs that have a provider and an acceptor side.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p5</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p5</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Realize all Fields that have <TT>TransferActionGeomObject</TT> equal to "accept" on the transferred Grid/Mesh/LocStream objects.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p5a</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Reconcile the import and export States.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p5b</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Precompute the RouteHandle according to the <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p6</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p6</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Check compatibility of their Fields' <TT>Connected</TT> status.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p7</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p7</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Handle Field data initialization. Timestamp the export Fields.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=383 COLSPAN=3><SPAN><I>A loop is entered over all those model, mediator, driver Components that use IPDv02 and have
+     unsatisfied data dependencies, repeating the following two steps:</I></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>Run()</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Loop over all Connectors that connect <I>to</I> the Component that is currently indexed by the outer loop.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv03p7</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Handle Field data initialization. Time stamp the export Fields and set the <TT>Updated</TT> and <TT>InitializeDataComplete</TT> Attributes accordingly.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=383 COLSPAN=3><SPAN><I>Repeat these two steps until all data
+     dependencies have been statisfied, or a dead-lock situation is detected.</I></SPAN></TD>
+</TR>
+</TABLE>
+
+<P>
+<BR>
+<BR>
+<BR>
+<BR>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><B>IPDv04 label</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125><B>Component</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><B>Meaning</B></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Advertise their import and export Fields and set the <TT>TransferOfferGeomObject</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p1a</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Consider all connection possibilities for their <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p1b</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Unambiguous construction of their <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Modify the <TT>CplList</TT> Attributes on the Connectors.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified/unused by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Set the <TT>Connected</TT> Attribute on each import and export Field according to the <TT>CplList</TT> Attribute. Set the <TT>TransferActionGeomObject</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Realize their "connected" import and export Fields that have <TT>TransferActionGeomObject</TT> equal to "provide".</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Transfer the Grid/Mesh/LocStream objects (only DistGrid) for Field pairs that have a provider and an acceptor side.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Optionally modify the decomposition and distribution information of the accepted Grid/Mesh/LocStream by replacing the DistGrid.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Transfer the full Grid/Mesh/LocStream objects (with coordinates) for Field pairs that have a provider and an acceptor side.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p5</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p5</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Realize all Fields that have <TT>TransferActionGeomObject</TT> equal to "accept" on the transferred Grid/Mesh/LocStream objects.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p5a</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Reconcile the import and export States.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p5b</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Precompute the RouteHandle according to the <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p6</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p6</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Check compatibility of their Fields' <TT>Connected</TT> status.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p7</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p7</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Handle Field data initialization. Timestamp the export Fields.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=383 COLSPAN=3><SPAN><I>A loop is entered over all those model, mediator, driver Components that use IPDv02 and have
+     unsatisfied data dependencies, repeating the following two steps:</I></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>Run()</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Loop over all Connectors that connect <I>to</I> the Component that is currently indexed by the outer loop.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv04p7</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Handle Field data initialization. Time stamp the export Fields and set the <TT>Updated</TT> and <TT>InitializeDataComplete</TT> Attributes accordingly.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=383 COLSPAN=3><SPAN><I>Repeat these two steps until all data
+     dependencies have been statisfied, or a dead-lock situation is detected.</I></SPAN></TD>
+</TR>
+</TABLE>
+
+<P>
+<BR>
+<BR>
+<BR>
+<BR>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><B>IPDv05 label</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125><B>Component</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><B>Meaning</B></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Advertise import and export Fields and set the <TT>TransferOfferGeomObject</TT> Attribute. Optionally set <TT>FieldTransferPolicy</TT> Attribute on States.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Advertise their import and export Fields and set the <TT>TransferOfferGeomObject</TT> Attribute. Optionally set <TT>FieldTransferPolicy</TT> Attribute on States.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p1</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Consider <TT>FieldTransferPolicy</TT> Attribute on import and export States. Advertise Fields to be transferred.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Optionally modify import and export States before connectors construct <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p2</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Optionally modify import and export States before connectors construct <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p2a</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Consider all connection possibilities for their <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p2b</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Unambiguous construction of their <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Modify the <TT>CplList</TT> Attributes on the Connectors.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified/unused by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p3</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Set the <TT>Connected</TT> Attribute on each import and export Field according to the <TT>CplList</TT> Attribute. Set the <TT>TransferActionGeomObject</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Realize "connected" import and export Fields that have <TT>TransferActionGeomObject</TT> equal to "provide".</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Realize their "connected" import and export Fields that have <TT>TransferActionGeomObject</TT> equal to "provide".</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p4</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Transfer the Grid/Mesh/LocStream objects (only DistGrid) for Field pairs that have a provider and an acceptor side.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p5</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Optionally modify the decomposition and distribution information of the accepted Grid/Mesh/LocStream by replacing the DistGrid.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p5</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Optionally modify the decomposition and distribution information of the accepted Grid/Mesh/LocStream by replacing the DistGrid.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p5</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Transfer the full Grid/Mesh/LocStream objects (with coordinates) for Field pairs that have a provider and an acceptor side.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p6</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Realize all Fields that have <TT>TransferActionGeomObject</TT> equal to "accept" on the transferred Grid/Mesh/LocStream objects.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p6</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Realize all Fields that have <TT>TransferActionGeomObject</TT> equal to "accept" on the transferred Grid/Mesh/LocStream objects.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p6a</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Reconcile the import and export States.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p6b</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Precompute the RouteHandle according to the <TT>CplList</TT> Attribute.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p7</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p7</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Check compatibility of their Fields' <TT>Connected</TT> status.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p8</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>driver-internal</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300><EM>unspecified by NUOPC</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p8</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Handle Field data initialization. Timestamp the export Fields.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=383 COLSPAN=3><SPAN><I>A loop is entered over all those model, mediator, driver Components that use IPDv02 and have
+     unsatisfied data dependencies, repeating the following two steps:</I></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>Run()</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>connectors</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Loop over all Connectors that connect <I>to</I> the Component that is currently indexed by the outer loop.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=75><TT>IPDv05p8</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=125>models, mediators, drivers</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=300>Handle Field data initialization. Time stamp the export Fields and set the <TT>Updated</TT> and <TT>InitializeDataComplete</TT> Attributes accordingly.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=383 COLSPAN=3><SPAN><I>Repeat these two steps until all data
+     dependencies have been statisfied, or a dead-lock situation is detected.</I></SPAN></TD>
+</TR>
+</TABLE>
+
+<P>
+
+<H2><A NAME="SECTION00081000000000000000">
+<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">1</SPAN> NUOPC_Driver IPD implementation</A>
+</H2>
+
+<P><P>
+<BR>
+<I CLASS="sans">INITIALIZE:</I>
+
+<UL>
+<LI>phase 0: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Ensure that the <TT>InitializePhaseMap</TT> and <TT>InternalInitializePhaseMap</TT> attributes are set consistent with the available NUOPC Initialize Phase Definition (IPD) versions (see section <A HREF="#IPD">7</A> for a precise definition). The default implementation uses IPDv02 for <TT>InitializePhaseMap</TT>, and sets
+    
+<UL>
+<LI>IPDv02p1  (NUOPC P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv02p3  (NUOPC P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv02p5  (NUOPC P<SMALL>ROVIDED</SMALL>).
+    
+</LI>
+</UL>  
+ The default implementation uses IPDv05 for <TT>InternalInitializePhaseMap</TT>, and sets
+    
+<UL>
+<LI>IPDv05p1  (NUOPC P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv05p2  (NUOPC P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv05p3  (NUOPC P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv05p4  (NUOPC P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv05p6  (NUOPC P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv05p8  (NUOPC P<SMALL>ROVIDED</SMALL>).
+    
+</LI>
+</UL>
+</LI>
+</UL>  
+</LI>
+<LI>phase 1: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>A default Initialize entry point for the higher level (e.g. application level) to initialize the Driver with a single call.
+</LI>
+<LI>Internally calls into the  <TT>InitializePhaseMap</TT>: IPDv02p1, IPDv02p3, IPDv02p5 phases in sequence.
+  
+</LI>
+</UL>  
+
+<P>
+</LI>
+<LI><TT>InitializePhaseMap</TT>: IPDv02p1 (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Allocate and initialize internal data structures.
+</LI>
+<LI>If the internal clock is not yet set, set the default internal clock to be a copy of the incoming clock, but only if the incoming clock is valid.
+</LI>
+<LI><I>Required specialization</I> to set component services: <TT>label_SetModelServices</TT>.
+  
+<UL>
+<LI>Call <TT>NUOPC_DriverAddComp()</TT> for all Model, Mediator, and Connector components to be added.
+</LI>
+<LI>Optionally replace the default clock. 
+  
+</LI>
+</UL>
+</LI>
+<LI>Create States for all of the child GridComps.
+</LI>
+<LI>Create Connectors to/from Driver component itself.
+</LI>
+<LI>Set default run sequence.
+</LI>
+<LI>Execute Initialize phase=0 for all Model, Mediator, and Connector components. This is the method where each component is required to initialize its <TT>InitializePhaseMap</TT> Attribute.
+</LI>
+<LI><I>Optional specialization</I> to analyze and modify the <TT>InitializePhaseMap</TT> Attribute of the child components before the Driver uses it: <TT>label_ModifyInitializePhaseMap</TT>.
+</LI>
+<LI><I>Optional specialization</I> to set run sequence: <TT>label_SetRunSequence</TT>.
+</LI>
+<LI>Drive the initialize sequence for the child components, compatible with up to IPDv05, as documented in section <A HREF="#IPD">7</A>, through IPDv05p3.
+  
+</LI>
+</UL>  
+
+<P>
+</LI>
+<LI><TT>InitializePhaseMap</TT>: IPDv02p3 (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Continue to drive the initialize sequence for the child components, compatible with up to IPDv05, as documented in section <A HREF="#IPD">7</A>, through IPDv05p7.
+  
+</LI>
+</UL>  
+
+<P>
+</LI>
+<LI><TT>InitializePhaseMap</TT>: IPDv02p5 (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Continue to drive the initialize sequence for the child components, compatible with up to IPDv05, as documented in section <A HREF="#IPD">7</A>, through IPDv05p8.
+  
+</LI>
+</UL>  
+
+<P>
+</LI>
+<LI><TT>InternalInitializePhaseMap</TT>: IPDv05p1 (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Request that fields in export and import State of child components are mirrored onto the driver's own import and export States.
+</LI>
+<LI>This includes transferring the associated Grid, Mesh, or LocStream objects.
+  
+</LI>
+</UL>  
+
+<P>
+</LI>
+<LI><TT>InternalInitializePhaseMap</TT>: IPDv05p2 (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Reset the request of field mirroring.
+  
+</LI>
+</UL>  
+
+<P>
+</LI>
+<LI><TT>InternalInitializePhaseMap</TT>: IPDv05p3 (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Add the <TT>REMAPMETHOD=redist</TT> option to all entries in <TT>CplList</TT> attribute on all Connectors to/from the driver itself.
+</LI>
+<LI><I>Optional specialization</I> to modify the <TT>CplList</TT> attribute on all of the Connectors: <TT>label_ModifyCplLists</TT>.
+  
+</LI>
+</UL>  
+
+<P>
+</LI>
+<LI><TT>InternalInitializePhaseMap</TT>: IPDv05p4 (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Check that all connected fields in the driver's own import and export State have a producer connection.
+  
+</LI>
+</UL>  
+
+<P>
+</LI>
+<LI><TT>InternalInitializePhaseMap</TT>: IPDv05p6 (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Complete the allocation of all the fields in the driver's own import and export State.
+  
+</LI>
+</UL>  
+
+<P>
+</LI>
+<LI><TT>InternalInitializePhaseMap</TT>: IPDv05p8 (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Set the <TT>InitializeDataComplete</TT> consistent with the data-dependency protocol.
+  
+</LI>
+</UL>  
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">RUN:</I>
+
+<UL>
+<LI>phase 1: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>If the incoming clock is valid, set the internal stop time to one time step interval on the incoming clock.
+</LI>
+<LI>Drive the time stepping loop, from current time to stop time, incrementing by time step.
+  
+<UL>
+<LI>For each time step iteration the Model and Connector components Run() methods are being called according to the run sequence.
+  
+</LI>
+</UL>
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">FINALIZE:</I>
+
+<UL>
+<LI>phase 1: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Execute the Finalize() methods of all Connector components in order.
+</LI>
+<LI>Execute the Finalize() methods of all Model components in order.
+</LI>
+<LI><I>Optional specialization</I> to finalize custom parts of the component: <TT>label_Finalize</TT>.
+</LI>
+<LI>Destroy all Model components and their import and export states.
+</LI>
+<LI>Destroy all Connector components.
+</LI>
+<LI>Internal clean-up.
+  
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<H2><A NAME="SECTION00082000000000000000">
+<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">2</SPAN> NUOPC_ModelBase IPD implementation</A>
+</H2>
+
+<P><P>
+<BR>
+<I CLASS="sans">INITIALIZE:</I>
+
+<UL>
+<LI>phase 0: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Initialize the <TT>InitializePhaseMap</TT> Attribute according to the NUOPC Initialize Phase Definition (IPD) version 00 (see section <A HREF="#IPD">7</A> for a precise definition). The default implementation sets the following mapping:
+    
+<UL>
+<LI>IPDv00p1 = 1: (R<SMALL>EQUIRED, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv00p2 = 2: (R<SMALL>EQUIRED, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv00p3 = 3: (R<SMALL>EQUIRED, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv00p4 = 4: (R<SMALL>EQUIRED, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>)
+    
+</LI>
+</UL>
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">RUN:</I>
+
+<UL>
+<LI>phase 1: (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>S<SMALL>PECIALIZATION </SMALL>R<SMALL>EQUIRED/</SMALL>P<SMALL>ROVIDED</SMALL>: <TT>label_SetRunClock</TT> to check and set the internal Clock against the incoming Clock.
+  
+<UL>
+<LI><TT>IF</TT> (Phase specific specialization present): Execute the phase specific specialization.
+</LI>
+<LI><TT>ELSE</TT>: Execute the phase independent specialization. P<SMALL>ROVIDED</SMALL>: By default check that internal Clock and incoming Clock agree on current time and that the time step of the incoming Clock is a multiple of the internal Clock time step. Under these conditions set the internal stop time to one time step interval of the incoming Clock. Otherwise exit with error, flagging an incompatibility.
+  
+</LI>
+</UL>
+</LI>
+<LI>S<SMALL>PECIALIZATION </SMALL>R<SMALL>EQUIRED/</SMALL>P<SMALL>ROVIDED</SMALL>: <TT>label_CheckImport</TT> to check Fields in the import State.
+  
+<UL>
+<LI><TT>IF</TT> (Phase specific specialization is present): Execute the phase specific specialization.
+</LI>
+<LI><TT>ELSE</TT>: Execute the phase independent specialization. P<SMALL>ROVIDED</SMALL>: By default check that all import Fields are at the current time of the internal Clock.
+  
+</LI>
+</UL>
+</LI>
+<LI>Time stepping loop: starting at current time, running to stop time of the internal Clock.
+  
+<UL>
+<LI>Timestamp the Fields in the export State according to the current time of the internal Clock.
+</LI>
+<LI>S<SMALL>PECIALIZATION </SMALL>R<SMALL>EQUIRED</SMALL>: <TT>label_Advance</TT> to execute model or mediation code.
+</LI>
+<LI>S<SMALL>PECIALIZATION </SMALL>O<SMALL>PTIONAL</SMALL>: <TT>label_AdvanceClock</TT> to advance the current time of the internal Clock. By default (without specialization) advance the current time of the internal Clock according to the time step of the internal Clock.
+  
+</LI>
+</UL>
+</LI>
+<LI>S<SMALL>PECIALIZATION </SMALL>O<SMALL>PTIONAL</SMALL>: <TT>label_TimestampExport</TT> to timestamp Fields in the export State.
+  
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">FINALIZE:</I>
+
+<UL>
+<LI>phase 1: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI><I>Optional specialization</I> to finalize custom parts of the component: <TT>label_Finalize</TT>.
+  
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<H2><A NAME="SECTION00083000000000000000">
+<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN> NUOPC_Model IPD implementation</A>
+</H2>
+
+<P><P>
+<BR>
+<I CLASS="sans">INITIALIZE:</I>
+
+<UL>
+<LI>phase 0: Set Initialize Phase Definition Version (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Initialize the <TT>InitializePhaseMap</TT> Attribute according to the NUOPC Initialize Phase Definition (IPD) version 00 (see section <A HREF="#IPD">7</A> for a precise definition). The default implementation sets the following mapping:
+    
+<UL>
+<LI>IPDv00p1 = 1: (R<SMALL>EQUIRED, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>)
+      
+<UL>
+<LI>Advertise Fields in import and export States.
+      
+</LI>
+</UL>
+</LI>
+<LI>IPDv00p2 = 2: (R<SMALL>EQUIRED, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>)
+      
+<UL>
+<LI>Realize the advertised Fields in import and export States.
+      
+</LI>
+</UL>  
+</LI>
+<LI>IPDv00p3 = 3: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+      
+<UL>
+<LI>Check compatibility of the Fields' Connected status.
+      
+</LI>
+</UL>
+</LI>
+<LI>IPDv00p4 = 4: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+      
+<UL>
+<LI>Handle Field data initialization. Time stamp the export Fields.
+      
+</LI>
+</UL>
+</LI>
+</UL>
+</LI>
+</UL>  
+</LI>
+<LI>IPDv00p1, IPDv01p1, IPDv02p1, IPDv03p1, IPDv04p1, IPDv05p1: Advertise fields in import and export States (R<SMALL>EQUIRED, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Advertise fields in import/export states using one of the two <TT>NUOPC_Advertise</TT> methods (<A HREF="node4.html#NUOPC_AdvertiseField">3.9.3</A>, <A HREF="node4.html#NUOPC_AdvertiseFields">3.9.4</A>). The methods require Standard Names for each field, and the Standard Names must appear in the NUOPC Field Dictionary or a runtime error is generated.  <TT>NUOPC_Advertise</TT> accepts a <TT>TransferOfferGeomObject</TT> argument which may be one of:
+    
+<UL>
+<LI>&ldquo;will provide&rdquo; (default) - The field will provide its own geometric object (i.e., Grid, Mesh, or LocStream)
+</LI>
+<LI>&ldquo;can provide&rdquo;- The field can provide its own geometric object, but only if the connected field in the other component will not provide it
+</LI>
+<LI>&ldquo;cannot provide&rdquo; - The field cannot provide its own geometric object. It must accept a geometric object from a connected field.
+    
+</LI>
+</UL>
+  See section <A HREF="node3.html#TransferGeom">2.4.7</A> for more details about transferring geometric objects between NUOPC components.
+  Memory is not allocated for advertised fields, but attributes are set on the field which can be used in later phases, especially for determining if another component can provide and/or consume the advertised field.
+  
+</LI>
+</UL>
+</LI>
+<LI>IPDv00p2, IPDv01p3, IPDv02p3, IPDv03p3, IPDv04p3, IPDv05p4: Realize field <EM>providing</EM> a geometric object (R<SMALL>EQUIRED*, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Realize connected import and export fields that have their TransferActionGeomObject attribute set to &ldquo;provide&rdquo;, i.e., that will provide their own geometric object (i.e., Grid, Mesh, or LocStream). &ldquo;provide&rdquo; is the default value of TransferActionGeomObject. Realize means an ESMF_Field object is created on a geometric object and memory for the field is allocated or referenced.
+
+<P>
+The <TT>NUOPC_Realize</TT> methods (<A HREF="node4.html#NUOPC_RealizeCompleteG">3.9.22</A>, <A HREF="node4.html#NUOPC_RealizeCompleteLS">3.9.23</A>, <A HREF="node4.html#NUOPC_RealizeCompleteM">3.9.24</A>, <A HREF="node4.html#NUOPC_RealizeField">3.9.25</A>, <A HREF="node4.html#NUOPC_RealizeTransfer">3.9.26</A>) are used to realize fields. Only previously advertised fields can be realized and the field's name is used to search the state for the previously advertised field.
+
+<P>
+*Note: This phase is not required if all fields are <EM>accepting</EM> a geometric object.
+  
+</LI>
+</UL>
+</LI>
+<LI>IPDv03p4, IPDv04p4, IPDv05p5: Modify decomposition of accepted geometric object (O<SMALL>PTIONAL, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Optionally modify the decomposition information of any accepted geometric object by replacing the DistGrid. In the case of the Grid geometric object, this can be accomplished by retrieving the Grid (and its DistGrid) from the Field, creating a new DistGrid with modified decomposition, creating a new Grid on the new (modified) DistGrid, and then using <TT>ESMF_FieldEmptySet</TT> to replace the existing Grid with the new one.
+
+<P>
+This phase is useful when accepting a Grid from another component, but when the PET counts differ between components. In this case, a new decomposition needs to be set based on the current processor count.
+  
+</LI>
+</UL>
+</LI>
+<LI>IPDv03p5, IPDv04p5, IPDv05p6: Realize fields <EM>accepting</EM> a geometric object (R<SMALL>EQUIRED*, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Realize connected import and export fields that have their TransferActionGeomObject attribute set to &ldquo;accept&rdquo;, i.e., that will accept a geometric object from a connected field in another component.  If the generic <TT>NUOPC_Connector</TT> is used, at this point the full geometric object has already been set in the field and only a call to <TT>ESMF_FieldEmptyComplete</TT> is required to allocate memory for the field.
+
+<P>
+The <TT>NUOPC_Realize</TT> methods (<A HREF="node4.html#NUOPC_RealizeCompleteG">3.9.22</A>, <A HREF="node4.html#NUOPC_RealizeCompleteLS">3.9.23</A>, <A HREF="node4.html#NUOPC_RealizeCompleteM">3.9.24</A>, <A HREF="node4.html#NUOPC_RealizeField">3.9.25</A>, <A HREF="node4.html#NUOPC_RealizeTransfer">3.9.26</A>) are used to realize fields. Only previously advertised fields can be realized and the field's name is used to search the state for the previously advertised field.
+
+<P>
+*Note: This phase is not required if all fields are <EM>providing</EM> a geometric object.
+  
+</LI>
+</UL>
+</LI>
+<LI>IPDv00p3, IPDv01p4, IPDv02p4, IPDv03p6, IPDv04p6, IPDv05p7: Verify import fields connected and set clock (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>If the model internal clock is found to be not set, then set the model internal clock as a copy of the incoming clock. 
+</LI>
+<LI><I>Optional specialization</I> to set the internal clock and/or alarms: <TT>label_SetClock</TT>.
+</LI>
+<LI>Check compatibility, ensuring all advertised import Fields are connected.
+  
+</LI>
+</UL>   
+</LI>
+<LI>IPDv00p4, IPDv01p5:  Initialize export fields (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI><I>Optional specialization</I> to initialize export Fields: <TT>label_DataInitialize</TT>
+</LI>
+<LI>Time stamp Fields in export State for compatibility checking.
+  
+</LI>
+</UL>    
+</LI>
+<LI>IPDv02p5, IPDv03p7, IPDv04p7, IPDv05p8: Initialize export fields (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI><I>Optional specialization</I> to initialize export Fields: <TT>label_DataInitialize</TT>
+</LI>
+<LI>Timestamp Fields in export State for compatibility checking.
+</LI>
+<LI>Set Component metadata used to resolve initialize data dependencies.
+  
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">RUN:</I>
+
+<UL>
+<LI>phase 1: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>S<SMALL>PECIALIZATION </SMALL>R<SMALL>EQUIRED/</SMALL>P<SMALL>ROVIDED</SMALL>: <TT>label_SetRunClock</TT> to check and set the internal Clock against the incoming Clock.
+  
+<UL>
+<LI><TT>IF</TT> (Phase specific specialization present): Execute the phase specific specialization.
+</LI>
+<LI><TT>ELSE</TT>: Execute the phase independent specialization. P<SMALL>ROVIDED</SMALL>: By default check that internal Clock and incoming Clock agree on current time and that the time step of the incoming Clock is a multiple of the internal Clock time step. Under these conditions set the internal stop time to one time step interval of the incoming Clock. Otherwise exit with error, flagging an incompatibility.
+  
+</LI>
+</UL>
+</LI>
+<LI>S<SMALL>PECIALIZATION </SMALL>R<SMALL>EQUIRED/</SMALL>P<SMALL>ROVIDED</SMALL>: <TT>label_CheckImport</TT> to check Fields in the import State.
+  
+<UL>
+<LI><TT>IF</TT> (Phase specific specialization is present): Execute the phase specific specialization.
+</LI>
+<LI><TT>ELSE</TT>: Execute the phase independent specialization. P<SMALL>ROVIDED</SMALL>: By default check that all import Fields are at the current time of the internal Clock.
+  
+</LI>
+</UL>
+</LI>
+<LI>Time stepping loop: starting at current time, running to stop time of the internal Clock.
+  
+<UL>
+<LI>Timestamp the Fields in the export State according to the current time of the internal Clock.
+</LI>
+<LI>S<SMALL>PECIALIZATION </SMALL>R<SMALL>EQUIRED</SMALL>: <TT>label_Advance</TT> to execute model code.
+</LI>
+<LI>S<SMALL>PECIALIZATION </SMALL>O<SMALL>PTIONAL</SMALL>: <TT>label_AdvanceClock</TT> to advance the current time of the internal Clock. By default (without specialization) advance the current time of the internal Clock according to the time step of the internal Clock.
+  
+</LI>
+</UL>
+</LI>
+<LI>S<SMALL>PECIALIZATION </SMALL>O<SMALL>PTIONAL/</SMALL>P<SMALL>ROVIDED</SMALL>: <TT>label_TimestampExport</TT> to timestamp Fields in the export State.
+  
+<UL>
+<LI><TT>IF</TT> (Phase specific specialization present): Execute the phase specific specialization.
+</LI>
+<LI><TT>ELSE</TT>: Execute the phase independent specialization. P<SMALL>ROVIDED</SMALL>: Timestamp all Fields in the export State according to the current time of the internal Clock, which now is identical to the stop time of the internal Clock.
+  
+</LI>
+</UL>
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">FINALIZE:</I>
+
+<UL>
+<LI>phase 1: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI><I>Optional specialization</I> to finalize custom parts of the component: <TT>label_Finalize</TT>.
+  
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<H3><A NAME="SECTION00083100000000000000">
+<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Initialize Phase Specialization - label_SetClock</A>
+</H3>
+O<SMALL>PTIONAL, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>
+<BR><EM>Called from: IPDv00p3, IPDv01p4, IPDv02p4, IPDv03p6, IPDv04p6, IPDv05p7</EM>
+<BR>
+<P>
+The specialization method can change aspects of the internal clock, which defaults to a copy of the incoming parent clock. For example, the timeStep size may be changed and/or Alarms may be set on the clock.
+<BR>
+<P>
+The method <TT>NUOPC_CompSetClock(comp, externalClock, stabilityTimeStep)</TT> (<A HREF="node4.html#NUOPC_GridCompSetClock">3.6.38</A>) can be used to set the internal clock as a copy of externalClock, but with a timeStep that is less than or equal to the stabilityTimeStep. At the same time it ensures that the timeStep of the external clock is a multiple of the timeStep of the internal clock. If the stabilityTimeStep argument is not provided then the internal clock will simply be set as a copy of the external clock.
+
+<P>
+
+<H3><A NAME="SECTION00083200000000000000">
+<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Initialize Phase Specialization - label_DataInitialize</A>
+</H3>
+O<SMALL>PTIONAL, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>
+<BR><EM>Called from: IPDv00p4, IPDv01p5, IPDv02p5, IPDv03p7, IPDv04p7, IPDv05p8</EM>
+<BR>
+<P>
+The specialization method should initialize field data in the export state. Fields in the export state will be timestamped automatically by the calling phase for all fields that have the &ldquo;Updated&rdquo; attribute set to &ldquo;true&rdquo;.
+
+<P>
+
+<H3><A NAME="SECTION00083300000000000000">
+<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Run Phase Specialization - label_SetRunClock</A>
+</H3>
+R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>
+<BR><EM>Called from: default run phase</EM>
+<BR>
+<P>
+A specialization method to check and set the internal clock against the incoming clock. This method is called by the default run phase.
+<BR>
+<P>
+If not overridden, the default method will check that the internal clock and incoming clock agree on the current time and that the time step of the incoming clock is a multiple of the internal clock time step. Under these conditions set the internal stop time to one time step interval of the incoming clock. Otherwise exit with error, flagging an incompatibility.
+
+<P>
+
+<H3><A NAME="SECTION00083400000000000000">
+<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Run Phase Specialization - label_CheckImport</A>
+</H3>
+R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>
+<BR><EM>Called from: default run phase</EM>
+<BR>
+<P>
+A specialization method to verify import fields before advancing in time. If not overridden, the default method verifies that all import fields are at the current time of the internal clock.
+
+<P>
+
+<H3><A NAME="SECTION00083500000000000000">
+<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Run Phase Specialization - label_Advance</A>
+</H3>
+R<SMALL>EQUIRED, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>
+<BR><EM>Called from: default run phase</EM>
+<BR>
+<P>
+A specialization method that advances the model forward in time by one timestep of the internal clock. This method will be called iteratively by the default run phase until reaching the stop time on the internal clock.
+
+<P>
+
+<H3><A NAME="SECTION00083600000000000000">
+<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> Run Phase Specialization - label_TimestampExport</A>
+</H3>
+R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>
+<BR><EM>Called from: default run phase</EM>
+<BR>
+<P>
+A specialization method to set the timestamp on export fields after the model has advanced. If not overridden, the default method sets the timestamp on all export fields to the stop time on the internal clock (which is also now the current model time).
+
+<P>
+
+<H3><A NAME="SECTION00083700000000000000">
+<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">7</SPAN> Finalize Phase Specialization - label_Finalize</A>
+</H3>
+O<SMALL>PTIONAL, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>
+<BR><EM>Called from: default finalize phase</EM>
+<BR>
+<P>
+An optional specialization method for custom finalization code and deallocations of user data structures.
+
+<P>
+
+<H2><A NAME="SECTION00084000000000000000">
+<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">4</SPAN> NUOPC_Mediator IPD implementation</A>
+</H2>
+
+<P><P>
+<BR>
+<I CLASS="sans">INITIALIZE:</I>
+
+<UL>
+<LI>phase 0: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Initialize the <TT>InitializePhaseMap</TT> Attribute according to the NUOPC Initialize Phase Definition (IPD) version 00 (see section <A HREF="#IPD">7</A> for a precise definition). The default implementation sets the following mapping:
+    
+<UL>
+<LI>IPDv00p1 = 1: (R<SMALL>EQUIRED, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>)
+      
+<UL>
+<LI>Advertise Fields in import and export States.
+      
+</LI>
+</UL>
+</LI>
+<LI>IPDv00p2 = 2: (R<SMALL>EQUIRED, </SMALL>I<SMALL>MPLEMENTOR </SMALL>P<SMALL>ROVIDED</SMALL>)
+      
+<UL>
+<LI>Realize the advertised Fields in import and export States.
+      
+</LI>
+</UL>  
+</LI>
+<LI>IPDv00p3 = 3: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+      
+<UL>
+<LI>Check compatibility of the Fields' Connected status.
+      
+</LI>
+</UL>
+</LI>
+<LI>IPDv00p4 = 4: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+      
+<UL>
+<LI>Handle Field data initialization. Time stamp the export Fields.
+      
+</LI>
+</UL>
+</LI>
+</UL>
+</LI>
+</UL>  
+</LI>
+<LI>IPDv00p3, IPDv01p4, IPDv02p4: (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Set the Mediator internal clock as a copy of the incoming clock. 
+</LI>
+<LI>Check compatibility, ensuring all advertised import Fields are connected.
+  
+</LI>
+</UL>  
+</LI>
+<LI>IPDv00p4, IPDv01p5: (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI><I>Optional specialization</I> to initialize export Fields: <TT>label_DataInitialize</TT>
+</LI>
+<LI>Time stamp Fields in import and export States for compatibility checking.
+  
+</LI>
+</UL>    
+</LI>
+<LI>IPDv02p5: (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI><I>Optional specialization</I> to initialize export Fields: <TT>label_DataInitialize</TT>
+</LI>
+<LI>Time stamp Fields in export State for compatibility checking.
+</LI>
+<LI>Set Component metadata used to resolve initialize data dependencies.
+  
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">RUN:</I>
+
+<UL>
+<LI>phase 1: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>S<SMALL>PECIALIZATION </SMALL>R<SMALL>EQUIRED/</SMALL>P<SMALL>ROVIDED</SMALL>: <TT>label_SetRunClock</TT> to check and set the internal Clock against the incoming Clock.
+  
+<UL>
+<LI><TT>IF</TT> (Phase specific specialization present): Execute the phase specific specialization.
+</LI>
+<LI><TT>ELSE</TT>: Execute the phase independent specialization. P<SMALL>ROVIDED</SMALL>: By default check that internal Clock and incoming Clock agree on current time and that the time step of the incoming Clock is a multiple of the internal Clock time step. Under these conditions set the internal stop time to one time step interval of the incoming Clock. Otherwise exit with error, flagging an incompatibility.
+  
+</LI>
+</UL>
+</LI>
+<LI>S<SMALL>PECIALIZATION </SMALL>R<SMALL>EQUIRED/</SMALL>P<SMALL>ROVIDED</SMALL>: <TT>label_CheckImport</TT> to check Fields in the import State.
+  
+<UL>
+<LI><TT>IF</TT> (Phase specific specialization is present): Execute the phase specific specialization.
+</LI>
+<LI><TT>ELSE</TT>: Execute the phase independent specialization. P<SMALL>ROVIDED</SMALL>: By default check that all import Fields are at the current time of the internal Clock.
+  
+</LI>
+</UL>
+</LI>
+<LI>Time stepping loop: starting at current time, running to stop time of the internal Clock.
+  
+<UL>
+<LI>Timestamp the Fields in the export State according to the current time of the internal Clock.
+</LI>
+<LI>S<SMALL>PECIALIZATION </SMALL>R<SMALL>EQUIRED</SMALL>: <TT>label_Advance</TT> to execute mediation code.
+</LI>
+<LI>S<SMALL>PECIALIZATION </SMALL>O<SMALL>PTIONAL</SMALL>: <TT>label_AdvanceClock</TT> to advance the current time of the internal Clock. By default (without specialization) advance the current time of the internal Clock according to the time step of the internal Clock.
+  
+</LI>
+</UL>
+</LI>
+<LI>S<SMALL>PECIALIZATION </SMALL>O<SMALL>PTIONAL/</SMALL>P<SMALL>ROVIDED</SMALL>: <TT>label_TimestampExport</TT> to timestamp Fields in the export State.
+  
+<UL>
+<LI><TT>IF</TT> (Phase specific specialization present): Execute the phase specific specialization.
+</LI>
+<LI><TT>ELSE</TT>: Execute the phase independent specialization. P<SMALL>ROVIDED</SMALL>: Timestamp all Fields in the export State according to the current time of the internal Clock when <EM>entering</EM> the RUN method.
+  
+</LI>
+</UL>
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">FINALIZE:</I>
+
+<UL>
+<LI>phase 1: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI><I>Optional specialization</I> to finalize custom parts of the component: <TT>label_Finalize</TT>.
+  
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<H2><A NAME="SECTION00085000000000000000">
+<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">5</SPAN> NUOPC_Connector IPD implementation</A>
+</H2>
+
+<P><P>
+<BR>
+<I CLASS="sans">INITIALIZE:</I>
+
+<UL>
+<LI>phase 0: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Initialize the <TT>InitializePhaseMap</TT> Attribute according to the NUOPC Initialize Phase Definition (IPD) version 04 (see section <A HREF="#IPD">7</A> for a precise definition). The default implementation sets the following mapping:
+    
+<UL>
+<LI>IPDv04p1a = phase : (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv04p1b = phase : (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv04p2  = phase : (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv04p3  = phase : (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv04p4  = phase : (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv04p5a = phase : (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+</LI>
+<LI>IPDv04p5b = phase : (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+    
+</LI>
+</UL>
+</LI>
+</UL>  
+</LI>
+<LI>IPDv01p1, IPDv02p1: (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Construct a list of matching Field pairs between import and export State based on the <TT>StandardName</TT> Field metadata. 
+</LI>
+<LI>Store this list of <TT>StandardName</TT> entries in the <TT>CplList</TT> attribute of the Connector Component metadata.
+  
+</LI>
+</UL>
+</LI>
+<LI>IPDv01p2, IPDv02p2: (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Allocate and initialize the internal state.
+</LI>
+<LI>Use the <TT>CplList</TT> attribute to construct <TT>srcFields</TT> and <TT>dstFields</TT> FieldBundles in the internal state that hold matched Field pairs.
+</LI>
+<LI>Set the <TT>Connected</TT> attribute to <TT>true</TT> in the Field metadata for each Field that is added to the <TT>srcFields</TT> and <TT>dstFields</TT> FieldBundles.
+  
+</LI>
+</UL>  
+</LI>
+<LI>IPDv01p3, IPDv02p3: (NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI>Use the <TT>CplList</TT> attribute to construct <TT>srcFields</TT> and <TT>dstFields</TT> FieldBundles in the internal state that hold matched Field pairs.
+</LI>
+<LI>Set the <TT>Connected</TT> attribute to <TT>true</TT> in the Field metadata for each Field that is added to the <TT>srcFields</TT> and <TT>dstFields</TT> FieldBundles.
+</LI>
+<LI><I>Optional specialization</I> to precompute a Connector operation: <TT>label_ComputeRouteHandle</TT>. Simple custom implementations store the precomputed communication RouteHandle in the <TT>rh</TT> member of the internal state. More complex implementations use the <TT>state</TT> member in the internal state to store auxiliary Fields, FieldBundles, and RouteHandles.
+</LI>
+<LI>By default (if <TT>label_ComputeRouteHandle</TT> was <EM>not</EM> provided) precompute the Connector RouteHandle as a bilinear Regrid operation between <TT>srcFields</TT> and <TT>dstFields</TT>, with <TT>unmappedaction</TT> set to <TT>ESMF_UNMAPPEDACTION_IGNORE</TT>. The resulting RouteHandle is stored in the <TT>rh</TT> member of the internal state.
+  
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">RUN:</I>
+
+<UL>
+<LI>phase 1: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI><I>Optional specialization</I> to execute a Connector operation: <TT>label_ExecuteRouteHandle</TT>. Simple custom implementations access the <TT>srcFields</TT>, <TT>dstFields</TT>, and <TT>rh</TT> members of the internal state to implement the required data transfers. More complex implementations access the <TT>state</TT> member in the internal state, which holds the auxiliary Fields, FieldBundles, and RouteHandles that potentially were added during the optional <TT>label_ComputeRouteHandle</TT> method during initialize.
+</LI>
+<LI>By default (if <TT>label_ExecuteRouteHandle</TT> was <EM>not</EM> provided) execute the precomputed Connector RouteHandle between <TT>srcFields</TT> and <TT>dstFields</TT>.
+</LI>
+<LI>Update the time stamp on the Fields in <TT>dstFields</TT> to match the time stamp on the Fields in <TT>srcFields</TT>.
+  
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">FINALIZE:</I>
+
+<UL>
+<LI>phase 1: (R<SMALL>EQUIRED, </SMALL>NUOPC P<SMALL>ROVIDED</SMALL>)
+  
+<UL>
+<LI><I>Optional specialization</I> to release the custom Connector operation: <TT>label_ReleaseRouteHandle</TT>; or by default, if <TT>label_ReleaseRouteHandle</TT> was <EM>not</EM> provided, release the default Connector RouteHandle.
+</LI>
+<LI><I>Optional specialization</I> to finalize custom parts of the component: <TT>label_Finalize</TT>.
+</LI>
+<LI>Internal clean-up.
+  
+</LI>
+</UL>
+</LI>
+</UL>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html639"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html635"
+  HREF="NUOPC_refdoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html629"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html637"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html640"
+  HREF="node9.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html636"
+  HREF="NUOPC_refdoc.html">NUOPC_refdoc</A>
+<B> Previous:</B> <A NAME="tex2html630"
+  HREF="node7.html">6 Appendix A: Run</A>
+ &nbsp; <B>  <A NAME="tex2html638"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<A HREF=mailto:esmf_support@ucar.edu>esmf_support@ucar.edu</A>
+</ADDRESS>
+</BODY>
+</HTML>

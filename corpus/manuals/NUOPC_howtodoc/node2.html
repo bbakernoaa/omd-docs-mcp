@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>1 Overview</TITLE>
+<META NAME="description" CONTENT="1 Overview">
+<META NAME="keywords" CONTENT="NUOPC_howtodoc">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="NUOPC_howtodoc.css">
+
+<LINK REL="next" HREF="node3.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="NUOPC_howtodoc.html">
+<LINK REL="next" HREF="node3.html">
+</HEAD>
+
+<BODY BGCOLOR=white LINK=#083194 VLINK=#21004A>
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html110"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html106"
+  HREF="NUOPC_howtodoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html100"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html108"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html111"
+  HREF="node3.html">2 The Big Idea</A>
+<B> Up:</B> <A NAME="tex2html107"
+  HREF="NUOPC_howtodoc.html">NUOPC_howtodoc</A>
+<B> Previous:</B> <A NAME="tex2html101"
+  HREF="node1.html">Contents</A>
+ &nbsp; <B>  <A NAME="tex2html109"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html112"
+  HREF="node2.html#SECTION00021000000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Document Roadmap</A>
+<LI><A NAME="tex2html113"
+  HREF="node2.html#SECTION00022000000000000000"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Additional NUOPC Resources</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00020000000000000000">
+<SPAN CLASS="arabic">1</SPAN> Overview</A>
+</H1>
+
+<P>
+The <A NAME="tex2html1"
+  HREF="http://www.nws.noaa.gov/nuopc/">National Unified Operational Prediction Capability</A>
+(NUOPC) is a strategic initiative to fundamentally advance the nation's computational
+weather prediction systems and improve forecast models used by National Weather Service,
+Air Force and Navy meteorologists, mission planners, and decision makers.  The
+<A NAME="tex2html2"
+  HREF="http://earthsystemmodeling.org/nuopc/">NUOPC Layer</A>
+is
+a software layer built on top of the
+<A NAME="tex2html3"
+  HREF="http://earthsystemmodeling.org/">Earth System Modeling Framework</A>
+(ESMF).
+ESMF is a high-performance modeling framework that provides
+data structures, interfaces, and operations suited for building coupled models
+from a set of components.  <SPAN  CLASS="textbf">NUOPC refines the capabilities of
+ESMF by providing a more precise definition of what it means for a model
+to be a component and how components should interact and share data
+in a coupled system.</SPAN>  The NUOPC Layer software is designed to work
+with typical high-performance models in the Earth sciences domain, most
+of which are written in Fortran and are based on a distributed memory
+model of parallelism (MPI).
+
+<P>
+The NUOPC Layer implements a set of <SPAN  CLASS="textit">generic component</SPAN>s that
+serve as building blocks that can be assembled together in different ways
+to build up a coupled modeling application.  In some cases, a generic
+component can be used as is, and in other cases the generic component
+must be <SPAN  CLASS="textit">specialized</SPAN> (customized) for a particular model or application.
+Additionally, the NUOPC Layer defines a set of technical rules for how components
+should behave and interact with each other.  These technical rules form the
+backbone of component interoperability.  NUOPC defines this effective interoperability
+as the ability of a model component to execute without code changes in a driver that
+provides the fields that it requires, and to return with informative messages if its
+input requirements are not met. A component that follows the NUOPC Layer technical
+rules is considered to be NUOPC Layer compliant.
+
+<P>
+For brevity, throughout this document we will often use the
+term &ldquo;NUOPC&rdquo; to refer to the &ldquo;NUOPC Layer software&rdquo; that is
+the current technical implementation of the NUOPC specification.
+Also, the term &ldquo;NUOPC component&rdquo; is shorthand for a component
+that is NUOPC Layer compliant and can be used in NUOPC-based
+systems.
+
+<P>
+
+<H2><A NAME="SECTION00021000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Document Roadmap</A>
+</H2>
+
+<P>
+<SPAN  CLASS="textbf">This document is a starting point for model developers
+and technical managers who are new to the NUOPC Layer software
+and need to understand the steps involved in making an existing
+model codebase NUOPC Layer compliant.</SPAN>
+
+<P>
+The document is divided into the following sections:
+
+<UL>
+<LI>Section <A HREF="node3.html#sec:bigidea">2</A> describes important parts of the NUOPC design that
+are critical for anyone planning to write code using the NUOPC API.
+
+<P>
+</LI>
+<LI>Section <A HREF="node4.html#sec:approach">3</A> describes the development steps involved
+in making your model code NUOPC Layer compliant.
+
+<P>
+</LI>
+<LI>Section <A HREF="node5.html#sec:atmexample">4</A> presents the code of a basic example cap, describing 
+each part in detail.
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<H2><A NAME="SECTION00022000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Additional NUOPC Resources</A>
+</H2>
+This document is not exhaustive, but should help you navigate the process of creating
+a NUOPC component from your model.  As such this document is a companion to other NUOPC 
+resources available:
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="http://earthsystemmodeling.org/nuopc/">The NUOPC website</A>
+is the main source of information on NUOPC, including instructions
+for acquiring and using the NUOPC Layer software.
+
+<P>
+</LI>
+<LI><A NAME="tex2html5"
+  HREF="http://earthsystemmodeling.org/docs/release/latest/NUOPC_refdoc/">The NUOPC Reference Manual</A>
+is the primary technical reference for the NUOPC API and includes
+a detailed description of the NUOPC generic components.
+
+<P>
+</LI>
+<LI><A NAME="tex2html6"
+  HREF="http://earthsystemmodeling.org/nuopc/#prototype-applications">The NUOPC Prototype Codes page</A>
+and <A NAME="tex2html7"
+  HREF="https://github.com/esmf-org/nuopc-app-prototypes">Git repository</A>
+include a set of prototype applications that use the NUOPC Layer software. These
+applications are architectural skeletons that represent typical
+configurations of NUOPC components and provide numerous examples
+of using the NUOPC API.
+
+<P>
+</LI>
+<LI><A NAME="tex2html8"
+  HREF="https://cupid.readthedocs.io/en/latest/">Cupid</A>
+is a plugin for the <A NAME="tex2html9"
+  HREF="https://eclipse.org/">Eclipse Integrated Development Environment</A>
+that automatically generates NUOPC Layer compliant code and checks existing
+source code for compliance.
+
+<P>
+</LI>
+<LI>A <A NAME="tex2html10"
+  HREF="https://www2.ametsoc.org/ams/index.cfm/publications/bulletin-of-the-american-meteorological-society-bams/">BAMS</A>
+article entitled <A NAME="tex2html11"
+  HREF="http://journals.ametsoc.org/doi/abs/10.1175/BAMS-D-14-00164.1">The Earth System Prediction Suite: Toward a Coordinated U.S. Modeling Capability</A>
+describes NUOPC and how NUOPC Layer compliant components are being used in coupled modeling
+systems across U.S. agencies.
+
+<P>
+</LI>
+</UL>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html110"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html106"
+  HREF="NUOPC_howtodoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html100"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html108"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html111"
+  HREF="node3.html">2 The Big Idea</A>
+<B> Up:</B> <A NAME="tex2html107"
+  HREF="NUOPC_howtodoc.html">NUOPC_howtodoc</A>
+<B> Previous:</B> <A NAME="tex2html101"
+  HREF="node1.html">Contents</A>
+ &nbsp; <B>  <A NAME="tex2html109"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<A HREF=mailto:esmf_support@ucar.edu>esmf_support@ucar.edu</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,19 @@
+{
+  "sources": [
+    {
+      "name": "NUOPC_refdoc",
+      "path": "corpus/manuals/NUOPC_refdoc",
+      "version": "8.9.1",
+      "kind": "documentation",
+      "url": "https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/NUOPC_refdoc/",
+      "version_basis": "User-supplied copy; verify it is the 8.9.1 manual"
+    },
+    {
+      "name": "my-model",
+      "path": "/absolute/path/to/my-model/caps-and-driver",
+      "version": "8.9.1",
+      "kind": "application",
+      "version_basis": "Application targets ESMF 8.9.1; compilation/runtime compatibility must be tested"
+    }
+  ]
+}

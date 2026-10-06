@@ -1,0 +1,2733 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>2 Command Line Tools</TITLE>
+<META NAME="description" CONTENT="2 Command Line Tools">
+<META NAME="keywords" CONTENT="ESMF_refdoc">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ESMF_refdoc.css">
+
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="ESMF_refdoc.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+
+<BODY BGCOLOR=white LINK=#083194 VLINK=#21004A>
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2032"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2028"
+  HREF="ESMF_refdoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2022"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2030"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2033"
+  HREF="node4.html">3 Superstructure</A>
+<B> Up:</B> <A NAME="tex2html2029"
+  HREF="ESMF_refdoc.html">ESMF_refdoc</A>
+<B> Previous:</B> <A NAME="tex2html2023"
+  HREF="node2.html">1 ESMF Overview</A>
+ &nbsp; <B>  <A NAME="tex2html2031"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><UL>
+<LI><A NAME="tex2html2034"
+  HREF="node3.html#SECTION03010000000000000000"><SPAN CLASS="arabic">11</SPAN> ESMF_PrintInfo</A>
+<UL>
+<LI><A NAME="tex2html2035"
+  HREF="node3.html#SECTION03011000000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</UL>
+<LI><A NAME="tex2html2036"
+  HREF="node3.html#SECTION03020000000000000000"><SPAN CLASS="arabic">12</SPAN> ESMF_RegridWeightGen</A>
+<UL>
+<LI><A NAME="tex2html2037"
+  HREF="node3.html#SECTION03021000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<LI><A NAME="tex2html2038"
+  HREF="node3.html#SECTION03022000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN> Regridding Options</A>
+<UL>
+<LI><A NAME="tex2html2039"
+  HREF="node3.html#SECTION03022100000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Poles</A>
+<LI><A NAME="tex2html2040"
+  HREF="node3.html#SECTION03022200000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Masking</A>
+<LI><A NAME="tex2html2041"
+  HREF="node3.html#SECTION03022300000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Extrapolation</A>
+<LI><A NAME="tex2html2042"
+  HREF="node3.html#SECTION03022400000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> Unmapped destination points</A>
+<LI><A NAME="tex2html2043"
+  HREF="node3.html#SECTION03022500000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> Line type</A>
+</UL>
+<LI><A NAME="tex2html2044"
+  HREF="node3.html#SECTION03023000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">3</SPAN> Regridding Methods</A>
+<UL>
+<LI><A NAME="tex2html2045"
+  HREF="node3.html#SECTION03023100000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Bilinear</A>
+<LI><A NAME="tex2html2046"
+  HREF="node3.html#SECTION03023200000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Patch</A>
+<LI><A NAME="tex2html2047"
+  HREF="node3.html#SECTION03023300000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Nearest neighbor</A>
+<LI><A NAME="tex2html2048"
+  HREF="node3.html#SECTION03023400000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> First-order conservative</A>
+<LI><A NAME="tex2html2049"
+  HREF="node3.html#SECTION03023500000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Second-order conservative</A>
+</UL>
+<LI><A NAME="tex2html2050"
+  HREF="node3.html#SECTION03024000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">4</SPAN> Conservation</A>
+<LI><A NAME="tex2html2051"
+  HREF="node3.html#SECTION03025000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">5</SPAN> The effect of normalization options on integrals and values produced by conservative methods</A>
+<LI><A NAME="tex2html2052"
+  HREF="node3.html#SECTION03026000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">6</SPAN> Usage</A>
+<LI><A NAME="tex2html2053"
+  HREF="node3.html#SECTION03027000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">7</SPAN> Examples</A>
+<LI><A NAME="tex2html2054"
+  HREF="node3.html#SECTION03028000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">8</SPAN> Grid File Formats</A>
+<UL>
+<LI><A NAME="tex2html2055"
+  HREF="node3.html#SECTION03028100000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">1</SPAN> SCRIP Grid File Format</A>
+<LI><A NAME="tex2html2056"
+  HREF="node3.html#SECTION03028200000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMF Unstructured Grid File Format (ESMFMESH)</A>
+<LI><A NAME="tex2html2057"
+  HREF="node3.html#SECTION03028300000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">3</SPAN> CF Convention Single Tile File Format (CFGRID/GRIDSPEC)</A>
+<LI><A NAME="tex2html2058"
+  HREF="node3.html#SECTION03028400000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">4</SPAN> CF Convention UGRID File Format</A>
+<LI><A NAME="tex2html2059"
+  HREF="node3.html#SECTION03028500000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">5</SPAN> GRIDSPEC Mosaic File Format</A>
+</UL>
+<LI><A NAME="tex2html2060"
+  HREF="node3.html#SECTION03029000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">9</SPAN> Regrid Weight File Format</A>
+<UL>
+<LI><A NAME="tex2html2061"
+  HREF="node3.html#SECTION03029100000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">1</SPAN> Source Grid Description</A>
+<LI><A NAME="tex2html2062"
+  HREF="node3.html#SECTION03029200000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">2</SPAN> Destination Grid Description</A>
+<LI><A NAME="tex2html2063"
+  HREF="node3.html#SECTION03029300000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">3</SPAN> Regrid Calculation Output</A>
+<LI><A NAME="tex2html2064"
+  HREF="node3.html#SECTION03029400000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">4</SPAN> Weight File Description Attributes</A>
+<LI><A NAME="tex2html2065"
+  HREF="node3.html#SECTION03029500000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">5</SPAN> Weight Only Weight File</A>
+</UL>
+<LI><A NAME="tex2html2066"
+  HREF="node3.html#SECTION030210000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">10</SPAN> ESMF_RegridWeightGenCheck</A>
+</UL>
+<LI><A NAME="tex2html2067"
+  HREF="node3.html#SECTION03030000000000000000"><SPAN CLASS="arabic">13</SPAN> ESMF_Regrid</A>
+<UL>
+<LI><A NAME="tex2html2068"
+  HREF="node3.html#SECTION03031000000000000000"><SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<LI><A NAME="tex2html2069"
+  HREF="node3.html#SECTION03032000000000000000"><SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">2</SPAN> Usage</A>
+<LI><A NAME="tex2html2070"
+  HREF="node3.html#SECTION03033000000000000000"><SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">3</SPAN> Examples</A>
+</UL>
+<LI><A NAME="tex2html2071"
+  HREF="node3.html#SECTION03040000000000000000"><SPAN CLASS="arabic">14</SPAN> ESMF_Scrip2Unstruct</A>
+<UL>
+<LI><A NAME="tex2html2072"
+  HREF="node3.html#SECTION03041000000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</UL></UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION03000000000000000000"></A>
+<A NAME="part:CLTs"></A>
+<BR>
+<SPAN CLASS="arabic">2</SPAN> Command Line Tools
+</H1>
+
+<P>
+The main product delivered by ESMF is the ESMF library that allows application
+developers to write programs based on the ESMF API. In addition to the 
+programming library, ESMF distributions come with a small set of command line
+tools (CLT) that are of general interest to the community. These CLTs utilize
+the ESMF library to implement features such as printing general information
+about the ESMF installation, or generating regrid weight files. The provided
+ESMF CLTs are intended to be used as standard command line tools.
+
+<P>
+The bundled ESMF CLTs are built and installed during the usual ESMF 
+installation process, which is described in detail in the ESMF User's Guide 
+section "Building and Installing the ESMF". After installation, the
+CLTs will be located in the <TT>ESMF_APPSDIR</TT> directory, which can 
+be found as a Makefile variable in the <TT>esmf.mk</TT> file. The <TT>esmf.mk</TT> 
+file can be found in the <TT>ESMF_INSTALL_LIBDIR</TT> directory after a 
+successful installation.  The ESMF User's Guide discusses the <TT>esmf.mk</TT> 
+mechanism to access the bundled CLTs in more detail in section 
+"Using Bundled ESMF Command Line Tools".
+
+<P>
+The following sections provide in-depth documentation of the bundled ESMF 
+CLTs. In addition, each tool supports the standard 
+<code> --help </code> command line argument, providing a brief description of how 
+to invoke the program.
+
+<P>
+
+<H1><A NAME="SECTION03010000000000000000"></A>
+<A NAME="sec:ESMF_PrintInfo"></A>
+<BR>
+<SPAN CLASS="arabic">11</SPAN> ESMF_PrintInfo
+</H1>
+
+<P>
+
+<H2><A NAME="SECTION03011000000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+The <TT>ESMF_PrintInfo</TT> command line tool that prints basic information about the
+ESMF installation to <TT>stdout</TT>.
+
+<P>
+The command line tool usage is as follows:
+
+<P>
+<PRE>
+ESMF_PrintInfo  [--help]
+
+where
+  --help     prints a brief usage message
+</PRE>
+`
+
+<H1><A NAME="SECTION03020000000000000000"></A>
+<A NAME="sec:ESMF_RegridWeightGen"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN> ESMF_RegridWeightGen
+</H1>
+
+<P>
+
+<H2><A NAME="SECTION03021000000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+This section describes the offline regrid weight generation application provided by ESMF (for a description of ESMF regridding in general see Section&nbsp;<A HREF="node5.html#sec:regrid">25.2</A>). Regridding, also called remapping or interpolation, is the process of changing the grid that underlies data values while preserving qualities of the original data. Different kinds of transformations are appropriate for different problems. Regridding may be needed when communicating data between Earth system model components such as land and atmosphere, or between different data sets to support operations such as visualization. 
+
+<P>
+Regridding can be broken into two stages. The first stage is generation of an interpolation weight matrix that describes how points in
+the source grid contribute to points in the destination grid. The second stage is the multiplication of values on the source grid by the
+interpolation weight matrix to produce values on the destination grid. This is implemented as a parallel sparse matrix multiplication.
+
+<P>
+There are two options for accessing ESMF regridding functionality: integrated and offline. Integrated regridding is a process whereby interpolation
+weights are generated via subroutine calls during the execution of the user's code. The integrated regridding can also perform the parallel sparse
+matrix multiplication. In other words, ESMF integrated regridding allows a user to perform the whole process of interpolation within their code.
+For a further description of ESMF integrated regridding please see Section&nbsp;<A HREF="node5.html#sec:fieldregrid">27.3.25</A>. 
+In contrast to integrated regridding,
+offline regridding is a process whereby interpolation weights are generated by a separate ESMF command line tool, not within the user code. The ESMF offline
+regridding tool also only generates the interpolation matrix, the user is responsible for reading in this matrix and doing the actual interpolation
+ (multiplication by the sparse matrix) in their code. The rest of this section further describes ESMF offline regridding.
+
+<P>
+For a discussion of installing and accessing ESMF command line tools such as this one please see the beginning of this part of the reference manual (Section&nbsp;<A HREF="#part:CLTs">II</A>) or for the quickest approach to just building and accessing the command line tools please refer to the "Building and using bundled ESMF Command Line Tools" Section in the ESMF User's Guide.
+
+<P>
+This application requires the NetCDF library to read the grid files and to write out the weight files in NetCDF format.  To compile ESMF with the NetCDF library, please refer to the "Third Party Libraries" Section in the ESMF User's Guide for more information.
+
+<P>
+As described above, this tool reads in
+two grid files and outputs weights for interpolation
+ between the two grids. The input and output files are all in NetCDF format. The grid files can be defined in five
+different formats:  the SCRIP format&nbsp;<A HREF="#sec:fileformat:scrip">12.8.1</A> as is used as an input to SCRIP&nbsp;[<A
+ HREF="node8.html#ref:SCRIP">13</A>], the CF convension single-tile grid file&nbsp;<A HREF="#sec:fileformat:gridspec">12.8.3</A> following the
+<A NAME="tex2html10"
+  HREF="http://cfconventions.org">CF metadata conventions</A>, the GRIDSPEC Mosaic file&nbsp;<A HREF="#sec:fileformat:mosaic">12.8.5</A> following the proposed <A NAME="tex2html11"
+  HREF="http://extranet.gfdl.noaa.gov/~vb/gridstd/gridstd.html">GRIDSPEC standard</A>,  
+the ESMF unstructured grid format&nbsp;<A HREF="#sec:fileformat:esmf">12.8.2</A> or the proposed CF unstructured grid data model (UGRID)&nbsp;<A HREF="#sec:fileformat:ugrid">12.8.4</A>.  GRIDSPEC is a proposed CF extension for the annotation of complex Earth system grids.  In the latest ESMF library, we added support for multi-tile GRIDSPEC Mosaic file with non-overlapping tiles. For UGRID, we support the 2D flexible mesh topology with mixed triangles and quadrilaterals and fully 3D unstructured mesh topology with hexahedrons and tetrahedrons.  
+
+<P>
+The <TT>ESMF_RegridWeightGen</TT> command line tool can detect the type of the input grid files automatically, so the specification of source and destination grid file type arguments is optional. However, these arguments (<TT>-t</TT>, <TT><code>--</code>src_type</TT> or <TT><code>--</code>dst_type</TT>) can be provided to override the auto-detection. If not explicitly specified, the rule to determine the file format is the following:
+
+<P>
+
+<UL>
+<LI>ESMF_FILEFORMAT_UGRID: a variable with attribute "cf_role" or "standard_name" set to "mesh_topology"
+</LI>
+<LI>ESMF_FILEFORMAT_MOSAIC: a variable with attribute "standard_name" set to "grid_mosaic_spec"
+</LI>
+<LI>ESMF_FILEFORMAT_TILE:  a varilable with attribute "standard_name" set to "grid_tile_spec"
+</LI>
+<LI>ESMF_FILEFORMAT_ESMFMESH: variables nodeCoords and elementConn exist
+</LI>
+<LI>ESMF_FILEFORMAT_SCRIP:  variables grid_corner_lon and grid_corner_lat exist
+</LI>
+<LI>ESMF_FILEFORMAT_CFGRID: variables with attributes "degree_north" and "degree_east" (or similar) exist, and other formats aren't matched
+</LI>
+</UL>
+
+<P>
+This command line tool can do regrid weight generation from a global or regional source grid to a global or regional destination grid.
+As is true with many global models, this application currently assumes the latitude and longitude values refer to positions on a perfect sphere, as opposed to a more complex and accurate representation of the Earth's true shape such as would be used in a GIS system. (ESMF's current user base doesn't require this level of detail in representing the Earth's shape, but it could be added in the future if necessary.)
+
+<P>
+The interpolation weights generated by this application are output to a NetCDF file (specified by the "-w" or "<code>--</code>weight"
+keywords). Two type of weight files are supported: the SCRIP format is the same as that generated by SCRIP, see Section&nbsp;<A HREF="#sec:weightfileformat">12.9</A> for a description of the format; and a simple weight file containing only the weights and the source and destination grid indices (In ESMF
+term, these are the <TT>factorList</TT> and <TT>factorIndexList</TT> generated by the ESMF weight calculation function <TT>ESMF_FieldRegridStore()</TT>.
+Note that the sequence of the weights in the file can
+vary with the number of processors used to run the application. This means that two weight files generated by using different
+numbers of processors can contain exactly the same interpolation matrix, but can appear different in a direct line by line
+comparison (such as would be done by ncdiff). The interpolation weights can be generated with
+the bilinear, patch, nearest neighbor, first-order conservative, or second-order conservative methods described in Section&nbsp;<A HREF="#sec:rwg_regridmethods">12.3</A>.
+
+<P>
+Internally this application uses the ESMF public API to generate the interpolation weights.
+If a source or destination grid is a single tile logically rectangular grid, then <TT>ESMF_GridCreate()</TT>
+&nbsp;<A HREF="node5.html#sec:example:2DLogRecFromScrip">32.3.8</A>
+is used to create an ESMF_Grid object. The cell center
+coordinates of the input grid are put into the center stagger location (<TT>ESMF_STAGGERLOC_CENTER</TT>).
+In addition, the corner coordinates are also put into the corner stagger location
+(<TT>ESMF_STAGGERLOC_CORNER</TT>) for conservative regridding.  If a grid contains multiple logically rectangular tiles 
+connected with each other by edges, such as a Cubed Sphere grid, the grid can be represented as a multi-tile ESMF_Grid object created 
+using <TT>ESMF_GridCreateMosaic()</TT>&nbsp;<A HREF="node5.html#sec:usage:cubedspherefromfile">32.3.12</A>. Such a grid is stored in the GRIDSPEC Mosaic and tile file format.&nbsp;<A HREF="#sec:fileformat:mosaic">12.8.5</A>
+The method <TT>ESMF_MeshCreate()</TT>&nbsp;<A HREF="node5.html#sec:example:UnstructFromFile">34.3.8</A>
+is used to create an ESMF_Mesh object, if the
+source or destination grid is an unstructured grid. When making this call,
+the flag <TT>convert3D</TT> is set to <TT>TRUE</TT> to convert the 2D coordinates into 3D Cartesian coordinates. 
+Internally <TT>ESMF_FieldRegridStore()</TT> is used to generate the weight table and indices table representing the interpolation matrix.
+
+<P>
+
+<H2><A NAME="SECTION03022000000000000000"></A><A NAME="sec:rwg_options"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN> Regridding Options
+</H2>
+
+<P>
+The offline regrid weight generation application supports most of the options available in the rest of the ESMF regrid system. The following is a description of these options as relevant to the application. For a more in-depth description see Section&nbsp;<A HREF="node5.html#sec:regrid">25.2</A>.
+
+<P>
+
+<H3><A NAME="SECTION03022100000000000000"></A><A NAME="sec:rwg_poles"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Poles
+</H3>
+The regridding occurs in 3D to avoid
+problems with periodicity and with the pole singularity. This application
+supports four options for handling the pole region (i.e. the empty area above the top row of the source grid or below
+the bottom row of the source grid).  Note that all of these pole options currently only work for logically rectangular grids (i.e. SCRIP format grids with grid_rank=2 or GRIDSPEC single-tile format grids). The first option is to leave  the pole region empty ("-p none"), in this
+case if a destination point lies above or below the
+top row of the source grid, it will fail to map, yielding an error (unless "-i" is specified).
+With the next two options, the pole region is handled by constructing
+an artificial pole in the center of the top and bottom row of grid points and then filling
+in the region from this pole to the edges of the source grid with triangles.
+The pole is located at the average of the position of the points surrounding
+it, but moved outward to be at the same radius as the rest of the points
+in the grid. The difference between these two artificial pole options is what value is used at the pole.
+ The default pole option ("-p all") sets the value at the pole to be the average of the values
+of all of the grid points surrounding the pole. For the other option ("-p N"), the user chooses
+a number N from 1 to the number of source grid points around the pole. For
+each destination point, the value at the pole is then the average of the N source points
+surrounding that destination point. For the last pole option ("-p teeth") no artificial pole is constructed, instead the
+pole region is covered by connecting points across the top and bottom row of the source Grid into triangles. As
+this makes the top and bottom of the source sphere flat, for a big enough difference between the size of
+the source and destination pole regions, this can still result in unmapped destination points.
+Only pole option "none" is currently supported with the conservative interpolation methods (e.g. "-m conserve") and with the
+nearest neighbor interpolation methods ("-m nearestdtos" and "-m neareststod").
+
+<P>
+
+<H3><A NAME="SECTION03022200000000000000"></A><A NAME="sec:rwg_masking"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Masking
+</H3>
+       Masking is supported for both the logically rectangular grids and the unstructured grids.
+If the grid file is in the SCRIP format, the variable "grid_imask" is used as the mask.
+If the value is set to 0 for a grid point, then that point is considered masked out and
+won't be used in the weights generated by the application. If the grid file is in the ESMF format, the variable "element Mask" is used as the mask.  For a grid defined in the GRIDSPEC
+single-tile or multi-tile grid or in the UGRID convention, there is no mask variable defined.
+However, a GRIDSPEC single-tile file or a UGRID file may contain both the grid definition and the data.
+The grid mask is usually constructed using the missing values defined in the data variable.
+The regridding application provides the argument "<code>--</code>src_missingvalue" or
+"<code>--</code>dst_missingvalue" for users to specify the variable name from where the mask can be
+constructed.
+
+<P>
+
+<H3><A NAME="SECTION03022300000000000000"></A><A NAME="sec:rwg_extrap"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Extrapolation
+</H3>
+The <TT>ESMF_RegridWeightGen</TT> application supports a number of kinds of extrapolation to fill in points not mapped by the regrid method. 
+Please see the sections starting with section&nbsp;<A HREF="node5.html#sec:extrapolation:overview">25.2.11</A> for a description of these methods. When using the application
+an extrapolation method is specified by using the "<code>--</code>extrap_method" flag. For the inverse distance weighted average method (nearestidavg),
+the number of source locations is specified using the "<code>--</code>extrap_num_src_pnts" flag, and the distance exponent is specified using 
+the "<code>--</code>extrap_dist_exponent" flag. For the creep fill method (creep), the number of creep levels is specified using the "<code>--</code>extrap_num_levels" flag.
+
+<P>
+
+<H3><A NAME="SECTION03022400000000000000"></A><A NAME="sec:rwg_unmapped"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> Unmapped destination points
+</H3>
+If a destination point can't be mapped, then the default behavior of the application is to stop with an error. By specifying "-i" or the equivalent "<code>--</code>ignore_unmapped " the user can cause the application to ignore unmapped destination points. In this case, the output matrix won't contain entries for the unmapped destination points. Note that the unmapped point detection doesn't
+currently work for nearest destination to source method ("-m nearestdtos"), so when using that method it  is as if &ldquo;-i&rdquo; is always on.
+
+<P>
+
+<H3><A NAME="SECTION03022500000000000000"></A><A NAME="sec:rwg_linetype"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> Line type
+</H3>
+ Another variation in the regridding supported with spherical grids is <B>line type</B>. This is controlled by the "<code>--</code>line_type" or &ldquo;-l&rdquo; flag. This switch allows the user to select the path of the line which connects
+two points on a sphere surface. This in turn controls the path along which distances are calculated and the shape of 
+the edges that make up a cell. Both of these quantities can influence how interpolation weights are calculated, for example in
+bilinear interpolation the distances are used to calculate the weights and the cell edges are used to determine to which source 
+cell a destination point should be mapped. 
+
+<P>
+ESMF currently supports two line types: &ldquo;cartesian&rdquo; and &ldquo;greatcircle&rdquo;. The &ldquo;cartesian&rdquo; option 
+specifies that the line between two points follows a straight path through the 3D Cartesian space in which the sphere is embedded.
+Distances are measured along  this 3D Cartesian line. Under this option cells are approximated by planes in 3D space, and their boundaries are 
+3D Cartesian lines between their corner points.  The &ldquo;greatcircle&rdquo; option specifies that the line between two points follows
+a great circle path along the sphere surface. (A great circle is the shortest path between two points on a sphere.) 
+Distances are measured along the great circle path. Under this option cells are on the sphere surface, and their boundaries 
+are great circle paths between their corner points. 
+
+<P>
+
+<H2><A NAME="SECTION03023000000000000000"></A><A NAME="sec:rwg_regridmethods"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">3</SPAN> Regridding Methods
+</H2>
+ This regridding application can be used to generate bilinear, patch, nearest neighbor, first-order conservative, or second-order conservative 
+interpolation weights. The following is a description of these interpolation methods as relevant to the offline weight generation application. For a more in-depth description see Section&nbsp;<A HREF="node5.html#sec:regrid">25.2</A>.
+
+<P>
+
+<H3><A NAME="SECTION03023100000000000000"></A><A NAME="sec:rwg_bilinear"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Bilinear
+</H3>
+ The default interpolation method for the weight generation application is bilinear. The algorithm used by this application to 
+generate the bilinear weights is the standard one found in many textbooks.  Each destination point is mapped to a location
+in the source Mesh, the position of the destination point relative to the source points surrounding it is used to calculate the interpolation weights. A restriction on
+bilinear interpolation is that ESMF doesn't support self-intersecting cells (e.g. a cell twisted into a bow tie) in the source grid.
+
+<P>
+
+<H3><A NAME="SECTION03023200000000000000"></A><A NAME="sec:rwg_patch"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Patch
+</H3>
+This application can also be used to generate patch interpolation weights. Patch
+interpolation is the ESMF version of a technique called "patch recovery" commonly
+used in finite element modeling&nbsp;[<A
+ HREF="node8.html#PatchInterp1">25</A>]&nbsp;[<A
+ HREF="node8.html#PatchInterp2">22</A>]. It typically results in better approximations to values and derivatives when compared to bilinear interpolation.
+Patch interpolation works by constructing multiple polynomial patches to represent
+the data in a source element. For 2D grids, these polynomials
+are currently 2nd degree 2D polynomials. The interpolated value at the destination point
+  is the weighted average of the values of the patches at that point.
+
+<P>
+The patch interpolation process works as follows.
+For each source element containing a destination point
+we construct a patch for each corner node that makes up the element (e.g. 4 patches for
+quadrilateral elements, 3 for triangular elements). To construct a polynomial patch for
+a corner node we gather all the elements around that node.
+(Note that this means that the patch interpolation weights depends on the source
+element's nodes, and the nodes of all elements neighboring the source element.)
+We then use a least squares fitting algorithm to choose the set of coefficients
+for the polynomial that produces the best fit for the data in the elements.
+This polynomial will give a value at the destination point that fits the source data
+in the elements surrounding the corner node. We then repeat this process for each
+corner node of the source element generating a new polynomial for each set of elements.
+To calculate the value at the destination point we do a weighted average of the values
+of each of the corner polynomials evaluated at that point. The weight for a corner's
+polynomial is the bilinear weight of the destination point with regard to that corner.
+
+<P>
+The patch method has a larger stencil than the bilinear, for this reason the patch weight matrix can be correspondingly larger
+than the bilinear matrix (e.g. for a quadrilateral grid the patch matrix is around 4x the size of
+ the bilinear matrix). This can be an issue when performing a regrid weight generation operation close to the memory
+limit on a machine. 
+
+<P>
+The patch method does not guarantee that after regridding the range of values in the destination field is within the range of 
+values in the source field. For example, if the mininum value in the source field is 0.0, then it's possible that after regridding with the 
+patch method, the destination field will contain values less than 0.0.
+
+<P>
+This method currently doesn't support self-intersecting cells (e.g. a cell twisted into a bow tie) in the source grid.
+
+<P>
+
+<H3><A NAME="SECTION03023300000000000000"></A><A NAME="sec:rwg_nearest"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Nearest neighbor
+</H3>
+The nearest neighbor interpolation options work by associating a point in one set with the closest point in another set. If two points are equally
+close then the point with the smallest index is arbitrarily used (i.e. the point with that would have the smallest index in the weight matrix). There are two
+versions of this type of interpolation available in the regrid weight generation application. One of these is the nearest source to destination
+method ("-m neareststod"). In this method each destination point is mapped to the closest source point. The other of these is the
+nearest destination to source method ("-m nearestdtos"). In this method each source point is mapped to the closest destination point. Note
+that with this method the unmapped destination point detection doesn't work, so no error will be returned even if there are destination points
+which don't map to any source point.
+
+<P>
+
+<H3><A NAME="SECTION03023400000000000000"></A><A NAME="sec:rwg_conserve"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> First-order conservative
+</H3>
+ The main purpose of this method is to preserve the integral of the field across the interpolation from source to destination.  
+ (For a more in-depth description of what this preservation of the integral (i.e. conservation) means please see section&nbsp;<A HREF="#sec:rwg:conservation">12.4</A>.)  In this method the value across each source cell is treated as a constant, so it will typically have a larger 
+ interpolation error than the bilinear or patch methods.  The first-order method used here is similar to that described in the following paper&nbsp;[<A
+ HREF="node8.html#ConservativeOrder1">28</A>].
+
+<P>
+By default (or if "<code>--</code>norm_type dstarea"), the weight <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$w_{ij}$"></SPAN> for a particular source cell <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$i$"></SPAN> and destination cell <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$j$"></SPAN> are calculated as <!-- MATH
+ $w_{ij}=f_{ij} * A_{si}/A_{dj}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="136" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$w_{ij}=f_{ij} * A_{si}/A_{dj}$"></SPAN>. 
+In this equation <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$f_{ij}$"></SPAN> is the fraction of the source cell <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$i$"></SPAN> contributing to destination cell <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$j$"></SPAN>, and <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$A_{si}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$A_{dj}$"></SPAN> are the areas of the source and 
+destination cells. If "<code>--</code>norm_type fracarea", then the weights are further divided by the destination fraction. In other words, in that case <!-- MATH
+ $w_{ij}=f_{ij} * A_{si}/(A_{dj}*D_j)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="184" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$w_{ij}=f_{ij} * A_{si}/(A_{dj}*D_j)$"></SPAN> where <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$D_j$"></SPAN> is fraction of the destination cell that intersects the unmasked source grid. 
+
+<P>
+To see a description of how the different normalization options affect the values and integrals produced by the conservative methods see section&nbsp;<A HREF="#sec:rwg:conservative_norm_opts">12.5</A>. For a grid on a sphere this method uses great circle cells, for a description of potential problems with these see&nbsp;<A HREF="node5.html#sec:interpolation:great_circle_cells">25.2.9</A>.
+
+<P>
+
+<H3><A NAME="SECTION03023500000000000000"></A><A NAME="sec:rwg_conserve2d"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Second-order conservative
+</H3>
+ Like the first-order conservative method, this method's main purpose is to preserve the integral of the field across the interpolation from source to destination.  
+ (For a more in-depth description of what this preservation of the integral (i.e. conservation) means please see section&nbsp;<A HREF="#sec:rwg:conservation">12.4</A>.)  The difference between the first and second-order conservative methods is that the second-order takes the source gradient into account, so
+ it yields a smoother destination field that typically better matches the source field. This difference between the first and second-order methods 
+ is particularly apparent when going from a coarse source grid to a finer destination grid. Another difference is that the second-order method
+  does not guarantee that after regridding the range of values in the destination field is within the range of 
+ values in the source field. For example, if the mininum value in the source field is 0.0, then it's possible that after regridding with the 
+ second-order method, the destination field will contain values less than 0.0. The implementation of this method is based on the one described in this paper&nbsp;[<A
+ HREF="node8.html#ConservativeOrder2">19</A>].
+
+<P>
+The weights for second-order are calculated in a similar manner to first-order&nbsp;<A HREF="#sec:rwg_conserve">12.3.4</A> with additional weights that take into account the gradient across the source cell. 
+
+<P>
+To see a description of how the different normalization options affect the values and integrals produced by the conservative methods see section&nbsp;<A HREF="#sec:rwg:conservative_norm_opts">12.5</A>. For a grid on a sphere this method uses great circle cells, for a description of potential problems with these see&nbsp;<A HREF="node5.html#sec:interpolation:great_circle_cells">25.2.9</A>.
+
+<P>
+
+<H2><A NAME="SECTION03024000000000000000"></A><A NAME="sec:rwg:conservation"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">4</SPAN> Conservation
+</H2>
+ Conservation means that the following equation will hold:
+  <!-- MATH
+ $\sum^{all-source-cells}(V_{si}*A'_{si}) = \sum^{all-destination-cells}(V_{dj}*A'_{dj})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="430" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\sum^{all-source-cells}(V_{si}*A'_{si}) = \sum^{all-destination-cells}(V_{dj}*A'_{dj})$"></SPAN>, where
+ V is the variable being regridded and A is the area of a cell.  
+ The subscripts s and d refer to source and destination values, and the i and j are the source
+ and destination grid cell indices (flattening the arrays to 1 dimension). 
+
+<P>
+There are a couple of options for how the areas (A) in the proceding equation can be calculated. By default, ESMF calculates the areas. For a grid on a sphere, 
+areas are calculated by connecting the corner coordinates of each grid cell (obtained from the grid file) with great circles. For a Cartesian grid, areas are calculated
+in the typcial manner for 2D polygons. If the user specifies the user area's option ("<code>--</code>user_areas"), then weights will be adjusted so that the equation above 
+will hold for the areas provided in the grid files. In either case, the areas output to the weight file are the ones for which the weights have been adjusted to conserve.
+
+<P>
+
+<H2><A NAME="SECTION03025000000000000000"></A><A NAME="sec:rwg:conservative_norm_opts"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">5</SPAN> The effect of normalization options on integrals and values produced by conservative methods
+</H2>
+ It is important to note that by default (i.e. using destination area normalization) conservative regridding doesn't normalize the interpolation weights by the destination fraction. This means that for a destination grid which only partially overlaps the source grid the destination field which is output from the regrid operation should be divided by the corresponding destination fraction to yield the true interpolated values for cells which are only partially covered by the source grid.
+The fraction also needs to be included when computing the total source and destination integrals. To include the fraction in the conservative weights, the user can specify the fraction area normalization type. This can be done by specifying "<code>--</code>norm_type fracarea&rdquo; on the command line. 
+
+<P>
+For weights generated using destination area normalization (either by not specifying any normalization type or by specifying "<code>--</code>norm_type dstarea"), 
+the following pseudo-code shows how to adjust a destination field (<TT>dst_field</TT>) by the destination fraction (<TT>dst_frac</TT>) called <TT>frac_b</TT> in the weight file:
+
+<P>
+<PRE>
+ for each destination element i
+    if (dst_frac(i) not equal to 0.0) then
+       dst_field(i)=dst_field(i)/dst_frac(i)
+    end if
+ end for
+</PRE>
+
+<P>
+For weights generated using destination area normalization (either by not specifying any normalization type or by specifying "<code>--</code>norm_type dstarea"), 
+the following pseudo-code shows how to compute the total destination integral (<TT>dst_total</TT>) given the destination field values (<TT>dst_field</TT>) resulting
+from the sparse matrix multiplication of the weights in the weight file by the source field, the destination area (<TT>dst_area</TT>) called <TT>area_b</TT> in the
+weight file, and the destination fraction (<TT>dst_frac</TT>) called <TT>frac_b</TT> in the weight file. As in the previous paragraph, it also
+shows how to adjust the destination field (<TT>dst_field</TT>) resulting from the sparse matrix multiplication by the fraction
+(<TT>dst_frac</TT>) called <TT>frac_b</TT> in the weight file:
+
+<P>
+<PRE>
+ dst_total=0.0
+ for each destination element i
+    if (dst_frac(i) not equal to 0.0) then
+       dst_total=dst_total+dst_field(i)*dst_area(i)
+       dst_field(i)=dst_field(i)/dst_frac(i)
+       ! If mass computed here after dst_field adjust, would need to be:
+       ! dst_total=dst_total+dst_field(i)*dst_area(i)*dst_frac(i)
+    end if
+ end for
+</PRE>
+
+<P>
+For weights generated using fraction area normalization (set by specifying "<code>--</code>norm_type fracarea"), no adjustment of the destination field (<TT>dst_field</TT>) by the destination fraction is necessary. The following pseudo-code shows how to compute the total destination integral (<TT>dst_total</TT>) given the destination field values (<TT>dst_field</TT>) resulting
+ from the sparse matrix multiplication of the weights in the weight file by the source field, the destination area (<TT>dst_area</TT>) called <TT>area_b</TT> in the
+weight file, and the destination fraction (<TT>dst_frac</TT>) called <TT>frac_b</TT> in the weight file: 
+
+<P>
+<PRE>
+ dst_total=0.0
+ for each destination element i
+       dst_total=dst_total+dst_field(i)*dst_area(i)*dst_frac(i)
+ end for
+</PRE>
+
+<P>
+For either normalization type, the following pseudo-code shows how to compute the total source integral (<TT>src_total</TT>) given the source field values (<TT>src_field</TT>), the source area (<TT>src_area</TT>) called <TT>area_a</TT> in the weight file, and the source fraction (<TT>src_frac</TT>) called <TT>frac_a</TT> in the weight file:
+
+<P>
+<PRE>
+ src_total=0.0
+ for each source element i
+    src_total=src_total+src_field(i)*src_area(i)*src_frac(i)
+ end for
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION03026000000000000000"></A><A NAME="sec:regridusage"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">6</SPAN> Usage
+</H2>
+
+<P>
+The command line arguments are all keyword based.  Both the long keyword prefixed with <code> '--' </code> or the
+one character short keyword prefixed with <TT>'-'</TT> are supported.  The format to run the application is
+as follows:
+
+<P>
+<PRE>
+ESMF_RegridWeightGen  
+        --source|-s src_grid_filename
+        --destination|-d dst_grid_filename
+        --weight|-w out_weight_file
+        [--method|-m bilinear|patch|nearestdtos|neareststod|conserve|conserve2nd]
+        [--pole|-p none|all|teeth|1|2|..]
+        [--line_type|-l cartesian|greatcircle]
+        [--norm_type dstarea|fracarea]
+        [--extrap_method none|neareststod|nearestidavg|nearestd|creep|creepnrstd]
+        [--extrap_num_src_pnts &lt;N&gt;]
+        [--extrap_dist_exponent &lt;P&gt;]
+        [--extrap_num_levels &lt;L&gt;]
+        [--ignore_unmapped|-i]
+        [--ignore_degenerate]
+        [--src_type SCRIP|ESMFMESH|UGRID|CFGRID|GRIDSPEC|MOSAIC|TILE]
+        [--dst_type SCRIP|ESMFMESH|UGRID|CFGRID|GRIDSPEC|MOSAIC|TILE]
+        [-t SCRIP|ESMFMESH|UGRID|CFGRID|GRIDSPEC|MOSAIC|TILE]
+        [-r]
+        [--src_regional]
+        [--dst_regional]
+        [--64bit_offset]
+        [--netcdf4]
+        [--src_missingvalue var_name]
+        [--dst_missingvalue var_name]
+        [--src_coordinates lon_name,lat_name]
+        [--dst_coordinates lon_name,var_name]
+        [--tilefile_path filepath]
+        [--src_loc center|corner]
+        [--dst_loc center|corner]
+        [--user_areas]
+        [--weight_only]
+        [--check]
+        [--checkFlag]
+        [--no_log]
+        [--help|-h]
+        [--version]
+        [-V]
+
+where:
+  --source or -s      - a required argument specifying the source grid
+                        file name
+
+  --destination or -d - a required argument specifying the destination
+                        grid file name
+
+  --weight or -w      - a required argument specifying the output regridding
+                        weight file name
+
+  --method or -m      - an optional argument specifying which interpolation
+                        method is used. The value can be one of the following:
+
+                        bilinear     - for bilinear interpolation, also the
+                                       default method if not specified.
+                        patch        - for patch recovery interpolation
+                        neareststod  - for nearest source to destination interpolation
+                        nearestdtos  - for nearest destination to source interpolation
+                        conserve     - for first-order conservative interpolation
+                        conserve2nd  - for second-order conservative interpolation
+
+  --pole or -p        - an optional argument indicating how to extrapolate 
+                        in the pole region. 
+                        The value can be one of the following:
+
+                        none  - No pole, the source grid ends at the top
+                                (and bottom) row of nodes specified in
+                                &lt;source grid&gt;.
+                        all   - Construct an artificial pole placed in the
+                                center of the top (or bottom) row of nodes,
+                                but projected onto the sphere formed by the
+                                rest of the grid. The value at this pole is
+                                the average of all the pole values. This
+                                is the default option.
+
+                        teeth - No new pole point is constructed, instead
+                                the holes at the poles are filled by
+                                constructing triangles across the top and
+                                bottom row of the source Grid. This can be
+                                useful because no averaging occurs, however,
+                                because the top and bottom of the sphere are
+                                now flat, for a big enough mismatch between
+                                 the size of the destination and source pole
+                                regions, some destination points may still
+                                not be able to be mapped to the source Grid.
+
+                        &lt;N&gt;   - Construct an artificial pole placed in the
+                                center of the top (or bottom) row of nodes,
+                                but projected onto the sphere formed by the
+                                rest of the grid. The value at this pole is
+                                the average of the N source nodes next to
+                                the pole and surrounding the destination
+                                point (i.e.  the value may differ for each
+                                destination point. Here N ranges from 1 to
+                                the number of nodes around the pole.
+
+    --line_type 
+         or
+         -l           - an optional argument indicating the type of path
+                        lines (e.g. cell edges) follow on a spherical
+                        surface. The default value depends on the regrid
+                        method. For non-conservative methods the default is
+                        cartesian. For conservative methods the default is
+                        greatcircle. 
+
+    --norm_type       - an optional argument indicating the type of normal-
+                        ization to do when generating conservative weights. 
+                        The default value is dstarea.
+
+    --extrap_method   - an optional argument specifying which extrapolation
+                        method is used to handle unmapped destination locations.
+                        The value can be one of the following:
+
+                        none         - no extrapolation method should be used.
+                                       This is the default. 
+
+                        neareststod  - nearest source to destination. Each
+                                       unmapped destination location is mapped 
+                                       to the closest source location. This 
+                                       extrapolation method is not supported with 
+                                       conservative regrid methods (e.g. conserve).
+        
+                        nearestidavg - inverse distance weighted average. 
+                                       The value of each unmapped destination location
+                                       is the weighted average of the closest N 
+                                       source locations. The weight is the reciprocal 
+                                       of the distance of the source from the destination
+                                       raised to a power P. All the weights contributing 
+                                       to one destination point are normalized so that 
+                                       they sum to 1.0. The user can choose N and P by
+                                       using --extrap_num_src_pnts and 
+                                       --extrap_dist_exponent, but defaults are 
+                                       also provided. This extrapolation method is not 
+                                       supported with conservative regrid methods
+                                       (e.g. conserve).
+
+                        nearestd     - nearest mapped destination to 
+                                       unmapped destination. Each
+                                       unmapped destination location is mapped 
+                                       to the closest mapped destination location. This 
+                                       extrapolation method is not supported with 
+                                       conservative regrid methods (e.g. conserve).
+
+                        creep        - creep fill. 
+                                       Here unmapped destination points are filled by 
+                                       moving values from mapped locations to neighboring 
+                                       unmapped locations. The value filled into a 
+                                       new location is the average of its already filled
+                                       neighbors' values. This process is repeated for 
+                                       the number of levels indicated by the 
+                                       --extrap_num_levels flag. This extrapolation
+                                       method is not supported with conservative 
+                                       regrid methods (e.g. conserve).
+
+                        creepnrstd   - creep fill with nearest destination.  
+                                       Here unmapped destination points are filled by 
+                                       first doing a creep fill, and then filling the 
+                                       remaining unmapped points by using 
+                                       the nearest destination method (both of these
+                                       methods are described in the entries above). 
+                                       This extrapolation method is not supported 
+                                       with conservative regrid methods (e.g. conserve).
+                                       
+
+    --extrap_num_src_pnts - an optional argument specifying how many source points
+                            should be used when the extrapolation method is 
+                            nearestidavg. If not specified, the default is 8.
+
+    --extrap_dist_exponent - an optional argument specifying the exponent that 
+                             the distance should be raised to when the 
+                             extrapolation method is nearestidavg. If not specified, 
+                             the default is 2.0.
+
+    --extrap_num_levels - an optional argument specifying how many levels should
+                          be filled for level based extrapolation methods (e.g. creep).
+
+    --ignore_unmapped
+           or
+           -i         - ignore unmapped destination points. If not specified
+                        the default is to stop with an error if an unmapped
+                        point is found.
+
+    --ignore_degenerate - ignore degenerate cells in the input grids. If not specified
+                        the default is to stop with an error if an degenerate
+                        cell is found.
+
+    --src_type        - an optional argument specifying the source grid file type.
+                        The value can be one of SCRIP, ESMFMESH, UGRID, CFGRID, GRIDSPEC, MOSAIC or TILE.
+                        If neither --src_type nor -t is given, the source grid file type will be
+                        determined automatically. (Usually it is unnecessary to provide --src_type,
+                        but it can be specified when the automatic file type determination fails.)
+
+    --dst_type        - an optional argument specifying the destination grid file type.
+                        The value can be one of SCRIP, ESMFMESH, UGRID, CFGRID, GRIDSPEC, MOSAIC or TILE.
+                        If neither --dst_type nor -t is given, the destination grid file type will be
+                        determined automatically. (Usually it is unnecessary to provide --dst_type,
+                        but it can be specified when the automatic file type determination fails.)
+
+    -t                - an optional argument specifying the file types for both the source
+                        and the destination grid files.
+                        The value can be one of SCRIP, ESMFMESH, UGRID, CFGRID, GRIDSPEC, MOSAIC or TILE.
+                        If -t is given, then neither --src_type nor --dst_type can be given.
+
+    -r                - an optional argument specifying that the source and
+                        destination grids are regional grids.  If the argument
+                        is not given, the grids are assumed to be global.
+
+    --src_regional    - an optional argument specifying that the source is
+                        a regional grid and the destination is a global grid.
+
+    --dst_regional    - an optional argument specifying that the destination
+                        is a regional grid and the source is a global grid.
+
+    --64bit_offset    - an optional argument specifying that the weight file
+                        will be created in the NetCDF 64-bit offset format
+                        to allow variables larger than 2GB.  Note the 64-bit
+                        offset format is not supported in the NetCDF version
+                        earlier than 3.6.0.  An error message will be generated
+                        if this flag is specified while the application is
+                        linked with a NetCDF library earlier than 3.6.0.
+
+    --netcdf4         - an optional argument specifying that the output weight
+                        will be created in the NetCDF4 format.  This option 
+                        only works with NetCDF library version 4.1 and above 
+                        that was compiled with the NetCDF4 file format enabled 
+                        (with HDF5 compression). An error message will be 
+                        generated if these conditions are not met.
+
+    --src_missingvalue - an optional argument that defines the variable name 
+                         in the source grid file if the file type is either CF Convension
+                         single-tile or UGRID.  The regridder will generate a mask using 
+                         the missing values of the data variable.  The missing 
+                         value is defined using an attribute called "_FillValue" 
+                         or "missing_value". 
+     --dst_missingvalue - an optional argument that defines the variable name
+                         in the destination grid file if the file type is
+                         CF Convension single-tile or UGRID.  The regridder will generate a mask using
+                         the missing values of the data variable.  The missing
+                         value is defined using an attribute called "_FillValue"
+                         or "missing_value"
+
+    --src_coordinates - an optional argument that defines the longitude and
+                        latitude variable names in the source grid file if
+                        the file type is CF Convension single-tile.  The variable names are
+                        separated by comma.  This argument is required in case
+                        there are multiple sets of coordinate variables defined
+                        in the file.  Without this argument, the offline regrid
+                        application will terminate with an error message when
+                        multiple coordinate variables are found in the file.
+
+    --dst_coordinates - an optional argument that defines the longitude and
+                        latitude variable names in the destination grid file
+                        if the file type is CF Convension single-tile.  The variable names are
+                        separated by comma.  This argument is required in case
+                        there are multiple sets of coordinate variables defined
+                        in the file.  Without this argument, the offline regrid
+                        application will terminate with an error message when
+                        multiple coordinate variables are found in the file.
+
+    --tilefile_path   - the alternative file path for the tile files when either the source
+                        or the destination grid is a GRIDSPEC Mosaic grid.  The path can
+                        be either relative or absolute.  If it is relative, it is relative
+                        to the working directory.  When specified, the gridlocation variable
+                        defined in the Mosaic file will be ignored. 
+                
+    --src_loc         - an optional argument indicating which part of a source
+                        grid cell to use for regridding. Currently, this flag is 
+                        only required for non-conservative regridding when the 
+                        source grid is an unstructured grid in ESMF or UGRID format.
+                        For all other cases, only the center location is supported.
+                        The value can be one of the following:
+
+                        center - Regrid using the center location of each grid cell.
+
+                        corner - Regrid using the corner location of each grid cell.
+
+    --dst_loc         - an optional argument indicating which part of a destination
+                        grid cell to use for regridding. Currently, this flag is 
+                        only required for non-conservative regridding when the 
+                        destination grid is an unstructured grid in ESMF or UGRID format.
+                        For all other cases, only the center location is supported.
+                        The value can be one of the following:
+
+                        center - Regrid using the center location of each grid cell.
+
+                        corner - Regrid using the corner location of each grid cell.
+
+
+    --user_areas      - an optional argument specifying that the conservation
+                        is adjusted to hold for the user areas provided in
+                        the grid files. If not specified, then the 
+                        conservation will hold for the ESMF calculated 
+                        (great circle) areas.
+                        Whichever areas the conservation holds for are output
+                        to the weight file.
+
+     --weight_only    - an optional argument specifying that the output weight file only 
+                        contains the weights and the source and destination grid's indices.
+
+     --check          - Check that the generated weights produce reasonable 
+                        regridded fields. This is done by calling ESMF_Regrid() 
+                        on an analytic source field using the weights generated 
+                        by this application.  The mean relative error between 
+                        the destination and analytic field is computed, as well 
+                        as the relative error between the mass of the source and 
+                        destination fields in the conservative case.
+
+     --checkFlag      - Turn on more expensive extra error checking during 
+                        weight generation.
+
+     --no_log         - Turn off the ESMF Log files.  By default, ESMF creates 
+                        multiple log files, one per PET.
+
+     --help or -h     - Print the usage message and exit.
+
+     --version        - Print ESMF version and license information and exit.
+
+     -V               - Print ESMF version number and exit.
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION03027000000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">7</SPAN> Examples</A>
+</H2>
+
+<P>
+The example below shows the command to generate a set of conservative interpolation weights between a global
+SCRIP format source grid file (src.nc) and a global SCRIP format destination grid file (dst.nc). The weights
+are written into file w.nc. In this case the
+ESMF library and applications have been compiled using an MPI parallel communication library
+(e.g. setting ESMF_COMM to openmpi) to enable it to run in parallel. To demonstrate running in parallel
+the mpirun script is used to run the application in parallel on 4 processors.
+
+<P>
+<PRE>
+  mpirun -np 4 ./ESMF_RegridWeightGen -s src.nc -d dst.nc -m conserve -w w.nc
+</PRE>
+
+<P>
+The next example below shows the command to do the same thing as the previous example except for three changes. The first
+change is this time the source grid is regional ("<TT><code>--</code>src_regional</TT>"). The second change is that
+for this example bilinear interpolation ("<TT>-m bilinear</TT>") is being used. Because bilinear is the default, we could also
+omit the "<TT>-m bilinear</TT>". The third change is that in this example some of the destination points are expected to
+not be found in the source grid, but the user is ok with that and just wants those points to not appear in the weight file instead of causing an error ("<TT>-i</TT>").
+
+<P>
+<PRE>
+  mpirun -np 4 ./ESMF_RegridWeightGen -i --src_regional -s src.nc -d dst.nc \
+                 -m bilinear -w w.nc
+</PRE>
+
+<P>
+The last example shows how to use the missing values of a data variable to generate the
+grid mask for a CF Convension single-tile file, how to specify the coordinate variable names
+using "<TT><code>--</code>src_coordinates</TT>"
+ and use user defined area for the conservative regridding.
+
+<P>
+<PRE>
+  mpirun -np 4 ./ESMF_RegridWeightGen -s src.nc -d dst.nc -m conserve \
+                 -w w.nc --src_missingvalue datavar \
+                 --src_coordinates lon,lat --user_areas
+</PRE>
+
+<P>
+In the above example, "datavar" is the variable name defined in the source grid that will
+ be used to construct the mask using its missing values.  In addition, "<TT>lon</TT>" and "<TT>lat</TT>" are the
+variable names for the longitude and latitude values, respectively.
+
+<P>
+
+<H2><A NAME="SECTION03028000000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">8</SPAN> Grid File Formats</A>
+</H2>
+
+<P>
+This section describes the grid file formats supported by ESMF. These are typically used either to describe grids to ESMF_RegridWeightGen or to create grids within ESMF. The following table summarizes the 
+features supported by each of the grid file formats.
+
+<P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT">Feature</TD>
+<TD ALIGN="CENTER">SCRIP</TD>
+<TD ALIGN="CENTER">ESMF Unstruct.</TD>
+<TD ALIGN="CENTER">CF Grid</TD>
+<TD ALIGN="CENTER">UGRID</TD>
+<TD ALIGN="CENTER">GRIDSPEC Mosaic</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Create an unstructured Mesh</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">NO</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Create a logically-rectangular Grid</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">YES</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Create a multi-tile Grid</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">YES</TD>
+</TR>
+<TR><TD ALIGN="LEFT">2D</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">YES</TD>
+</TR>
+<TR><TD ALIGN="LEFT">3D</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">NO</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Spherical coordinates</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">YES</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Cartesian coordinates</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">NO</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Non-conserv regrid on corners</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">NO</TD>
+<TD ALIGN="CENTER">YES</TD>
+<TD ALIGN="CENTER">YES</TD>
+</TR>
+</TABLE>
+<A NAME="fig:gridfileformatfeatures"></A>
+</DIV>
+
+<P>
+The rest of this section contains a detailed descriptions of each grid file format along with a simple example of the format. 
+
+<P>
+
+<H3><A NAME="SECTION03028100000000000000"></A><A NAME="sec:fileformat:scrip"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">1</SPAN> SCRIP Grid File Format
+</H3>
+
+<P>
+A SCRIP format grid file is a NetCDF file for describing grids. This format is the same as is used by the SCRIP&nbsp;[<A
+ HREF="node8.html#ref:SCRIP">13</A>]
+package, and so grid files which work with that package should also work here.  
+When using the ESMF API, the file format flag <TT>ESMF_FILEFORMAT_SCRIP</TT> can be used to indicate a file in this format.
+
+<P>
+SCRIP format files are capable of storing either 2D logically rectangular
+grids or 2D unstructured grids. The basic format for both of these grids is the same and they are distinguished by the
+value of the <TT>grid_rank</TT> variable. Logically rectangular grids have <TT>grid_rank</TT> set to 2,
+whereas unstructured grids have this variable set to 1.
+
+<P>
+The following is a sample header of a logically rectangular grid file:
+
+<P>
+<PRE>
+netcdf remap_grid_T42 {
+dimensions:
+      grid_size = 8192 ;
+      grid_corners = 4 ;
+      grid_rank = 2 ;
+
+variables:
+      int grid_dims(grid_rank) ;
+      double grid_center_lat(grid_size) ;
+         grid_center_lat:units = "radians";
+      double grid_center_lon(grid_size) ;
+         grid_center_lon:units = "radians" ;
+      int grid_imask(grid_size) ;
+         grid_imask:units = "unitless" ;
+      double grid_corner_lat(grid_size, grid_corners) ;
+         grid_corner_lat:units = "radians" ;
+      double grid_corner_lon(grid_size, grid_corners) ;
+         grid_corner_lon:units ="radians" ;
+
+// global attributes:
+         :title = "T42 Gaussian Grid" ;
+}
+</PRE>
+
+<P>
+The <TT>grid_size</TT> dimension is the total number of cells in the grid; <TT>grid_rank</TT> refers to the
+number of dimensions. In this case <TT>grid_rank</TT> is 2 for a 2D logically rectangular grid.
+The integer array <TT>grid_dims</TT> gives the number of grid cells along each dimension.
+The number of corners (vertices) in each grid cell is given by <TT>grid_corners</TT>.
+The grid corner coordinates need to be listed in an order such that the corners are in counterclockwise
+order.  Also, note that if your grid has a variable number of corners on grid cells, then
+you should set <TT>grid_corners</TT> to be the highest value and use redundant points
+on cells with fewer corners.
+
+<P>
+The integer array <TT>grid_imask</TT> is used to mask out grid cells which should
+not participate in the regridding. The array values should be zero for any points
+that do not participate in the regridding and one for all other points.
+Coordinate arrays provide the latitudes and longitudes of cell centers
+and cell corners. The unit of the coordinates can be either "<TT>radians</TT>" or "<TT>degrees</TT>".
+
+<P>
+Here is a sample header from a SCRIP unstructured grid file:
+
+<P>
+<PRE>
+netcdf ne4np4-pentagons {
+dimensions:
+      grid_size = 866 ;
+      grid_corners = 5 ;
+      grid_rank = 1 ;
+variables:
+      int grid_dims(grid_rank) ;
+      double grid_center_lat(grid_size) ;
+         grid_center_lat:units = "degrees" ;
+      double grid_center_lon(grid_size) ;
+         grid_center_lon:units = "degrees" ;
+      double grid_corner_lon(grid_size, grid_corners) ;
+         grid_corner_lon:units = "degrees";
+         grid_corner_lon:_FillValue = -9999. ;
+      double grid_corner_lat(grid_size, grid_corners) ;
+         grid_corner_lat:units = "degrees" ;
+         grid_corner_lat:_FillValue = -9999. ;
+      int grid_imask(grid_size) ;
+         grid_imask:_FillValue = -9999. ;
+      double grid_area(grid_size) ;
+         grid_area:units = "radians^2" ;
+         grid_area:long_name = "area weights" ;
+}
+</PRE>
+
+<P>
+The variables are the same as described above, however, here <TT>grid_rank = 1</TT>. In this format there
+is no notion of which cells are next to which, so to construct the unstructured mesh the connection between
+cells is defined by searching for cells with the same corner coordinates. (e.g. the same <TT>grid_corner_lat</TT>
+and <TT>grid_corner_lon</TT> values).
+
+<P>
+Both the SCRIP grid file format and the SCRIP weight file format work with the SCRIP 1.4 tools.
+
+<P>
+
+<H3><A NAME="SECTION03028200000000000000"></A><A NAME="sec:fileformat:esmf"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMF Unstructured Grid File Format (ESMFMESH)
+</H3>
+
+<P>
+ESMF supports a custom unstructured grid file format for describing meshes. This format is more compatible than the SCRIP format with the methods used to create an ESMF Mesh object, so less conversion needs to be done to create a Mesh. The ESMF format is thus more efficient than SCRIP when used with ESMF codes (e.g. the ESMF_RegridWeightGen application). When using the ESMF API, the file format flag <TT>ESMF_FILEFORMAT_ESMFMESH</TT> can be used to indicate a file in this format.
+
+<P>
+The following is a sample header in the ESMF format followed by a description:
+
+<P>
+<PRE>
+netcdf mesh-esmf {
+dimensions:
+     nodeCount = 9 ;
+     elementCount = 5 ;
+     maxNodePElement = 4 ;
+     coordDim = 2 ;
+variables:
+     double nodeCoords(nodeCount, coordDim);
+            nodeCoords:units = "degrees" ;
+     int elementConn(elementCount, maxNodePElement) ;
+            elementConn:long_name = "Node Indices that define the element /
+                                     connectivity";
+            elementConn:_FillValue = -1 ;
+            elementConn:start_index = 1 ;
+     byte numElementConn(elementCount) ;
+            numElementConn:long_name = "Number of nodes per element" ;
+     double centerCoords(elementCount, coordDim) ;
+            centerCoords:units = "degrees" ;
+     double elementArea(elementCount) ;
+            elementArea:units = "radians^2" ;
+            elementArea:long_name = "area weights" ;
+     int elementMask(elementCount) ;
+            elementMask:_FillValue = -9999. ;
+// global attributes:
+            :gridType="unstructured";
+            :version = "0.9" ;
+</PRE>
+
+<P>
+In the ESMF format the NetCDF dimensions have the following meanings. The <TT>nodeCount</TT> dimension is the number of nodes in the mesh.
+ The <TT>elementCount</TT> dimension is the number of elements in the mesh. The <TT>maxNodePElement</TT> dimension is the maximum number
+ of nodes in any element in the mesh. For example, in a mesh containing just triangles, then <TT>maxNodePElement</TT> would be 3. However,
+ if the mesh contained one quadrilateral then <TT>maxNodePElement</TT> would need to be 4. The <TT>coordDim</TT> dimension is the number of dimensions
+ of the points making up the mesh (i.e. the spatial dimension of the mesh). For example, a 2D planar mesh would have <TT>coordDim</TT> equal to 2.  
+
+<P>
+In the ESMF format the NetCDF variables have the following meanings. The <TT>nodeCoords</TT> variable contains the coordinates for each node.
+ <TT>nodeCoords</TT> is a two-dimensional array of dimension <TT>(nodeCount,coordDim)</TT>.
+ For a 2D Grid, <TT>coordDim</TT> is 2 and the grid can be either spherical or Cartesian. If the <TT>units</TT>
+ attribute is either <TT>degrees</TT> or <TT>radians</TT>, it is spherical. <TT>nodeCoords(:,1)</TT> contains 
+the longitude coordinates and <TT>nodeCoords(:,2)</TT> contains the latitude coordinates.  If the value of 
+the <TT>units</TT> attribute is <TT>km</TT>, <TT>kilometers</TT> or <TT>meters</TT>, the grid is in 2D Cartesian 
+coordinates. <TT>nodeCoords(:,1)</TT> contains the x coordinates and
+ <TT>nodeCoords(:,2)</TT> contains the y coordinates.
+ The same order applies to <TT>centerCoords</TT>.
+ For a 3D Grid, <TT>coordDim</TT> is 3 and the grid is assumed to be Cartesian. <TT>nodeCoords(:,1)</TT> contains the x coordinates, <TT>nodeCoords(:,2)</TT> contains the y coordinates, 
+ and <TT>nodeCoords(:,3)</TT> contains the z coordinates.  The same order applies to <TT>centerCoords</TT>.
+A 2D grid in the Cartesian coordinate can only be regridded into another 2D grid in the Cartesian coordinate.
+
+<P>
+The <TT>elementConn</TT> variable describes how the nodes are connected together to form each element. For each element, this variable contains a list of indices into the <TT>nodeCoords</TT> variable pointing to the nodes which make up that
+ element. By default, the index is 1-based.  It can be changed to 0-based by adding an attribute 
+<TT>start_index</TT> of value 0 to the <TT>elementConn</TT> variable.  The order of the indices describing the element is important.
+ The proper order for elements available in an ESMF mesh can be found in Section&nbsp;<A HREF="node5.html#const:meshelemtype">34.2.1</A>. The file format does support 2D polygons with more
+ corners than those in that section, but internally these are broken into triangles. For these polygons, the corners should
+ be listed such that they are in counterclockwise order around the element.
+<TT>elementConn</TT> can be either a 2D array or a 1D array.  If it is a 2D array, the second
+ dimension of the <TT>elementConn</TT> variable has to be the size of the largest number of nodes in any element (i.e. <TT>maxNodePElement</TT>), the actual number of
+ nodes in an element is given by the <TT>numElementConn</TT> variable. For a given dimension (i.e. <TT>coordDim</TT>) the number of nodes in the element
+ indicates the element shape. For example in 2D, if <TT>numElementConn</TT> is 4 then the element is a quadrilateral. In 3D, if <TT>numElementConn</TT> is 8
+ then the element is a hexahedron.
+
+<P>
+If the grid contains some elements with large number of edges, using a 2D array for <TT>elementConn</TT> could take a lot of space.  
+In that case, <TT>elementConn</TT> can be represented as a 1D array that stores the edges of all the elements continuously.  When <TT>elementConn</TT> is a 1D array, the dimension <TT>maxNodePElement</TT> is no longer needed, instead, a new dimension variable <TT>connectionCount</TT>
+is required to define the size of <TT>elementConn</TT>.  The value of <TT>connectionCount</TT> is the sum of all the values in <TT>numElementConn</TT>.
+
+<P>
+The following is an example grid file using 1D array for <TT>elementConn</TT>:
+
+<P>
+<PRE>
+netcdf catchments_esmf1 {
+dimensions:
+        nodeCount = 1824345 ;
+        elementCount = 68127 ;
+        connectionCount = 18567179 ;
+        coordDim = 2 ;
+variables:
+        double nodeCoords(nodeCount, coordDim) ;
+                nodeCoords:units = &ldquo;degrees&rdquo; ;
+        double centerCoords(elementCount, coordDim) ;
+                centerCoords:units = &ldquo;degrees&rdquo; ;
+        int elementConn(connectionCount) ;
+                elementConn:polygon_break_value = -8 ;
+                elementConn:start_index = 0. ;
+        int numElementConn(elementCount) ;
+}
+</PRE>
+
+<P>
+In some cases, one mesh element may contain multiple polygons and these polygons are separated by a special value defined in the attribute
+ <TT>polygon_break_value</TT>. 
+
+<P>
+The rest of the variables in the format are optional. The <TT>centerCoords</TT> variable gives the coordinates of the center of the corresponding element.
+ This variable is used by ESMF for non-conservative interpolation on the data field residing at the center of the elements.  The <TT>elementArea</TT> variable gives the area (or volume in 3D) of the corresponding element. This
+ area is used by ESMF during conservative interpolation. If not specified, ESMF calculates the area (or volume) based on the coordinates of the nodes
+ making up the element. The final variable is the <TT>elementMask</TT> variable. This variable allows the user to specify a mask value for
+ the corresponding element. If the value is 1, then the element is unmasked and if the value is 0 the element is masked.
+ If not specified, ESMF assumes that no elements are masked.
+
+<P>
+The following is a picture of a small example mesh and a sample ESMF format header using non-optional variables describing that mesh:
+
+<P>
+<PRE>
+  2.0   7 ------- 8 ------- 9
+        |         |         |
+        |    4    |    5    |
+        |         |         |
+  1.0   4 ------- 5 ------- 6
+        |         |  \   3  |
+        |    1    |    \    |
+        |         |  2   \  |
+  0.0   1 ------- 2 ------- 3
+
+       0.0       1.0        2.0
+
+        Node indices at corners
+       Element indices in centers
+
+netcdf mesh-esmf {
+dimensions:
+        nodeCount = 9 ;
+        elementCount = 5 ;
+        maxNodePElement = 4 ;
+        coordDim = 2 ;
+variables:
+        double  nodeCoords(nodeCount, coordDim);
+                nodeCoords:units = "degrees" ;
+        int elementConn(elementCount, maxNodePElement) ;
+                elementConn:long_name = "Node Indices that define the element /
+                                         connectivity";
+                elementConn:_FillValue = -1 ;
+        byte numElementConn(elementCount) ;
+                numElementConn:long_name = "Number of nodes per element" ;
+// global attributes:
+                :gridType="unstructured";
+                :version = "0.9" ;
+data:
+    nodeCoords=
+        0.0, 0.0,
+        1.0, 0.0,
+        2.0, 0.0,
+        0.0, 1.0,
+        1.0, 1.0,
+        2.0, 1.0,
+        0.0, 2.0,
+        1.0, 2.0,
+        2.0, 2.0 ;
+
+    elementConn=
+        1, 2, 5,  4,
+        2, 3, 5, -1,
+        3, 6, 5, -1,
+        4, 5, 8,  7,
+        5, 6, 9,  8 ;
+
+    numElementConn= 4, 3, 3, 4, 4 ;
+}
+</PRE>
+
+<P>
+
+<H3><A NAME="SECTION03028300000000000000"></A><A NAME="sec:fileformat:gridspec"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">3</SPAN> CF Convention Single Tile File Format (CFGRID/GRIDSPEC)
+</H3>
+
+<P>
+ESMF_RegridWeightGen supports single tile logically rectangular lat/lon grid files that follow the NETCDF CF convention based on
+<A NAME="tex2html12"
+  HREF="http://cfconventions.org/cf-conventions/v1.6.0/cf-conventions.html">CF Metadata Conventions V1.6</A>. When using the ESMF API, the file format flag <TT>ESMF_FILEFORMAT_CFGRID</TT> (or its equivalent deprecated name, <TT>ESMF_FILEFORMAT_GRIDSPEC</TT>) can be used to indicate a file in this format.  
+
+<P>
+An example grid file is shown below.
+The cell center coordinate variables are determined by the value of its attribute <TT>units</TT>.  The longitude
+variable has the attribute value set to either <TT>degrees_east</TT>, <TT>degree_east</TT>, <TT>degrees_E</TT>, <TT>degree_E</TT>,
+<TT>degreesE</TT> or <TT>degreeE</TT>.  The latitude variable has the attribute value set to <TT>degrees_north</TT>, <TT>degree_north</TT>, <TT>degrees_N</TT>,
+<TT>degree_N</TT>, <TT>degreesN</TT> or <TT>degreeN</TT>.   The latitude and the longitude variables are one-dimensional arrays if the grid is a regular lat/lon grid, two-dimensional arrays if the grid is curvilinear. The bound coordinate
+variables define the bound or the corner coordinates of a cell.  The bound variable name is specified in the
+<TT>bounds</TT> attribute of the latitude and longitude variables.  In the following example, the latitude bound
+variable is <TT>lat_bnds</TT> and the longitude bound variable is <TT>lon_bnds</TT>.  The bound variables are 2D
+arrays for a regular lat/lon grid and a 3D array for a curvilinear grid.  The first dimension of the bound
+array is 2 for a regular lat/lon grid and 4 for a curvilinear grid.  The bound coordinates for a curvilinear
+grid are defined in counterclockwise order. Since the grid is a regular lat/lon grid,
+the coordinate variables are 1D and the bound variables are 2D with the first dimension equal to 2.
+The bound coordinates will be read in and stored in a ESMF Grid object as the corner stagger coordinates when doing a conservative regrid.  In case there are multiple sets of coordinate variables defined in a grid file,
+the offline regrid application will return an error for duplicate latitude or longitude variables unless
+"<TT><code>--</code>src_coordinates</TT>" 
+or "<TT><code>--</code>src_coordinates</TT>" options are used to specify the coordinate variable names
+to be used in the regrid.
+
+<P>
+<PRE>
+netcdf single_tile_grid {
+dimensions:
+	time = 1 ;
+	bound = 2 ;
+	lat = 181 ;
+	lon = 360 ;
+variables:
+	double lat(lat) ;
+		lat:bounds = "lat_bnds" ;
+		lat:units = "degrees_north" ;
+		lat:long_name = "latitude" ;
+		lat:standard_name = "latitude" ;
+	double lat_bnds(lat, bound) ;
+	double lon(lon) ;
+		lon:bounds = "lon_bnds" ;
+		lon:long_name = "longitude" ;
+		lon:standard_name = "longitude" ;
+		lon:units = "degrees_east" ;
+	double lon_bnds(lon, bound) ;
+	float so(time, lat, lon) ;
+		so:standard_name = "sea_water_salinity" ;
+		so:units = "psu" ;
+		so:missing_value = 1.e+20f ;
+}
+</PRE>
+
+<P>
+2D Cartesian coordinates can be supplied in additional to the required
+longitude/latitude coordinates.  They can be used in ESMF to create a grid and
+used in ESMF_RegridWeightGen.   The Cartesian coordinate variables have to
+include an "<TT>axis</TT>" attribute with value "X" or "Y".  The "<TT>units</TT>"
+attribute can be either "m" or  "meters" for meters or  "km" or  "kilometers"
+for kilometers.  When a grid with 2D Cartesian coordinates are used in
+ESMF_RegridWeightGen, the optional arguments "<TT><code>--</code>src_coordinates</TT>" 
+or "<TT><code>--</code>src_coordinates</TT>" have to be used to specify the coordinate
+variable names.  A grid with 2D Cartesian coordinates can only be regridded
+with another grid in 2D Cartesian coordinates.  Internally in ESMF, the
+Cartesian coordinates are all converted into kilometers.  Here is an example
+of the 2D Cartesian coordinates:
+
+<P>
+<PRE>
+      double xc(xc) ;
+              xc:long_name = "x-coordinate in Cartesian system" ;
+              xc:standard_name = "projection_x_coordinate" ;
+              xc:axis = "X" ;
+              xc:units = "m" ;
+      double yc(yc) ;
+              yc:long_name = "y-coordinate in Cartesian system" ;
+              yc:standard_name = "projection_y_coordinate" ;
+              yc:axis = "Y" ;
+              yc:units = "m" ;
+</PRE>
+
+<P>
+Since a CF convension tile file does not have a way to specify the grid mask, the mask is usually derived by the missing values stored in a data variable.  ESMF_RegridWeightGen provides an option for users to
+derive the grid mask from a data variable's missing values.  The value of the missing value is defined by the
+variable attribute <TT>missing_value</TT> or <TT>_FillValue</TT>.  If the value of the data point is equal to the
+missing value, the grid mask for that grid point is set to 0, otherwise, it is set to 1.   In the following
+grid, the variable <TT>so</TT> can be used to derive the grid mask.  A data variable could be a 2D, 3D or 4D.
+For example, it may have additional depth and time dimensions.
+It is assumed that the first and the second dimensions of the data variable should be the longitude and the
+latitude dimension.  ESMF_RegridWeightGen will use the first 2D data values to derive the grid mask.
+
+<P>
+
+<H3><A NAME="SECTION03028400000000000000"></A><A NAME="sec:fileformat:ugrid"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">4</SPAN> CF Convention UGRID File Format
+</H3>
+
+<P>
+ESMF_RegridWeightGen supports NetCDF files that follow the UGRID conventions for unstructured grids.
+
+<P>
+The UGRID file format is a proposed extension to the CF metadata conventions for the unstructured grid data model. The latest proposal can be found at <A NAME="tex2html13"
+  HREF="https://github.com/ugrid-conventions/ugrid-conventions">https://github.com/ugrid-conventions/ugrid-conventions</A>.  The proposal is still evolving, the Mesh creation API and ESMF_RegridWeightGen in the current ESMF release is based on UGRID Version 0.9.0 published on October 29, 2013. When using the ESMF API, the file format flag <TT>ESMF_FILEFORMAT_UGRID</TT> can be used to indicate a file in this format.
+
+<P>
+In the UGRID proposal, a 1D, 2D, or 3D mesh topology can be defined for an unstructured grid.  Currently, ESMF
+supports two types of meshes: (1) the 2D flexible mesh topology where each cell (a.k.a. "face" as defined in the UGRID document) in the mesh is either a triangle or a quadrilateral, and (2) the fully 3D unstructured mesh topology where each cell (a.k.a. "volume" as defined in the UGRID document) in the mesh
+is either a tetrahedron or a hexahedron.  Pyramids and wedges are not currently supported in ESMF, but they
+can be defined as degenerate hexahedrons.   ESMF_RegridWeightGen also
+supports UGRID 1D network mesh topology in a limited way:  A 1D mesh in UGRID
+can be used as the source grid for nearest neighbor regridding, and as the
+destination grid for non-conservative regridding.  
+
+<P>
+The main addition of the UGRID extension is a dummy variable that defines the mesh
+topology.  This additional variable has a required attribute <TT>cf_role</TT>
+with value <TT>"mesh_topology"</TT>.  In addition, it has two more required attributes: <TT>topology_dimension</TT>
+and <TT>node_coordinates</TT>.  If it is a 1D mesh, <TT>topology_dimension</TT> is
+set to 1.  
+If it is a 2D mesh (i.e., <TT>topology_dimension</TT> equals to 2), an additional attribute
+<TT>face_node_connectivity</TT> is required.  If it is a 3D mesh (i.e., <TT>topology_dimension</TT> equals to 3), two additional attributes <TT>volume_node_connectivity</TT> and <TT>volume_shape_type</TT> are required.
+The value of attribute <TT>node_coordinates</TT> is a list of the names of the node longitude and latitude variables,
+plus the elevation variable if it is a 3D mesh.
+The value of attribute <TT>face_node_connectivity</TT> or <TT>volume_node_connectivity</TT> is the variable name that defines the corner node indices for each mesh cell. The additional attribute <TT>volume_shape_type</TT> for the
+3D mesh points to a flag variable that specifies the shape type of each cell in the mesh.
+
+<P>
+Below is a sample 2D mesh called <TT>FVCOM_grid2d</TT>. The dummy mesh topology variable is <TT>fvcom_mesh</TT>.  As described above, its <TT>cf_role</TT> attribute has to be <TT>mesh_topology</TT>
+and the <TT>topology_dimension</TT> attribute has to be 2 for a 2D mesh.  It defines
+the node coordinate variable names to be <TT>lon</TT> and <TT>lat</TT>.  It also specifies the face/node connectivity variable name as <TT>nv</TT>.
+
+<P>
+The variable <TT>nv</TT> is a two-dimensional array that defines the node indices of each face. The first dimension
+defines the maximal number of nodes for each face. In this example, it is a
+triangle mesh so the number of nodes per face is 3.  Since each face may have a different number of corner nodes,
+some of the cells may have fewer nodes than the specified dimension. In that case, it is filled with the
+missing values defined by the attribute <TT>_FillValue</TT>.  If <TT>_FillValue</TT> is not defined, the default value
+is -1. The nodes are in counterclockwise order.  An optional attribute
+<TT>start_index</TT> defines whether the node index is 1-based or 0-based.  If <TT>start_index</TT> is not defined, 
+the default node index is 0-based.
+
+<P>
+The coordinate variables follows the CF metadata convention for coordinates.  They are 1D array with attribute
+<TT>standard_name</TT> being either <TT>latitude</TT> or <TT>longitude</TT>.  The units of the coordinates can be either <TT>degrees</TT> or <TT>radians</TT>.
+
+<P>
+The UGRID files may also contain data variables.  The data may be located at the nodes or at the faces.  Two additional attributes are introduced in the UGRID extension for the data variables:  <TT>location</TT> and <TT>mesh</TT>.  The <TT>location</TT>
+attribute defines where the data is located, it can be either <TT>face</TT> or <TT>node</TT>.  The <TT>mesh</TT> attribute defines which mesh topology this variable belongs to since multiple mesh topologies may be defined in one
+file.  The <TT>coordinates</TT> attribute defined in the CF conventions can also be used to associate the variables to their locations.  ESMF checks both <TT>location</TT> and <TT>coordinates</TT> attributes to determine where the data variable is defined upon. If both attributes are present, the <TT>location</TT> attribute takes the precedence.  ESMF_RegridWeightGen uses the data variable on the face to derive the element masks for the mesh cell and variable on the node to derive the node masks for the mesh.
+
+<P>
+When creating a ESMF Mesh from a UGRID file, the user has to provide the mesh topology variable name to <TT>ESMF_MeshCreate()</TT>.
+
+<P>
+<PRE>
+netcdf FVCOM_grid2d {
+dimensions:
+	node = 417642 ;
+	nele = 826866 ;
+	three = 3 ;
+        time  = 1 ;
+
+variables:
+// Mesh topology
+	int fvcom_mesh;
+		fvcom_mesh:cf_role = "mesh_topology" ;
+		fvcom_mesh:topology_dimension = 2. ;
+		fvcom_mesh:node_coordinates = "lon lat" ;
+		fvcom_mesh:face_node_connectivity = "nv" ;
+	int nv(nele, three) ;
+		nv:standard_name = "face_node_connectivity" ;
+		nv:start_index = 1. ;
+
+// Mesh node coordinates
+	float lon(node) ;
+                lon:standard_name = "longitude" ;
+	        lon:units = "degrees_east" ;
+	float lat(node) ;
+                lat:standard_name = "latitude" ;
+		lat:units = "degrees_north" ;
+
+// Data variable
+	float ua(time, nele) ;
+		ua:standard_name = "barotropic_eastward_sea_water_velocity" ;
+		ua:missing_value = -999. ;
+		ua:location = "face" ;
+		ua:mesh = "fvcom_mesh" ;
+	float va(time, nele) ;
+		va:standard_name = "barotropic_northward_sea_water_velocity" ;
+		va:missing_value = -999. ;
+		va:location = "face" ;
+		va:mesh = "fvcom_mesh" ;
+}
+</PRE>
+
+<P>
+Following is a sample 3D UGRID file containing hexahedron cells. The dummy mesh topology variable is <TT>fvcom_mesh</TT>. Its <TT>cf_role</TT> attribute has to be <TT>mesh_topology</TT>
+and <TT>topology_dimension</TT> attribute has to be 3 for a 3D mesh.  There are two additional required attributes:
+<TT>volume_node_connectivity</TT> specifies a variable name that defines the corner indices of the mesh cells and
+<TT>volume_shape_type</TT> specifies a variable name that defines the type of the mesh cells.
+
+<P>
+The node coordinates are defined by variables <TT>nodelon</TT>, <TT>nodelat</TT> and <TT>height</TT>. Currently, the units
+attribute for the height variable is either <TT>kilometers</TT>, <TT>km</TT> or <TT>meters</TT>.
+The variable <TT>vertids</TT> is a two-dimensional array that defines the corner node indices of each mesh cell. The first dimension
+defines the maximal number of nodes for each cell. There is only one type of cells in the sample grid, i.e. hexahedrons, so the maximal number
+of nodes is 8.  The node order is defined in&nbsp;<A HREF="node5.html#const:meshelemtype">34.2.1</A>.  The index can be either 1-based or 0-based and
+the default is 0-based.
+ Setting an optional attribute <TT>start_index</TT> to 1 changed it to 1-based index scheme.
+The variable <TT>meshtype</TT> is a one-dimensional integer array that defines the shape type of each cell.  Currently, ESMF only
+supports tetrahedron and hexahedron shapes. There are three attributes in <TT>meshtype</TT>: <TT>flag_range</TT>, <TT>flag_values</TT>, and <TT>flag_meanings</TT> representing the range of the flag values, all the possible flag values, and the meaning of each flag value, respectively.  <TT>flag_range</TT> and <TT>flag_values</TT> are either a scalar or an array of integers.  <TT>flag_meanings</TT> is a text string containing a list of shape types separated by space. In this example, there
+is only one shape type, thus, the values of <TT>meshtype</TT> are all 1.
+
+<P>
+<PRE>
+netcdf wam_ugrid100_110 {
+dimensions:
+	nnodes = 78432 ;
+	ncells = 66030 ;
+	eight = 8 ;
+variables:
+	int mesh ;
+		mesh:cf_role = "mesh_topology" ;
+		mesh:topology_dimension = 3. ;
+		mesh:node_coordinates = "nodelon nodelat height" ;
+		mesh:volume_node_connectivity = "vertids" ;
+		mesh:volume_shape_type = "meshtype" ;
+	double nodelon(nnodes) ;
+		nodelon:standard_name = "longitude" ;
+		nodelon:units = "degrees_east" ;
+	double nodelat(nnodes) ;
+		nodelat:standard_name = "latitude" ;
+		nodelat:units = "degrees_north" ;
+	double height(nnodes) ;
+		height:standard_name = "elevation" ;
+		height:units = "kilometers" ;
+	int vertids(ncells, eight) ;
+		vertids:cf_role = "volume_node_connectivity" ;
+		vertids:start_index = 1. ;
+	int meshtype(ncells) ;
+		meshtype:cf_role = "volume_shape_type" ;
+		meshtype:flag_range = 1. ;
+		meshtype:flag_values = 1. ;
+		meshtype:flag_meanings = "hexahedron" ;
+}
+</PRE>
+
+<P>
+
+<H3><A NAME="SECTION03028500000000000000"></A><A NAME="sec:fileformat:mosaic"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">5</SPAN> GRIDSPEC Mosaic File Format
+</H3>
+
+<P>
+GRIDSPEC is a draft proposal to extend the Climate and Forecast (CF) metadata conventions for the representation of gridded data for Earth System Models.  The original GRIDSPEC standard was proposed by V. Balaji and Z. Liang of GFDL (see <A NAME="tex2html14"
+  HREF="http://www.gfdl.noaa.gov/~vb/gridstd/gridstd.html">ref</A>). GRIDSPEC extends the current CF convention to support grid  mosaics, i.e., a grid consisting of multiple logically
+rectangular grid tiles. It also provides a mechanism for storing a grid dataset in multiple files.  Therefore,
+it introduces different types of files, such as a mosaic file that defines the multiple tiles and their
+connectivity, and a tile file for a single tile grid definition on a so-called "Supergrid" format. When using the ESMF API, the file format flag <TT>ESMF_FILEFORMAT_MOSAIC</TT> can be used to indicate a file in this format.
+
+<P>
+Following is an example of a mosaic file that defines a 6 tile Cubed Sphere grid:
+
+<P>
+<PRE>
+netcdf C48_mosaic {
+dimensions:
+	ntiles = 6 ;
+	ncontact = 12 ;
+	string = 255 ;
+variables:
+	char mosaic(string) ;
+		mosaic:standard_name = "grid_mosaic_spec" ;
+		mosaic:children = "gridtiles" ;
+		mosaic:contact_regions = "contacts" ;
+		mosaic:grid_descriptor = "" ;
+	char gridlocation(string) ;
+	char gridfiles(ntiles, string) ;
+	char gridtiles(ntiles, string) ;
+	char contacts(ncontact, string) ;
+		contacts:standard_name = "grid_contact_spec" ;
+		contacts:contact_type = "boundary" ;
+		contacts:alignment = "true" ;
+		contacts:contact_index = "contact_index" ;
+		contacts:orientation = "orient" ;
+	char contact_index(ncontact, string) ;
+		contact_index:standard_name = "starting_ending_point_index_of_contact" ;
+
+data:
+
+mosaic = "C48_mosaic" ;
+
+gridlocation = "./data/" ;
+
+gridfiles =
+  "horizontal_grid.tile1.nc",
+  "horizontal_grid.tile2.nc",
+  "horizontal_grid.tile3.nc",
+  "horizontal_grid.tile4.nc",
+  "horizontal_grid.tile5.nc",
+  "horizontal_grid.tile6.nc" ;
+
+gridtiles =
+  "tile1",
+  "tile2",
+  "tile3",
+  "tile4",
+  "tile5",
+  "tile6" ;
+
+contacts =
+  "C48_mosaic:tile1::C48_mosaic:tile2",
+  "C48_mosaic:tile1::C48_mosaic:tile3",
+  "C48_mosaic:tile1::C48_mosaic:tile5",
+  "C48_mosaic:tile1::C48_mosaic:tile6",
+  "C48_mosaic:tile2::C48_mosaic:tile3",
+  "C48_mosaic:tile2::C48_mosaic:tile4",
+  "C48_mosaic:tile2::C48_mosaic:tile6",
+  "C48_mosaic:tile3::C48_mosaic:tile4",
+  "C48_mosaic:tile3::C48_mosaic:tile5",
+  "C48_mosaic:tile4::C48_mosaic:tile5",
+  "C48_mosaic:tile4::C48_mosaic:tile6",
+  "C48_mosaic:tile5::C48_mosaic:tile6" ;
+
+ contact_index =
+  "96:96,1:96::1:1,1:96",
+  "1:96,96:96::1:1,96:1",
+  "1:1,1:96::96:1,96:96",
+  "1:96,1:1::1:96,96:96",
+  "1:96,96:96::1:96,1:1",
+  "96:96,1:96::96:1,1:1",
+  "1:96,1:1::96:96,96:1",
+  "96:96,1:96::1:1,1:96",
+  "1:96,96:96::1:1,96:1",
+  "1:96,96:96::1:96,1:1",
+  "96:96,1:96::96:1,1:1",
+  "96:96,1:96::1:1,1:96" ;
+}
+</PRE>
+
+<P>
+A GRIDSPEC Mosaic file is identified by a dummy variable with its <TT>standard_name</TT> attribute set to <TT>grid_mosaic_spec</TT>.
+The <TT>children</TT> attribute of this dummy variable provides the variable name that contains the tile names and the 
+<TT>contact_region</TT> attribute points to the variable name that defines a list of tile pairs that are connected
+to each other.  For a Cubed Sphere grid, there are six tiles and 12 connections.  The <TT>contacts</TT> variable, the 
+variable that defines the contact_region
+has three required attributes: <TT>standard_name</TT>, <TT>contact_type</TT>, and <TT>contact_index</TT>.  <TT>startand_name</TT>
+has to be set to <TT>grid_contact_spec</TT>.  <TT>contact_type</TT> can be either <TT>boundary</TT> or <TT>overlap</TT>. Currently, ESMF
+only supports non-overlapping tiles connected by <TT>boundary</TT>. <TT>contact_index</TT> defines the variable name that contains the information defining how the
+two adjacent tiles are connected to each other.  In the above example, the <TT>contact_index</TT> variable contains 12 entries.  Each entry
+contains the index of four points that defines the two edges that contact to 
+ each other from the two neighboring tiles.  Assuming the four points are A, B, C, and D.  
+ A and B defines the edge of tile 1 and C and D defines the edge of tile 2.  A is the same point
+ as C and B is the same as D.  (Ai, Aj) is the index for point A. The entry looks like this:
+<PRE>
+  Ai:Bi,Aj:Bj::Ci:Di,Cj:Dj
+</PRE>
+
+<P>
+There are two fixed-name variables required in the mosaic file: variable <TT>gridfiles</TT> defines the associated tile file names and 
+variable <TT>gridlocation</TT> defines the directory path of the tile files.
+The <TT>gridlocation</TT> can be overwritten with an command line argument <TT>-tilefile_path</TT> in ESMF_RegridWeightGen application.  
+
+<P>
+It is possible to define a single-tile Mosaic file.  If there is only one tile in the Mosaic, the <TT>contact_region</TT> attribute in the
+<TT>grid_mosaic_spec</TT> varilable will be ignored.
+
+<P>
+Each tile in the Mosaic is a logically rectangular lat/lon grid and is defined in a separate file.   The tile file used in the GRIDSPEC Mosaic file defines the coordinates of a so-called 
+<TT>supergrid</TT>.  A supergrid contains all the
+stagger locations in one grid.  It contains the corner, edge and center coordinates all in one 2D array.
+In this example, there are 48 elements in each side of a tile, therefore, the size of the supergrid is 
+48*2+1=97, i.e. 97x97.
+
+<P>
+Here is the header of one of the tile files:
+
+<P>
+<PRE>
+netcdf horizontal_grid.tile1 {
+dimensions:
+	string = 255 ;
+	nx = 96 ;
+	ny = 96 ;
+	nxp = 97 ;
+	nyp = 97 ;
+variables:
+	char tile(string) ;
+		tile:standard_name = "grid_tile_spec" ;
+		tile:geometry = "spherical" ;
+		tile:north_pole = "0.0 90.0" ;
+		tile:projection = "cube_gnomonic" ;
+		tile:discretization = "logically_rectangular" ;
+		tile:conformal = "FALSE" ;
+	double x(nyp, nxp) ;
+		x:standard_name = "geographic_longitude" ;
+		x:units = "degree_east" ;
+	double y(nyp, nxp) ;
+		y:standard_name = "geographic_latitude" ;
+		y:units = "degree_north" ;
+	double dx(nyp, nx) ;
+		dx:standard_name = "grid_edge_x_distance" ;
+		dx:units = "meters" ;
+	double dy(ny, nxp) ;
+		dy:standard_name = "grid_edge_y_distance" ;
+		dy:units = "meters" ;
+	double area(ny, nx) ;
+		area:standard_name = "grid_cell_area" ;
+		area:units = "m2" ;
+	double angle_dx(nyp, nxp) ;
+		angle_dx:standard_name = "grid_vertex_x_angle_WRT_geographic_east" ;
+		angle_dx:units = "degrees_east" ;
+	double angle_dy(nyp, nxp) ;
+		angle_dy:standard_name = "grid_vertex_y_angle_WRT_geographic_north" ;
+		angle_dy:units = "degrees_north" ;
+	char arcx(string) ;
+		arcx:standard_name = "grid_edge_x_arc_type" ;
+		arcx:north_pole = "0.0 90.0" ;
+
+// global attributes:
+		:grid_version = "0.2" ;
+		:history = "/home/z1l/bin/tools_20091028/make_hgrid --grid_type gnomonic_ed --nlon 96" ;
+}
+</PRE>
+
+<P>
+The tile file not only defines the coordinates at all staggers, it also has a complete specification of
+distances, angles, and areas.  In ESMF, we only use the <TT>geographic_longitude</TT> and <TT>geographic_latitude</TT>
+variables and its subsets on the center and corner staggers.  ESMF currently supports the Mosaic containing tiles of the same size.  
+A tile can be square or rectangular.  For a cubed sphere grid, each tile is a square, i.e. the x and y
+dimensions are the same.   
+
+<P>
+
+<H2><A NAME="SECTION03029000000000000000"></A><A NAME="sec:weightfileformat"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">9</SPAN> Regrid Weight File Format
+</H2>
+
+<P>
+A regrid weight file is a NetCDF format file containing the information necessary to perform 
+a regridding between two grids. It also optionally contains information about the grids used to compute
+the regridding. This information is provided to allow applications (e.g. <TT>ESMF_RegridWeightGenCheck</TT>) to
+independently compute the accuracy of the regridding weights. In some cases, <TT>ESMF_RegridWeightGen</TT> doesn't
+output the full grid information (e.g. when it's costly to compute, or when the current grid format doesn't 
+support the type of grids used to generate the weights). In that case, the weight file can still be used
+for regridding, but applications which depend on the grid information may not work. 
+
+<P>
+The following is the header of a sample regridding weight file that describes a bilinear regridding 
+from a logically rectangular 2D grid to a triangular unstructured grid:
+
+<P>
+<PRE>
+netcdf t42mpas-bilinear {
+dimensions:
+        n_a = 8192 ;
+        n_b = 20480 ;
+        n_s = 42456 ;
+        nv_a = 4 ;
+        nv_b = 3 ;
+        num_wgts = 1 ;
+        src_grid_rank = 2 ;
+        dst_grid_rank = 1 ;
+variables:
+        int src_grid_dims(src_grid_rank) ;
+        int dst_grid_dims(dst_grid_rank) ;
+        double yc_a(n_a) ;
+               yc_a:units = "degrees" ;
+        double yc_b(n_b) ;
+               yc_b:units = "radians" ;
+        double xc_a(n_a) ;
+               xc_a:units = "degrees" ;
+        double xc_b(n_b) ;
+               xc_b:units = "radians" ;
+        double yv_a(n_a, nv_a) ;
+               yv_a:units = "degrees" ;
+        double xv_a(n_a, nv_a) ;
+               xv_a:units = "degrees" ;
+        double yv_b(n_b, nv_b) ;
+               yv_b:units = "radians" ;
+        double xv_b(n_b, nv_b) ;
+               xv_b:units = "radians" ;
+        int mask_a(n_a) ;
+               mask_a:units = "unitless" ;
+        int mask_b(n_b) ;
+               mask_b:units = "unitless" ;
+        double area_a(n_a) ;
+               area_a:units = "square radians" ;
+        double area_b(n_b) ;
+               area_b:units = "square radians" ;
+        double frac_a(n_a) ;
+               frac_a:units = "unitless" ;
+        double frac_b(n_b) ;
+               frac_b:units = "unitless" ;
+        int col(n_s) ;
+        int row(n_s) ;
+        double S(n_s) ;
+ 
+// global attributes:
+        :title = "ESMF Offline Regridding Weight Generator" ;
+        :normalization = "destarea" ;
+        :map_method = "Bilinear remapping" ;
+        :ESMF_regrid_method = "Bilinear" ;
+        :conventions = "NCAR-CSM" ;
+        :domain_a = "T42_grid.nc" ;
+        :domain_b = "grid-dual.nc" ;
+        :grid_file_src = "T42_grid.nc" ;
+        :grid_file_dst = "grid-dual.nc" ;
+        :ESMF_version = "ESMF_8_2_0_beta_snapshot_05-3-g2193fa3f8a" ;
+}
+</PRE>
+
+<P>
+The weight file contains four types of information: a description of the source grid, a description of the destination grid, the output of the regrid weight calculation, and global attributes describing the weight file. 
+
+<P>
+
+<H3><A NAME="SECTION03029100000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">1</SPAN> Source Grid Description</A>
+</H3>
+
+<P>
+The variables describing the source grid in the weight file end with the suffix "_a". To be consistent with the original use of this weight file format 
+the grid information is written to the file such that the location being regridded is always the cell center. This means that the grid structure described here may not be identical to that in the source grid file. The full set of these variables may not always be present in the weight file. The following is an 
+explanation of each variable:
+<DL>
+<DD></DD>
+<DT><STRONG>n_a</STRONG></DT>
+<DD>The number of source cells. 
+  
+</DD>
+<DT><STRONG>nv_a</STRONG></DT>
+<DD>The maximum number of corners (i.e. vertices)  around a source cell. If a cell has less than the maximum number of corners, then the remaining corner coordinates are repeats of the last valid corner's coordinates.    
+  
+</DD>
+<DT><STRONG>xc_a</STRONG></DT>
+<DD>The longitude coordinates of the centers of each source cell.  
+  
+</DD>
+<DT><STRONG>yc_a</STRONG></DT>
+<DD>The latitude coordinates of the centers of each source cell.  
+  
+</DD>
+<DT><STRONG>xv_a</STRONG></DT>
+<DD>The longitude coordinates of the corners of each source cell.  
+  
+</DD>
+<DT><STRONG>yv_a</STRONG></DT>
+<DD>The latitude coordinates of the corners of each source cell.  
+  
+</DD>
+<DT><STRONG>mask_a</STRONG></DT>
+<DD>The mask for each source cell. A value of 0, indicates that the cell is masked. 
+  
+</DD>
+<DT><STRONG>area_a</STRONG></DT>
+<DD>The area of each source cell. This quantity is either from the source grid file or calculated by <TT>ESMF_RegridWeightGen</TT>. When a non-conservative regridding method (e.g. bilinear) is used, the area is set to 0.0. 
+  
+</DD>
+<DT><STRONG>src_grid_rank</STRONG></DT>
+<DD>The number of dimensions of the source grid. Currently this can only be 1 or 2. Where 1 indicates an unstructured grid and 2 indicates a 2D logically rectangular grid.
+  
+</DD>
+<DT><STRONG>src_grid_dims</STRONG></DT>
+<DD>The number of cells along each dimension of the source grid. For unstructured grids this is equal to the number of cells in the grid. 
+</DD>
+</DL>
+
+<P>
+
+<H3><A NAME="SECTION03029200000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">2</SPAN> Destination Grid Description</A>
+</H3>
+
+<P>
+The variables describing the destination grid in the weight file end with the suffix "_b". To be consistent with the original use of this weight file format 
+the grid information is written to the file such that the location being regridded is always the cell center. This means that the grid structure described here may not be identical to that in the destination grid file. The full set of these variables may not always be present in the weight file. The following is an 
+explanation of each variable:
+<DL>
+<DD></DD>
+<DT><STRONG>n_b</STRONG></DT>
+<DD>The number of destination cells. 
+  
+</DD>
+<DT><STRONG>nv_b</STRONG></DT>
+<DD>The maximum number of corners (i.e. vertices)  around a destination cell. If a cell has less than the maximum number of corners, then the remaining corner coordinates are repeats of the last valid corner's coordinates.    
+  
+</DD>
+<DT><STRONG>xc_b</STRONG></DT>
+<DD>The longitude coordinates of the centers of each destination cell.  
+  
+</DD>
+<DT><STRONG>yc_b</STRONG></DT>
+<DD>The latitude coordinates of the centers of each destination cell.  
+  
+</DD>
+<DT><STRONG>xv_b</STRONG></DT>
+<DD>The longitude coordinates of the corners of each destination cell.  
+  
+</DD>
+<DT><STRONG>yv_b</STRONG></DT>
+<DD>The latitude coordinates of the corners of each destination cell.  
+  
+</DD>
+<DT><STRONG>mask_b</STRONG></DT>
+<DD>The mask for each destination cell. A value of 0, indicates that the cell is masked. 
+  
+</DD>
+<DT><STRONG>area_b</STRONG></DT>
+<DD>The area of each destination cell. This quantity is either from the destination grid file or calculated by <TT>ESMF_RegridWeightGen</TT>. When a non-conservative regridding method (e.g. bilinear) is used, the area is set to 0.0. 
+ 
+</DD>
+<DT><STRONG>dst_grid_rank</STRONG></DT>
+<DD>The number of dimensions of the destination grid. Currently this can only be 1 or 2. Where 1 indicates an unstructured grid and 2 indicates a 2D logically rectangular grid.
+ 
+</DD>
+<DT><STRONG>dst_grid_dims</STRONG></DT>
+<DD>The number of cells along each dimension of the destination grid. For unstructured grids this is equal to the number of cells in the grid. 
+</DD>
+</DL>
+
+<P>
+
+<H3><A NAME="SECTION03029300000000000000"></A><A NAME="regridoutput"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">3</SPAN> Regrid Calculation Output
+</H3>
+
+<P>
+The following is an explanation of the variables containing the output of the regridding calculation:
+<DL>
+<DD></DD>
+<DT><STRONG>n_s</STRONG></DT>
+<DD>The number of entries in the regridding matrix. 
+  
+</DD>
+<DT><STRONG>col</STRONG></DT>
+<DD>The position in the source grid for each entry in the regridding matrix. 
+  
+</DD>
+<DT><STRONG>row</STRONG></DT>
+<DD>The position in the destination grid for each entry in the weight matrix. 
+  
+</DD>
+<DT><STRONG>S</STRONG></DT>
+<DD>The weight for each entry in the regridding matrix. 
+  
+</DD>
+<DT><STRONG>frac_a</STRONG></DT>
+<DD>When a conservative regridding method is used, this contains the fraction of each source cell that participated in the regridding. When a non-conservative regridding method is used, this array is set to 0.0.
+  
+</DD>
+<DT><STRONG>frac_b</STRONG></DT>
+<DD>When a conservative regridding method is used, this contains the fraction of each destination cell that participated in the regridding. When a non-conservative regridding method is used, this array is set to 1.0 where the point participated in the regridding (i.e. was within the unmasked source grid), and 0.0 otherwise. 
+</DD>
+</DL>
+
+<P>
+The following code shows how to apply the weights in the weight file to interpolate a source field (<TT>src_field</TT>) defined 
+over the source grid to a destination field (<TT>dst_field</TT>) defined over the destination grid. The variables <TT>n_s</TT>, <TT>n_b</TT>, 
+<TT>row</TT>, <TT>col</TT>, and <TT>S</TT> are from the weight file. 
+
+<P>
+<PRE>
+ ! Initialize destination field to 0.0
+ do i=1, n_b
+   dst_field(i)=0.0
+ enddo
+
+ ! Apply weights
+ do i=1, n_s
+   dst_field(row(i))=dst_field(row(i))+S(i)*src_field(col(i))
+ enddo
+</PRE>
+
+<P>
+If the first-order conservative interpolation method is specified ("-m conserve") then the destination field may need to be adjusted by the destination fraction (<TT>frac_b</TT>). 
+This should be done if the normalization type is "dstarea" and if the destination grid extends outside the unmasked source grid. If it isn't known if the destination extends outside the source, then it doesn't hurt to apply the destination fraction. (If it doesn't extend outside, then the fraction will be 1.0 everywhere anyway.) 
+The following code shows how to adjust an already interpolated destination field (<TT>dst_field</TT>) by the destination fraction. The variables <TT>n_b</TT>, and <TT>frac_b</TT> are from the weight file:
+
+<P>
+<PRE>
+ ! Adjust destination field by fraction
+ do i=1, n_b
+   if (frac_b(i) .ne. 0.0) then
+      dst_field(i)=dst_field(i)/frac_b(i)
+   endif
+ enddo
+</PRE>
+
+<P>
+
+<H3><A NAME="SECTION03029400000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">4</SPAN> Weight File Description Attributes</A>
+</H3>
+
+<P>
+The following is an explanation of the global attributes describing the weight file:
+<DL>
+<DD></DD>
+<DT><STRONG>title</STRONG></DT>
+<DD>Always set to  "ESMF Offline Regridding Weight Generator" when generated by <TT>ESMF_RegridWeightGen</TT>.
+  
+</DD>
+<DT><STRONG>normalization</STRONG></DT>
+<DD>The normalization type used to compute conservative regridding weights. The options for this are described in section&nbsp;<A HREF="#sec:rwg_conserve">12.3.4</A> which contains a description of the conservative regridding method.  
+  
+</DD>
+<DT><STRONG>map_method</STRONG></DT>
+<DD>An indication of the mapping method which is constrained by the original use of this format. In some cases the method specified here will differ from the actual regridding method used, for example weights generated with the "patch" method will have this attribute set to "Bilinear remapping". 
+  
+</DD>
+<DT><STRONG>ESMF_regrid_method</STRONG></DT>
+<DD>The ESMF regridding method used to generate the weight file. 
+  
+</DD>
+<DT><STRONG>conventions</STRONG></DT>
+<DD>The set of conventions that the weight file follows. Currently only "NCAR-CSM" is supported.
+  
+</DD>
+<DT><STRONG>domain_a</STRONG></DT>
+<DD>The source grid file name. 
+  
+</DD>
+<DT><STRONG>domain_b</STRONG></DT>
+<DD>The destination grid file name. 
+  
+</DD>
+<DT><STRONG>grid_file_src</STRONG></DT>
+<DD>The source grid file name. 
+  
+</DD>
+<DT><STRONG>grid_file_dst</STRONG></DT>
+<DD>The destination grid file name. 
+  
+</DD>
+<DT><STRONG>ESMF_version</STRONG></DT>
+<DD>The version of ESMF used to generate the weight file.
+</DD>
+</DL>
+
+<P>
+
+<H3><A NAME="SECTION03029500000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">5</SPAN> Weight Only Weight File</A>
+</H3>
+
+<P>
+In the current ESMF distribution, a new simplified weight file option <TT>-weight_only</TT> is added to <TT>ESMF_RegridWeightGen</TT>.  
+The simple weight file contains only a subset of the Regrid Calculation Output defined in&nbsp;<A HREF="#regridoutput">12.9.3</A>, i.e. 
+the weights <TT>S</TT>, the source grid indices <TT>col</TT> and destination grid indices <TT>row</TT>.  The dimension of these three variables is <TT>n_s</TT>.
+
+<P>
+
+<H2><A NAME="SECTION030210000000000000000"></A><A NAME="sec:regridweightgencheck"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">10</SPAN> ESMF_RegridWeightGenCheck
+</H2>
+
+<P>
+The ESMF_RegridWeightGen application is used in the
+<A NAME="tex2html15"
+  HREF="http://www.earthsystemmodeling.org/users/code_examples/external_demos/external_demos.shtml">ESMF_RegridWeightGenCheck external demo</A>
+to generate interpolation weights.  These weights are then tested by using them for a regridding operation and then comparing them against an analytic function on the destination grid.  This external demo is also used to regression test ESMF regridding, and it is run nightly on over 150 combinations of structured and unstructured, regional and global grids, and regridding methods.
+
+<P>
+
+<H1><A NAME="SECTION03030000000000000000"></A>
+<A NAME="sec:ESMF_Regrid"></A>
+<BR>
+<SPAN CLASS="arabic">13</SPAN> ESMF_Regrid
+</H1>
+
+<P>
+
+<H2><A NAME="SECTION03031000000000000000">
+<SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+This section describes the file-based regridding command line tool provided by ESMF (for a description of ESMF regridding in general see Section&nbsp;<A HREF="node5.html#sec:regrid">25.2</A>). Regridding, also called remapping or interpolation, is the process of changing the grid that underlies data values while preserving qualities of the original data. Different kinds of transformations are appropriate for different problems. Regridding may be needed when communicating data between Earth system model components such as land and atmosphere, or between different data sets to support operations such as visualization. 
+
+<P>
+Regridding can be broken into two stages. The first stage is generation of an interpolation weight matrix that describes how points in
+the source grid contribute to points in the destination grid. The second stage is the multiplication of values on the source grid by the
+interpolation weight matrix to produce values on the destination grid. This is implemented as a parallel sparse matrix multiplication.
+
+<P>
+The <TT>ESMF_RegridWeightGen</TT> command line tool described in Section&nbsp;<A HREF="#sec:ESMF_RegridWeightGen">12</A> 
+performs the first stage of the regridding process - generate the interpolation weight matrix. 
+This tool not only calculates the interpolation weights, it also applies the
+weights to a list of variables 
+stored in the source grid file and produces the interpolated values on the destination grid. 
+The interpolated output variable is written out to the destination grid file.  This tool 
+supports three CF compliant file formats: the CF Single Tile grid file format(&nbsp;<A HREF="#sec:fileformat:gridspec">12.8.3</A>) for
+a logically rectangular grid, the UGRID file
+format(&nbsp;<A HREF="#sec:fileformat:ugrid">12.8.4</A>) for unstructured grid and the GRIDSPEC
+Mosaic file format(&nbsp;<A HREF="#sec:fileformat:mosaic">12.8.5</A>) for cubed-sphere grid.  For
+the GRIDSPEC Mosaic file format, the data are stored in separate data files,
+one file per tile.   
+The SCRIP format(&nbsp;<A HREF="#sec:fileformat:scrip">12.8.1</A>) and the ESMF unstructured grid format(&nbsp;<A HREF="#sec:fileformat:esmf">12.8.2</A>) are not supported because there is no way to define a variable field using these two formats. Currently, the tool only works with 2D grids, the support for the 3D grid will be 
+made available in the future release.  The variable array can be up to four dimensions.  The
+variable type is currently limited to single or double precision real numbers.  The support for 
+other data types, such as integer or short will be added in the future release.  
+
+<P>
+The user interface of this tool is greatly simplified from <TT>ESMF_RegridWeightGen</TT>.  User only 
+needs to provide two input file names, the source and the destination variable names and the regrid method.  The tool will figure out the type of the grid file automatically based on the attributes of the variable.
+If the variable has a <TT>coordinates</TT> attribute, the grid file is a GRIDSPEC file and the value of the 
+<TT>coordinates</TT> defines the longitude and latitude variable's names.  For example, following is a simple
+GRIDSPEC file with a variable named <TT>PSL</TT> and coordinate variables named <TT>lon</TT> and <TT>lat</TT>.
+
+<P>
+<A NAME="gridspecexample"></A><PRE>
+netcdf simple_gridspec {
+dimensions:
+      lat = 192 ;
+      lon = 288 ;
+variables:
+      float PSL(lat, lon) ;
+         PSL:time = 50. ;
+         PSL:units = "Pa" ;
+         PSL:long_name = "Sea level pressure" ;
+         PSL:cell_method = "time: mean" ;
+         PSL:coordinates = "lon lat" ;
+      double lat(lat) ;
+         lat:long_name = "latitude" ;
+         lat:units = "degrees_north" ;
+      double lon(lon) ;
+         lon:long_name = "longitude" ;
+         lon:units = "degrees_east" ;
+}
+</PRE>
+
+<P>
+If the variable has a <TT>mesh</TT> attribute and a <TT>location</TT> attribute, the grid file is in UGRID 
+format(&nbsp;<A HREF="#sec:fileformat:ugrid">12.8.4</A>).  The value of <TT>mesh</TT> attribute is the name of a dummy variable that defines the mesh topology.  If the application performs a conservative regridding, the value of the <TT>location</TT> attribute has to be <TT>face</TT>, otherwise, it has to be <TT>node</TT>.  
+This is because ESMF only supports non-conservative regridding on the data stored at the nodes of a ESMF_Mesh object, and conservative regridding on the data stored at the cells of
+a ESMF_Mesh object.
+
+<P>
+Here is an example 2D UGRID file:
+
+<P>
+<A NAME="ugridexample"></A><PRE>
+netcdf simple_ugrid {
+dimensions:
+      node = 4176 ; 
+      nele = 8268 ;
+      three = 3 ;
+      time  = 2 ;
+variables:
+      float lon(node) ;
+         lon:units = "degrees_east" ;
+      float lat(node) ;
+         lat:units = "degrees_north" ;
+      float lonc(nele) ;
+         lonc:units = "degrees_east" ;
+      float latc(nele) ;
+         latc:units = "degrees_north" ;
+      int nv(nele, three) ;
+         nv:standard_name = "face_node_connectivity" ;
+         nv:start_index = 1. ;
+      float zeta(time, node) ;
+         zeta:standard_name = "sea_surface_height_above_geoid" ;
+         zeta:_FillValue = -999. ;
+         zeta:location = "node" ;
+         zeta:mesh = "fvcom_mesh" ;
+      float ua(time, nele) ;
+         ua:standard_name = "barotropic_eastward_sea_water_velocity" ;
+         ua:_FillValue = -999. ;
+         ua:location = "face" ;
+         ua:mesh = "fvcom_mesh" ;
+      float va(time, nele) ;
+         va:standard_name = "barotropic_northward_sea_water_velocity" ;
+         va:_FillValue = -999. ;
+         va:location = "face" ;
+         va:mesh = "fvcom_mesh" ;
+      int fvcom_mesh(node) ;
+         fvcom_mesh:cf_role = "mesh_topology" ;
+         fvcom_mesh:dimension = 2. ;
+         fvcom_mesh:locations = "face node" ;
+         fvcom_mesh:node_coordinates = "lon lat" ;
+         fvcom_mesh:face_coordinates = "lonc latc" ;
+         fvcom_mesh:face_node_connectivity = "nv" ;
+}
+</PRE>
+
+<P>
+There are three variables defined in the above UGRID file - <TT>zeta</TT> on the node of the mesh, <TT>ua</TT> and
+<TT>va</TT> on the face of the mesh.  All three variables have one extra time dimension.  
+
+<P>
+The GRIDSPEC MOSAIC file(&nbsp;<A HREF="#sec:fileformat:mosaic">12.8.5</A>) can be identified by a dummy variable with <TT>  standard_name</TT> attribute set to <TT>grid_mosaic_spec</TT>.  The data for a
+GRIDSPEC Mosaic file are stored in separate files, one tile per file.  The
+name of the data file is not specified in the mosaic file.  Therefore,
+additional optional argument <TT>-srcdatafile</TT> or <TT>-dstdatafile</TT> is
+required to provide the prefix of the datafile.  The datafile is also a CF
+compliant NetCDF file.  The complete name of the datafile is
+constructed by appending the tilename (defined in the Mosaic file in a
+variable specified by the <TT>children</TT> attribute of the dummy variable).
+For instance, if the prefix of the datafile is <TT>mosaicdata</TT>, then the
+datafile names are <TT>mosaicdata.tile1.nc</TT>, <TT>mosaicdata.tile2.nc</TT>,
+etc...  using the mosaic file example in <A HREF="#sec:fileformat:mosaic">12.8.5</A>.  The
+path of the datafile is defined by <TT>gridlocation</TT> variable, similar to the
+tile files.  To overwrite it, an optional argument <TT>tilefile_path</TT> can be
+specified.  
+
+<P>
+Following is an example GRIDSPEC MOSAIC datafile:
+
+<P>
+<PRE>
+netcdf mosaictest.tile1 {
+dimensions:
+     grid_yt = 48 ;
+     grid_xt = 48 ;
+     time = UNLIMITED ; // (12 currently)
+variables:
+     float area_land(grid_yt, grid_xt) ;
+        area_land:long_name = "area in the grid cell" ;
+        area_land:units = "m2" ;
+     float evap_land(time, grid_yt, grid_xt) ;
+        evap_land:long_name = "vapor flux up from land" ;
+        evap_land:units = "kg/(m2 s)" ;
+        evap_land:coordinates = "geolon_t geolat_t" ;
+     double geolat_t(grid_yt, grid_xt) ;
+        geolat_t:long_name = "latitude of grid cell centers" ;
+        geolat_t:units = "degrees_N" ;
+     double geolon_t(grid_yt, grid_xt) ;
+        geolon_t:long_name = "longitude of grid cell centers" ;
+        geolon_t:units = "degrees_E" ;
+     double time(time) ;
+        time:long_name = "time" ;
+        time:units = "days since 1900-01-01 00:00:00" ;
+}
+</PRE>
+
+<P>
+This is a database for the C48 Cubed Sphere grid defined in
+<A HREF="#sec:fileformat:mosaic">12.8.5</A>.  Note currently we assume that the data are
+located at the center stagger of the grid.  The coordinate variables <TT>  geolon_t</TT> and <TT>geolat_t</TT> should be identical to the center coordinates
+defined in the corresponding tile files. They are not used to create the
+multi-tile grid.  For this application, they are only used to construct the
+analytic field to check the correctness of the regridding results if <TT>  -check</TT> argument is given. 
+
+<P>
+If the variable specified for the destination file does not already exist in the file, the file type is determined as follows:  
+First search for a variable that has a <TT>cf_role</TT> attribute of value <TT>mesh_topology</TT>.  If successful,
+the file is a UGRID file.  The destination variable will be created on the nodes if the regrid method is 
+non-conservative and an optional argument <TT>dst_loc</TT> is set to <TT>  corner</TT>.  Otherwise, the destination variable will be created
+on the face.  If the destination file is not a UGRID file, check if there is a variable with its <TT>units</TT> attribute set to <TT>degrees_east</TT> and another variable with it's <TT>units</TT> attribute set to <TT>degrees_west</TT>.  If such a pair is found, 
+the file is a GRIDSPEC file and the above two variables will be used as the coordinate variables for the 
+variable to be created.  If more than one pair of coordinate variables are found in the file, the application 
+will fail with an error message.  
+
+<P>
+If the destination 
+variable exists in the destination grid file, it has to have the same number of dimensions and the same type as the source variable. Except for the latitude and longitude dimensions, the size of 
+the destination variable's extra dimensions (e.g., time and vertical layers) has to match with the 
+source variable.   If the destination variable does not exist in the destination grid file, a
+new variable will be created with the same type and matching dimensions as the source variable.
+All the attributes of the source variable will be copied to the destination variable except those
+related to the grid definition (i.e. <TT>coordinates</TT> attribute if the destination file is in  
+GRIDSPEC or MOSAIC format or <TT>mesh</TT> and <TT>location</TT> attributes if the destination file is in UGRID format.
+
+<P>
+Additional rules beyond the CF convention are adopted to determine whether there is a time dimension defined
+in the source and destination files.  In this application, only a dimension with a name <TT>time</TT> is 
+considered as a time dimension.
+If the source variable has a <TT>time</TT> dimension and the destination variable is not already defined, 
+the application first checks if there is a <TT>time</TT> dimension defined in the destination file.  If so, 
+the values of the <TT>time</TT> dimension in both files have to be identical.  If the time dimension values don't match, the application
+terminates with an error message.  The application does not check the existence of a <TT>time</TT> variable 
+or if the <TT>units</TT> attribute of the <TT>time</TT> variable match in two input files.  If the destination 
+file does not have a <TT>time</TT> dimension, it will be created.  UNLIMITED time dimension is allowed in the
+source file, but the <TT>time</TT> dimension created in the destination file is not UNLIMITED.
+
+<P>
+This application requires the NetCDF library to read the grid files and write out the interpolated variables.  To compile ESMF with
+the NetCDF library, please refer to the "Third Party Libraries" Section in the ESMF User's Guide for more information.
+
+<P>
+Internally this application uses the ESMF public API to perform regridding.
+If a source or destination grid is logically rectangular, then <TT>ESMF_GridCreate()</TT>(&nbsp;<A HREF="node5.html#API:GridCreateFrmNCFile">32.6.13</A>) is used to create an ESMF_Grid object from the file. The coordinate variables are stored
+at the center stagger location (<TT>ESMF_STAGGERLOC_CENTER</TT>).  If the application performs a 
+conservative regridding, the <TT>addCornerStager</TT> argument is set to <TT>TRUE</TT> and the bound variables in the grid file will
+be read  in and stored at the corner stagger location (<TT>ESMF_STAGGERLOC_CORNER</TT>).  If the variable has an <TT>_FillValue</TT> attribute defined, a mask will be generated using the missing values of the variable. 
+The data variable is defined as a ESMF_Field object at the center stagger location (<TT>ESMF_STAGGERLOC_CENTER</TT>) of the grid.   
+
+<P>
+If the source grid is an unstructured grid and the the regrid method is nearest neighbor, or if the destination grid 
+is unstructured and the regrid method is non-conservative, <TT>ESMF_LocStreamCreate()</TT>(&nbsp;<A HREF="node5.html#locstream:createfromfile">33.4.14</A> is used to create an ESMF_LocStream object.  Otherwise,
+<TT>ESMF_MeshCreate()</TT>(&nbsp;<A HREF="node5.html#API:MeshCreateFromFile">34.4.8</A>) is used to create an ESMF_Mesh object for the unstructured 
+input grids.  Currently, only the 2D unstructured grid is supported.
+If the application performs a conservative regridding, the variable has to be defined on the face of the mesh cells, i.e., its <TT>location</TT> attribute has to be set to <TT>face</TT>.  Otherwise, the variable has to be 
+defined on the node and its (<TT>location</TT> attribute is set to <TT>node</TT>).
+
+<P>
+If a source or a destination grid is a Cubed Sphere grid defined in GRIDSPEC
+MOSAIC file format, <TT>  ESMF_GridCreateMosaic()</TT>(&nbsp;<A HREF="node5.html#API:GridCreateMosaicReg">32.6.28</A>) will be used to create a multi-tile ESMF_Grid
+object from the file.  The coordinates at the center and the corner stagger in
+the tile files will be stored in the grid.  The data has to be located at the
+center stagger of the grid.
+
+<P>
+Similar to the <TT>ESMF_RegridWeightGen</TT> command line tool (Section&nbsp;<A HREF="#sec:ESMF_RegridWeightGen">12</A>), this application supports
+bilinear, patch, nearest neighbor, first-order and second-order conservative interpolation. The descriptions of different 
+interpolation methods can be found at Section&nbsp;<A HREF="node5.html#sec:regrid">25.2</A> and Section&nbsp;<A HREF="#sec:ESMF_RegridWeightGen">12</A>. 
+It also supports different pole methods for non-conservative interpolation and allows user to choose to 
+ignore the errors when some of the destination points cannot be mapped by any source points. 
+
+<P>
+If the optional argument <TT>-check</TT> is given, the interpolated fields will
+be checked agaist a synthetic field defined as follows:
+
+<P>
+<PRE>
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION03032000000000000000"></A><A NAME="sec:fileregridusage"></A>
+<BR>
+<SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">2</SPAN> Usage
+</H2>
+
+<P>
+The command line arguments are all keyword based.  Both the long keyword prefixed with <code> '--' </code> or the
+one character short keyword prefixed with <TT>'-'</TT> are supported.  The format to run the command line tool is as follows:
+
+<P>
+<PRE>
+ESMF_Regrid  
+        --source|-s src_grid_filename
+        --destination|-d dst_grid_filename
+	--src_var var_name[,var_name,..]
+	--dst_var var_name[,var_name,..]
+        [--srcdatafile]
+        [--dstdatafile]
+        [--tilefile_path filepath]
+        [--dst_loc center|corner]
+        [--method|-m bilinear|patch|nearestdtos|neareststod|conserve|conserve2nd]
+        [--pole|-p none|all|teeth|1|2|..]
+        [--ignore_unmapped|-i]
+        [--ignore_degenerate]
+        [-r]
+        [--src_regional]
+        [--dst_regional]
+        [--check]
+        [--no_log]
+        [--help|-h]
+        [--version]
+        [-V]
+where
+  --source or -s      - a required argument specifying the source grid
+                        file name
+
+  --destination or -d - a required argument specifying the destination
+                        grid file name
+
+  --src_var           - a required argument specifying the variable names 
+                        in the src grid file to be interpolated from.  If more
+                        than one, separated them with comma.
+
+  --dst_var           - a required argument specifying the variable names 
+                        to be interpolated to.  If more than one, separated 
+                        them with comma. The variable may or may not 
+                        exist in the destination grid file.
+
+  --srcdatafile       - If the source grid is a GRIDSPEC MOSAIC grid, the data 
+                        is stored in separate files, one per tile. srcdatafile
+                        is the prefix of the source data file.  The filename
+                        is srcdatafile.tilename.nc, where tilename is the tile 
+                        name defined in the MOSAIC file.
+
+  --dstdatafile       - If the destination grid is a GRIDSPEC MOSAIC grid, the data 
+                        is stored in separate files, one per tile. dstdatafile
+                        is the prefix of the destination data file.  The filename
+                        is dstdatafile.tilename.nc, where tilename is the tile 
+                        name defined in the MOSAIC file.
+
+  --tilefile_path    - the alternative file path for the tile files and the
+                        data files when either the source or the destination grid
+                        is a GRIDSPEC MOSAIC grid.  The path can be either relative
+                        or absolute.  If it is relative, it is relative to the
+                        working directory.  When specified, the gridlocation variable
+                        defined in the Mosaic file will be ignored. 
+
+    --dst_loc         - an optional argument that specifies whether the destination
+                        variable is located at the center or the corner of the grid
+                        if the destination variable does not exist in the destination
+                        grid file. This flag is only required for non-conservative
+                        regridding when the destination grid is in UGRID format.
+                        For all other cases, only the center location is supported
+                        that is also the default value if this argument is not specified.
+
+  --method or -m      - an optional argument specifying which interpolation
+                        method is used. The value can be one of the following:
+
+                        bilinear   - for bilinear interpolation, also the
+                                     default method if not specified.
+                        patch      - for patch recovery interpolation
+                        nearstdtos - for nearest destination to source interpolation
+                        nearststod - for nearest source to destination interpolation
+                        conserve   - for first-order conservative interpolation
+
+  --pole or -p        - an optional argument indicating what to do with
+                        the pole.
+                        The value can be one of the following:
+
+                        none  - No pole, the source grid ends at the top
+                                (and bottom) row of nodes specified in
+                                &lt;source grid&gt;.
+                        all   - Construct an artificial pole placed in the
+                                center of the top (or bottom) row of nodes,
+                                but projected onto the sphere formed by the
+                                rest of the grid. The value at this pole is
+                                the average of all the pole values. This
+                                is the default option.
+
+                        teeth - No new pole point is constructed, instead
+                                the holes at the poles are filled by
+                                constructing triangles across the top and
+                                bottom row of the source Grid. This can be
+                                useful because no averaging occurs, however,
+                                because the top and bottom of the sphere are
+                                now flat, for a big enough mismatch between
+                                the size of the destination and source pole
+                                regions, some destination points may still
+                                not be able to be mapped to the source Grid.
+
+                        &lt;N&gt;   - Construct an artificial pole placed in the
+                                center of the top (or bottom) row of nodes,
+                                but projected onto the sphere formed by the
+                                rest of the grid. The value at this pole is
+                                the average of the N source nodes next to
+                                the pole and surrounding the destination
+                                point (i.e.  the value may differ for each
+                                destination point. Here N ranges from 1 to
+                                the number of nodes around the pole.
+
+    --ignore_unmapped
+           or
+           -i         - ignore unmapped destination points. If not specified
+                        the default is to stop with an error if an unmapped
+                        point is found.
+
+    --ignore_degenerate - ignore degenerate cells in the input grids. If not specified
+                        the default is to stop with an error if an degenerate
+                        cell is found.
+
+    -r                - an optional argument specifying that the source and
+                        destination grids are regional grids.  If the argument
+                        is not given, the grids are assumed to be global.
+
+    --src_regional    - an optional argument specifying that the source is
+                        a regional grid and the destination is a global grid.
+
+    --dst_regional    - an optional argument specifying that the destination
+                        is a regional grid and the source is a global grid.
+
+    --check           - Check the correctness of the interpolated destination 
+                        variables against an analytic field. The source variable 
+                        has to be synthetically constructed using the same analytic
+                        method in order to perform meaningful comparison.
+                        The analytic field is calculated based on the coordinate
+                        of the data point.  The formular is as follows:
+                        data(i,j,k,l)=2.0+cos(lat(i,j))**2*cos(2.0*lon(i,j))+(k-1)+2*(l-1)
+                        The data field can be up to four dimensional with the
+                        first two dimension been longitude and latitude.
+                        The mean relative error between the destination and 
+                        analytic field is computed.
+
+     --no_log         - Turn off the ESMF error log.
+
+     --help or -h     - Print the usage message and exit.
+
+     --version        - Print ESMF version and license information and exit.
+
+     -V               - Print ESMF version number and exit.
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION03033000000000000000">
+<SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">3</SPAN> Examples</A>
+</H2>
+
+<P>
+The example below regrids the node variable <TT>zeta</TT> defined in the sample UGRID file(<A HREF="#ugridexample">13.1</A>) to 
+the destination grid defined in the sample GRIDSPEC file(<A HREF="#gridspecexample">13.1</A>) using bilinear regridding
+method and write the interpolated data into a variable named <TT>zeta</TT>.  
+
+<P>
+<PRE>
+  mpirun -np 4 ESMF_Regrid -s simple_ugrid.nc -d simple_gridspec.nc \
+                --src_var zeta --dst_var zeta
+</PRE>
+
+<P>
+In this case, the destination variable does not exist in <TT>simple_ugrid.nc</TT> and the <TT>time</TT>
+dimension is not defined in the destination file.  The resulting output file has a new time dimension and a new variable <TT>zeta</TT>.
+The attributes from the source variable <TT>zeta</TT> are copied to the destination variable except for 
+<TT>mesh</TT> and <TT>location</TT>.  A new attribute <TT>coordinates</TT> is created for the destination variable to
+specify the names of the coordinate variables.  The header of the output file looks like:
+
+<P>
+<PRE>
+netcdf simple_gridspec {
+dimensions:
+      lat = 192 ;
+      lon = 288 ;
+      time = 2  ;
+variables:
+      float PSL(lat, lon) ;
+         PSL:time = 50. ;
+         PSL:units = "Pa" ;
+         PSL:long_name = "Sea level pressure" ;
+         PSL:cell_method = "time: mean" ;
+         PSL:coordinates = "lon lat" ;
+      double lat(lat) ;
+         lat:long_name = "latitude" ;
+         lat:units = "degrees_north" ;
+      double lon(lon) ;
+         lon:long_name = "longitude" ;
+         lon:units = "degrees_east" ;
+      float zeta(time, lat, lon) ;
+         zeta:standard_name = "sea_surface_height_above_geoid" ;
+         zeta:_FillValue = -999. ;
+         zeta:coordinates = "lon lat" ;
+}
+</PRE>
+
+<P>
+The next example shows the command to do the same thing as the previous example but for a 
+different variable <TT>ua</TT>.  Since <TT>ua</TT> is defined on the face, we can only do a conservative 
+regridding.
+
+<P>
+<PRE>
+  mpirun -np 4 ESMF_Regrid -s simple_ugrid.nc -d simple_gridspec.nc \
+               --src_var ua --dst_var ua -m conserve
+</PRE>
+
+<P>
+
+<P>
+
+<H1><A NAME="SECTION03040000000000000000"></A>
+<A NAME="sec:ESMF_Scrip2Unstruct"></A>
+<BR>
+<SPAN CLASS="arabic">14</SPAN> ESMF_Scrip2Unstruct
+</H1>
+
+<P>
+
+<H2><A NAME="SECTION03041000000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+The <TT>ESMF_Scrip2Unstruct</TT> application is a parallel program that converts a SCRIP format grid file&nbsp;<A HREF="#sec:fileformat:scrip">12.8.1</A> into an unstructured grid file in the ESMF unstructured file format&nbsp;<A HREF="#sec:fileformat:esmf">12.8.2</A> or in the UGRID file format&nbsp;<A HREF="#sec:fileformat:ugrid">12.8.4</A>. This application program can be used together with <TT>ESMF_RegridWeightGen</TT>&nbsp;<A HREF="#sec:ESMF_RegridWeightGen">12</A> application for the unstructured SCRIP format grid files.  An unstructured SCRIP grid file will be converted into the ESMF unstructured file format internally in <TT>ESMF_RegridWeightGen</TT>.  The conversion subroutine used in <TT>ESMF_RegridWeightGen</TT> is sequential and could be slow if the grid file is very big.  It will be more efficient to run the <TT>ESMF_Scrip2Unstruct</TT> first and then regrid the output ESMF or UGRID file using <TT>ESMF_RegridWeightGen</TT>.  Note that a logically rectangular grid file in the SCRIP format (i.e. the dimension <TT>grid_rank</TT> is equal to 2) can also be converted into an unstructured grid file with this application.
+
+<P>
+The application usage is as follows:
+
+<P>
+<PRE>
+ESMF_Scrip2Unstruct  inputfile outputfile dualflag [fileformat]
+
+where
+  inputfile       - a SCRIP format grid file
+
+  outputfile      - the output file name
+ 
+  dualflag        - 0 for straight conversion and 1 for dual 
+		    mesh.  A dual mesh is a mesh constructed 
+                    by putting the corner coordinates in the 
+                    center of the elements and using the 
+		    center coordinates to form the mesh 
+		    corner vertices.
+
+  fileformat      - an optional argument for the output file 
+		    format.  It could be either ESMF or UGRID.
+                    If not specified, the output file is in 
+		    the ESMF format.
+</PRE>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2032"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2028"
+  HREF="ESMF_refdoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2022"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2030"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2033"
+  HREF="node4.html">3 Superstructure</A>
+<B> Up:</B> <A NAME="tex2html2029"
+  HREF="ESMF_refdoc.html">ESMF_refdoc</A>
+<B> Previous:</B> <A NAME="tex2html2023"
+  HREF="node2.html">1 ESMF Overview</A>
+ &nbsp; <B>  <A NAME="tex2html2031"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<A HREF=mailto:esmf_support@ucar.edu>esmf_support@ucar.edu</A>
+</ADDRESS>
+</BODY>
+</HTML>

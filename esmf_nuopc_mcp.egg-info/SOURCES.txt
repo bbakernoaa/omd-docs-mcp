@@ -1,0 +1,15 @@
+README.md
+fetch_corpus.py
+fetch_kokkos.py
+ingest.py
+knowledge.py
+pyproject.toml
+server.py
+esmf_nuopc_mcp.egg-info/PKG-INFO
+esmf_nuopc_mcp.egg-info/SOURCES.txt
+esmf_nuopc_mcp.egg-info/dependency_links.txt
+esmf_nuopc_mcp.egg-info/requires.txt
+esmf_nuopc_mcp.egg-info/top_level.txt
+tests/test_collections.py
+tests/test_knowledge.py
+tests/test_release_corpus.py

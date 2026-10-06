@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: esmf-nuopc-mcp
+Version: 1.1.0
+Summary: Version-scoped ESMF 8.9.1 sections and Fortran routines for NUOPC agents
+Requires-Python: >=3.11
+Requires-Dist: mcp<2,>=1.12
+Requires-Dist: beautifulsoup4<5,>=4.12

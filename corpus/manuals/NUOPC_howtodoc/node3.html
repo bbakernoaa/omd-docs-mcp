@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>2 The Big Idea</TITLE>
+<META NAME="description" CONTENT="2 The Big Idea">
+<META NAME="keywords" CONTENT="NUOPC_howtodoc">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="NUOPC_howtodoc.css">
+
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="NUOPC_howtodoc.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+
+<BODY BGCOLOR=white LINK=#083194 VLINK=#21004A>
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html124"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html120"
+  HREF="NUOPC_howtodoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html114"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html122"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html125"
+  HREF="node4.html">3 Writing and Testing</A>
+<B> Up:</B> <A NAME="tex2html121"
+  HREF="NUOPC_howtodoc.html">NUOPC_howtodoc</A>
+<B> Previous:</B> <A NAME="tex2html115"
+  HREF="node2.html">1 Overview</A>
+ &nbsp; <B>  <A NAME="tex2html123"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html126"
+  HREF="node3.html#SECTION00031000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Specializing Generic Components</A>
+<LI><A NAME="tex2html127"
+  HREF="node3.html#SECTION00032000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> NUOPC Model Cap</A>
+<LI><A NAME="tex2html128"
+  HREF="node3.html#SECTION00033000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> How Much of My Code Do I Need to Change?</A>
+<LI><A NAME="tex2html129"
+  HREF="node3.html#SECTION00034000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> How Do I Know it Works?</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION00030000000000000000">
+<SPAN CLASS="arabic">2</SPAN> The Big Idea</A>
+</H1>
+
+<P>
+<A NAME="sec:bigidea"></A>This section should help you understand key aspects of the NUOPC Layer
+design that are critical for writing the code to make your model
+NUOPC Layer compliant.  The NUOPC Layer includes four kinds of
+generic components, each with a different purpose in a
+coupled application.  One kind of generic component is the
+<SPAN  CLASS="textit">NUOPC Model</SPAN>,  a component that wraps a model
+code (such as an atmosphere, ocean, or ice model) such that it
+exposes the set of interfaces defined by the NUOPC specification.
+You will work primarily with the NUOPC Model generic component
+in order to make your model NUOPC Layer compliant.
+
+<P>
+This documentation focuses primarily on the NUOPC <SPAN  CLASS="textbf">Model</SPAN> Component.
+However, you should be aware that there are four kinds of generic
+components implemented in the NUOPC Layer:
+
+<P><DL>
+<DT><STRONG>Model</STRONG></DT>
+<DD>
+Wraps a model code, such as an atmosphere, ocean, or ice model
+
+<P>
+</DD>
+<DT><STRONG>Connector</STRONG></DT>
+<DD>
+Handles standard data transformations (e.g., redistribution
+or regridding) between two components in a single direction
+
+<P>
+</DD>
+<DT><STRONG>Mediator</STRONG></DT>
+<DD>
+Contains custom coupling code (e.g., flux calculations, averaging)
+between Models; unlike the Connector, a Mediator can handle
+data from multiple Models with data flowing in multiple ways
+
+<P>
+</DD>
+<DT><STRONG>Driver</STRONG></DT>
+<DD>
+Coordinates execution of Models, Mediators, and Connectors
+
+<P>
+</DD>
+</DL>
+
+<P>
+
+<H2><A NAME="SECTION00031000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Specializing Generic Components</A>
+</H2>
+
+<P>
+A key design idea behind NUOPC is that a lot of code (and therefore
+behavior) is provided for you.  This code is provided via the
+four generic components included with the NUOPC library, plus
+some additional utility routines.
+The <SPAN  CLASS="textit">NUOPC Model</SPAN> generic component
+implements most of the initialization and run behavior for you, but you
+have to supply some key parts of the implementation that are specific
+to your model.  <SPAN  CLASS="textbf">The process of supplying your custom code that completes
+the generic NUOPC Model component is called specialization.</SPAN>  In other
+words, you are specializing the generic component to work for your
+particular model.  Any parts of the code that you do not specialize are
+<SPAN  CLASS="textit">inherited</SPAN> from the generic component.
+
+<P>
+Those familiar with object-oriented programming will recognize
+the ideas of specialization and inheritance.  Since the NUOPC Layer
+is written in Fortran 90, which has limited support for
+object-oriented programming, your specialization code is
+provided in Fortran subroutines which are registered with
+NUOPC using function pointers.  NUOPC makes callbacks into
+your code when required to execute the specialization code.
+
+<P>
+
+<H2><A NAME="SECTION00032000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> NUOPC Model Cap</A>
+</H2>
+A <SPAN  CLASS="textit">NUOPC Model cap</SPAN> is a Fortran module that contains your code
+that specializes the generic NUOPC Model component for your
+particular model.  The NUOPC Model cap serves as the interface
+to your model when it's used in NUOPC-based systems.
+<SPAN  CLASS="textbf">The term &ldquo;cap&rdquo; is used because it is
+a small software layer that sits on top of your model, making
+calls into it.</SPAN>  Typically, your model code will not make calls
+back into the cap.  Sometimes we say just &ldquo;cap&rdquo; or &ldquo;NUOPC cap&rdquo;
+because it's quicker than saying &ldquo;NUOPC Model cap.&rdquo;
+
+<P>
+
+<H2><A NAME="SECTION00033000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> How Much of My Code Do I Need to Change?</A>
+</H2>
+The amount of code that your need to change depends on how your
+model is structured and the degree to which it is already an
+independent component.  The NUOPC cap itself does not usually require
+changes to your model's internals.  Instead, the cap primarily
+acts as a separate software layer, and your model otherwise
+operates in its usual way.
+
+<P>
+However, as detailed in the section <A HREF="node4.html#sec:preparemodel">3.2</A>,
+if your model is currently embedded as a subsystem in a larger
+application and cannot be built independently, you must first take
+steps to modularize the code and remove dependencies to other
+models before beginning the NUOPC implementation.
+
+<P>
+<SPAN  CLASS="textbf">The creation of a NUOPC cap does not mean that your
+model must always be run as a NUOPC component.</SPAN>  Existing models can
+retain their native modes of operation, and running your model in
+NUOPC mode becomes a configuration option.
+
+<P>
+The NUOPC cap becomes a new locus of control for your model when
+your model is run in NUOPC mode. In other words, it will make calls into your
+model code to initialize your model and step it forward in time.
+One result of this is that the very top level main program of
+your model may not be used at all when your model is run in
+NUOPC mode.  This is because all models participating in a coupled
+NUOPC application will be controlled by a separate generic component:
+the NUOPC Driver.
+
+<P>
+Putting control into a separate driver enables synchronization
+of all models participating in a coupled application, allows NUOPC
+to control when each model component runs (and for how long), and allows
+NUOPC to intercept and inject variables produced and required
+by your model at key parts during execution.  Once you have a working
+NUOPC cap (you only need to implement it once), you have an interoperable
+component that can be used in systems with other NUOPC components.
+
+<P>
+
+<H2><A NAME="SECTION00034000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> How Do I Know it Works?</A>
+</H2>
+Validating your NUOPC cap is extremely important.  The idea is to
+ensure that your model's current behavior is reproduced
+exactly as before, but this time with control flowing from the cap.  This is
+why we encourage you to generate some baseline output by running
+your model in its &ldquo;normal&rdquo; way before doing any implementation.
+You will validate your cap by ensuring that when it controls your model,
+the same output is reproduced. In most cases the output matches bit-for-bit
+so a simple file-based comparison will be sufficient.
+
+<P>
+We also provide tools to help you check whether your cap is NUOPC-compliant.
+<SPAN  CLASS="textbf">NUOPC Compliance can be evaluated using a combination of two tools, the Component
+Explorer and the Compliance Checker, included in the ESMF/NUOPC software distribution.</SPAN>
+More information is provided in sections <A HREF="node4.html#sec:runcapwithdriver">3.8</A> and
+<A HREF="node4.html#sec:validatecap">3.10</A>.
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html124"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html120"
+  HREF="NUOPC_howtodoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html114"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html122"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html125"
+  HREF="node4.html">3 Writing and Testing</A>
+<B> Up:</B> <A NAME="tex2html121"
+  HREF="NUOPC_howtodoc.html">NUOPC_howtodoc</A>
+<B> Previous:</B> <A NAME="tex2html115"
+  HREF="node2.html">1 Overview</A>
+ &nbsp; <B>  <A NAME="tex2html123"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<A HREF=mailto:esmf_support@ucar.edu>esmf_support@ucar.edu</A>
+</ADDRESS>
+</BODY>
+</HTML>
