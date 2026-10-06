@@ -1,4 +1,4 @@
-# ESMF / NUOPC + Kokkos documentation MCP
+# OMD Library Docs MCP Server
 
 A local, read-only reference server for GitHub Copilot Agent mode, focused on
 NUOPC caps and drivers, with separate Kokkos and Kokkos Kernels collections. It retrieves complete manual sections and complete
