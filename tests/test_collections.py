@@ -28,14 +28,14 @@ class CollectionTests(unittest.TestCase):
         (self.root/'api.rst').write_text(RST)
         (self.root/'gemm.cpp').write_text('void example() { KokkosBlas::gemm("N", "N"); }\n')
         entries=[]
-        for library,version in [('kokkos','snapshot-test'),('kokkos-kernels','5.2.2'),('esmf','8.9.1')]:
+        for library,version in [('kokkos','snapshot-test'),('kokkos-kernels','5.2.2'),('esmf','8.9.1'),('nws-hpc-standards','11.0.0'),('jedi','snapshot-test')]:
             entries.append({'name':'same-name','path':'api.rst','library':library,'version':version,'kind':'documentation'})
         entries.append({'name':'includes','path':'gemm.cpp','library':'kokkos-kernels','version':'5.2.2','kind':'example'})
         self.manifest=self.root/'corpus.json';self.manifest.write_text(json.dumps({'sources':entries}))
         self.db=self.root/'index.sqlite3';build(self.manifest,self.db);self.store=Knowledge(self.db)
     def tearDown(self):self.temp.cleanup()
     def test_library_isolation(self):
-        for library in ('esmf','kokkos','kokkos-kernels'):
+        for library in ('esmf','kokkos','kokkos-kernels','nws-hpc-standards','jedi'):
             hits=self.store.search('KokkosBlas::gemm','documentation',library=library)
             self.assertTrue(hits);self.assertTrue(all(hit['library']==library for hit in hits))
     def test_rst_section_code_and_include(self):

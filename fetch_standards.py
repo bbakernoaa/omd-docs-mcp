@@ -57,6 +57,14 @@ def read_license(repo,marker):
         return ''.join(lines[start:end]).rstrip()+'\n'
     return ''
 
+def read_doc_release(repo,fallback):
+    """Read the Sphinx release from the checked-out docs/conf.py; fall back if absent."""
+    conf=repo/'docs'/'conf.py'
+    if conf.is_file():
+        match=re.search(r"^release\s*=\s*['\"]([^'\"]+)['\"]",conf.read_text(encoding='utf-8',errors='replace'),re.M)
+        if match:return match.group(1)
+    return fallback
+
 def commit_tag_version(repo,ref):
     """For NWS, derive the numeric version from the tag (strip leading v)."""
     tag=ref.split('/')[-1]
@@ -92,6 +100,7 @@ def main():
             commit=git(repo,'rev-parse','HEAD')
             if not args.latest and commit!=config['commit']:raise ValueError(f'{library}: checkout does not match pinned commit')
             if git(repo,'status','--porcelain'):raise ValueError(f'{library}: checkout is modified')
+            if library=='jedi':config['doc_release']=read_doc_release(repo,config.get('doc_release',''))
             if args.latest:
                 if library=='nws-hpc-standards':config['version']=commit_tag_version(repo,ref)
                 else:config['version']='snapshot-'+commit[:12]

@@ -24,5 +24,12 @@ class FetchStandardsHelpers(unittest.TestCase):
     def test_commit_tag_version_strips_v(self):
         self.assertEqual(fetch_standards.commit_tag_version(None,'v11.0.0'),'11.0.0')
         self.assertEqual(fetch_standards.commit_tag_version(None,'refs/tags/v11.0.0'),'11.0.0')
+    def test_read_doc_release_prefers_conf_py(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            repo=Path(tmp)
+            (repo/'docs').mkdir();(repo/'docs'/'conf.py').write_text("version = '9'\nrelease = '9.1.0'\n")
+            self.assertEqual(fetch_standards.read_doc_release(repo,'8.0.0'),'9.1.0')
+            (repo/'docs'/'conf.py').write_text("no release here\n")
+            self.assertEqual(fetch_standards.read_doc_release(repo,'8.0.0'),'8.0.0')
 
 if __name__=='__main__':unittest.main()
