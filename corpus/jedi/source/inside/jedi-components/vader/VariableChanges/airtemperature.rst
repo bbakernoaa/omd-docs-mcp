@@ -1,0 +1,14 @@
+Air Temperature
+===============
+
+.. toctree::
+    :maxdepth: 1
+
+    recipes/air_potential_temperature_a
+    recipes/air_potential_temperature_b
+    recipes/air_temperature_a
+    recipes/air_temperature_b
+    recipes/air_temperature_c
+    recipes/air_virtual_temperature_a
+    recipes/virtual_potential_temperature_a
+    recipes/virtual_potential_temperature_b

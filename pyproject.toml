@@ -10,4 +10,4 @@ requires-python = ">=3.11"
 dependencies = ["mcp>=1.12,<2", "beautifulsoup4>=4.12,<5"]
 
 [tool.setuptools]
-py-modules = ["knowledge", "server", "ingest", "fetch_corpus", "fetch_kokkos"]
+py-modules = ["knowledge", "server", "ingest", "fetch_corpus", "fetch_kokkos", "fetch_standards"]

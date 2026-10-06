@@ -1,0 +1,20 @@
+{
+  "nws-hpc-standards": {
+    "repo": "NCO-HPC/nws-hpc-standards",
+    "ref": "v11.0.0",
+    "commit": "d0e8f079b66891d39fe7494a1c68bd7c77639425",
+    "version": "11.0.0",
+    "rtd_url": "https://nws-hpc-standards.readthedocs.io/en/stable/",
+    "checked_at": "2026-10-06T15:45:52.195176+00:00"
+  },
+  "jedi": {
+    "repo": "JCSDA/jedi-docs",
+    "ref": "7cd222915252711893bf341bc1b67ffef3b2824a",
+    "branch": "develop",
+    "commit": "7cd222915252711893bf341bc1b67ffef3b2824a",
+    "version": "snapshot-7cd222915252",
+    "doc_release": "8.0.0",
+    "rtd_url": "https://jcsda-jedi-docs.readthedocs-hosted.com/en/latest/",
+    "checked_at": "2026-10-06T15:45:53.575821+00:00"
+  }
+}

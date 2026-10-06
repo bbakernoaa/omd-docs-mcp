@@ -1,0 +1,9 @@
+Wind
+====
+
+.. toctree::
+    :maxdepth: 1
+
+    recipes/uwind_at_10m_a
+    recipes/vwind_at_10m_a
+    recipes/wind_reduction_factor_at_10m_a
