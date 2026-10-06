@@ -4,12 +4,15 @@ Requires the image built by `docker build -t esmf-nuopc-mcp .`. Skips if the
 image or docker CLI is unavailable so it never breaks a non-Docker checkout.
 """
 import json
+import queue
 import shutil
 import subprocess
+import threading
 import unittest
 
 IMAGE = "esmf-nuopc-mcp"
 RUN = ["docker", "run", "-i", "--rm", "--read-only", "--memory=512m", IMAGE]
+EXCHANGE_TIMEOUT = 60
 
 INIT = {"jsonrpc": "2.0", "id": 1, "method": "initialize",
         "params": {"protocolVersion": "2024-11-05", "capabilities": {},
@@ -55,8 +58,38 @@ class DockerMcpSmoke(unittest.TestCase):
     def _exchange(self):
         proc = subprocess.Popen(
             RUN, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-            stderr=subprocess.DEVNULL, text=True)
+            stderr=subprocess.PIPE, text=True)
         responses = {}
+        stdout_lines = queue.Queue()
+        stderr_parts = []
+
+        def _read_stdout():
+            try:
+                for line in proc.stdout:
+                    stdout_lines.put(line)
+            finally:
+                stdout_lines.put(None)
+
+        def _read_stderr():
+            try:
+                stderr_parts.append(proc.stderr.read())
+            except Exception:
+                pass
+
+        threading.Thread(target=_read_stdout, daemon=True).start()
+        threading.Thread(target=_read_stderr, daemon=True).start()
+
+        def _stderr_tail():
+            return "".join(stderr_parts)[-500:]
+
+        def _fail_missing(deadline_ids):
+            tail = _stderr_tail()
+            suffix = f"\nstderr tail: {tail}" if tail else ""
+            self.fail(
+                f"server closed stdout before answering ids {sorted(deadline_ids)}"
+                f"{suffix}"
+            )
+
         try:
             for msg in REQUESTS:
                 proc.stdin.write(json.dumps(msg) + "\n")
@@ -64,9 +97,18 @@ class DockerMcpSmoke(unittest.TestCase):
             # Read one response per request id; do NOT close stdin first.
             deadline_ids = set(EXPECTED_IDS)
             while deadline_ids:
-                line = proc.stdout.readline()
-                if not line:
-                    self.fail(f"server closed stdout before answering ids {sorted(deadline_ids)}")
+                try:
+                    line = stdout_lines.get(timeout=EXCHANGE_TIMEOUT)
+                except queue.Empty:
+                    proc.terminate()
+                    tail = _stderr_tail()
+                    suffix = f"\nstderr tail: {tail}" if tail else ""
+                    self.fail(
+                        f"timed out waiting for ids {sorted(deadline_ids)}"
+                        f" after {EXCHANGE_TIMEOUT}s{suffix}"
+                    )
+                if line is None:
+                    _fail_missing(deadline_ids)
                 if not line.startswith("{"):
                     continue
                 j = json.loads(line)
@@ -76,6 +118,14 @@ class DockerMcpSmoke(unittest.TestCase):
         finally:
             try:
                 proc.stdin.close()
+            except Exception:
+                pass
+            try:
+                proc.stdout.close()
+            except Exception:
+                pass
+            try:
+                proc.stderr.close()
             except Exception:
                 pass
             proc.terminate()
