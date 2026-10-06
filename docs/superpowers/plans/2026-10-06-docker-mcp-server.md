@@ -290,10 +290,15 @@ class DockerMcpSmoke(unittest.TestCase):
     def test_list_collections(self):
         payload = _payload(self._exchange()[3]["result"])
         rows = payload if isinstance(payload, list) else payload.get("result", [])
-        by_lib = {(c["library"], c["version"]): c["units"] for c in rows}
-        self.assertGreaterEqual(by_lib.get(("esmf", "8.9.1"), 0), 1764)
-        self.assertIn(("kokkos", "snapshot-3cf2e0638b24"), by_lib)
-        self.assertIn(("kokkos-kernels", "5.2.2"), by_lib)
+        # list_collections returns one row per (library, version, kind);
+        # sum units per (library, version) before comparing totals.
+        units = {}
+        for c in rows:
+            key = (c["library"], c["version"])
+            units[key] = units.get(key, 0) + c["units"]
+        self.assertEqual(units.get(("esmf", "8.9.1")), 2138)
+        self.assertEqual(units.get(("kokkos", "snapshot-3cf2e0638b24")), 1610)
+        self.assertEqual(units.get(("kokkos-kernels", "5.2.2")), 641)
 
     def test_search_and_context(self):
         resp = self._exchange()
@@ -316,17 +321,19 @@ if __name__ == "__main__":
 - [ ] **Step 2: Run the container smoke test**
 
 Run: `uv run python -m unittest tests.smoke_docker -v`
-Expected: all tests PASS. If `test_list_collections` fails on the units comparison, check whether `list_collections` returns one row per (library,version,kind) — the `>= 1764` guard tolerates the esmf documentation row specifically.
+Expected: all tests PASS. If the units assertions fail, print the raw `list_collections` payload first — the three totals (2138 / 1610 / 641) were verified against the index committed in Task 1, so a mismatch means the image baked a different index.
 
 - [ ] **Step 3: Confirm it skips cleanly without the image**
 
 Run: `docker rmi esmf-nuopc-mcp && uv run python -m unittest tests.smoke_docker 2>&1 | tail -5`
 Expected: either SKIP (docker CLI missing) or a clear failure that the image is absent (`docker: No such image`). Rebuild with `docker build -t esmf-nuopc-mcp .` afterward. This documents that the test requires a prior build.
 
-- [ ] **Step 4: Add to .dockerignore exclusion already covers tests/, so the test file is NOT baked into the image**
+- [ ] **Step 4: Verify tests/ is not baked into the image**
+
+The `.dockerignore` from Task 2 excludes `tests/`, so this new test file must not appear in `/app`.
 
 Run: `docker run --rm --entrypoint ls esmf-nuopc-mcp /app`
-Expected: only `knowledge.py`, `server.py`, `data` — no `tests/`.
+Expected: only `data`, `knowledge.py`, `server.py` — no `tests/`.
 
 - [ ] **Step 5: Commit**
 
@@ -392,9 +399,9 @@ git commit -m "Run the esmf-nuopc MCP server through Docker by default"
 
 - [ ] **Step 1: Insert a Docker quick start above the uv instructions**
 
-Immediately after the `## Quick start` heading, before "Install Python 3.11+ and [uv]", insert:
+Immediately after the `## Quick start` heading, before "Install Python 3.11+ and [uv]", insert the following text verbatim (the outer 4-backtick fence below is only this plan's wrapper — do NOT include it; the inserted README content starts at "With Docker only" and contains the inner ```sh fences as-is):
 
-```markdown
+````markdown
 With Docker only (no local Python or uv), build the image once from this
 repository and Copilot runs the server in a read-only container:
 
@@ -419,7 +426,7 @@ docker build -t esmf-nuopc-mcp .
 Skipping the rebuild leaves the running container on a stale index; the
 container cannot detect this. The steps below use uv directly and remain the
 developer path.
-```
+````
 
 - [ ] **Step 2: Update the "Use in your actual model repository" block**
 
