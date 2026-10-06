@@ -93,6 +93,31 @@ silently overwrite them. ESMF refresh also preserves the Kokkos collections.
 
 ## Quick start
 
+With Docker only (no local Python or uv), build the image once from this
+repository and Copilot runs the server in a read-only container:
+
+```sh
+docker build -t omd-mcp .
+```
+
+`.vscode/mcp.json` launches `docker run -i --rm --read-only --memory=512m
+omd-mcp`. Enable it from `MCP: List Servers`. The image bundles the
+committed `data/nuopc.sqlite3`, so a fresh clone plus Docker is enough.
+
+**Refreshing the index.** The container serves the index baked at build time.
+After any `fetch_corpus.py` / `fetch_kokkos.py` + `ingest.py` refresh, commit
+`data/nuopc.sqlite3` and rebuild the image:
+
+```sh
+uv run ingest.py
+git add data/nuopc.sqlite3 && git commit -m "Reindex"
+docker build -t omd-mcp .
+```
+
+Skipping the rebuild leaves the running container on a stale index; the
+container cannot detect this. The steps below use uv directly and remain the
+developer path.
+
 Install Python 3.11+ and [uv](https://docs.astral.sh/uv/getting-started/installation/).
 Extract the ZIP, open `docs-mcp` in VS Code, and run in its terminal:
 
@@ -130,18 +155,21 @@ is open. When working on your model, merge the following into **your model's**
 ```json
 {
   "servers": {
-    "esmf-nuopc": {
+    "omd": {
       "type": "stdio",
-      "command": "uv",
-      "args": ["run", "--directory", "/absolute/path/to/docs-mcp", "server.py"]
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "--read-only", "--memory=512m", "omd-mcp"]
     }
   }
 }
 ```
 
-Windows can use a path such as `C:/Users/you/docs-mcp`. `uv` must be on VS Code's
-PATH; restart VS Code after installation. VS Code launches the stdio server;
-there is no browser endpoint or separate manual server startup step.
+The image must be built from this repository first (tag it on the target
+machine with `docker build -t omd-mcp /absolute/path/to/docs-mcp`), then
+any workspace can point `mcp.json` at the tag. `docker` must be on VS Code's
+PATH; restart VS Code after installation. VS Code launches the stdio container;
+there is no browser endpoint or separate manual server startup step. The uv
+`command`/`args` form still works for developers who prefer a local Python env.
 
 Merge `.github/copilot-instructions.md` into the corresponding file in your model
 repository. This is important: instructions inside this MCP project alone do
