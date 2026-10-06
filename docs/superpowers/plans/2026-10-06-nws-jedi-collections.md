@@ -542,7 +542,7 @@ Sources are pinned in `standards-lock.json`.
 
 | Collection | Included documentation | Version label |
 | --- | --- | --- |
-| `nws-hpc-standards` | NWS/WCOSS NCEP implementation standards (`NCO-HPC/nws-hpc-standards` tag `v11.0.0`), matching RTD `/en/stable/` | `11.0.0` |
+| `nws-hpc-standards` | NWS/WCOSS NCEP implementation standards (`NCO-HPC/nws-hpc-standards` tag `v11.0.0`, commit `d0e8f079b66891d39fe7494a1c68bd7c77639425`), matching RTD `/en/stable/` | `11.0.0` |
 | `jedi` | JEDI data assimilation documentation (`JCSDA/jedi-docs` develop commit `7cd222915252711893bf341bc1b67ffef3b2824a`), matching RTD `/en/latest/` | `snapshot-7cd222915252` |
 
 The NWS collection is a pinned release-tag snapshot of an operational policy
@@ -579,6 +579,8 @@ The refresh records new commits/version labels in `standards-lock.json`; it does
 not happen automatically. It preserves ESMF and Kokkos collections. Custom NWS or
 JEDI entries must be saved separately; the fetcher refuses to overwrite them.
 ```
+
+(Use the exact table row above including the NWS commit SHA.)
 
 In the **Tools** table, add two rows after the `get_kokkos_context` row:
 
