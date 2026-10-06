@@ -104,7 +104,7 @@ uv run ingest.py
 The bundled sources let you index without downloading manuals again. Python
 package installation requires internet access. No ESMF build is needed for indexing.
 
-Start **esmf-nuopc** from `.vscode/mcp.json` or `MCP: List Servers`. Enable its tools
+Start **omd** from `.vscode/mcp.json` or `MCP: List Servers`. Enable its tools
 in Copilot Agent mode. To select a specific tool, type `#` and select it from
 Copilot autocomplete. Try:
 

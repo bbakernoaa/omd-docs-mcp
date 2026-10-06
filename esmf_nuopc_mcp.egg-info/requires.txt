@@ -1,2 +1,0 @@
-mcp<2,>=1.12
-beautifulsoup4<5,>=4.12

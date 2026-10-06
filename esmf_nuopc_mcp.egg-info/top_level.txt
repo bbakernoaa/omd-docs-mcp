@@ -1,5 +1,0 @@
-fetch_corpus
-fetch_kokkos
-ingest
-knowledge
-server

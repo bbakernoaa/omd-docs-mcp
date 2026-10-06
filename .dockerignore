@@ -16,7 +16,7 @@ fetch_corpus.py
 fetch_kokkos.py
 ingest.py
 kokkos-lock.json
-esmf_nuopc_mcp.egg-info
+*.egg-info/
 .vscode
 README.md
 data/.gitkeep

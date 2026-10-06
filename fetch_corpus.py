@@ -17,7 +17,7 @@ MANUALS=('NUOPC_refdoc','NUOPC_howtodoc','ESMF_refdoc')
 
 
 def download(url):
-    request=urllib.request.Request(url,headers={'User-Agent':'esmf-nuopc-context/1.0'})
+    request=urllib.request.Request(url,headers={'User-Agent':'omd-context/1.0'})
     with urllib.request.urlopen(request,timeout=40) as response:
         if not response.url.startswith(BASE):raise ValueError('Manual redirected outside pinned release')
         data=response.read(30_000_001)

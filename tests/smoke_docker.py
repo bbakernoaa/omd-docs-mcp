@@ -1,6 +1,6 @@
 """Smoke test the built Docker image over MCP stdio with a read-only rootfs.
 
-Requires the image built by `docker build -t esmf-nuopc-mcp .`. Skips if the
+Requires the image built by `docker build -t omd-mcp .`. Skips if the
 image or docker CLI is unavailable so it never breaks a non-Docker checkout.
 """
 import json
@@ -10,7 +10,7 @@ import subprocess
 import threading
 import unittest
 
-IMAGE = "esmf-nuopc-mcp"
+IMAGE = "omd-mcp"
 RUN = ["docker", "run", "-i", "--rm", "--read-only", "--memory=512m", IMAGE]
 EXCHANGE_TIMEOUT = 60
 
@@ -134,7 +134,7 @@ class DockerMcpSmoke(unittest.TestCase):
 
     def test_initialize(self):
         r = self._exchange()[1]["result"]
-        self.assertEqual(r["serverInfo"]["name"], "esmf-nuopc")
+        self.assertEqual(r["serverInfo"]["name"], "omd")
 
     def test_tools_list(self):
         tools = self._exchange()[2]["result"]["tools"]

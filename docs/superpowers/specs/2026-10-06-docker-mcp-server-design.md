@@ -2,7 +2,7 @@
 
 Date: 2026-10-06
 Status: revised after review (see "Corrections")
-Scope: run the `esmf-nuopc` MCP server as a local Docker image instead of `uv run server.py`.
+Scope: run the `omd` MCP server as a local Docker image instead of `uv run server.py`.
 
 ## Goal
 
@@ -57,7 +57,7 @@ at any commit, and there is no CI or pre-commit hook in this repo to gate it
 ## Architecture
 
 ```
-Copilot Agent ──stdio──> docker run -i --rm --read-only esmf-nuopc-mcp
+Copilot Agent ──stdio──> docker run -i --rm --read-only omd-mcp
                               └── python server.py
                                     └── Knowledge("/app/data/nuopc.sqlite3")  # mode=ro
 ```
@@ -100,7 +100,7 @@ change does not re-resolve deps and a dep change does not re-copy 31 MB.
 ### `.dockerignore` (new)
 
 Exclude everything the image does not need: `corpus/`, `docs/`, `tests/`,
-`.git/`, `.github/`, `.vscode/`, `esmf_nuopc_mcp.egg-info/`, `__pycache__/`,
+`.git/`, `.github/`, `.vscode/`, `*.egg-info/`, `__pycache__/`,
 `*.md`, `fetch_*.py`, `ingest.py`, `corpus.example.json`, `kokkos-lock.json`,
 `data/.gitkeep`. The build context then carries four files — `pyproject.toml`,
 `uv.lock`, `server.py`, `knowledge.py` — plus the index.
@@ -114,11 +114,11 @@ scripts and network that are also excluded.
 ```json
 {
   "servers": {
-    "esmf-nuopc": {
+    "omd": {
       "type": "stdio",
       "command": "docker",
       "args": ["run", "-i", "--rm", "--read-only",
-               "--memory=512m", "esmf-nuopc-mcp"]
+               "--memory=512m", "omd-mcp"]
     }
   }
 }
@@ -131,7 +131,7 @@ server never writes; it matches the `readOnlyHint` on every tool.
 
 ### `README.md` (modified)
 
-Add a "Run with Docker" section: build once with `docker build -t esmf-nuopc-mcp .`,
+Add a "Run with Docker" section: build once with `docker build -t omd-mcp .`,
 then enable the server from `MCP: List Servers`. Keep the uv instructions as the
 developer path.
 
@@ -159,10 +159,10 @@ the running container serving a stale index.
 
 ## Testing
 
-1. `docker build -t esmf-nuopc-mcp .` succeeds. The lockfile was resolved under
+1. `docker build -t omd-mcp .` succeeds. The lockfile was resolved under
    host Python 3.14; the image uses 3.12, so the build must confirm
    `uv sync --frozen` accepts 3.12 rather than assuming it.
-2. `docker run -i --rm --read-only esmf-nuopc-mcp` answers an MCP handshake over
+2. `docker run -i --rm --read-only omd-mcp` answers an MCP handshake over
    stdin: `initialize`, then `tools/list`, then a `list_collections` call returns
    the three collections with the counts verified above (2138 / 1610 / 641).
 3. `--read-only` confirmed working: the container starts and serves queries with

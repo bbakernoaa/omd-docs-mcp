@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Run the `esmf-nuopc` MCP server as a locally-built Docker image (stdio transport, read-only container) so a machine with only Docker — no Python, no uv — can clone, build, and use it.
+**Goal:** Run the `omd` MCP server as a locally-built Docker image (stdio transport, read-only container) so a machine with only Docker — no Python, no uv — can clone, build, and use it.
 
 **Architecture:** A single-stage `python:3.12-slim` image installs the project's pinned dependencies with `uv sync --frozen --no-install-project`, copies `server.py` + `knowledge.py` + the committed SQLite index, and runs `python server.py` over stdio as an unprivileged user. `.vscode/mcp.json` launches it via `docker run -i --rm --read-only`.
 
@@ -89,7 +89,7 @@ Expected: `data/.gitkeep` and `data/nuopc.sqlite3` listed; three rows: `esmf|8.9
 
 **Interfaces:**
 - Consumes: `data/nuopc.sqlite3` (Task 1), `pyproject.toml`, `uv.lock`, `server.py`, `knowledge.py`.
-- Produces: image tag `esmf-nuopc-mcp:latest` with entrypoint `python server.py`, DB at `/app/data/nuopc.sqlite3`. Task 3's `mcp.json` and Task 5's smoke test run against this tag.
+- Produces: image tag `omd-mcp:latest` with entrypoint `python server.py`, DB at `/app/data/nuopc.sqlite3`. Task 3's `mcp.json` and Task 5's smoke test run against this tag.
 
 - [ ] **Step 1: Create `.dockerignore`**
 
@@ -113,7 +113,7 @@ fetch_corpus.py
 fetch_kokkos.py
 ingest.py
 kokkos-lock.json
-esmf_nuopc_mcp.egg-info
+*.egg-info/
 .vscode
 README.md
 data/.gitkeep
@@ -123,8 +123,8 @@ data/.gitkeep
 
 ```dockerfile
 # Read-only ESMF/NUOPC + Kokkos MCP server over stdio.
-# Build:  docker build -t esmf-nuopc-mcp .
-# Run:    docker run -i --rm --read-only --memory=512m esmf-nuopc-mcp
+# Build:  docker build -t omd-mcp .
+# Run:    docker run -i --rm --read-only --memory=512m omd-mcp
 FROM python:3.12-slim
 
 # uv resolves the pinned dependency set from uv.lock.
@@ -156,24 +156,24 @@ ENTRYPOINT ["python", "server.py"]
 
 - [ ] **Step 3: Verify the build context is trimmed**
 
-Run: `docker build --no-cache -t esmf-nuopc-mcp . 2>&1 | grep -i "transferring context\|load build context"`
+Run: `docker build --no-cache -t omd-mcp . 2>&1 | grep -i "transferring context\|load build context"`
 Expected: a context size in the low tens of MB (code + lock + index), NOT ~43 MB (corpus excluded). If corpus/ or .git is transferred, `.dockerignore` is wrong.
 
 - [ ] **Step 4: Build the image**
 
-Run: `docker build -t esmf-nuopc-mcp .`
-Expected: reaches `naming to docker.io/library/esmf-nuopc-mcp:latest` and `DONE`, exit 0. The `uv sync --frozen` step prints `+ mcp==1.30.0` and `+ beautifulsoup4==4.15.0`.
+Run: `docker build -t omd-mcp .`
+Expected: reaches `naming to docker.io/library/omd-mcp:latest` and `DONE`, exit 0. The `uv sync --frozen` step prints `+ mcp==1.30.0` and `+ beautifulsoup4==4.15.0`.
 
 - [ ] **Step 5: Verify the entrypoint and user**
 
-Run: `docker inspect esmf-nuopc-mcp --format '{{.Config.Entrypoint}} {{.Config.User}} {{.Config.Env}}'`
+Run: `docker inspect omd-mcp --format '{{.Config.Entrypoint}} {{.Config.User}} {{.Config.Env}}'`
 Expected: entrypoint `[python server.py]`, user `appuser`, env includes `DOCS_MCP_DB=/app/data/nuopc.sqlite3`.
 
 - [ ] **Step 6: Commit**
 
 ```bash
 git add Dockerfile .dockerignore
-git commit -m "Add Dockerfile and .dockerignore for the esmf-nuopc MCP server"
+git commit -m "Add Dockerfile and .dockerignore for the omd MCP server"
 ```
 
 ---
@@ -184,17 +184,17 @@ git commit -m "Add Dockerfile and .dockerignore for the esmf-nuopc MCP server"
 - Test: `tests/smoke_docker.py`
 
 **Interfaces:**
-- Consumes: image `esmf-nuopc-mcp:latest` (Task 2).
+- Consumes: image `omd-mcp:latest` (Task 2).
 - Produces: a repeatable container smoke test. No production code depends on it.
 
 - [ ] **Step 1: Write the container smoke test**
 
-Create `tests/smoke_docker.py`. It speaks the MCP handshake to `docker run -i --rm --read-only --memory=512m esmf-nuopc-mcp`, keeping stdin open until every expected response arrives (closing stdin early makes the server exit before processing the tail of the batch — this is the race that fakes "missing responses"). It asserts against the counts verified in the spec.
+Create `tests/smoke_docker.py`. It speaks the MCP handshake to `docker run -i --rm --read-only --memory=512m omd-mcp`, keeping stdin open until every expected response arrives (closing stdin early makes the server exit before processing the tail of the batch — this is the race that fakes "missing responses"). It asserts against the counts verified in the spec.
 
 ```python
 """Smoke test the built Docker image over MCP stdio with a read-only rootfs.
 
-Requires the image built by `docker build -t esmf-nuopc-mcp .`. Skips if the
+Requires the image built by `docker build -t omd-mcp .`. Skips if the
 image or docker CLI is unavailable so it never breaks a non-Docker checkout.
 """
 import json
@@ -202,7 +202,7 @@ import shutil
 import subprocess
 import unittest
 
-IMAGE = "esmf-nuopc-mcp"
+IMAGE = "omd-mcp"
 RUN = ["docker", "run", "-i", "--rm", "--read-only", "--memory=512m", IMAGE]
 
 INIT = {"jsonrpc": "2.0", "id": 1, "method": "initialize",
@@ -278,7 +278,7 @@ class DockerMcpSmoke(unittest.TestCase):
 
     def test_initialize(self):
         r = self._exchange()[1]["result"]
-        self.assertEqual(r["serverInfo"]["name"], "esmf-nuopc")
+        self.assertEqual(r["serverInfo"]["name"], "omd")
 
     def test_tools_list(self):
         tools = self._exchange()[2]["result"]["tools"]
@@ -325,14 +325,14 @@ Expected: all tests PASS. If the units assertions fail, print the raw `list_coll
 
 - [ ] **Step 3: Confirm it skips cleanly without the image**
 
-Run: `docker rmi esmf-nuopc-mcp && uv run python -m unittest tests.smoke_docker 2>&1 | tail -5`
-Expected: either SKIP (docker CLI missing) or a clear failure that the image is absent (`docker: No such image`). Rebuild with `docker build -t esmf-nuopc-mcp .` afterward. This documents that the test requires a prior build.
+Run: `docker rmi omd-mcp && uv run python -m unittest tests.smoke_docker 2>&1 | tail -5`
+Expected: either SKIP (docker CLI missing) or a clear failure that the image is absent (`docker: No such image`). Rebuild with `docker build -t omd-mcp .` afterward. This documents that the test requires a prior build.
 
 - [ ] **Step 4: Verify tests/ is not baked into the image**
 
 The `.dockerignore` from Task 2 excludes `tests/`, so this new test file must not appear in `/app`.
 
-Run: `docker run --rm --entrypoint ls esmf-nuopc-mcp /app`
+Run: `docker run --rm --entrypoint ls omd-mcp /app`
 Expected: only `data`, `knowledge.py`, `server.py` — no `tests/`.
 
 - [ ] **Step 5: Commit**
@@ -350,7 +350,7 @@ git commit -m "Add read-only Docker MCP stdio smoke test"
 - Modify: `.vscode/mcp.json`
 
 **Interfaces:**
-- Consumes: image `esmf-nuopc-mcp:latest` (Task 2).
+- Consumes: image `omd-mcp:latest` (Task 2).
 - Produces: the editor-facing server definition. No code depends on it.
 
 - [ ] **Step 1: Replace `mcp.json`**
@@ -358,10 +358,10 @@ git commit -m "Add read-only Docker MCP stdio smoke test"
 ```json
 {
   "servers": {
-    "esmf-nuopc": {
+    "omd": {
       "type": "stdio",
       "command": "docker",
-      "args": ["run", "-i", "--rm", "--read-only", "--memory=512m", "esmf-nuopc-mcp"]
+      "args": ["run", "-i", "--rm", "--read-only", "--memory=512m", "omd-mcp"]
     }
   }
 }
@@ -371,19 +371,19 @@ git commit -m "Add read-only Docker MCP stdio smoke test"
 
 - [ ] **Step 2: Verify the JSON parses**
 
-Run: `python3 -c "import json;print(json.load(open('.vscode/mcp.json'))['servers']['esmf-nuopc']['command'])"`
+Run: `python3 -c "import json;print(json.load(open('.vscode/mcp.json'))['servers']['omd']['command'])"`
 Expected: `docker`
 
 - [ ] **Step 3: Verify the configured args actually launch the server**
 
-Run: `docker run -i --rm --read-only --memory=512m esmf-nuopc-mcp </dev/null >/dev/null 2>&1; echo exit=$?`
+Run: `docker run -i --rm --read-only --memory=512m omd-mcp </dev/null >/dev/null 2>&1; echo exit=$?`
 Expected: `exit=0` (server starts and exits cleanly on EOF).
 
 - [ ] **Step 4: Commit**
 
 ```bash
 git add .vscode/mcp.json
-git commit -m "Run the esmf-nuopc MCP server through Docker by default"
+git commit -m "Run the omd MCP server through Docker by default"
 ```
 
 ---
@@ -406,11 +406,11 @@ With Docker only (no local Python or uv), build the image once from this
 repository and Copilot runs the server in a read-only container:
 
 ```sh
-docker build -t esmf-nuopc-mcp .
+docker build -t omd-mcp .
 ```
 
 `.vscode/mcp.json` launches `docker run -i --rm --read-only --memory=512m
-esmf-nuopc-mcp`. Enable it from `MCP: List Servers`. The image bundles the
+omd-mcp`. Enable it from `MCP: List Servers`. The image bundles the
 committed `data/nuopc.sqlite3`, so a fresh clone plus Docker is enough.
 
 **Refreshing the index.** The container serves the index baked at build time.
@@ -420,7 +420,7 @@ After any `fetch_corpus.py` / `fetch_kokkos.py` + `ingest.py` refresh, commit
 ```sh
 uv run ingest.py
 git add data/nuopc.sqlite3 && git commit -m "Reindex"
-docker build -t esmf-nuopc-mcp .
+docker build -t omd-mcp .
 ```
 
 Skipping the rebuild leaves the running container on a stale index; the
@@ -435,10 +435,10 @@ In that section's JSON example (search for `Merge the following into **your mode
 ```json
 {
   "servers": {
-    "esmf-nuopc": {
+    "omd": {
       "type": "stdio",
       "command": "docker",
-      "args": ["run", "-i", "--rm", "--read-only", "--memory=512m", "esmf-nuopc-mcp"]
+      "args": ["run", "-i", "--rm", "--read-only", "--memory=512m", "omd-mcp"]
     }
   }
 }
@@ -448,7 +448,7 @@ Adjust the two sentences that follow the JSON block. Replace the current text be
 
 ```markdown
 The image must be built from this repository first (tag it on the target
-machine with `docker build -t esmf-nuopc-mcp /absolute/path/to/docs-mcp`), then
+machine with `docker build -t omd-mcp /absolute/path/to/docs-mcp`), then
 any workspace can point `mcp.json` at the tag. `docker` must be on VS Code's
 PATH; restart VS Code after installation. VS Code launches the stdio container;
 there is no browser endpoint or separate manual server startup step. The uv
@@ -493,20 +493,20 @@ Expected: `data/nuopc.sqlite3` exists in the clone (proves Task 1 landed).
 
 - [ ] **Step 2: Build from the clone**
 
-Run: `docker build -t esmf-nuopc-mcp-clone .`
+Run: `docker build -t omd-mcp-clone .`
 Expected: `DONE`, exit 0, image tagged.
 
 - [ ] **Step 3: Serve a real tool call from the clone image, read-only**
 
 ```bash
 printf '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"p","version":"0"}}}\n{"jsonrpc":"2.0","method":"notifications/initialized"}\n{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"list_collections","arguments":{}}}\n' \
-  | docker run -i --rm --read-only --memory=512m esmf-nuopc-mcp-clone 2>/dev/null | tail -1 | cut -c1-200
+  | docker run -i --rm --read-only --memory=512m omd-mcp-clone 2>/dev/null | tail -1 | cut -c1-200
 ```
 Expected: a JSON result naming `esmf` / `8.9.1`. This is the deliverable: a clone with only Docker builds and serves.
 
 - [ ] **Step 4: Clean up scratch**
 
-Run: `cd /Users/barry/Documents/docs-mcp && rm -rf /tmp/docs-mcp-clone && docker rmi esmf-nuopc-mcp-clone`
+Run: `cd /Users/barry/Documents/docs-mcp && rm -rf /tmp/docs-mcp-clone && docker rmi omd-mcp-clone`
 Expected: no errors.
 
 - [ ] **Step 5: Record the acceptance result**

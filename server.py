@@ -7,7 +7,7 @@ from knowledge import Knowledge, VERSION
 
 ROOT=Path(__file__).resolve().parent
 knowledge=Knowledge(os.environ.get('DOCS_MCP_DB',str(ROOT/'data'/'nuopc.sqlite3')))
-mcp=FastMCP('esmf-nuopc',instructions=(
+mcp=FastMCP('omd',instructions=(
  'Target ESMF 8.9.1 NUOPC caps and drivers. Before editing, call get_nuopc_context, then '
  'get_section/get_routine for complete interfaces and examples. Search excerpts alone are insufficient. '
  'Follow next_offset until necessary source context is read. Verify phase labels, clocks, fields, '

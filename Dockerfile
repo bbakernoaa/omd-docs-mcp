@@ -1,6 +1,6 @@
 # Read-only ESMF/NUOPC + Kokkos MCP server over stdio.
-# Build:  docker build -t esmf-nuopc-mcp .
-# Run:    docker run -i --rm --read-only --memory=512m esmf-nuopc-mcp
+# Build:  docker build -t omd-mcp .
+# Run:    docker run -i --rm --read-only --memory=512m omd-mcp
 FROM python:3.12-slim
 
 # uv resolves the pinned dependency set from uv.lock.
