@@ -446,19 +446,19 @@ class StandardsReleaseTests(unittest.TestCase):
     def tearDownClass(cls):cls.temp.cleanup()
     def test_nws_environment_variables(self):
         lock=json.loads((ROOT/'standards-lock.json').read_text())
-        revision=lock['nws-hpc-standards']['commit']
-        hits=self.store.search('Standard Environment Variables','documentation',library='nws-hpc-standards')
+        revision=lock['nws-hpc-standards']['commit'];version=lock['nws-hpc-standards']['version']
+        hits=self.store.search('Standard Environment Variables','documentation',library='nws-hpc-standards',version=version)
         self.assertTrue(hits)
-        self.assertTrue(all(h['version']=='11.0.0' for h in hits))
+        self.assertTrue(all(h['version']==version for h in hits))
         section=self.store.get(hits[0]['id'],include_subsections=True)
         self.assertIn('PACKAGEROOT',section['text'])
         self.assertIn(revision,section['provenance']['url'])
     def test_jedi_obsgroup_conventions(self):
         lock=json.loads((ROOT/'standards-lock.json').read_text())
-        revision=lock['jedi']['commit']
-        hits=self.store.search('ObsGroup','documentation',library='jedi')
+        revision=lock['jedi']['commit'];version=lock['jedi']['version']
+        hits=self.store.search('ObsGroup','documentation',library='jedi',version=version)
         self.assertTrue(hits)
-        self.assertTrue(all(h['version'].startswith('snapshot-') for h in hits))
+        self.assertTrue(all(h['version']==version for h in hits))
         section=self.store.get(hits[0]['id'],include_subsections=True)
         self.assertIn('ObsGroup',section['text'])
         self.assertIn(revision,section['provenance']['url'])
