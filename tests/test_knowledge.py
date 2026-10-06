@@ -93,5 +93,14 @@ class Tests(unittest.TestCase):
         text='subroutine Unusual()\n! uncommon bare END syntax\nend\n'
         units=code_units(text,'odd.F90','')
         self.assertEqual(units[0]['text'],text)
+    def test_new_libraries_accepted(self):
+        from knowledge import LIBRARIES
+        self.assertIn('nws-hpc-standards',LIBRARIES);self.assertIn('jedi',LIBRARIES)
+        (self.root/'std.rst').write_text('Standard Environment Variables\n================================\nPACKAGEROOT is the application root.\n')
+        self.entries.append({'name':'nws','path':'std.rst','library':'nws-hpc-standards','version':'11.0.0','kind':'documentation'})
+        self.manifest.write_text(json.dumps({'sources':self.entries}));build(self.manifest,self.db)
+        hits=self.store.search('PACKAGEROOT','documentation',library='nws-hpc-standards')
+        self.assertTrue(hits);self.assertEqual(hits[0]['version'],'11.0.0')
+        with self.assertRaises(ValueError):self.store.search('x',library='bogus')
 
 if __name__=='__main__':unittest.main()

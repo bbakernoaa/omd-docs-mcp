@@ -7,6 +7,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 VERSION = '8.9.1'
+LIBRARIES = ('esmf','kokkos','kokkos-kernels','nws-hpc-standards','jedi')
 SCHEMA = '''
 CREATE TABLE meta(key TEXT PRIMARY KEY,value TEXT);
 CREATE TABLE units(id TEXT PRIMARY KEY, library TEXT, version TEXT, kind TEXT, title TEXT, source TEXT,
@@ -145,7 +146,7 @@ def build(manifest_path, database):
         con.execute('INSERT INTO meta VALUES (?,?)',('schema','hpc-2'))
         for entry in sources:
             version=entry['version']; kind=entry['kind']; library=entry.get('library','esmf')
-            if library not in ('esmf','kokkos','kokkos-kernels'):raise ValueError('Unknown library')
+            if library not in LIBRARIES:raise ValueError('Unknown library')
             if not isinstance(version,str) or not version.strip():raise ValueError('Explicit version or snapshot revision required')
             if library == 'esmf' and version != VERSION: raise ValueError(f'Only ESMF {VERSION} accepted, got {version}')
             if kind not in ('documentation','example','application','implementation'): raise ValueError('Invalid source kind')
@@ -192,7 +193,7 @@ class Knowledge:
     def metadata(row):
         return {key:row[key] for key in ('id','library','version','kind','title','source','citation','url','parent','start_line','end_line')}
     def search(self,query,kind=None,limit=6,version=None,library='esmf'):
-        if library not in ('esmf','kokkos','kokkos-kernels'):raise ValueError('Unknown library')
+        if library not in LIBRARIES:raise ValueError('Unknown library')
         if library=='esmf':
             version=version or VERSION
             if version!=VERSION:raise ValueError('ESMF corpus is scoped to 8.9.1')
