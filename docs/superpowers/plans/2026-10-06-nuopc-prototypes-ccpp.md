@@ -195,11 +195,24 @@ git commit -m "Add get_ccpp_context tool and eleven-tool smoke coverage"
 
 **Files:**
 - Modify: `fetch_corpus.py` (constants after:17, `main()` argparse + clone/copy/swap/manifest)
+- Modify: `tests/test_release_corpus.py` (`test_real_driver_and_cap_patterns_and_commit`)
 - Test: manual dry-run in Step 4 (the fetcher needs network; unit tests for its helpers live in Task 4's file)
 
 **Interfaces:**
 - Consumes: Task 1's whitelist (so prototype README/.config files index later).
 - Produces: `corpus/nuopc-app-prototypes/` tree and a 4th esmf manifest entry `{"name":"nuopc-app-prototypes", ...}` (exact JSON in Step 3). Task 5 ingests it.
+
+**Plan correction (Task 3 blocker, spec Risk #4):** Adding 1021 prototype
+`kind='example'` units (revision `1645f447…`) permanently dilutes BM25 ranking
+of the 18 in-tree example units (revision `bd03a249…`). The existing
+`test_real_driver_and_cap_patterns_and_commit` asserted `hits[0]` carried the
+ESMF revision, which the new corpus makes false for `NUOPC_DriverAddComp`
+(zero in-tree hits even at limit 20 — every prototype `use NUOPC` child
+contains the token). Per the spec's mitigation, the test must **pin
+discoverability, not ranking**: anchor each name to its in-tree filename,
+filter to `esmf/NUOPC/examples`, prefer a child routine (to keep the original
+child→`use NUOPC`-parent coverage), and read with `max_characters=32000` (the
+whole-file units exceed the 16000 default and would truncate the token away).
 
 - [ ] **Step 1: Add constants**
 
@@ -281,10 +294,54 @@ assert len(dirs)>=51
 
 Expected: `11 [...]` including `nuopc-app-prototypes`; `protos dirs: 52` (51 prototype directories plus the repo's `.github`).
 
-- [ ] **Step 5: Confirm no ingest yet, commit corpus + fetcher + manifest**
+- [ ] **Step 5: Rewrite the release-corpus example test to pin discoverability**
+
+Replace the body of `test_real_driver_and_cap_patterns_and_commit` in
+`tests/test_release_corpus.py` with (verified against the staged prototypes
+index — the two `label_*` names still surface a child routine whose parent
+carries `use NUOPC`; `NUOPC_DriverAddComp` falls back to the in-tree whole-file
+unit because its child routines are outranked by the prototype corpus):
+
+```python
+    def test_real_driver_and_cap_patterns_and_commit(self):
+        # Anchored to each pattern's in-tree example file so the added
+        # nuopc-app-prototypes example corpus cannot crowd it out of the top
+        # hits; ranks are not pinned, only that the official ESMF example
+        # remains discoverable for its own revision.
+        cases=(('NUOPC_DriverAddComp','NUOPC_DriverAddComp ESMF_NUOPCAtmModelEx'),
+               ('label_Advertise','label_Advertise ESMF_NUOPCBasicModelEx'),
+               ('label_Advance','label_Advance ESMF_NUOPCBasicModelEx'))
+        for name,query in cases:
+            hits=self.store.search(query,'example',8)
+            intree=[hit for hit in hits if 'esmf/NUOPC/examples' in hit['source']]
+            self.assertTrue(intree,name)
+            children=[hit for hit in intree if hit['parent']]
+            result=self.store.get((children or intree)[0]['id'],max_characters=32000)
+            self.assertIn(name,result['text'])
+            self.assertEqual(result['provenance']['revision'],'bd03a249df907464fdad91b7c43985dedbc472c7')
+            if result['parent']:
+                self.assertIn('use NUOPC',self.store.get(result['parent'],max_characters=32000)['text'])
+```
+
+Run the focused test to confirm it now passes against the uncommitted corpus:
 
 ```bash
-git add fetch_corpus.py corpus.json corpus/nuopc-app-prototypes
+cd /Users/barry/Documents/docs-mcp && uv run python -m unittest tests.test_release_corpus.ReleaseTests.test_real_driver_and_cap_patterns_and_commit
+```
+
+Expected: `OK`. (This test rebuilds from `corpus.json` in `setUpClass`, so it
+reflects the new prototypes entry without a repo reindex.)
+
+- [ ] **Step 6: Confirm the full suite is green, commit corpus + fetcher + test**
+
+```bash
+cd /Users/barry/Documents/docs-mcp && uv run python -m unittest discover -s tests -t .
+```
+
+Expected: `Ran 26 tests` / `OK`.
+
+```bash
+git add fetch_corpus.py corpus.json corpus/nuopc-app-prototypes tests/test_release_corpus.py
 git commit -m "Fetch NUOPC application prototypes pinned to patch/8.9.1"
 ```
 
