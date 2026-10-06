@@ -21,7 +21,7 @@ async def main():
         async with stdio_client(params) as (read,write):
             async with ClientSession(read,write) as session:
                 await session.initialize(); tools=await session.list_tools()
-                assert {t.name for t in tools.tools}=={'search_docs','search_code','get_section','get_routine','get_nuopc_context','list_sources','get_kokkos_context','get_nws_context','get_jedi_context','list_collections'}
+                assert {t.name for t in tools.tools}=={'search_docs','search_code','get_section','get_routine','get_nuopc_context','list_sources','get_kokkos_context','get_nws_context','get_jedi_context','get_ccpp_context','list_collections'}
                 async def call(name,args):
                     result=await session.call_tool(name,args);assert not result.isError,result
                     return result.structuredContent or json.loads(result.content[0].text)
@@ -39,7 +39,10 @@ async def main():
                 assert 'collections' in nws and 'nws-hpc-standards' in nws['collections']
                 jedi=await call('get_jedi_context',{'query':'ObsGroup'})
                 assert 'collections' in jedi and 'jedi' in jedi['collections']
+                ccpp=await call('get_ccpp_context',{'query':'scheme template'})
+                assert 'collections' in ccpp and 'ccpp' in ccpp['collections']
+                assert ccpp['collections']['ccpp']==[]
                 bad=await session.call_tool('search_docs',{'query':'NUOPC_CompDerive','version':'8.8.0'});assert bad.isError
-            print('All ten MCP tools passed real stdio smoke test')
+            print('All eleven MCP tools passed real stdio smoke test')
 
 if __name__=='__main__':asyncio.run(main())
