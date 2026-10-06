@@ -1,41 +1,42 @@
 # OMD Library Docs MCP Server
 
-A local, read-only reference server for GitHub Copilot Agent mode, focused on
-NUOPC caps and drivers, with separate Kokkos and Kokkos Kernels collections. It retrieves complete manual sections and complete
-Fortran routines, with release provenance and citations. It separates API
-requirements, examples, framework implementation, and your application code.
+A local, read-only documentation retrieval server for GitHub Copilot Agent
+mode. **omd** indexes five curated collections — ESMF/NUOPC, Kokkos, Kokkos
+Kernels, NWS-HPC production standards and JEDI — and retrieves complete
+manual sections, Fortran routines and C++ examples with release provenance
+and citations. It separates API requirements, examples, framework
+implementation, and your application code.
 
-This replaces the earlier general PDF/Ollama server. There is no generated
-briefing or local LLM in the new retrieval path. The coding agent gets original
-evidence and is instructed to read it before making changes.
+There is no generated briefing or local LLM in the retrieval path: the coding
+agent gets original evidence and is instructed to read it before making
+changes. This replaces the earlier general PDF/Ollama server.
 
-## Included and ready to index
+## Collections
 
-The bundled corpus contains:
+All five collections are bundled in the committed index and pinned in the
+lock files; nothing refreshes automatically.
 
-- ESMF **8.9.1** NUOPC Layer Reference Manual (official HTML, 9 pages/files).
-- **Building a NUOPC Model**, same release (official HTML, 6 files).
-- **Fortran Reference Manual**, same release (official HTML, 10 files).
-- NUOPC model/cap **and driver** examples from ESMF tag `v8.9.1`.
-- NUOPC framework implementation from the same release, indPexed separately.
-- The ESMF source license in `corpus/LICENSE`.
+| Collection | Content | Version label | Units |
+| --- | --- | --- | --- |
+| `esmf` | NUOPC Layer Reference Manual (9 pages), Building a NUOPC Model guide (6 files), Fortran Reference Manual (10 files), NUOPC model/cap **and driver** examples, and the NUOPC framework implementation — all official ESMF **8.9.1** (source commit `bd03a249df907464fdad91b7c43985dedbc472c7`) | `8.9.1` | 2138 |
+| `kokkos` | Kokkos core wiki/docs repository at commit `3cf2e0638b2419f4631fa85ea2b9aca47004dc18` | `snapshot-3cf2e0638b24` | 1610 |
+| `kokkos-kernels` | Kokkos Kernels release documentation at commit `30ad8eddc07f98f73ad22d5ed59cbea78277b03e`, plus referenced C++ examples | `5.2.2` | 641 |
+| `nws-hpc-standards` | NWS/WCOSS NCEP implementation standards, tag `v11.0.0` (commit `d0e8f079b66891d39fe7494a1c68bd7c77639425`), matching RTD `/en/stable/` | `11.0.0` | 22 |
+| `jedi` | JEDI data assimilation documentation, develop commit `7cd222915252711893bf341bc1b67ffef3b2824a`, matching RTD `/en/latest/` | `snapshot-7cd222915252` | 1900 |
 
-Release source commit: `bd03a249df907464fdad91b7c43985dedbc472c7`.
-The importer verified the clean checkout and the official manual release labels.
-The examples are release examples, not examples compiled/tested by this project.
-HTML is preferred over PDF because API boundaries and section anchors are
-explicit. Original signatures, argument descriptions and examples remain together.
+Unit counts come from the committed index; `list_collections` reports them
+live. Kokkos pins are recorded in `kokkos-lock.json` (stable releases checked
+2026-10-05), NWS/JEDI pins in `standards-lock.json` (checked 2026-10-06).
 
-## Added Kokkos collections
+The importer verified each clean checkout and the official release labels.
+The ESMF examples are release examples, not examples compiled/tested by this
+project. HTML is preferred over PDF because API boundaries and section anchors
+are explicit, keeping original signatures, argument descriptions and examples
+together. The ESMF source license is in `corpus/LICENSE`; the JEDI license is
+`corpus/jedi/COPYING` and the NWS disclaimer is
+`corpus/nws-hpc-standards/DISCLAIMER.md`.
 
-Latest stable releases checked on October 5, 2026 (America/New_York):
-**Kokkos 5.2.2** and **Kokkos Kernels 5.2.2**. Sources are pinned in `kokkos-lock.json`.
-
-| Collection | Included documentation | Version label |
-| --- | --- | --- |
-| `esmf` | Existing official manuals and release examples | `8.9.1` |
-| `kokkos` | Official core wiki/docs repository, current commit `3cf2e0638b2419f4631fa85ea2b9aca47004dc18` | `snapshot-3cf2e0638b24` |
-| `kokkos-kernels` | Official release documentation at commit `30ad8eddc07f98f73ad22d5ed59cbea78277b03e`, plus referenced C++ examples | `5.2.2` |
+### Kokkos
 
 Core documentation is maintained separately from the library release. Its
 snapshot is **not certified as a 5.2.2-only manual** and may describe newer or
@@ -71,34 +72,7 @@ separate core and Kernels result lists. `list_collections` shows available versi
 labels. If multiple versions of one library are indexed, searches require an
 explicit version instead of silently mixing them.
 
-To reproduce the bundled Kokkos sources (requires Git and internet):
-
-```sh
-uv run fetch_kokkos.py
-uv run ingest.py
-```
-
-To explicitly refresh to current core documentation and the latest stable Kernels
-release at a future date:
-
-```sh
-uv run fetch_kokkos.py --latest
-uv run ingest.py
-```
-
-The refresh records new commits/version labels in `kokkos-lock.json`; it does
-not happen automatically. It preserves ESMF collections. Custom Kokkos entries
-must be saved separately and merged back afterward; the fetcher refuses to
-silently overwrite them. ESMF refresh also preserves the Kokkos collections.
-
-## Added NWS-HPC Standards and JEDI collections
-
-Sources are pinned in `standards-lock.json`.
-
-| Collection | Included documentation | Version label |
-| --- | --- | --- |
-| `nws-hpc-standards` | NWS/WCOSS NCEP implementation standards (`NCO-HPC/nws-hpc-standards` tag `v11.0.0`, commit `d0e8f079b66891d39fe7494a1c68bd7c77639425`), matching RTD `/en/stable/` | `11.0.0` |
-| `jedi` | JEDI data assimilation documentation (`JCSDA/jedi-docs` develop commit `7cd222915252711893bf341bc1b67ffef3b2824a`), matching RTD `/en/latest/` | `snapshot-7cd222915252` |
+### NWS-HPC standards and JEDI
 
 The NWS collection is a pinned release-tag snapshot of an operational policy
 document that NCO updates over time. The JEDI collection is a **rolling develop
@@ -116,24 +90,6 @@ Ask Copilot:
 > Use get_jedi_context to look up ObsGroup and ObsSpace conventions. Read the
 > full conventions section, then check it against the JEDI version in my build.
 
-To reproduce the bundled NWS/JEDI sources (requires Git and internet):
-
-```sh
-uv run fetch_standards.py
-uv run ingest.py
-```
-
-To explicitly refresh to the newest NWS release tag and current JEDI develop:
-
-```sh
-uv run fetch_standards.py --latest
-uv run ingest.py
-```
-
-The refresh records new commits/version labels in `standards-lock.json`; it does
-not happen automatically. It preserves ESMF and Kokkos collections. Custom NWS or
-JEDI entries must be saved separately; the fetcher refuses to overwrite them.
-
 ## Quick start
 
 With Docker only (no local Python or uv), build the image once from this
@@ -148,8 +104,8 @@ docker build -t omd-mcp .
 committed `data/nuopc.sqlite3`, so a fresh clone plus Docker is enough.
 
 **Refreshing the index.** The container serves the index baked at build time.
-After any `fetch_corpus.py` / `fetch_kokkos.py` + `ingest.py` refresh, commit
-`data/nuopc.sqlite3` and rebuild the image:
+After any `fetch_corpus.py` / `fetch_kokkos.py` / `fetch_standards.py` +
+`ingest.py` refresh, commit `data/nuopc.sqlite3` and rebuild the image:
 
 ```sh
 uv run ingest.py
@@ -162,7 +118,7 @@ container cannot detect this. The steps below use uv directly and remain the
 developer path.
 
 Install Python 3.11+ and [uv](https://docs.astral.sh/uv/getting-started/installation/).
-Extract the ZIP, open `docs-mcp` in VS Code, and run in its terminal:
+Clone this repository, open it in VS Code, and run in its terminal:
 
 ```sh
 uv sync
@@ -285,19 +241,26 @@ is indexed even when an excerpt/paginated result contains only part of it.
 Documentation citations use release URLs and section anchors, not PDF pages.
 Code citations use file paths and line ranges, plus commit-specific source URLs.
 
-ESMF remains restricted to **8.9.1**. Kokkos collections use their explicit
-release or documentation snapshot labels; every result identifies its library
-and version. Searches default to library `esmf`. For a Kokkos library, an omitted
-version selects its sole indexed version or requires a choice if there are several. The default
+ESMF remains restricted to **8.9.1**. Every collection uses its explicit
+release or documentation snapshot label; every result identifies its library
+and version. Searches default to library `esmf`. For any library, an omitted
+version selects its sole indexed version or requires a choice if there are
+several. The default
 index is `data/nuopc.sqlite3`; override it via `ingest.py --db PATH` and the server's
 `DOCS_MCP_DB` environment variable. Re-ingest when upgrading this version because the index schema now includes
 library scope. There is no embedding dependency. SQLite FTS5
 provides keyword retrieval with title weighting and exact API-heading priority.
 Natural-language queries work best when they include concrete APIs/lifecycle terms.
 
-## Refresh or reproduce the official corpus
+## Refreshing a collection
 
-The included fetcher performs network access only when explicitly run:
+Each fetcher performs network access only when explicitly run, verifies the
+pinned checkout, and rewrites `corpus.json` in place; rerun `ingest.py`
+afterwards. Refreshing one collection preserves the others' entries, and a
+fetcher refuses to silently overwrite custom entries — save those separately
+and merge them back.
+
+ESMF **8.9.1** manuals, examples and source:
 
 ```sh
 uv run fetch_corpus.py
@@ -320,6 +283,25 @@ uv run fetch_corpus.py --esmf-repo /path/to/esmf-v8.9.1
 Use `--skip-manuals` to reuse the cached manual directories. The fetcher refuses
 to overwrite a manifest containing custom entries. Save your custom entries
 separately, refresh official sources, then merge them back and re-ingest.
+
+Kokkos core docs and Kernels release docs (requires Git and internet):
+
+```sh
+uv run fetch_kokkos.py          # reproduce the pinned sources
+uv run fetch_kokkos.py --latest # newest core docs and latest stable Kernels
+uv run ingest.py
+```
+
+NWS-HPC standards and JEDI docs (requires Git and internet):
+
+```sh
+uv run fetch_standards.py          # reproduce the pinned sources
+uv run fetch_standards.py --latest # newest NWS release tag and current JEDI develop
+uv run ingest.py
+```
+
+`--latest` records the new commits/version labels in the lock file; it never
+happens automatically.
 Ingestion rebuilds SQLite in a transaction: failed imports preserve the previous
 index. Empty sources and wrong-version entries are rejected. Stable IDs depend
 on source name, title, location and content; re-search after a rebuild changes IDs.
@@ -328,8 +310,9 @@ There is no automatic folder watcher.
 ## Validation and limits
 
 ```sh
-uv run python -m unittest discover -s tests -v
+uv run python -m unittest discover -s tests -t .
 uv run python -m tests.smoke_mcp
+uv run python -m unittest tests.smoke_docker   # requires: docker build -t omd-mcp .
 ```
 
 Tests cover section/subsection boundaries, module-qualified/nested routines,
@@ -338,9 +321,11 @@ invalid requests and rollback. Regression tests against the actual bundled
 manuals check signatures, arguments, overload discovery and release URLs for
 NUOPC_CompSpecialize, NUOPC_DriverAddComp and NUOPC_Advertise. Real example searches
 check driver registration and cap labels against the pinned source commit.
-Eight further tests cover collection/version isolation, Markdown code fences,
-RST sections, included-code retrieval and real Kokkos/Kernels API documentation.
-The smoke test exercises all ten tools through a real MCP stdio client/server.
+Further tests cover collection/version isolation across all five libraries,
+Markdown and RST parsing, included-code retrieval, fetcher helpers, and real
+documentation from the Kokkos, NWS and JEDI collections (25 unit tests total).
+The smoke test exercises all ten tools through a real MCP stdio client/server;
+`tests.smoke_docker` replays the same calls inside the built image.
 
 This validates retrieval, **not ESMF compilation, MPI execution, scientific
 correctness, or an improvement in agent-generated code**. Those need evaluation
