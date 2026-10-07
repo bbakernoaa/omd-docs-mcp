@@ -141,6 +141,29 @@
       "revision": "a2f65334fda991fb7aa6a37716c003533529370e",
       "url": "https://github.com/NCAR/ccpp-doc/blob/a2f65334fda991fb7aa6a37716c003533529370e/CCPPtechnical/source",
       "version_basis": "Files referenced by documentation literalinclude directives"
+    },
+    {
+      "name": "ccpp-scm-docs",
+      "path": "corpus/ccpp-scm/source",
+      "library": "ccpp-scm",
+      "version": "snapshot-a52680b01306",
+      "kind": "documentation",
+      "managed": true,
+      "revision": "a52680b013066e0f3135d63ae587ced18a434e86",
+      "url": "https://github.com/NCAR/ccpp-scm/blob/a52680b013066e0f3135d63ae587ced18a434e86/scm/doc/TechGuide",
+      "version_basis": "Rolling main snapshot matching RTD /en/latest/; conf.py declares release 7.0.1; not release-certified",
+      "target_release": "7.0.1"
+    },
+    {
+      "name": "ccpp-scm-included-code",
+      "path": "corpus/ccpp-scm/included-code",
+      "library": "ccpp-scm",
+      "version": "snapshot-a52680b01306",
+      "kind": "example",
+      "managed": true,
+      "revision": "a52680b013066e0f3135d63ae587ced18a434e86",
+      "url": "https://github.com/NCAR/ccpp-scm/blob/a52680b013066e0f3135d63ae587ced18a434e86/scm/doc/TechGuide",
+      "version_basis": "Files referenced by documentation literalinclude directives"
     }
   ]
 }
