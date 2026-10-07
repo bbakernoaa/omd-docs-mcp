@@ -1,8 +1,8 @@
 # OMD Library Docs MCP Server
 
 A local, read-only documentation retrieval server for GitHub Copilot Agent
-mode. **omd** indexes six curated collections — ESMF/NUOPC, Kokkos, Kokkos
-Kernels, NWS-HPC production standards, JEDI and CCPP — and retrieves complete
+mode. **omd** indexes seven curated collections — ESMF/NUOPC, Kokkos, Kokkos
+Kernels, NWS-HPC production standards, JEDI, CCPP and CCPP-SCM — and retrieves complete
 manual sections, Fortran routines and C++ examples with release provenance
 and citations. It separates API requirements, examples, framework
 implementation, and your application code.
@@ -13,7 +13,7 @@ changes. This replaces the earlier general PDF/Ollama server.
 
 ## Collections
 
-All six collections are bundled in the committed index and pinned in the
+All seven collections are bundled in the committed index and pinned in the
 lock files; nothing refreshes automatically.
 
 | Collection | Content | Version label | Units |
@@ -24,6 +24,7 @@ lock files; nothing refreshes automatically.
 | `nws-hpc-standards` | NWS/WCOSS NCEP implementation standards, tag `v11.0.0` (commit `d0e8f079b66891d39fe7494a1c68bd7c77639425`), matching RTD `/en/stable/` | `11.0.0` | 22 |
 | `jedi` | JEDI data assimilation documentation, develop commit `7cd222915252711893bf341bc1b67ffef3b2824a`, matching RTD `/en/latest/` | `snapshot-7cd222915252` | 1900 |
 | `ccpp` | CCPP technical documentation (`NCAR/ccpp-doc` main commit `a2f65334fda991fb7aa6a37716c003533529370e`), matching RTD `/en/latest/` | `snapshot-a2f65334fda9` | 140 |
+| `ccpp-scm` | CCPP Single Column Model (SCM) technical guide (`NCAR/ccpp-scm` main commit `a52680b013066e0f3135d63ae587ced18a434e86`), matching RTD `/en/latest/` | `snapshot-a52680b01306` | 95 |
 
 Unit counts come from the committed index; `list_collections` reports them
 live. Kokkos pins are recorded in `kokkos-lock.json` (stable releases checked
@@ -108,6 +109,21 @@ Ask Copilot:
 > Use get_ccpp_context to find the scheme template guidance for adding a new
 > CCPP physics scheme. Read the full section, retrieve the included templates,
 > and compare the conventions to the framework version in my checkout.
+
+### CCPP-SCM
+
+The CCPP-SCM collection is a rolling snapshot of the `NCAR/ccpp-scm` main branch.
+Its `conf.py` declares release `7.0.1`, but that `target_release` value is
+informational metadata rather than certification of a frozen release. Verify
+conventions against the SCM framework actually built in your environment. Three
+`literalinclude` case header/namelist targets are indexed as `included_code` and
+can be retrieved with `get_routine`.
+
+Ask Copilot:
+
+> Use get_ccpp_scm_context to find the case setup guidance for SCM runs. Read
+> the full section, retrieve the included case headers/namelists, and compare
+> the conventions to the SCM version in my checkout.
 
 ## Quick start
 
@@ -243,6 +259,7 @@ manifest entries. Paths are relative to the manifest location or absolute.
 | `get_nws_context(query, limit)` | NWS/WCOSS production-standards sections (env vars, file naming, delivery utilities); pinned 11.0.0 snapshot |
 | `get_jedi_context(query, limit)` | JEDI data assimilation documentation; rolling develop snapshot |
 | `get_ccpp_context(query, limit)` | CCPP physics-framework documentation and included scheme-template guidance; rolling main snapshot |
+| `get_ccpp_scm_context(query, limit)` | CCPP Single Column Model (SCM) technical guide documentation; rolling main snapshot |
 | `list_collections()` | List available library/version collections and counts |
 | `list_sources()` | Inspect indexed sources, versions and evidence categories |
 
@@ -352,10 +369,10 @@ NUOPC_CompSpecialize, NUOPC_DriverAddComp and NUOPC_Advertise. Real example sear
 check driver registration and cap labels against the pinned source commit, and
 regression coverage now pins prototype discoverability plus CCPP included-code
 and auxiliary-file handling.
-Further tests cover collection/version isolation across all six libraries,
+Further tests cover collection/version isolation across all seven libraries,
 Markdown and RST parsing, included-code retrieval, fetcher helpers, and real
 documentation from the Kokkos, NWS, JEDI and CCPP collections (32 unit tests total).
-The smoke test exercises all eleven tools through a real MCP stdio client/server;
+The smoke test exercises all twelve tools through a real MCP stdio client/server;
 `tests.smoke_docker` replays the same calls inside the built image.
 
 This validates retrieval, **not ESMF compilation, MPI execution, scientific
@@ -388,4 +405,5 @@ and index may contain confidential code; keep them protected accordingly.
 - [NWS HPC standards](https://nws-hpc-standards.readthedocs.io/en/stable/) — [source](https://github.com/NCO-HPC/nws-hpc-standards)
 - [JEDI documentation](https://jcsda-jedi-docs.readthedocs-hosted.com/en/latest/) — [source](https://github.com/JCSDA/jedi-docs)
 - [CCPP documentation](https://ccpp-doc.readthedocs.io/en/latest/) — [source](https://github.com/NCAR/ccpp-doc)
+- [CCPP-SCM documentation](https://ccpp-scm.readthedocs.io/en/latest/) — [source](https://github.com/NCAR/ccpp-scm)
 - [NUOPC application prototypes](https://github.com/esmf-org/nuopc-app-prototypes/tree/patch/8.9.1)

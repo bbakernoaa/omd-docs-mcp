@@ -26,6 +26,13 @@ DEFAULT={
         'skip_dirs':['_static','_templates','.git','__pycache__','_build','venv'],
         'included_code':['_static/scheme_template.F90','_static/scheme_template.meta'],
         'rtd_url':'https://ccpp-doc.readthedocs.io/en/latest/'},
+    'ccpp-scm': {'repo':'NCAR/ccpp-scm','ref':'a52680b013066e0f3135d63ae587ced18a434e86','branch':'main',
+        'commit':'a52680b013066e0f3135d63ae587ced18a434e86','version':'snapshot-a52680b01306',
+        'doc_release':'7.0.1','doc_dir':'scm/doc/TechGuide','exts':['.rst','.txt'],
+        'conf_path':'scm/doc/TechGuide/conf.py','license':'required',
+        'skip_dirs':['_static','_templates','.git','__pycache__','_build','venv','images'],
+        'included_code':['dephy_case_header.txt','css_nml.txt','css_nml_ex2.txt'],
+        'rtd_url':'https://ccpp-scm.readthedocs.io/en/latest/'},
 }
 
 def git(repo,*args):return subprocess.check_output(['git','-C',str(repo),*args],text=True).strip()
@@ -84,7 +91,8 @@ def main():
     parser.add_argument('--nws-repo',type=Path,help='Use a local NWS-HPC standards checkout')
     parser.add_argument('--jedi-repo',type=Path,help='Use a local JEDI docs checkout')
     parser.add_argument('--ccpp-repo',type=Path,help='Use a local CCPP docs checkout')
-    parser.add_argument('--latest',action='store_true',help='Refresh to the newest NWS release tag, current JEDI develop, and current CCPP main; record new commits')
+    parser.add_argument('--ccpp-scm-repo',type=Path,help='Use a local CCPP-SCM docs checkout')
+    parser.add_argument('--latest',action='store_true',help='Refresh to the newest NWS release tag, current JEDI develop, and current CCPP/CCPP-SCM main; record new commits')
     args=parser.parse_args()
     manifest=ROOT/'corpus.json'
     prior=json.loads(manifest.read_text()) if manifest.exists() else {'sources':[]}
@@ -97,7 +105,7 @@ def main():
         stage=Path(tmp)
         for library,config in DEFAULT.items():
             config=dict(config)
-            supplied={'nws-hpc-standards':args.nws_repo,'jedi':args.jedi_repo,'ccpp':args.ccpp_repo}[library]
+            supplied={'nws-hpc-standards':args.nws_repo,'jedi':args.jedi_repo,'ccpp':args.ccpp_repo,'ccpp-scm':args.ccpp_scm_repo}[library]
             repo=supplied.resolve() if supplied else stage/(library+'-repo')
             ref=config['ref']
             if args.latest:
@@ -143,9 +151,12 @@ def main():
                 basis='Official release tag '+ref+'; matches RTD /en/stable/'
             elif library=='jedi':
                 basis='Rolling develop snapshot matching RTD /en/latest/; docs/conf.py declares release '+config.get('doc_release','')+'; not release-certified'
-            else:
+            elif library=='ccpp':
                 basis=('Rolling main snapshot matching RTD /en/latest/; conf.py declares release '
                        +config.get('doc_release','')+'; not release-certified; repository has no license file')
+            else:
+                basis=('Rolling main snapshot matching RTD /en/latest/; conf.py declares release '
+                       +config.get('doc_release','')+'; not release-certified')
             entry={'name':library+'-docs','path':f'corpus/{library}/source','library':library,
                 'version':config['version'],'kind':'documentation','managed':True,'revision':commit,
                 'url':f'https://github.com/{config["repo"]}/blob/{commit}/{config["doc_dir"]}','version_basis':basis}
@@ -163,6 +174,6 @@ def main():
             shutil.move(str(stage/library),str(destination))
         manifest.write_text(json.dumps({'sources':sources},indent=2)+'\n')
         (ROOT/'standards-lock.json').write_text(json.dumps(lock,indent=2)+'\n')
-    print('NWS-HPC standards, JEDI and CCPP documentation imported. Run uv run ingest.py')
+    print('NWS-HPC standards, JEDI, CCPP and CCPP-SCM documentation imported. Run uv run ingest.py')
 
 if __name__=='__main__':main()

@@ -11,7 +11,7 @@
     ],
     "license": "disclaimer",
     "rtd_url": "https://nws-hpc-standards.readthedocs.io/en/stable/",
-    "checked_at": "2026-10-06T19:00:17.755188+00:00"
+    "checked_at": "2026-10-06T22:27:09.860715+00:00"
   },
   "jedi": {
     "repo": "JCSDA/jedi-docs",
@@ -28,7 +28,7 @@
     "conf_path": "docs/conf.py",
     "license": "required",
     "rtd_url": "https://jcsda-jedi-docs.readthedocs-hosted.com/en/latest/",
-    "checked_at": "2026-10-06T19:00:24.234227+00:00"
+    "checked_at": "2026-10-06T22:27:11.513504+00:00"
   },
   "ccpp": {
     "repo": "NCAR/ccpp-doc",
@@ -58,6 +58,37 @@
       "_static/scheme_template.meta"
     ],
     "rtd_url": "https://ccpp-doc.readthedocs.io/en/latest/",
-    "checked_at": "2026-10-06T19:00:26.117613+00:00"
+    "checked_at": "2026-10-06T22:27:12.246224+00:00"
+  },
+  "ccpp-scm": {
+    "repo": "NCAR/ccpp-scm",
+    "ref": "a52680b013066e0f3135d63ae587ced18a434e86",
+    "branch": "main",
+    "commit": "a52680b013066e0f3135d63ae587ced18a434e86",
+    "version": "snapshot-a52680b01306",
+    "doc_release": "7.0.1",
+    "doc_dir": "scm/doc/TechGuide",
+    "exts": [
+      ".rst",
+      ".txt"
+    ],
+    "conf_path": "scm/doc/TechGuide/conf.py",
+    "license": "required",
+    "skip_dirs": [
+      "_static",
+      "_templates",
+      ".git",
+      "__pycache__",
+      "_build",
+      "venv",
+      "images"
+    ],
+    "included_code": [
+      "dephy_case_header.txt",
+      "css_nml.txt",
+      "css_nml_ex2.txt"
+    ],
+    "rtd_url": "https://ccpp-scm.readthedocs.io/en/latest/",
+    "checked_at": "2026-10-06T22:27:13.033820+00:00"
   }
 }
