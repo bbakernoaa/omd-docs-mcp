@@ -1,8 +1,9 @@
 # OMD Library Docs MCP Server
 
 A local, read-only documentation retrieval server for GitHub Copilot Agent
-mode. **omd** indexes seven curated collections — ESMF/NUOPC, Kokkos, Kokkos
-Kernels, NWS-HPC production standards, JEDI, CCPP and CCPP-SCM — and retrieves complete
+mode. **omd** indexes nine curated collections — ESMF/NUOPC, Kokkos, Kokkos
+Kernels, NWS-HPC production standards, JEDI, CCPP, CCPP-SCM, PyTorch and
+PyTorch Forecasting — and retrieves complete
 manual sections, Fortran routines and C++ examples with release provenance
 and citations. It separates API requirements, examples, framework
 implementation, and your application code.
@@ -13,8 +14,11 @@ changes. This replaces the earlier general PDF/Ollama server.
 
 ## Collections
 
-All seven collections are bundled in the committed index and pinned in the
-lock files; nothing refreshes automatically.
+ESMF, Kokkos, standards, JEDI and CCPP source snapshots are bundled in the
+repository. PyTorch and PyTorch Forecasting HTML pages are fetched from their
+versioned documentation paths while building the Docker image. The generated
+`corpus.json` manifest and SQLite index are build artifacts, not committed
+inputs.
 
 | Collection | Content | Version label | Units |
 | --- | --- | --- | --- |
@@ -25,11 +29,14 @@ lock files; nothing refreshes automatically.
 | `jedi` | JEDI data assimilation documentation, develop commit `7cd222915252711893bf341bc1b67ffef3b2824a`, matching RTD `/en/latest/` | `snapshot-7cd222915252` | 1900 |
 | `ccpp` | CCPP technical documentation (`NCAR/ccpp-doc` main commit `a2f65334fda991fb7aa6a37716c003533529370e`), matching RTD `/en/latest/` | `snapshot-a2f65334fda9` | 140 |
 | `ccpp-scm` | CCPP Single Column Model (SCM) technical guide (`NCAR/ccpp-scm` main commit `a52680b013066e0f3135d63ae587ced18a434e86`), matching RTD `/en/latest/` | `snapshot-a52680b01306` | 95 |
+| `pytorch` | Complete PyTorch HTML docs under `https://docs.pytorch.org/docs/2.14/` | `2.14` | generated during build |
+| `pytorch-forecasting` | Complete PyTorch Forecasting HTML docs under `https://pytorch-forecasting.readthedocs.io/en/v1.0.0/` | `1.0.0` | generated during build |
 
-Unit counts come from the committed index; `list_collections` reports them
-live. Kokkos pins are recorded in `kokkos-lock.json` (stable releases checked
+Unit counts for fetched collections are reported by `list_collections` after
+building the index. Kokkos pins are recorded in `kokkos-lock.json` (stable releases checked
 2026-10-05), NWS/JEDI/CCPP pins in `standards-lock.json` (checked 2026-10-06),
-and `fetch_corpus.py` pins the NUOPC application prototypes in `corpus.json`.
+and `fetch_corpus.py` pins the NUOPC application prototypes in
+`corpus.catalog.json`.
 
 The importer verified each clean checkout and the official release labels.
 The ESMF examples are release examples, not examples compiled/tested by this
@@ -127,29 +134,28 @@ Ask Copilot:
 
 ## Quick start
 
-With Docker only (no local Python or uv), build the image once from this
-repository and Copilot runs the server in a read-only container:
+Build the image from this repository with Docker and internet access. The build
+fetches versioned PyTorch documentation and regenerates the SQLite index;
+Copilot then runs the server in a read-only container:
 
 ```sh
 docker build -t omd-mcp .
 ```
 
 `.vscode/mcp.json` launches `docker run -i --rm --read-only --pull=never
---memory=512m omd-mcp`. Enable it from `MCP: List Servers`. The image bundles the
-committed `data/nuopc.sqlite3`, so a fresh clone plus Docker is enough.
+--memory=512m omd-mcp`. Enable it from `MCP: List Servers`. Docker and internet
+access during the build are required.
 
-**Refreshing the index.** The container serves the index baked at build time.
-After any `fetch_corpus.py` / `fetch_kokkos.py` / `fetch_standards.py` +
-`ingest.py` refresh, commit `data/nuopc.sqlite3` and rebuild the image:
+**Refreshing the index.** The container index is rebuilt during each Docker
+build. To regenerate the local development index:
 
 ```sh
+uv run build_manifest.py
 uv run ingest.py
-git add data/nuopc.sqlite3 && git commit -m "Reindex"
-docker build -t omd-mcp .
 ```
 
-Skipping the rebuild leaves the running container on a stale index; the
-container cannot detect this. The steps below use uv directly and remain the
+`corpus.catalog.json` is the tracked source catalog. `corpus.json` is generated
+from it and ignored by Git. The steps below use uv directly and remain the
 developer path.
 
 Install Python 3.11+ and [uv](https://docs.astral.sh/uv/getting-started/installation/).
@@ -157,11 +163,13 @@ Clone this repository, open it in VS Code, and run in its terminal:
 
 ```sh
 uv sync
+uv run fetch_pytorch.py
 uv run ingest.py
 ```
 
-The bundled sources let you index without downloading manuals again. Python
-package installation requires internet access. No ESMF build is needed for indexing.
+The bundled sources let you index without downloading manuals again; fetching
+PyTorch documentation requires internet access. Python package installation
+also requires internet access. No ESMF build is needed for indexing.
 
 Start **omd** from `.vscode/mcp.json` or `MCP: List Servers`. Enable its tools
 in Copilot Agent mode. To select a specific tool, type `#` and select it from
@@ -214,7 +222,7 @@ force the agent to comply or guarantee correct code.
 
 ## Add your cap and driver code
 
-Append an entry to `corpus.json`'s `sources` array:
+Append an entry to `corpus.catalog.json`'s `sources` array:
 
 ```json
 {
@@ -256,6 +264,7 @@ manifest entries. Paths are relative to the manifest location or absolute.
 | `get_section(section_id, offset, max_characters, include_subsections)` | Read a complete section and its nested subsections, with explicit pagination |
 | `get_routine(routine_id, offset, max_characters)` | Read original routine/file text, source lines, module context and provenance |
 | `get_kokkos_context(query, library, limit)` | Separate core and Kernels documentation results; library `kokkos`, `kokkos-kernels` or `both` |
+| `get_pytorch_context(query, library, limit)` | Separate PyTorch 2.14 and PyTorch Forecasting 1.0.0 results; library `pytorch`, `pytorch-forecasting` or `both` |
 | `get_nws_context(query, limit)` | NWS/WCOSS production-standards sections (env vars, file naming, delivery utilities); pinned 11.0.0 snapshot |
 | `get_jedi_context(query, limit)` | JEDI data assimilation documentation; rolling develop snapshot |
 | `get_ccpp_context(query, limit)` | CCPP physics-framework documentation and included scheme-template guidance; rolling main snapshot |
@@ -294,8 +303,9 @@ Natural-language queries work best when they include concrete APIs/lifecycle ter
 ## Refreshing a collection
 
 Each fetcher performs network access only when explicitly run, verifies the
-pinned checkout, and rewrites `corpus.json` in place; rerun `ingest.py`
-afterwards. Refreshing one collection preserves the others' entries, and a
+pinned checkout or documentation path, and rewrites `corpus.catalog.json`.
+`ingest.py` generates `corpus.json` and rebuilds the index. Refreshing one
+collection preserves the others' entries, and a
 fetcher refuses to silently overwrite custom entries — save those separately
 and merge them back.
 
@@ -346,8 +356,17 @@ uv run fetch_standards.py --latest # newest NWS release tag, current JEDI develo
 uv run ingest.py
 ```
 
-`--latest` records the new commits/version labels in the lock file; it never
-happens automatically.
+PyTorch and PyTorch Forecasting docs (requires internet; fetched from the
+version-pinned documentation paths):
+
+```sh
+uv run fetch_pytorch.py
+uv run ingest.py
+```
+
+For Git-backed collections, `--latest` records new commits/version labels in
+the lock file; it never happens automatically. PyTorch documentation remains
+fixed to the configured versioned site paths.
 Ingestion rebuilds SQLite in a transaction: failed imports preserve the previous
 index. Empty sources and wrong-version entries are rejected. Stable IDs depend
 on source name, title, location and content; re-search after a rebuild changes IDs.
@@ -369,10 +388,10 @@ NUOPC_CompSpecialize, NUOPC_DriverAddComp and NUOPC_Advertise. Real example sear
 check driver registration and cap labels against the pinned source commit, and
 regression coverage now pins prototype discoverability plus CCPP included-code
 and auxiliary-file handling.
-Further tests cover collection/version isolation across all seven libraries,
+Further tests cover collection/version isolation across all nine libraries,
 Markdown and RST parsing, included-code retrieval, fetcher helpers, and real
-documentation from the Kokkos, NWS, JEDI and CCPP collections (32 unit tests total).
-The smoke test exercises all twelve tools through a real MCP stdio client/server;
+documentation from the Kokkos, NWS, JEDI and CCPP collections (37 unit tests total).
+The smoke test exercises all thirteen tools through a real MCP stdio client/server;
 `tests.smoke_docker` replays the same calls inside the built image.
 
 This validates retrieval, **not ESMF compilation, MPI execution, scientific

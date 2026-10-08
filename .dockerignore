@@ -9,13 +9,10 @@ __pycache__/
 .pytest_cache
 docs
 tests
-corpus
 corpus.json
-corpus.example.json
-fetch_corpus.py
-fetch_kokkos.py
-fetch_standards.py
-ingest.py
+corpus/pytorch/
+corpus/pytorch-forecasting/
+data/nuopc.sqlite3
 kokkos-lock.json
 standards-lock.json
 *.egg-info/

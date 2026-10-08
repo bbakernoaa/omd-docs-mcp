@@ -3,15 +3,17 @@ import tempfile
 import unittest
 from pathlib import Path
 from knowledge import build, Knowledge
+from build_manifest import generate
 
 ROOT=Path(__file__).resolve().parents[1]
 
-@unittest.skipUnless((ROOT/'corpus.json').is_file(), 'Official corpus not imported')
+@unittest.skipUnless((ROOT/'corpus.catalog.json').is_file(), 'Official corpus not imported')
 class ReleaseTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.temp=tempfile.TemporaryDirectory();cls.db=Path(cls.temp.name)/'index.sqlite3'
-        build(ROOT/'corpus.json',cls.db);cls.store=Knowledge(cls.db)
+        manifest=ROOT/'corpus.json';generate(ROOT/'corpus.catalog.json',manifest)
+        build(manifest,cls.db);cls.store=Knowledge(cls.db)
     @classmethod
     def tearDownClass(cls):cls.temp.cleanup()
     def test_api_overloads_have_signatures_arguments_and_urls(self):

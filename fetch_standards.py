@@ -94,7 +94,7 @@ def main():
     parser.add_argument('--ccpp-scm-repo',type=Path,help='Use a local CCPP-SCM docs checkout')
     parser.add_argument('--latest',action='store_true',help='Refresh to the newest NWS release tag, current JEDI develop, and current CCPP/CCPP-SCM main; record new commits')
     args=parser.parse_args()
-    manifest=ROOT/'corpus.json'
+    manifest=ROOT/'corpus.catalog.json'
     prior=json.loads(manifest.read_text()) if manifest.exists() else {'sources':[]}
     for entry in prior['sources']:
         if entry.get('library') in DEFAULT and not entry.get('managed'):

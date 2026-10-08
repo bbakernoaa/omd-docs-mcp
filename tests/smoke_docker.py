@@ -36,8 +36,9 @@ REQUESTS = [
     call(8, "get_jedi_context", {"query": "ObsGroup", "limit": 4}),
     call(9, "get_ccpp_context", {"query": "scheme template", "limit": 4}),
     call(10, "get_ccpp_scm_context", {"query": "case setup", "limit": 4}),
+    call(11, "get_pytorch_context", {"query": "model", "limit": 4}),
 ]
-EXPECTED_IDS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+EXPECTED_IDS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
 
 
 def _payload(result):
@@ -145,7 +146,7 @@ class DockerMcpSmoke(unittest.TestCase):
         self.assertEqual({t["name"] for t in tools}, {
             "search_docs", "search_code", "get_section", "get_routine",
             "get_nuopc_context", "list_sources", "get_kokkos_context",
-            "get_nws_context", "get_jedi_context", "get_ccpp_context",
+            "get_pytorch_context", "get_nws_context", "get_jedi_context", "get_ccpp_context",
             "get_ccpp_scm_context", "list_collections"})
 
     def test_list_collections(self):
@@ -164,6 +165,8 @@ class DockerMcpSmoke(unittest.TestCase):
         self.assertEqual(units.get(("kokkos-kernels", "5.2.2")), 641)
         self.assertEqual(units.get(("nws-hpc-standards", "11.0.0")), 22)
         self.assertEqual(units.get(("jedi", "snapshot-7cd222915252")), 1900)
+        self.assertGreater(units.get(("pytorch", "2.14"), 0), 0)
+        self.assertGreater(units.get(("pytorch-forecasting", "1.0.0"), 0), 0)
 
     def test_search_and_context(self):
         resp = self._exchange()
@@ -177,6 +180,9 @@ class DockerMcpSmoke(unittest.TestCase):
         kok = _payload(resp[6]["result"])
         kok = kok.get("result", kok) if isinstance(kok, dict) else kok
         self.assertTrue(any("gemm" in (h.get("title", "").lower()) for h in kok))
+        pytorch = _payload(resp[11]["result"])
+        self.assertTrue(pytorch["collections"]["pytorch"])
+        self.assertTrue(pytorch["collections"]["pytorch-forecasting"])
         ccpp = _payload(resp[9]["result"])
         self.assertIn("collections", ccpp)
         self.assertIn("ccpp", ccpp["collections"])

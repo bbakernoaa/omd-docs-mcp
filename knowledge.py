@@ -7,7 +7,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 VERSION = '8.9.1'
-LIBRARIES = ('esmf','kokkos','kokkos-kernels','nws-hpc-standards','jedi','ccpp','ccpp-scm')
+LIBRARIES = ('esmf','kokkos','kokkos-kernels','nws-hpc-standards','jedi','ccpp','ccpp-scm','pytorch','pytorch-forecasting')
 SCHEMA = '''
 CREATE TABLE meta(key TEXT PRIMARY KEY,value TEXT);
 CREATE TABLE units(id TEXT PRIMARY KEY, library TEXT, version TEXT, kind TEXT, title TEXT, source TEXT,
@@ -184,7 +184,7 @@ def build(manifest_path, database):
 class Knowledge:
     def __init__(self,database): self.database=Path(database).resolve()
     def connect(self):
-        if not self.database.is_file(): raise ValueError('Run ingest.py --manifest corpus.json first')
+        if not self.database.is_file(): raise ValueError('Run ingest.py to generate the manifest and build the index first')
         con=sqlite3.connect(self.database.as_uri()+'?mode=ro',uri=True,timeout=30); con.row_factory=sqlite3.Row
         if con.execute("SELECT value FROM meta WHERE key='schema'").fetchone()[0]!='hpc-2':
             con.close(); raise ValueError('Rebuild the index using the new manifest ingestion')

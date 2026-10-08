@@ -31,7 +31,7 @@ def main():
     parser.add_argument('--kernels-repo',type=Path,help='Use a local official Kernels checkout')
     parser.add_argument('--latest',action='store_true',help='Explicitly refresh core docs HEAD and latest stable Kernels release; record new commits')
     args=parser.parse_args()
-    manifest=ROOT/'corpus.json'
+    manifest=ROOT/'corpus.catalog.json'
     prior=json.loads(manifest.read_text()) if manifest.exists() else {'sources':[]}
     for entry in prior['sources']:
         if entry.get('library') in DEFAULT and not entry.get('managed'):

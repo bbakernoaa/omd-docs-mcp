@@ -61,7 +61,7 @@ def main():
     parser.add_argument('--skip-manuals',action='store_true',help='Reuse already downloaded corpus/manuals')
     parser.add_argument('--protos-repo',type=Path,help='Existing clean checkout at the pinned prototypes patch/8.9.1 commit')
     args=parser.parse_args()
-    manifest_path=ROOT/'corpus.json'
+    manifest_path=ROOT/'corpus.catalog.json'
     if manifest_path.exists():
         prior=json.loads(manifest_path.read_text())
         if any(not entry.get('managed') for entry in prior.get('sources',[]) if entry.get('library','esmf')=='esmf'):

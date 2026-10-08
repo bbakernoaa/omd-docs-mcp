@@ -2,6 +2,8 @@
 __pycache__/
 *.pyc
 *.egg-info/
+corpus.json
+corpus/pytorch/
+corpus/pytorch-forecasting/
 data/*
 !data/.gitkeep
-!data/nuopc.sqlite3
