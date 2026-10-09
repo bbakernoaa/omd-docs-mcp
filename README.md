@@ -22,7 +22,7 @@ inputs.
 
 | Collection | Content | Version label | Units |
 | --- | --- | --- | --- |
-| `esmf` | NUOPC Layer Reference Manual (9 pages), Building a NUOPC Model guide (6 files), Fortran Reference Manual (10 files), NUOPC model/cap **and driver** examples, and the NUOPC framework implementation — official ESMF **8.9.1** release sources — plus the 51 NUOPC application prototypes from the separate `nuopc-app-prototypes` repository (patch/8.9.1 branch commit `1645f4471da271e518213ceb574b0ada0ff3a169`) | `8.9.1` | 3159 |
+| `esmf` | NUOPC Layer Reference Manual (9 pages), Building a NUOPC Model guide (6 files), Fortran Reference Manual (10 files), **C Reference Manual (10 files)**, NUOPC model/cap **and driver** examples, and the NUOPC framework implementation — official ESMF **8.9.1** release sources — plus the 51 NUOPC application prototypes from the separate `nuopc-app-prototypes` repository (patch/8.9.1 branch commit `1645f4471da271e518213ceb574b0ada0ff3a169`) | `8.9.1` | 3480 |
 | `kokkos` | Kokkos core wiki/docs repository at commit `3cf2e0638b2419f4631fa85ea2b9aca47004dc18` | `snapshot-3cf2e0638b24` | 1610 |
 | `kokkos-kernels` | Kokkos Kernels release documentation at commit `30ad8eddc07f98f73ad22d5ed59cbea78277b03e`, plus referenced C++ examples | `5.2.2` | 641 |
 | `nws-hpc-standards` | NWS/WCOSS NCEP implementation standards, tag `v11.0.0` (commit `d0e8f079b66891d39fe7494a1c68bd7c77639425`), matching RTD `/en/stable/` | `11.0.0` | 22 |
@@ -144,7 +144,9 @@ docker build -t omd-mcp .
 
 `.vscode/mcp.json` launches `docker run -i --rm --read-only --pull=never
 --memory=512m omd-mcp`. Enable it from `MCP: List Servers`. Docker and internet
-access during the build are required.
+access during the build are required. To run the server as a named container
+(`omd-mcp`) instead — building the image on first use and clearing any stale
+name conflict — use `./run-omd-mcp.sh` (`--rebuild` or `--stop` supported).
 
 **Refreshing the index.** The container index is rebuilt during each Docker
 build. To regenerate the local development index:
@@ -316,7 +318,7 @@ uv run fetch_corpus.py
 uv run ingest.py
 ```
 
-It downloads only the three pinned 8.9.1 manual trees, clones ESMF tag v8.9.1,
+It downloads only the four pinned 8.9.1 manual trees, clones ESMF tag v8.9.1,
 checks the exact commit/clean state, and copies NUOPC examples and source. It never
 fetches development HEAD or silently substitutes another release. Git is needed
 for this operation. Downloads are staged; download failures leave the prior
@@ -390,7 +392,7 @@ regression coverage now pins prototype discoverability plus CCPP included-code
 and auxiliary-file handling.
 Further tests cover collection/version isolation across all nine libraries,
 Markdown and RST parsing, included-code retrieval, fetcher helpers, and real
-documentation from the Kokkos, NWS, JEDI and CCPP collections (39 unit tests total).
+documentation from the Kokkos, NWS, JEDI and CCPP collections (40 unit tests total).
 The smoke test exercises all thirteen tools through a real MCP stdio client/server;
 `tests.smoke_docker` replays the same calls inside the built image.
 
@@ -414,6 +416,7 @@ and index may contain confidential code; keep them protected accordingly.
 - [8.9.1 NUOPC reference](https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/NUOPC_refdoc/)
 - [8.9.1 Building a NUOPC Model](https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/NUOPC_howtodoc/)
 - [8.9.1 Fortran reference](https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/ESMF_refdoc/)
+- [8.9.1 C reference](https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/ESMC_crefdoc/)
 - [Pinned ESMF source](https://github.com/esmf-org/esmf/tree/bd03a249df907464fdad91b7c43985dedbc472c7)
 - [VS Code MCP configuration](https://code.visualstudio.com/docs/agents/reference/mcp-configuration)
 

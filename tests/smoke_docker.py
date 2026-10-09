@@ -105,7 +105,17 @@ class DockerMcpSmoke(unittest.TestCase):
                 try:
                     line = stdout_lines.get(timeout=EXCHANGE_TIMEOUT)
                 except queue.Empty:
-                    proc.terminate()
+                    # Close stdin first so a responsive server can exit on EOF
+                    # and let --rm clean up; terminate only if it stays hung.
+                    try:
+                        proc.stdin.close()
+                    except Exception:
+                        pass
+                    try:
+                        proc.wait(timeout=5)
+                    except subprocess.TimeoutExpired:
+                        proc.terminate()
+                        proc.wait(timeout=10)
                     tail = _stderr_tail()
                     suffix = f"\nstderr tail: {tail}" if tail else ""
                     self.fail(
@@ -133,8 +143,14 @@ class DockerMcpSmoke(unittest.TestCase):
                 proc.stderr.close()
             except Exception:
                 pass
-            proc.terminate()
-            proc.wait(timeout=10)
+            # The server exits on stdin EOF, so the docker CLI finishes its
+            # --rm cleanup by itself; terminate() here used to orphan the
+            # container before that cleanup ran.
+            try:
+                proc.wait(timeout=15)
+            except subprocess.TimeoutExpired:
+                proc.terminate()
+                proc.wait(timeout=10)
         return responses
 
     def test_initialize(self):
@@ -158,7 +174,7 @@ class DockerMcpSmoke(unittest.TestCase):
         for c in rows:
             key = (c["library"], c["version"])
             units[key] = units.get(key, 0) + c["units"]
-        self.assertEqual(units.get(("esmf", "8.9.1")), 3159)
+        self.assertEqual(units.get(("esmf", "8.9.1")), 3480)
         self.assertEqual(units.get(("ccpp", "snapshot-a2f65334fda9")), 140)
         self.assertEqual(units.get(("ccpp-scm", "snapshot-a52680b01306")), 95)
         self.assertEqual(units.get(("kokkos", "snapshot-3cf2e0638b24")), 1610)

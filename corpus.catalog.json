@@ -67,6 +67,15 @@
       "version_basis": "Official 8.9.1 release URL and release label checked on manual index"
     },
     {
+      "name": "ESMC_crefdoc",
+      "path": "corpus/manuals/ESMC_crefdoc",
+      "version": "8.9.1",
+      "kind": "documentation",
+      "url": "https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/ESMC_crefdoc/",
+      "managed": true,
+      "version_basis": "Official 8.9.1 release URL and release label checked on manual index"
+    },
+    {
       "name": "esmf/NUOPC/examples",
       "path": "corpus/examples",
       "version": "8.9.1",

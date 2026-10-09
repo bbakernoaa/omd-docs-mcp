@@ -1,0 +1,2747 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>5 Infrastructure: Utilities</TITLE>
+<META NAME="description" CONTENT="5 Infrastructure: Utilities">
+<META NAME="keywords" CONTENT="ESMC_crefdoc">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ESMC_crefdoc.css">
+
+<LINK REL="next" HREF="node7.html">
+<LINK REL="previous" HREF="node5.html">
+<LINK REL="up" HREF="ESMC_crefdoc.html">
+<LINK REL="next" HREF="node7.html">
+</HEAD>
+
+<BODY BGCOLOR=white LINK=#083194 VLINK=#21004A>
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html777"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html773"
+  HREF="ESMC_crefdoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html767"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html775"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html778"
+  HREF="node7.html">6 References</A>
+<B> Up:</B> <A NAME="tex2html774"
+  HREF="ESMC_crefdoc.html">ESMC_crefdoc</A>
+<B> Previous:</B> <A NAME="tex2html768"
+  HREF="node5.html">4 Infrastructure: Fields and</A>
+ &nbsp; <B>  <A NAME="tex2html776"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><UL>
+<LI><A NAME="tex2html779"
+  HREF="node6.html#SECTION06010000000000000000"><SPAN CLASS="arabic">24</SPAN> Overview of Infrastructure Utility Classes</A>
+<LI><A NAME="tex2html780"
+  HREF="node6.html#SECTION06020000000000000000"><SPAN CLASS="arabic">25</SPAN> Time Manager Utility</A>
+<UL>
+<LI><A NAME="tex2html781"
+  HREF="node6.html#SECTION06021000000000000000"><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">1</SPAN> Time Manager Classes</A>
+<LI><A NAME="tex2html782"
+  HREF="node6.html#SECTION06022000000000000000"><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">2</SPAN> Calendar</A>
+<LI><A NAME="tex2html783"
+  HREF="node6.html#SECTION06023000000000000000"><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">3</SPAN> Time Instants and TimeIntervals</A>
+<LI><A NAME="tex2html784"
+  HREF="node6.html#SECTION06024000000000000000"><SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">4</SPAN> Clocks</A>
+</UL>
+<LI><A NAME="tex2html785"
+  HREF="node6.html#SECTION06030000000000000000"><SPAN CLASS="arabic">26</SPAN> Calendar Class</A>
+<UL>
+<LI><A NAME="tex2html786"
+  HREF="node6.html#SECTION06031000000000000000"><SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<LI><A NAME="tex2html787"
+  HREF="node6.html#SECTION06032000000000000000"><SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">2</SPAN> Constants</A>
+<UL>
+<LI><A NAME="tex2html788"
+  HREF="node6.html#SECTION06032100000000000000"><SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_CALKIND</A>
+</UL>
+<LI><A NAME="tex2html789"
+  HREF="node6.html#SECTION06033000000000000000"><SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">3</SPAN> Class API</A>
+<UL>
+<LI><A NAME="tex2html790"
+  HREF="node6.html#SECTION06033100000000000000"><SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_CalendarCreate</A>
+<LI><A NAME="tex2html791"
+  HREF="node6.html#SECTION06033200000000000000"><SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_CalendarDestroy</A>
+<LI><A NAME="tex2html792"
+  HREF="node6.html#SECTION06033300000000000000"><SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_CalendarPrint</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html793"
+  HREF="node6.html#SECTION06040000000000000000"><SPAN CLASS="arabic">27</SPAN> Time Class</A>
+<UL>
+<LI><A NAME="tex2html794"
+  HREF="node6.html#SECTION06041000000000000000"><SPAN CLASS="arabic">27</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<LI><A NAME="tex2html795"
+  HREF="node6.html#SECTION06042000000000000000"><SPAN CLASS="arabic">27</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+<UL>
+<LI><A NAME="tex2html796"
+  HREF="node6.html#SECTION06042100000000000000"><SPAN CLASS="arabic">27</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_TimeGet</A>
+<LI><A NAME="tex2html797"
+  HREF="node6.html#SECTION06042200000000000000"><SPAN CLASS="arabic">27</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_TimePrint</A>
+<LI><A NAME="tex2html798"
+  HREF="node6.html#SECTION06042300000000000000"><SPAN CLASS="arabic">27</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_TimeSet</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html799"
+  HREF="node6.html#SECTION06050000000000000000"><SPAN CLASS="arabic">28</SPAN> TimeInterval Class</A>
+<UL>
+<LI><A NAME="tex2html800"
+  HREF="node6.html#SECTION06051000000000000000"><SPAN CLASS="arabic">28</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<LI><A NAME="tex2html801"
+  HREF="node6.html#SECTION06052000000000000000"><SPAN CLASS="arabic">28</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+<UL>
+<LI><A NAME="tex2html802"
+  HREF="node6.html#SECTION06052100000000000000"><SPAN CLASS="arabic">28</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_TimeIntervalGet</A>
+<LI><A NAME="tex2html803"
+  HREF="node6.html#SECTION06052200000000000000"><SPAN CLASS="arabic">28</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_TimeIntervalPrint</A>
+<LI><A NAME="tex2html804"
+  HREF="node6.html#SECTION06052300000000000000"><SPAN CLASS="arabic">28</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_TimeIntervalSet</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html805"
+  HREF="node6.html#SECTION06060000000000000000"><SPAN CLASS="arabic">29</SPAN> Clock Class</A>
+<UL>
+<LI><A NAME="tex2html806"
+  HREF="node6.html#SECTION06061000000000000000"><SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<LI><A NAME="tex2html807"
+  HREF="node6.html#SECTION06062000000000000000"><SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+<UL>
+<LI><A NAME="tex2html808"
+  HREF="node6.html#SECTION06062100000000000000"><SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_ClockAdvance</A>
+<LI><A NAME="tex2html809"
+  HREF="node6.html#SECTION06062200000000000000"><SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_ClockCreate</A>
+<LI><A NAME="tex2html810"
+  HREF="node6.html#SECTION06062300000000000000"><SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_ClockDestroy</A>
+<LI><A NAME="tex2html811"
+  HREF="node6.html#SECTION06062400000000000000"><SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> ESMC_ClockGet</A>
+<LI><A NAME="tex2html812"
+  HREF="node6.html#SECTION06062500000000000000"><SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> ESMC_ClockPrint</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html813"
+  HREF="node6.html#SECTION06070000000000000000"><SPAN CLASS="arabic">30</SPAN> Config Class</A>
+<UL>
+<LI><A NAME="tex2html814"
+  HREF="node6.html#SECTION06071000000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<UL>
+<LI><A NAME="tex2html815"
+  HREF="node6.html#SECTION06071100000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Package history</A>
+</UL>
+<LI><A NAME="tex2html816"
+  HREF="node6.html#SECTION06072000000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+<UL>
+<LI><A NAME="tex2html817"
+  HREF="node6.html#SECTION06072100000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_ConfigCreate</A>
+<LI><A NAME="tex2html818"
+  HREF="node6.html#SECTION06072200000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_ConfigDestroy</A>
+<LI><A NAME="tex2html819"
+  HREF="node6.html#SECTION06072300000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_ConfigCreate</A>
+<LI><A NAME="tex2html820"
+  HREF="node6.html#SECTION06072400000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> ESMC_ConfigFindLabel</A>
+<LI><A NAME="tex2html821"
+  HREF="node6.html#SECTION06072500000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> ESMC_ConfigFindNextLabel</A>
+<LI><A NAME="tex2html822"
+  HREF="node6.html#SECTION06072600000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN> ESMC_ConfigGetDim</A>
+<LI><A NAME="tex2html823"
+  HREF="node6.html#SECTION06072700000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">7</SPAN> ESMC_ConfigGetLen</A>
+<LI><A NAME="tex2html824"
+  HREF="node6.html#SECTION06072800000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN> ESMC_ConfigLoadFile</A>
+<LI><A NAME="tex2html825"
+  HREF="node6.html#SECTION06072900000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">9</SPAN> ESMC_ConfigNextLine</A>
+<LI><A NAME="tex2html826"
+  HREF="node6.html#SECTION060721000000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">10</SPAN> ESMC_ConfigPrint</A>
+<LI><A NAME="tex2html827"
+  HREF="node6.html#SECTION060721100000000000000"><SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">11</SPAN> ESMC_ConfigValidate</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html828"
+  HREF="node6.html#SECTION06080000000000000000"><SPAN CLASS="arabic">31</SPAN> Log Class</A>
+<UL>
+<LI><A NAME="tex2html829"
+  HREF="node6.html#SECTION06081000000000000000"><SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<LI><A NAME="tex2html830"
+  HREF="node6.html#SECTION06082000000000000000"><SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">2</SPAN> Constants</A>
+<UL>
+<LI><A NAME="tex2html831"
+  HREF="node6.html#SECTION06082100000000000000"><SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_LOGKIND</A>
+<LI><A NAME="tex2html832"
+  HREF="node6.html#SECTION06082200000000000000"><SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_LOGMSG</A>
+</UL>
+<LI><A NAME="tex2html833"
+  HREF="node6.html#SECTION06083000000000000000"><SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">3</SPAN> Class API</A>
+<UL>
+<LI><A NAME="tex2html834"
+  HREF="node6.html#SECTION06083100000000000000"><SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_LogWrite</A>
+<LI><A NAME="tex2html835"
+  HREF="node6.html#SECTION06083200000000000000"><SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_LogSet</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html836"
+  HREF="node6.html#SECTION06090000000000000000"><SPAN CLASS="arabic">32</SPAN> VM Class</A>
+<UL>
+<LI><A NAME="tex2html837"
+  HREF="node6.html#SECTION06091000000000000000"><SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<LI><A NAME="tex2html838"
+  HREF="node6.html#SECTION06092000000000000000"><SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+<UL>
+<LI><A NAME="tex2html839"
+  HREF="node6.html#SECTION06092100000000000000"><SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_VMBarrier</A>
+<LI><A NAME="tex2html840"
+  HREF="node6.html#SECTION06092200000000000000"><SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_VMBroadcast</A>
+<LI><A NAME="tex2html841"
+  HREF="node6.html#SECTION06092300000000000000"><SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_VMGet</A>
+<LI><A NAME="tex2html842"
+  HREF="node6.html#SECTION06092400000000000000"><SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> ESMC_VMGetCurrent</A>
+<LI><A NAME="tex2html843"
+  HREF="node6.html#SECTION06092500000000000000"><SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> ESMC_VMGetGlobal</A>
+<LI><A NAME="tex2html844"
+  HREF="node6.html#SECTION06092600000000000000"><SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN> ESMC_VMLogMemInfo</A>
+<LI><A NAME="tex2html845"
+  HREF="node6.html#SECTION06092700000000000000"><SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">7</SPAN> ESMC_VMPrint</A>
+<LI><A NAME="tex2html846"
+  HREF="node6.html#SECTION06092800000000000000"><SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN> ESMC_VMReduce</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html847"
+  HREF="node6.html#SECTION060100000000000000000"><SPAN CLASS="arabic">33</SPAN> Profiling and Tracing</A>
+<UL>
+<LI><A NAME="tex2html848"
+  HREF="node6.html#SECTION060101000000000000000"><SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<UL>
+<LI><A NAME="tex2html849"
+  HREF="node6.html#SECTION060101100000000000000"><SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Profiling</A>
+<LI><A NAME="tex2html850"
+  HREF="node6.html#SECTION060101200000000000000"><SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Tracing</A>
+</UL>
+<LI><A NAME="tex2html851"
+  HREF="node6.html#SECTION060102000000000000000"><SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">2</SPAN> Restrictions and Future Work</A>
+<LI><A NAME="tex2html852"
+  HREF="node6.html#SECTION060103000000000000000"><SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">3</SPAN> Class API</A>
+<UL>
+<LI><A NAME="tex2html853"
+  HREF="node6.html#SECTION060103100000000000000"><SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_TraceRegionEnter</A>
+<LI><A NAME="tex2html854"
+  HREF="node6.html#SECTION060103200000000000000"><SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_TraceRegionExit</A>
+</UL></UL></UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION06000000000000000000">
+<SPAN CLASS="arabic">5</SPAN> Infrastructure: Utilities</A>
+</H1>
+
+
+<P>
+
+<H1><A NAME="SECTION06010000000000000000">
+<SPAN CLASS="arabic">24</SPAN> Overview of Infrastructure Utility Classes</A>
+</H1>
+
+<P>
+The ESMF utilities are a set of tools for quickly assembling modeling applications.
+
+<P>
+The Time Management Library provides utilities for time and time interval representation, as well as a higher-level utility, a clock, that controls model time stepping.
+
+<P>
+The ESMF Config class provides configuration management based on NASA DAO's Inpak package, a collection of methods for accessing files containing input parameters stored in an ASCII format.
+
+<P>
+The ESMF LogErr class consists of a method for writing error, warning, and informational messages to a default Log file that is created during ESMF initialization.
+
+<P>
+The ESMF VM (Virtual Machine) class provides methods for querying information about a VM. A VM is a generic representation of hardware and system software resources. There is exactly one VM object per ESMF Component, providing the execution environment for the Component code. The VM class handles all resource management tasks for the Component class and provides a description of the underlying configuration of the compute resources used by a Component.  In addition to resource description and management, the VM class offers the lowest level of ESMF communication methods.
+
+<H1><A NAME="SECTION06020000000000000000">
+<SPAN CLASS="arabic">25</SPAN> Time Manager Utility</A>
+</H1>
+
+<P>
+The ESMF Time Manager utility includes software for time and time interval 
+representation, as well as model time advancement. Since multi-component 
+geophysical applications often require synchronization across 
+the time management schemes of the individual components, the 
+Time Manager's standard calendars and consistent time representation 
+promote component interoperability.
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=432>
+<BR>
+<B>Key Features</B></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=432>Drift-free timekeeping through an integer-based internal time 
+representation.  Both integers and reals can be specified at the interface.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=432>Support for many calendar kinds.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=432>Support for both concurrent and sequential modes of component execution.</TD>
+</TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H2><A NAME="SECTION06021000000000000000">
+<SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">1</SPAN> Time Manager Classes</A>
+</H2>
+There are four ESMF classes that represent time concepts:
+
+<UL>
+<LI><B>Calendar</B>  A Calendar can be used to keep track of the 
+date as an ESMF Gridded Component advances in time. Standard calendars 
+(such as Gregorian and 360-day) are supported. 
+</LI>
+<LI><B>Time</B> A Time represents a time instant in a particular 
+calendar, such as November 28, 1964, at 7:00pm EST in the Gregorian 
+calendar.  The Time class can be used 
+to represent the start and stop time of a time integration.
+</LI>
+<LI><B>TimeInterval</B> TimeIntervals represent a period 
+of time, such as 3 hours.  Time steps can be represented 
+using TimeIntervals. 
+</LI>
+<LI><B>Clock</B> Clocks collect the parameters and 
+methods used for model time advancement into a convenient 
+package.  A Clock can be queried for quantities such 
+as current simulation time and time step.  Clock methods 
+include incrementing the current time, and printing the its contents.
+</LI>
+</UL>
+
+<P>
+
+<H2><A NAME="SECTION06022000000000000000">
+<SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">2</SPAN> Calendar</A>
+</H2>
+The set of supported calendars includes:
+<DL>
+<DT><STRONG>Gregorian</STRONG></DT>
+<DD>The standard Gregorian calendar.
+</DD>
+<DT><STRONG>no-leap</STRONG></DT>
+<DD>The Gregorian calendar with no leap years.
+</DD>
+<DT><STRONG>Julian</STRONG></DT>
+<DD>The standard Julian date calendar.
+</DD>
+<DT><STRONG>Julian Day</STRONG></DT>
+<DD>The standard Julian days calendar.
+</DD>
+<DT><STRONG>Modified Julian Day</STRONG></DT>
+<DD>The Modified Julian days calendar.
+</DD>
+<DT><STRONG>360-day</STRONG></DT>
+<DD>A 30-day-per-month, 12-month-per-year calendar.
+</DD>
+<DT><STRONG>no calendar</STRONG></DT>
+<DD>Tracks only elapsed model time in hours, minutes, seconds.
+</DD>
+</DL>
+See Section&nbsp;<A HREF="#sec:Calendar">26.1</A> for more details on supported standard 
+calendars, and how to create a customized ESMF Calendar.
+
+<P>
+
+<H2><A NAME="SECTION06023000000000000000"></A>
+<A NAME="subsec:Time_Instants_and_TimeIntervals"></A>
+<BR>
+<SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">3</SPAN> Time Instants and TimeIntervals
+</H2>
+TimeIntervals and Time instants (simply called Times) are the computational 
+building blocks of the Time Manager utility.  Times support different queries 
+for values of individual Time components such as year and hour.
+See Sections&nbsp;<A HREF="#sec:Time">27.1</A> and&nbsp;<A HREF="#sec:TimeInterval">28.1</A>, respectively, 
+for use of Times and TimeIntervals.
+
+<P>
+
+<H2><A NAME="SECTION06024000000000000000">
+<SPAN CLASS="arabic">25</SPAN>.<SPAN CLASS="arabic">4</SPAN> Clocks</A>
+</H2>
+It is useful to identify a higher-level concept to repeatedly step a Time 
+forward by a TimeInterval.  We refer to this capability as a Clock, and 
+include in its required features the ability to store the start and stop times 
+of a model run, and to query the value of quantities such as the current time 
+and the number of time steps taken.  Applications may contain 
+temporary or multiple Clocks. Section&nbsp;<A HREF="#sec:Clock">29.1</A> describes the use of 
+Clocks in detail.
+
+<H1><A NAME="SECTION06030000000000000000">
+<SPAN CLASS="arabic">26</SPAN> Calendar Class</A>
+</H1>
+
+<H2><A NAME="SECTION06031000000000000000">
+<SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+<A NAME="sec:Calendar"></A>The Calendar class represents the standard calendars used in 
+geophysical modeling:  Gregorian, Julian, Julian Day, Modified Julian Day, 
+no-leap, 360-day, and no-calendar.  Brief descriptions are provided for each calendar below.
+
+<H2><A NAME="SECTION06032000000000000000">
+<SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">2</SPAN> Constants</A>
+</H2>
+
+<P>
+<A NAME="subsec:Calendar_options"></A>
+<P>
+
+<H3><A NAME="SECTION06032100000000000000"></A>
+<A NAME="const:calkindflag_c"></A>
+<BR>
+<SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_CALKIND
+</H3>
+
+<P>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+Supported calendar kinds.
+
+<P>
+The type of this flag is:
+
+<P>
+<TT>type(ESMF_CalKind_Flag)</TT>
+
+<P>
+The valid values are:
+<DL>
+<DT><STRONG>ESMC_CALKIND_360DAY</STRONG></DT>
+<DD><I>Valid range: machine limits</I> 
+<BR>
+In the 360-day calendar, there are 12 months, each of which has 30 days.  
+Like the no-leap calendar, this is a simple approximation to the Gregorian
+calendar sometimes used by modelers.
+
+<P>
+</DD>
+<DT><STRONG>ESMC_CALKIND_GREGORIAN</STRONG></DT>
+<DD><I>Valid range: 3/1/4801 BC to 10/29/292,277,019,914 </I>
+<BR>
+The Gregorian calendar is the calendar currently in use 
+throughout Western countries.  Named after Pope Gregory XIII, it is a minor 
+correction to the older Julian calendar. In the Gregorian calendar every
+fourth year is a leap year in which February has 29 and not 28 days;
+however, years divisible by 100 are not leap years unless they are also 
+divisible  by 400.  As in the Julian calendar, days begin at midnight.
+(ESMF does <I>not</I> handle leap seconds.)
+
+<P>
+</DD>
+<DT><STRONG>ESMC_CALKIND_JULIAN</STRONG></DT>
+<DD><I>Valid range: 3/1/4713 BC to 4/24/292,271,018,333 </I> 
+<BR>
+The Julian calendar was introduced by Julius Caesar in 46 B.C., and 
+reached its final form in 4 A.D.  The Julian calendar differs from the 
+Gregorian only in the determination of leap years, lacking the correction 
+for years divisible by 100 and 400 in the Gregorian calendar.  In the Julian 
+calendar, any year is a leap year if divisible by 4.  Days are considered to 
+begin at midnight.
+
+<P>
+</DD>
+<DT><STRONG>ESMC_CALKIND_JULIANDAY</STRONG></DT>
+<DD><I>Valid range:  +/- 1x10<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$^{14}$"></SPAN></I> 
+<BR>
+Julian days simply enumerate the days and fraction of a day which 
+have elapsed since the start of the Julian era, defined as beginning at noon 
+on Monday, 1st January of year 4713 B.C. in the Julian calendar.  Julian days, 
+unlike the dates in the Julian and Gregorian calendars, begin at noon.
+
+<P>
+</DD>
+<DT><STRONG>ESMC_CALKIND_MODJULIANDAY</STRONG></DT>
+<DD><I>Valid range:  +/- 1x10<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$^{14}$"></SPAN></I>
+<BR>
+The Modified Julian Day (MJD) was introduced by space scientists in
+ the late 1950's.  It is defined as an offset from the Julian Day (JD):
+
+<P>
+MJD = JD - 2400000.5
+
+<P>
+The half day is subtracted so that the day starts at midnight.
+
+<P>
+</DD>
+<DT><STRONG>ESMC_CALKIND_NOCALENDAR</STRONG></DT>
+<DD><I>Valid range: machine limits</I>
+<BR>
+The no-calendar option simply tracks the elapsed model time in seconds.
+
+<P>
+</DD>
+<DT><STRONG>ESMC_CALKIND_NOLEAP</STRONG></DT>
+<DD><I>Valid range: machine limits</I> 
+<BR>
+The no-leap calendar is the Gregorian calendar with no leap years - 
+February is always assumed to have 28 days.  Modelers sometimes use this 
+calendar as a simple, close approximation to the Gregorian calendar.
+
+<P>
+</DD>
+</DL>
+
+<H2><A NAME="SECTION06033000000000000000">
+<SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">3</SPAN> Class API</A>
+</H2>
+
+<P>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06033100000000000000">
+<SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_CalendarCreate - Create a Calendar</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> ESMC_Calendar ESMC_CalendarCreate(
+   const char *name,                      // in
+   enum ESMC_CalKind_Flag calkindflag,    // in
+   int *rc                                // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Newly created ESMC_Calendar object.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Creates and sets a <TT>ESMC_Calendar</TT> object to the given built-in
+    <TT>ESMC_CalKind_Flag</TT>. 
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>[name]</STRONG></DT>
+<DD>The name for the newly created Calendar.  If not specified, i.e. NULL,
+      a default unique name will be generated: "CalendarNNN" where NNN
+      is a unique sequence number from 001 to 999.
+    
+</DD>
+<DT><STRONG>calkindflag</STRONG></DT>
+<DD>The built-in <TT>ESMC_CalKind_Flag</TT>.  Valid values are:
+      <BR>
+      <TT>ESMC_CALKIND_360DAY</TT>, 
+      <BR>
+      <TT>ESMC_CALKIND_GREGORIAN</TT>,
+      <BR>
+      <TT>ESMC_CALKIND_JULIAN</TT>, 
+      <BR>
+      <TT>ESMC_CALKIND_JULIANDAY</TT>,
+      <BR>
+      <TT>ESMC_CALKIND_MODJULIANDAY</TT>, 
+      <BR>
+      <TT>ESMC_CALKIND_NOCALENDAR</TT>,
+      <BR>
+and <TT>ESMC_CALKIND_NOLEAP</TT>.
+      <BR>
+See Section&nbsp;<A HREF="#subsec:Calendar_options">26.2</A> for a description of each
+      calendar kind.
+    
+</DD>
+<DT><STRONG>[rc]</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06033200000000000000">
+<SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_CalendarDestroy - Destroy a Calendar</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_CalendarDestroy(
+   ESMC_Calendar *calendar   // inout
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Releases all resources associated with this <TT>ESMC_Calendar</TT>.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>calendar</STRONG></DT>
+<DD>Destroy contents of this <TT>ESMC_Calendar</TT>.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06033300000000000000">
+<SPAN CLASS="arabic">26</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_CalendarPrint - Print a Calendar</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_CalendarPrint(
+   ESMC_Calendar calendar   // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Prints out an <TT>ESMC_Calendar</TT>'s properties to <TT>stdio</TT>, 
+    in support of testing and debugging.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>calendar</STRONG></DT>
+<DD><TT>ESMC_Calendar</TT> object to be printed.
+    
+</DD>
+</DL>
+
+<P>
+
+
+<H1><A NAME="SECTION06040000000000000000">
+<SPAN CLASS="arabic">27</SPAN> Time Class</A>
+</H1>
+
+<H2><A NAME="SECTION06041000000000000000">
+<SPAN CLASS="arabic">27</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+<A NAME="sec:Time"></A>
+<P>
+A Time represents a specific point in time.
+
+<P>
+There are Time methods defined for setting and getting a Time.
+
+<P>
+A Time that is specified in hours does not need to be associated with a 
+standard calendar; use ESMC_CALKIND_NOCALENDAR.  A Time whose specification 
+includes time units of a year must be associated with a standard calendar. 
+The ESMF representation of a calendar, the Calendar class, is described in 
+Section&nbsp;<A HREF="#sec:Calendar">26.1</A>.  The <TT>ESMC_TimeSet</TT> method is used to 
+initialize a Time as well as associate it with a Calendar.  If a Time method 
+is invoked in which a Calendar is necessary and one has not been set, the 
+ESMF method will return an error condition.
+
+<P>
+In the ESMF the TimeInterval class is used to represent time periods. 
+This class is frequently used in combination with the Time class. 
+The Clock class, for example, advances model time by incrementing a 
+Time with a TimeInterval. 
+
+<H2><A NAME="SECTION06042000000000000000">
+<SPAN CLASS="arabic">27</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+</H2>
+
+<P>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06042100000000000000">
+<SPAN CLASS="arabic">27</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_TimeGet - Get a Time value</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_TimeGet(
+   ESMC_Time time,                         // in
+   ESMC_I4 *yy,                            // out
+   ESMC_I4 *h,                             // out
+   ESMC_Calendar *calendar,                // out
+   enum ESMC_CalKind_Flag *calkindflag,    // out
+   int *timeZone                           // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Gets the value of an <TT>ESMC_Time</TT> in units specified by the user.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>time</STRONG></DT>
+<DD><TT>ESMC_Time</TT> object to be queried.
+    
+</DD>
+<DT><STRONG>[yy]</STRONG></DT>
+<DD>Integer year (&gt;= 32-bit).
+    
+</DD>
+<DT><STRONG>[h]</STRONG></DT>
+<DD>Integer hours.
+    
+</DD>
+<DT><STRONG>[calendar]</STRONG></DT>
+<DD>Associated <TT>ESMC_Calendar</TT>.
+    
+</DD>
+<DT><STRONG>[calkindflag]</STRONG></DT>
+<DD>Associated <TT>ESMC_CalKind_Flag</TT>.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06042200000000000000">
+<SPAN CLASS="arabic">27</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_TimePrint - Print a Time</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_TimePrint(
+   ESMC_Time time   // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Prints out an <TT>ESMC_Time</TT>'s properties to <TT>stdio</TT>, 
+    in support of testing and debugging.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>time</STRONG></DT>
+<DD><TT>ESMC_Time</TT> object to be printed.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06042300000000000000">
+<SPAN CLASS="arabic">27</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_TimeSet - Initialize or set a Time</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_TimeSet(
+   ESMC_Time *time,                       // inout
+   ESMC_I4 yy,                            // in
+   ESMC_I4 h,                             // in
+   ESMC_Calendar calendar,                // in
+   enum ESMC_CalKind_Flag calkindflag,    // in
+   int timeZone                           // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Initializes an <TT>ESMC_Time</TT> with a set of user-specified units.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>time</STRONG></DT>
+<DD><TT>ESMC_Time</TT> object to initialize or set.
+    
+</DD>
+<DT><STRONG>yy</STRONG></DT>
+<DD>Integer year (&gt;= 32-bit).
+    
+</DD>
+<DT><STRONG>h</STRONG></DT>
+<DD>Integer hours.
+    
+</DD>
+<DT><STRONG>calendar</STRONG></DT>
+<DD>Associated <TT>ESMC_Calendar</TT>.  If not created, defaults to calendar
+      <TT>ESMC_CALKIND_NOCALENDAR</TT> or default specified in
+      <TT>ESMC_Initialize()</TT>.  If created, has precedence over
+      calkindflag below.
+    
+</DD>
+<DT><STRONG>calkindflag</STRONG></DT>
+<DD>Specifies associated <TT>ESMC_Calendar</TT> if calendar argument above
+      not created.  More convenient way of specifying a built-in calendar kind.
+    
+</DD>
+</DL>
+
+<P>
+
+
+<H1><A NAME="SECTION06050000000000000000">
+<SPAN CLASS="arabic">28</SPAN> TimeInterval Class</A>
+</H1>
+
+<H2><A NAME="SECTION06051000000000000000">
+<SPAN CLASS="arabic">28</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+<A NAME="sec:TimeInterval"></A>A TimeInterval represents a period between time instants. 
+It can be either positive or negative.
+
+<P>
+There are TimeInterval methods defined for setting and getting 
+a TimeInterval, for printing the contents of a TimeInterval.
+
+<P>
+The class used to represent time instants in ESMF is Time, 
+and this class is frequently used in operations along with 
+TimeIntervals.  The Clock class, for example, advances model time by 
+incrementing a Time with a TimeInterval. 
+
+<P>
+TimeIntervals are used by other parts of the ESMF timekeeping 
+system, such as Clocks; see Section&nbsp;<A HREF="#sec:Clock">29.1</A>.
+
+<H2><A NAME="SECTION06052000000000000000">
+<SPAN CLASS="arabic">28</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+</H2>
+
+<P>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06052100000000000000">
+<SPAN CLASS="arabic">28</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_TimeIntervalGet - Get a TimeInterval value</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_TimeIntervalGet(
+   ESMC_TimeInterval timeinterval,   // in
+   ESMC_I8 *s_i8,                    // out
+   ESMC_R8 *h_r8                     // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Gets the value of an <TT>ESMC_TimeInteval</TT> in units specified by the user.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>timeinterval</STRONG></DT>
+<DD><TT>ESMC_TimeInterval</TT> object to be queried.
+    
+</DD>
+<DT><STRONG>[s_i8]</STRONG></DT>
+<DD>Integer seconds (large, &gt;= 64-bit).
+    
+</DD>
+<DT><STRONG>[h_r8]</STRONG></DT>
+<DD>Double precision hours.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06052200000000000000">
+<SPAN CLASS="arabic">28</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_TimeIntervalPrint - Print a TimeInterval</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_TimeIntervalPrint(
+   ESMC_TimeInterval timeinterval   // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Prints out an <TT>ESMC_TimeInterval</TT>'s properties to <TT>stdio</TT>, 
+    in support of testing and debugging.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>timeinterval</STRONG></DT>
+<DD><TT>ESMC_TimeInterval</TT> object to be printed.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06052300000000000000">
+<SPAN CLASS="arabic">28</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_TimeIntervalSet - Initialize or set a TimeInterval</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_TimeIntervalSet(
+   ESMC_TimeInterval *timeinterval,   // inout
+   ESMC_I4 h                          // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Sets the value of the <TT>ESMC_TimeInterval</TT> in units specified by
+    the user.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>timeinterval</STRONG></DT>
+<DD><TT>ESMC_TimeInterval</TT> object to initialize or set.
+    
+</DD>
+<DT><STRONG>h</STRONG></DT>
+<DD>Integer hours.
+    
+</DD>
+</DL>
+
+<P>
+
+
+<H1><A NAME="SECTION06060000000000000000">
+<SPAN CLASS="arabic">29</SPAN> Clock Class</A>
+</H1>
+
+<H2><A NAME="SECTION06061000000000000000">
+<SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+<A NAME="sec:Clock"></A>
+<P>
+The Clock class advances model time and tracks its associated 
+date on a specified Calendar.  It stores start time, stop time, 
+current time, and a time step. 
+
+<P>
+There are methods for setting and getting the Times associated 
+with a Clock.  Methods are defined for advancing the Clock's 
+current time and printing a Clock's contents.
+
+<H2><A NAME="SECTION06062000000000000000">
+<SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+</H2>
+
+<P>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06062100000000000000">
+<SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_ClockAdvance - Advance a Clock's current time by one time step</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_ClockAdvance(
+   ESMC_Clock clock   // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Advances the <TT>ESMC_Clock</TT>'s current time by one time step.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>clock</STRONG></DT>
+<DD><TT>ESMC_Clock</TT> object to be advanced.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06062200000000000000">
+<SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_ClockCreate - Create a Clock</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> ESMC_Clock ESMC_ClockCreate(
+   const char *name,             // in
+   ESMC_TimeInterval timeStep,   // in
+   ESMC_Time startTime,          // in
+   ESMC_Time stopTime,           // in
+   int *rc                       // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Newly created ESMC_Clock object.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Creates and sets the initial values in a new <TT>ESMC_Clock</TT> object. 
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>[name]</STRONG></DT>
+<DD>The name for the newly created Clock.  If not specified, i.e. NULL,
+      a default unique name will be generated: "ClockNNN" where NNN
+      is a unique sequence number from 001 to 999.
+    
+</DD>
+<DT><STRONG>timeStep</STRONG></DT>
+<DD>The <TT>ESMC_Clock</TT>'s time step interval, which can be
+      positive or negative.
+    
+</DD>
+<DT><STRONG>startTime</STRONG></DT>
+<DD>The <TT>ESMC_Clock</TT>'s starting time.  Can be less than or
+      or greater than stopTime, depending on a positive or negative
+      timeStep, respectively, and whether a stopTime is specified;
+      see below.
+    
+</DD>
+<DT><STRONG>stopTime</STRONG></DT>
+<DD>The <TT>ESMC_Clock</TT>'s stopping time.  Can be greater than or
+      less than the startTime, depending on a positive or negative
+      timeStep, respectively.
+    
+</DD>
+<DT><STRONG>[rc]</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06062300000000000000">
+<SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_ClockDestroy - Destroy a Clock</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_ClockDestroy(
+   ESMC_Clock *clock   // inout
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Releases all resources associated with this <TT>ESMC_Clock</TT>.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>clock</STRONG></DT>
+<DD>Destroy contents of this <TT>ESMC_Clock</TT>.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06062400000000000000">
+<SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> ESMC_ClockGet - Get a Clock's properties</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_ClockGet(
+   ESMC_Clock clock,                 // in
+   ESMC_TimeInterval *currSimTime,   // out
+   ESMC_I8 *advanceCount             // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Gets one or more of the properties of an <TT>ESMC_Clock</TT>.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>clock</STRONG></DT>
+<DD><TT>ESMC_Clock</TT> object to be queried.
+    
+</DD>
+<DT><STRONG>[currSimTime]</STRONG></DT>
+<DD>The current simulation time.
+    
+</DD>
+<DT><STRONG>[advanceCount]</STRONG></DT>
+<DD>The number of times the <TT>ESMC_Clock</TT> has been advanced.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06062500000000000000">
+<SPAN CLASS="arabic">29</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> ESMC_ClockPrint - Print the contents of a Clock</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_ClockPrint(
+   ESMC_Clock clock   // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Prints out an <TT>ESMC_Clock</TT>'s properties to <TT>stdio</TT>, 
+    in support of testing and debugging.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>clock</STRONG></DT>
+<DD><TT>ESMC_Clock</TT> object to be printed.
+    
+</DD>
+</DL>
+
+<P>
+
+
+<H1><A NAME="SECTION06070000000000000000">
+<SPAN CLASS="arabic">30</SPAN> Config Class</A>
+</H1>
+
+<H2><A NAME="SECTION06071000000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+<A NAME="sec:Config"></A>
+<P>
+ESMF Configuration Management is based on NASA DAO's 
+Inpak 90 package, a Fortran 90 collection of routines/functions
+for accessing <EM>Resource Files</EM> in ASCII format.The package 
+is optimized for minimizing formatted I/O, performing all of its 
+string operations in memory using Fortran intrinsic functions.
+<BR>
+<P>
+
+<H3><A NAME="SECTION06071100000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Package history</A>
+</H3>
+
+<P>
+The ESMF Configuration Management Package was evolved by
+Leonid Zaslavsky and Arlindo da Silva from Ipack90 package
+created by Arlindo da Silva at NASA DAO.
+
+<P>
+Back in the 70's Eli Isaacson wrote IOPACK in Fortran
+66.  In June of 1987 Arlindo da Silva wrote Inpak77 using
+Fortran 77 string functions; Inpak 77 is a vastly
+simplified IOPACK, but has its own goodies not found in
+IOPACK.  Inpak 90 removes some obsolete functionality in
+Inpak77, and parses the whole resource file in memory for
+performance.
+
+<H2><A NAME="SECTION06072000000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+</H2>
+
+<P>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06072100000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_ConfigCreate - Create a Config object</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> ESMC_Config ESMC_ConfigCreate(
+   int* rc                    // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    ESMC_Config*  to newly allocated ESMC_Config
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Creates an <TT>ESMC_Config</TT> for use in subsequent calls.
+
+<P>
+The arguments are:
+     <DL>
+<DT><STRONG>[rc]</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+     
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06072200000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_ConfigDestroy - Destroy a Config object</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_ConfigDestroy(
+   ESMC_Config* config        // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Destroys the <TT>config</TT> object.
+
+<P>
+The arguments are:
+     <DL>
+<DT><STRONG>config</STRONG></DT>
+<DD>Already created <TT>ESMC_Config</TT> object to destroy.
+     
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06072300000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_ConfigCreate - Create a Config object from a section of an existing Config object</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> ESMC_Config ESMC_ConfigCreateFromSection(
+   ESMC_Config config,       // in
+   const char* olabel,       // in
+   const char* clabel,       // in
+   int* rc                   // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    ESMC_Config*  to newly allocated ESMC_Config
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Instantiates an <TT>ESMC_Config</TT> object from a section of an existing
+     <TT>ESMC_Config</TT> object delimited by <TT>openlabel</TT> and <TT>closelabel</TT>.
+     An error is returned if neither of the input labels is found in input
+     <TT>config</TT>.
+
+<P>
+Note that a section is intended as the content of a given <TT>ESMC_Config</TT>
+     object delimited by two distinct labels. Such content, as well as each of the
+     surrounding labels, are still within the scope of the parent <TT>ESMC_Config</TT>
+     object. Therefore, including in a section labels used outside that
+     section should be done carefully to prevent parsing conflicts.
+
+<P>
+The arguments are:
+     <DL>
+<DT><STRONG>config</STRONG></DT>
+<DD>The input <TT>ESMC_Config</TT> object.
+       
+</DD>
+<DT><STRONG>openlabel</STRONG></DT>
+<DD>Label marking the beginning of a section in <TT>config</TT>.
+       
+</DD>
+<DT><STRONG>closelabel</STRONG></DT>
+<DD>Label marking the end of a section in <TT>config</TT>.
+     
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06072400000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> ESMC_ConfigFindLabel - Find a label</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_ConfigFindLabel(
+   ESMC_Config config,        // in
+   const char* label,         // in
+   int *isPresent             // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+    If label not found, and the {\tt isPresent} pointer is {\tt NULL},
+    an error will be returned.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Finds the <TT>label</TT> (key) in the <TT>config</TT> file. 
+
+<P>
+Since the search is done by looking for a word in the 
+    whole resource file, it is important to use special 
+    conventions to distinguish labels from other words 
+    in the resource files. The DAO convention is to finish 
+    line labels by : and table labels by ::.
+
+<P>
+The arguments are:
+     <DL>
+<DT><STRONG>config</STRONG></DT>
+<DD>Already created <TT>ESMC_Config</TT> object.
+     
+</DD>
+<DT><STRONG>label</STRONG></DT>
+<DD>Identifying label. 
+     
+</DD>
+<DT><STRONG>[isPresent]</STRONG></DT>
+<DD>Label presence flag.  (optional).  If non-NULL, the target is
+       set to 1 when the label is found; otherwise set to 0.
+     
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06072500000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> ESMC_ConfigFindNextLabel - Find a label</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_ConfigFindNextLabel(
+   ESMC_Config config,        // in
+   const char* label,         // in
+   int *isPresent             // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+    If label not found, and the {\tt isPresent} pointer is {\tt NULL},
+    an error will be returned.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Finds the <TT>label</TT> (key) string in the <TT>config</TT> object, 
+     starting from the current position pointer.
+
+<P>
+This method is equivalent to <TT>ESMC_ConfigFindLabel</TT>, but the search
+     is performed starting from the current position pointer.
+
+<P>
+The arguments are:
+     <DL>
+<DT><STRONG>config</STRONG></DT>
+<DD>Already created <TT>ESMC_Config</TT> object.
+     
+</DD>
+<DT><STRONG>label</STRONG></DT>
+<DD>Identifying label.
+     
+</DD>
+<DT><STRONG>isPresent</STRONG></DT>
+<DD>If non-NULL, the address specified is given a value of 1 if the
+       label is found, and 0 when the label is not found.
+     
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06072600000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN> ESMC_ConfigGetDim - Get table sizes</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_ConfigGetDim(
+   ESMC_Config config,        // in
+   int* lineCount,            // out
+   int* columnCount,          // out
+   ...                        // optional argument list
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Returns the number of lines in the table in <TT>lineCount</TT> and
+    the maximum number of words in a table line in <TT>columnCount</TT>.
+
+<P>
+The arguments are:
+     <DL>
+<DT><STRONG>config</STRONG></DT>
+<DD>Already created <TT>ESMC_Config</TT> object.
+     
+</DD>
+<DT><STRONG>lineCount</STRONG></DT>
+<DD>Returned number of lines in the table. 
+     
+</DD>
+<DT><STRONG>columnCount</STRONG></DT>
+<DD>Returned maximum number of words in a table line. 
+     
+</DD>
+<DT><STRONG>[label]</STRONG></DT>
+<DD>Identifying label (optional).
+     
+</DD>
+</DL>
+
+<P>
+Due to this method accepting optional arguments, the final argument
+    must be <TT>ESMC_ArgLast</TT>.
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06072700000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">7</SPAN> ESMC_ConfigGetLen - Get the length of the line in words</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_ConfigGetLen(
+   ESMC_Config config,        // in
+   int* wordCount,            // out
+   ...                        // optional argument list
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Gets the length of the line in words by counting words
+    disregarding types.  Returns the word count as an integer.
+
+<P>
+The arguments are:
+     <DL>
+<DT><STRONG>config</STRONG></DT>
+<DD>Already created <TT>ESMC_Config</TT> object.
+     
+</DD>
+<DT><STRONG>wordCount</STRONG></DT>
+<DD>Returned number of words in the line. 
+     
+</DD>
+<DT><STRONG>[label]</STRONG></DT>
+<DD>Identifying label.  If not specified, use the current line (optional).
+     
+</DD>
+</DL>
+
+<P>
+Due to this method accepting optional arguments, the final argument
+    must be <TT>ESMC_ArgLast</TT>.
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06072800000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN> ESMC_ConfigLoadFile - Load resource file into memory</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_ConfigLoadFile(
+   ESMC_Config config,        // in
+   const char* file,          // in
+   ...                        // optional argument list
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Resource file with <TT>filename</TT> is loaded into memory.
+
+<P>
+The arguments are:
+     <DL>
+<DT><STRONG>config</STRONG></DT>
+<DD>Already created <TT>ESMC_Config</TT> object.
+     
+</DD>
+<DT><STRONG>file</STRONG></DT>
+<DD>Configuration file name.
+     
+</DD>
+<DT><STRONG>[delayout]</STRONG></DT>
+<DD><TT>ESMC_DELayout</TT> associated with this <TT>config</TT> object.
+       **NOTE: This argument is not currently supported.
+     
+</DD>
+<DT><STRONG>[unique]</STRONG></DT>
+<DD>If specified as true, uniqueness of labels are checked and 
+       error code set if duplicates found (optional).
+     
+</DD>
+</DL>
+
+<P>
+Due to this method accepting optional arguments, the final argument
+    must be <TT>ESMC_ArgLast</TT>.
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06072900000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">9</SPAN> ESMC_ConfigNextLine - Find next line</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_ConfigNextLine(
+   ESMC_Config config,       // in
+   int *tableEnd             // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Selects the next line (for tables).
+
+<P>
+The arguments are:
+     <DL>
+<DT><STRONG>config</STRONG></DT>
+<DD>Already created <TT>ESMC_Config</TT> object.
+     
+</DD>
+<DT><STRONG>[tableEnd]</STRONG></DT>
+<DD>End of table mark (::) found flag.  Returns 1 when found, and 0 when
+       not found.
+     
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION060721000000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">10</SPAN> ESMC_ConfigPrint - Write content of config object to standard output</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_ConfigPrint(
+   ESMC_Config config        // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Write content of a <TT>ESMC_Config</TT> object to standard output.
+
+<P>
+The arguments are:
+     <DL>
+<DT><STRONG>config</STRONG></DT>
+<DD>Already created <TT>ESMC_Config</TT> object.
+     
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION060721100000000000000">
+<SPAN CLASS="arabic">30</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">11</SPAN> ESMC_ConfigValidate - Validate a Config object</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_ConfigValidate(
+   ESMC_Config config,        // in
+   ...                        // optional argument list
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+    Equals ESMF_RC_ATTR_UNUSED if any unused attributes are found
+    with option "unusedAttributes" below.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Checks whether a <TT>config</TT> object is valid.
+
+<P>
+The arguments are:
+     <DL>
+<DT><STRONG>config</STRONG></DT>
+<DD>Already created <TT>ESMC_Config</TT> object.
+     
+</DD>
+<DT><STRONG>[options]</STRONG></DT>
+<DD>If none specified:  simply check that the buffer is not full and the
+         pointers are within range (optional).
+       "unusedAttributes" - Report to the default logfile all attributes not
+         retrieved via a call to <TT>ESMC_ConfigGetAttribute()</TT> or
+         <TT>ESMC_ConfigGetChar()</TT>.  The attribute name (label) will be
+         logged via <TT>ESMC_LogErr</TT> with the WARNING log message type.
+         For an array-valued attribute, retrieving at least one value via
+         <TT>ESMC_ConfigGetAttribute()</TT> or <TT>ESMC_ConfigGetChar()</TT>
+         constitutes being "used."
+     
+</DD>
+</DL>
+
+<P>
+Due to this method accepting optional arguments, the final argument
+    must be <TT>ESMC_ArgLast</TT>.
+
+<P>
+
+
+<H1><A NAME="SECTION06080000000000000000">
+<SPAN CLASS="arabic">31</SPAN> Log Class</A>
+</H1>
+
+<H2><A NAME="SECTION06081000000000000000">
+<SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+<A NAME="sec:Log"></A>
+<P>
+The Log class consists of a variety of methods for writing error, warning, and
+informational messages to files.  A default Log is created at ESMF
+initialization.
+
+<P>
+When ESMF is started with <TT>ESMC_Initialize()</TT>, multiple Log files will
+be created by PET number.  The PET number (in the format
+<TT>PETx.</TT>) will be prepended to each file name where x is the PET number.
+The <TT>ESMC_LogWrite()</TT> call is used to issue messages to the log.  As
+part of the call, a message can be tagged as either an informational,
+warning, or error message.
+
+<P>
+The messages may be buffered within ESMF before appearing in the log.
+All messages will be properly flushed to the log files when <TT>ESMC_Finalize()</TT>
+is called.
+
+<H2><A NAME="SECTION06082000000000000000">
+<SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">2</SPAN> Constants</A>
+</H2>
+
+<P>
+
+<H3><A NAME="SECTION06082100000000000000"></A>
+<A NAME="const:clogkindflag"></A>
+<BR>
+<SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_LOGKIND
+</H3>
+
+<P>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+Specifies a single log file, multiple log files (one per PET), or no log files.
+
+<P>
+The valid values are:
+<DL>
+<DT><STRONG>ESMC_LOGKIND_SINGLE</STRONG></DT>
+<DD>Use a single log file, combining messages from all of the PETs.  Not supported on some platforms.
+   
+</DD>
+<DT><STRONG>ESMC_LOGKIND_MULTI</STRONG></DT>
+<DD>Use multiple log files -- one per PET.
+   
+</DD>
+<DT><STRONG>ESMC_LOGKIND_NONE</STRONG></DT>
+<DD>Do not issue messages to a log file.
+</DD>
+</DL>
+
+<P>
+
+<H3><A NAME="SECTION06082200000000000000"></A>
+<A NAME="const:clogmsgflag"></A>
+<BR>
+<SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_LOGMSG
+</H3>
+
+<P>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+Specifies a message level.
+
+<P>
+The valid values are:
+<DL>
+<DT><STRONG>ESMC_LOGMSG_INFO</STRONG></DT>
+<DD>Informational messages
+   
+</DD>
+<DT><STRONG>ESMC_LOGMSG_WARNING</STRONG></DT>
+<DD>Warning messages
+   
+</DD>
+<DT><STRONG>ESMC_LOGMSG_ERROR</STRONG></DT>
+<DD>Error messages
+   
+</DD>
+<DT><STRONG>ESMC_LOGMSG_TRACE</STRONG></DT>
+<DD>Trace messages
+   
+</DD>
+<DT><STRONG>ESMC_LOGMSG_DEBUG</STRONG></DT>
+<DD>Debug messages
+   
+</DD>
+<DT><STRONG>ESMC_LOGMSG_JSON</STRONG></DT>
+<DD>JSON format messages
+</DD>
+</DL>
+
+<H2><A NAME="SECTION06083000000000000000">
+<SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">3</SPAN> Class API</A>
+</H2>
+
+<P>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06083100000000000000">
+<SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_LogWrite - Write an entry into the Log file</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_LogWrite(
+   const char msg[], // in
+   int msgtype       // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Write an entry into the Log file.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>msg</STRONG></DT>
+<DD>The message to be written.
+    
+</DD>
+<DT><STRONG>msgtype</STRONG></DT>
+<DD>The message type.  This flag is documented in section <A HREF="#const:clogmsgflag">31.2.2</A>
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06083200000000000000">
+<SPAN CLASS="arabic">31</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_LogSet - Set Log properties</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_LogSet(
+   int flush       // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Set Log properties.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>flush</STRONG></DT>
+<DD>If set to ESMF_TRUE, flush log messages immediately, rather than buffering 
+      them. Default is to flush after 10 messages.
+    
+</DD>
+</DL>
+
+<P>
+
+
+<H1><A NAME="SECTION06090000000000000000">
+<SPAN CLASS="arabic">32</SPAN> VM Class</A>
+</H1>
+
+<H2><A NAME="SECTION06091000000000000000">
+<SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+The ESMF VM (Virtual Machine) class is a generic representation of hardware and system software resources. There is exactly one VM object per ESMF Component, providing the execution environment for the Component code. The VM class handles all resource management tasks for the Component class and provides a description of the underlying configuration of the compute resources used by a Component.
+
+<P>
+In addition to resource description and management, the VM class offers the lowest level of ESMF communication methods. The VM communication calls are very similar to MPI. Data references in VM communication calls must be provided as raw, language-specific, one-dimensional, contiguous data arrays. The similarity between VM and MPI communication calls is striking and there are many equivalent point-to-point and collective communication calls. However, unlike MPI, the VM communication calls support communication between threaded PETs in a completely transparent fashion.
+
+<P>
+Many ESMF applications do not interact with the VM class directly very much. The  resource management aspect is wrapped completely transparent into the ESMF Component concept. Often the only reason that user code queries a Component
+object for the associated VM object is to inquire about resource information, such as the <TT>localPet</TT> or the <TT>petCount</TT>. Further, for most applications the use of higher level communication APIs, such as provided by Array and Field, are much more convenient than using the low level VM communication calls.
+
+<P>
+The basic elements of a VM are called PETs, which stands for Persistent Execution Threads. These are equivalent to OS threads with a lifetime of at least that of the associated component. All VM functionality is expressed in terms of PETs. In the simplest, and most common case, a PET is equivalent to an MPI process. However, ESMF also supports multi-threading, where multiple PETs run as Pthreads inside the same virtual address space (VAS).
+
+<H2><A NAME="SECTION06092000000000000000">
+<SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+</H2>
+
+<P>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06092100000000000000">
+<SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_VMBarrier - block calling PETs until all PETS called</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_VMBarrier(
+   ESMC_VM vm                   // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Collective <TT>ESMC_VM</TT> communication call that blocks calling PET until 
+    all PETs of the VM context have issued the call.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>vm</STRONG></DT>
+<DD>Queried <TT>ESMC_VM</TT> object.
+    
+</DD>
+<DT><STRONG>[rc]</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06092200000000000000">
+<SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_VMBroadcast - Broadcast data across the VM</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_VMBroadcast(ESMC_VM vm,
+                   void *bcstData,
+                   int count,
+                   enum ESMC_TypeKind_Flag *typekind,
+                   int rootPet);
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Collective <TT>ESMC_VM</TT> communication call that broadcasts a contiguous 
+    data array from <TT>rootPet</TT> to all other PETs of the <TT>ESMC_VM</TT>
+    object.
+
+<P>
+This method is overloaded for:
+    <TT>ESMC_TYPEKIND_I4</TT>, <TT>ESMC_TYPEKIND_I8</TT>,
+    <TT>ESMC_TYPEKIND_R4</TT>, <TT>ESMC_TYPEKIND_R8</TT>, 
+    <TT>ESMC_TYPEKIND_LOGICAL</TT>.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>vm</STRONG></DT>
+<DD><TT>ESMC_VM</TT> object.
+    
+</DD>
+<DT><STRONG>bcstData</STRONG></DT>
+<DD>Contiguous data array. On <TT>rootPet</TT> <TT>bcstData</TT> holds data that
+      is to be broadcasted to all other PETs. On all other PETs 
+      <TT>bcstData</TT> is used to receive the broadcasted data.
+    
+</DD>
+<DT><STRONG>count</STRONG></DT>
+<DD>Number of elements in <TT>bcstData</TT>. Must be the same on all PETs.
+    
+</DD>
+<DT><STRONG>typekind</STRONG></DT>
+<DD>The typekind of the data to be reduced. See section 
+      <A HREF="node9.html#const:ctypekind">34.18</A> for a list of valid typekind options.
+    
+</DD>
+<DT><STRONG>rootPet</STRONG></DT>
+<DD>PET that holds data that is being broadcast.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06092300000000000000">
+<SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_VMGet - Get VM internals</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_VMGet(
+   ESMC_VM vm,                   // in
+   int *localPet,                // out
+   int *petCount,                // out
+   int *peCount,                 // out
+   MPI_Comm *mpiCommunicator,    // out
+   int *pthreadsEnabledFlag,     // out
+   int *openMPEnabledFlag        // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Get internal information about the specified <TT>ESMC_VM</TT> object.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>vm</STRONG></DT>
+<DD>Queried <TT>ESMC_VM</TT> object.
+    
+</DD>
+<DT><STRONG>[localPet]</STRONG></DT>
+<DD>Upon return this holds the id of the PET that issued this call.
+    
+</DD>
+<DT><STRONG>[petCount]</STRONG></DT>
+<DD>Upon return this holds the number of PETs in the specified <TT>ESMC_VM</TT>
+      object.
+    
+</DD>
+<DT><STRONG>[peCount]</STRONG></DT>
+<DD>Upon return this holds the number of PEs referenced by the specified
+      <TT>ESMC_VM</TT> object.
+    
+</DD>
+<DT><STRONG>[mpiCommunicator]</STRONG></DT>
+<DD>Upon return this holds the MPI intra-communicator used by the 
+      specified <TT>ESMC_VM</TT> object. This communicator may be used for
+      user-level MPI communications. It is recommended that the user
+      duplicates the communicator via <TT>MPI_Comm_Dup()</TT> in order to
+      prevent any interference with ESMC communications.
+    
+</DD>
+<DT><STRONG>[pthreadsEnabledFlag]</STRONG></DT>
+<DD>A return value of '1' indicates that the ESMF library was compiled with
+      Pthreads enabled. A return value of '0' indicates that Pthreads are
+      disabled in the ESMF library.
+    
+</DD>
+<DT><STRONG>[openMPEnabledFlag]</STRONG></DT>
+<DD>A return value of '1' indicates that the ESMF library was compiled with
+      OpenMP enabled. A return value of '0' indicates that OpenMP is
+      disabled in the ESMF library.
+    
+</DD>
+<DT><STRONG>[rc]</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06092400000000000000">
+<SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> ESMC_VMGetCurrent - Get current VM</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> ESMC_VM ESMC_VMGetCurrent(
+   int *rc                     // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    VM object of the current execution context.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Get the <TT>ESMC_VM</TT> object of the current execution context. Calling
+    <TT>ESMC_VMGetCurrent()</TT> within an ESMC Component, will return the
+    same VM object as <TT>ESMC_GridCompGet(..., vm=vm, ...)</TT> or
+    <TT>ESMC_CplCompGet(..., vm=vm, ...)</TT>.
+
+<P>
+The main purpose of providing <TT>ESMC_VMGetCurrent()</TT> is to simplify ESMF
+    adoption in legacy code. Specifically, code that uses <TT>MPI_COMM_WORLD</TT>
+    deep within its calling tree can easily be modified to use the correct MPI
+    communicator of the current ESMF execution context. The advantage is that
+    these modifications are very local, and do not require wide reaching
+    interface changes in the legacy code to pass down the ESMF component object,
+    or the MPI communicator.
+
+<P>
+The use of <TT>ESMC_VMGetCurrent()</TT> is strongly discouraged in newly
+    written Component code. Instead, the ESMF Component object should be used as
+    the appropriate container of ESMF context information. This object should be
+    passed between the subroutines of a Component, and be queried for any
+    Component specific information.
+
+<P>
+Outside of a Component context, i.e. within the driver context, the call
+    to <TT>ESMC_VMGetCurrent()</TT> is identical to <TT>ESMC_VMGetGlobal()</TT>.
+    <BR>
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>[rc]</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06092500000000000000">
+<SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> ESMC_VMGetGlobal - Get global VM</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> ESMC_VM ESMC_VMGetGlobal(
+   int *rc                     // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    VM object of the global execution context.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Get the global <TT>ESMC_VM</TT> object. This is the VM object
+    that is created during <TT>ESMC_Initialize()</TT> and is the ultimate
+    parent of all VM objects in an ESMF application. It is identical to the VM
+    object returned by <TT>ESMC_Initialize(..., vm=vm, ...)</TT>.
+
+<P>
+The <TT>ESMC_VMGetGlobal()</TT> call provides access to information about the
+    global execution context via the global VM. This call is necessary because
+    ESMF does not create a global ESMF Component during
+    <TT>ESMC_Initialize()</TT> that could be queried for information about
+    the global execution context of an ESMF application.
+
+<P>
+Usage of <TT>ESMC_VMGetGlobal()</TT> from within Component code is
+    strongly discouraged. ESMF Components should only access their own VM
+    objects through Component methods. Global information, if required by
+    the Component user code, should be passed down to the Component from the 
+    driver through the Component calling interface.
+    <BR>
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>[rc]</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06092600000000000000">
+<SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN> ESMC_VMLogMemInfo - Log memory measurements to file</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_VMLogMemInfo(
+   const char *prefix                // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Write memory info to the log file.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>prefix</STRONG></DT>
+<DD>String value to indicate the location of the memory measurement
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06092700000000000000">
+<SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">7</SPAN> ESMC_VMPrint - Print a VM</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_VMPrint(
+   ESMC_VM vm                // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Print internal information of the specified <TT>ESMC_VM</TT> object.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>vm</STRONG></DT>
+<DD><TT>ESMC_VM</TT> object to be printed.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION06092800000000000000">
+<SPAN CLASS="arabic">32</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN> ESMC_VMReduce - Reduce data from across the VM</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_VMReduce(ESMC_VM vm,
+                   void *sendData,
+                   void *recvData,
+                   int count,
+                   enum ESMC_TypeKind_Flag *typekind,
+                   enum ESMC_Reduce_Flag *reduceflag,
+                   int rootPet);
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Collective <TT>ESMC_VM</TT> communication call that reduces a contiguous data 
+    array across the <TT>ESMC_VM</TT> object into a contiguous data array of 
+    the same &lt;type&gt;&lt;kind&gt;. The result array is returned on <TT>rootPet</TT>. 
+    Different reduction operations can be specified.
+
+<P>
+This method is overloaded for:
+    <TT>ESMC_TYPEKIND_I4</TT>, <TT>ESMC_TYPEKIND_I8</TT>,
+    <TT>ESMC_TYPEKIND_R4</TT>, <TT>ESMC_TYPEKIND_R8</TT>.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>vm</STRONG></DT>
+<DD><TT>ESMC_VM</TT> object.
+    
+</DD>
+<DT><STRONG>sendData</STRONG></DT>
+<DD>Contiguous data array holding data to be sent. All PETs must specify a
+      valid source array.
+    
+</DD>
+<DT><STRONG>recvData</STRONG></DT>
+<DD>Contiguous data array for data to be received. Only the <TT>recvData</TT>
+      array specified by the <TT>rootPet</TT> will be used by this method.
+    
+</DD>
+<DT><STRONG>count</STRONG></DT>
+<DD>Number of elements in sendData and recvData. Must be the same on all PETs.
+    
+</DD>
+<DT><STRONG>typekind</STRONG></DT>
+<DD>The typekind of the data to be reduced. See section 
+      <A HREF="node9.html#const:ctypekind">34.18</A> for a list of valid typekind options.
+    
+</DD>
+<DT><STRONG>reduceflag</STRONG></DT>
+<DD>Reduction operation. See section <A HREF="node9.html#const:creduce">34.14</A> for a list of 
+      valid reduce operations.
+    
+</DD>
+<DT><STRONG>rootPet</STRONG></DT>
+<DD>PET on which reduced data is returned.
+    
+</DD>
+</DL>
+
+<P>
+
+
+<H1><A NAME="SECTION060100000000000000000">
+<SPAN CLASS="arabic">33</SPAN> Profiling and Tracing</A>
+</H1>
+
+<H2><A NAME="SECTION060101000000000000000">
+<SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+
+<H3><A NAME="SECTION060101100000000000000"></A>
+<A NAME="sec:Profiling"></A>
+<BR>
+<SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Profiling
+</H3>
+
+<P>
+ESMF's built in <EM>profiling</EM> capability collects runtime statistics
+of an executing ESMF application through both automatic and manual code
+instrumentation. Timing information for all phases of all ESMF components
+executing in an application can be automatically collected using the
+<TT>ESMF_RUNTIME_PROFILE</TT> environment variable (see below for settings).
+Additionally, arbitrary user-defined code regions can be timed by
+manually instrumenting code with special API calls.  Timing profiles
+of component phases and user-defined regions can be output in several
+different formats:
+
+<UL>
+<LI>in text at the end of ESMF Log files
+</LI>
+<LI>in separate text file, one per PET (if the ESMF Logs are turned off)
+</LI>
+<LI>in a single summary text file that aggregates timings over multiple PETs
+</LI>
+<LI>in a binary format for import into the <A NAME="tex2html19"
+  HREF="https://github.com/esmf-org/esmf-profiler">esmf-profiler</A>
+for profile visualization
+</LI>
+</UL>
+
+<P>
+The following table lists important environment variables that control
+aspects of ESMF profiling.
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><B>Environment Variable</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227><B>Description</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><B>Example Values</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><B>Default</B></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>ESMF_RUNTIME_PROFILE</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>Enable/disables all profiling functions</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>ON</TT> or <TT>OFF</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>OFF</TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>ESMF_RUNTIME_PROFILE_PETLIST</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>Limits profiling to an explicit list of PETs</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>&ldquo;<TT>0-9 50 99</TT>&rdquo;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><EM>profile all PETs</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>ESMF_RUNTIME_PROFILE_OUTPUT</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>Controls output format of profiles;  multiple can be specified in a space separated list</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>TEXT</TT>, <TT>SUMMARY</TT>, <TT>BINARY</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>TEXT</TT></TD>
+</TR>
+</TABLE>
+
+<P>
+
+<H3><A NAME="SECTION060101200000000000000"></A>
+<A NAME="sec:Tracing"></A>
+<BR>
+<SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Tracing
+</H3>
+
+<P>
+Whereas profiling collects summary information from an application,
+<EM>tracing</EM> records a more detailed set of events for later analysis. Trace
+analysis can be used to understand what happened during a program's
+execution and is often used for diagnosing problems, debugging, and
+performance analysis.
+
+<P>
+ESMF has a built-in tracing capability that records events into special
+binary log files.  Unlike log files written by the <TT>ESMF_Log</TT> class,
+which are primarily for human consumption (see Section <A HREF="#sec:Log">31.1</A>),
+the trace output files are
+recorded in a compact binary representation and are processed by tools
+to produce various analyses. ESMF event streams are recorded in the
+<A NAME="tex2html20"
+  HREF="http://diamon.org/ctf/">Common Trace Format</A>
+(CTF).
+CTF traces include one or more event streams,
+as well as a metadata file describing the events in the streams.
+
+<P>
+Several tools are available for reading in the CTF traces output by ESMF.
+Of the tools listed below, the first one is designed specifically for
+analyzing ESMF applications and the second two are general purpose tools
+for working with all CTF traces.
+
+<UL>
+<LI><A NAME="tex2html21"
+  HREF="https://github.com/esmf-org/esmf-profiler">esmf-profiler</A>
+is a tool that ingests traces from an ESMF application and generates
+  performance profile plots.
+</LI>
+<LI><A NAME="tex2html22"
+  HREF="http://tracecompass.org/">TraceCompass</A>
+is a general purpose tool for reading, analyzing, and visualizing traces.
+</LI>
+<LI><A NAME="tex2html23"
+  HREF="http://www.efficios.com/babeltrace">Babeltrace</A>
+is a command-line tool and library for trace conversion
+  that can read and write CTF traces. Python bindings are available
+  to open CTF traces are iterate through events.  
+</LI>
+</UL>
+
+<P>
+Events that can be captured by the ESMF tracer include the following. Events
+are recorded with a high-precision timestamp to allow timing analyses.
+<DL>
+<DT><STRONG>phase_enter</STRONG></DT>
+<DD>indicates entry into an initialize, run, or finalize ESMF component routine
+</DD>
+<DT><STRONG>phase_exit</STRONG></DT>
+<DD>indicates exit from an initialize, run, or finalize ESMF component routine
+</DD>
+<DT><STRONG>region_enter</STRONG></DT>
+<DD>indicates entry into a user-defined code region
+</DD>
+<DT><STRONG>region_exit</STRONG></DT>
+<DD>indicates exit from a user-defined code region
+</DD>
+</DL>
+
+<P>
+The following table lists important environment variables that control
+aspects of ESMF tracing.
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><B>Environment Variable</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227><B>Description</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><B>Example Values</B></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><B>Default</B></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>ESMF_RUNTIME_TRACE</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>Enable/disables all tracing functions</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>ON</TT> or <TT>OFF</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>OFF</TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>ESMF_RUNTIME_TRACE_CLOCK</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>Sets the type of clock for timestamping events (see Section <A HREF="#sec:TracingClocks"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>).</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>REALTIME</TT> or <TT>MONOTONIC</TT> or <TT>MONOTONIC_SYNC</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>REALTIME</TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>ESMF_RUNTIME_TRACE_PETLIST</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>Limits tracing to an explicit list of PETs</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>&ldquo;<TT>0-9 50 99</TT>&rdquo;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><EM>trace all PETs</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>ESMF_RUNTIME_TRACE_COMPONENT</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>Enables/disable tracing of Component phase_enter and phase_exit events</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>ON</TT> or <TT>OFF</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>ON</TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>ESMF_RUNTIME_TRACE_FLUSH</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=227>Controls frequency of event stream flushing to file</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>DEFAULT</TT> or <TT>EAGER</TT></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170><TT>DEFAULT</TT></TD>
+</TR>
+</TABLE>
+
+<P>
+
+<H2><A NAME="SECTION060102000000000000000">
+<SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">2</SPAN> Restrictions and Future Work</A>
+</H2>
+
+<P>
+
+<OL>
+<LI><B>Limited types of trace events.</B>
+  Currently only a few trace event types are available. The tracer may
+  be extended in the future to record additional types of events.
+</LI>
+<LI><B>MPI call profing not available for statically linked executables on Darwin.</B>
+  Currently the linker on Darwin systems does not support the wrapping of
+  symbols during static linking. In order to access MPI call profiling on Darwin,
+  executables should be linked dynamically in combination with the procedure
+  described in section <A HREF="#sec:MPIProfiling"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION060103000000000000000">
+<SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">3</SPAN> Class API</A>
+</H2>
+
+<P>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION060103100000000000000">
+<SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_TraceRegionEnter - Enter a trace region</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_TraceRegionEnter(
+   const char* name  // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Enter a named trace region.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>name</STRONG></DT>
+<DD>Name of the trace region.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION060103200000000000000">
+<SPAN CLASS="arabic">33</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_TraceRegionExit - Exit a trace region</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_TraceRegionExit(
+   const char* name  // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Exit a named trace region.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>name</STRONG></DT>
+<DD>Name of the trace region.
+    
+</DD>
+</DL>
+
+<P>
+
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html777"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html773"
+  HREF="ESMC_crefdoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html767"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html775"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html778"
+  HREF="node7.html">6 References</A>
+<B> Up:</B> <A NAME="tex2html774"
+  HREF="ESMC_crefdoc.html">ESMC_crefdoc</A>
+<B> Previous:</B> <A NAME="tex2html768"
+  HREF="node5.html">4 Infrastructure: Fields and</A>
+ &nbsp; <B>  <A NAME="tex2html776"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<A HREF=mailto:esmf_support@ucar.edu>esmf_support@ucar.edu</A>
+</ADDRESS>
+</BODY>
+</HTML>

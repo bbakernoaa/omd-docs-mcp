@@ -1,0 +1,2690 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>3 Superstructure</TITLE>
+<META NAME="description" CONTENT="3 Superstructure">
+<META NAME="keywords" CONTENT="ESMC_crefdoc">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ESMC_crefdoc.css">
+
+<LINK REL="next" HREF="node5.html">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="ESMC_crefdoc.html">
+<LINK REL="next" HREF="node5.html">
+</HEAD>
+
+<BODY BGCOLOR=white LINK=#083194 VLINK=#21004A>
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html562"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html558"
+  HREF="ESMC_crefdoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html552"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html560"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html563"
+  HREF="node5.html">4 Infrastructure: Fields and</A>
+<B> Up:</B> <A NAME="tex2html559"
+  HREF="ESMC_crefdoc.html">ESMC_crefdoc</A>
+<B> Previous:</B> <A NAME="tex2html553"
+  HREF="node3.html">2 Command Line Tools</A>
+ &nbsp; <B>  <A NAME="tex2html561"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><UL>
+<LI><A NAME="tex2html564"
+  HREF="node4.html#SECTION04010000000000000000"><SPAN CLASS="arabic">9</SPAN> Overview of Superstructure</A>
+<UL>
+<LI><A NAME="tex2html565"
+  HREF="node4.html#SECTION04011000000000000000"><SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">1</SPAN> Superstructure Classes</A>
+<LI><A NAME="tex2html566"
+  HREF="node4.html#SECTION04012000000000000000"><SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">2</SPAN> Hierarchical Creation of Components</A>
+<LI><A NAME="tex2html567"
+  HREF="node4.html#SECTION04013000000000000000"><SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">3</SPAN> Sequential and Concurrent Execution of Components</A>
+<LI><A NAME="tex2html568"
+  HREF="node4.html#SECTION04014000000000000000"><SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">4</SPAN> Intra-Component Communication</A>
+<LI><A NAME="tex2html569"
+  HREF="node4.html#SECTION04015000000000000000"><SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">5</SPAN> Data Distribution and Scoping in Components</A>
+<LI><A NAME="tex2html570"
+  HREF="node4.html#SECTION04016000000000000000"><SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">6</SPAN> Performance</A>
+<LI><A NAME="tex2html571"
+  HREF="node4.html#SECTION04017000000000000000"><SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">7</SPAN> Object Model</A>
+</UL>
+<LI><A NAME="tex2html572"
+  HREF="node4.html#SECTION04020000000000000000"><SPAN CLASS="arabic">10</SPAN> Application Driver and Required ESMF Methods</A>
+<UL>
+<LI><A NAME="tex2html573"
+  HREF="node4.html#SECTION04021000000000000000"><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<LI><A NAME="tex2html574"
+  HREF="node4.html#SECTION04022000000000000000"><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">2</SPAN> Required ESMF Methods</A>
+<UL>
+<LI><A NAME="tex2html575"
+  HREF="node4.html#SECTION04022100000000000000"><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_Initialize</A>
+<LI><A NAME="tex2html576"
+  HREF="node4.html#SECTION04022200000000000000"><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_FinalizeWithFlag</A>
+<LI><A NAME="tex2html577"
+  HREF="node4.html#SECTION04022300000000000000"><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_Finalize</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html578"
+  HREF="node4.html#SECTION04030000000000000000"><SPAN CLASS="arabic">11</SPAN> GridComp Class</A>
+<UL>
+<LI><A NAME="tex2html579"
+  HREF="node4.html#SECTION04031000000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<LI><A NAME="tex2html580"
+  HREF="node4.html#SECTION04032000000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+<UL>
+<LI><A NAME="tex2html581"
+  HREF="node4.html#SECTION04032100000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_GridCompCreate</A>
+<LI><A NAME="tex2html582"
+  HREF="node4.html#SECTION04032200000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_GridCompDestroy</A>
+<LI><A NAME="tex2html583"
+  HREF="node4.html#SECTION04032300000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_GridCompFinalize</A>
+<LI><A NAME="tex2html584"
+  HREF="node4.html#SECTION04032400000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> ESMC_GridCompGetInternalState</A>
+<LI><A NAME="tex2html585"
+  HREF="node4.html#SECTION04032500000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> ESMC_GridCompInitialize</A>
+<LI><A NAME="tex2html586"
+  HREF="node4.html#SECTION04032600000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN> ESMC_GridCompPrint</A>
+<LI><A NAME="tex2html587"
+  HREF="node4.html#SECTION04032700000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">7</SPAN> ESMC_GridCompRun</A>
+<LI><A NAME="tex2html588"
+  HREF="node4.html#SECTION04032800000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN> ESMC_GridCompSetEntryPoint</A>
+<LI><A NAME="tex2html589"
+  HREF="node4.html#SECTION04032900000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">9</SPAN> ESMC_GridCompSetInternalState</A>
+<LI><A NAME="tex2html590"
+  HREF="node4.html#SECTION040321000000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">10</SPAN> ESMC_GridCompSetServices</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html591"
+  HREF="node4.html#SECTION04040000000000000000"><SPAN CLASS="arabic">12</SPAN> CplComp Class</A>
+<UL>
+<LI><A NAME="tex2html592"
+  HREF="node4.html#SECTION04041000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<LI><A NAME="tex2html593"
+  HREF="node4.html#SECTION04042000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+<UL>
+<LI><A NAME="tex2html594"
+  HREF="node4.html#SECTION04042100000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_CplCompCreate</A>
+<LI><A NAME="tex2html595"
+  HREF="node4.html#SECTION04042200000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_CplCompDestroy</A>
+<LI><A NAME="tex2html596"
+  HREF="node4.html#SECTION04042300000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_CplCompFinalize</A>
+<LI><A NAME="tex2html597"
+  HREF="node4.html#SECTION04042400000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> ESMC_CplCompGetInternalState</A>
+<LI><A NAME="tex2html598"
+  HREF="node4.html#SECTION04042500000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> ESMC_CplCompInitialize</A>
+<LI><A NAME="tex2html599"
+  HREF="node4.html#SECTION04042600000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN> ESMC_CplCompPrint</A>
+<LI><A NAME="tex2html600"
+  HREF="node4.html#SECTION04042700000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">7</SPAN> ESMC_CplCompRun</A>
+<LI><A NAME="tex2html601"
+  HREF="node4.html#SECTION04042800000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN> ESMC_CplCompSetEntryPoint</A>
+<LI><A NAME="tex2html602"
+  HREF="node4.html#SECTION04042900000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">9</SPAN> ESMC_CplCompSetInternalState</A>
+<LI><A NAME="tex2html603"
+  HREF="node4.html#SECTION040421000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">10</SPAN> ESMC_CplCompSetServices</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html604"
+  HREF="node4.html#SECTION04050000000000000000"><SPAN CLASS="arabic">13</SPAN> SciComp Class</A>
+<UL>
+<LI><A NAME="tex2html605"
+  HREF="node4.html#SECTION04051000000000000000"><SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<LI><A NAME="tex2html606"
+  HREF="node4.html#SECTION04052000000000000000"><SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+<UL>
+<LI><A NAME="tex2html607"
+  HREF="node4.html#SECTION04052100000000000000"><SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_SciCompCreate</A>
+<LI><A NAME="tex2html608"
+  HREF="node4.html#SECTION04052200000000000000"><SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_SciCompDestroy</A>
+<LI><A NAME="tex2html609"
+  HREF="node4.html#SECTION04052300000000000000"><SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_SciCompPrint</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html610"
+  HREF="node4.html#SECTION04060000000000000000"><SPAN CLASS="arabic">14</SPAN> State Class</A>
+<UL>
+<LI><A NAME="tex2html611"
+  HREF="node4.html#SECTION04061000000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+<LI><A NAME="tex2html612"
+  HREF="node4.html#SECTION04062000000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">2</SPAN> Restrictions and Future Work</A>
+<LI><A NAME="tex2html613"
+  HREF="node4.html#SECTION04063000000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN> Class API</A>
+<UL>
+<LI><A NAME="tex2html614"
+  HREF="node4.html#SECTION04063100000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_StateAddArray</A>
+<LI><A NAME="tex2html615"
+  HREF="node4.html#SECTION04063200000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_StateAddField</A>
+<LI><A NAME="tex2html616"
+  HREF="node4.html#SECTION04063300000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_StateCreate</A>
+<LI><A NAME="tex2html617"
+  HREF="node4.html#SECTION04063400000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> ESMC_StateDestroy</A>
+<LI><A NAME="tex2html618"
+  HREF="node4.html#SECTION04063500000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> ESMC_StateGetArray</A>
+<LI><A NAME="tex2html619"
+  HREF="node4.html#SECTION04063600000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> ESMC_StateGetField</A>
+<LI><A NAME="tex2html620"
+  HREF="node4.html#SECTION04063700000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">7</SPAN> ESMC_StatePrint</A>
+</UL></UL></UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION04000000000000000000"></A>
+<A NAME="part:Superstructure"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN> Superstructure
+</H1>
+
+
+<P>
+
+<H1><A NAME="SECTION04010000000000000000">
+<SPAN CLASS="arabic">9</SPAN> Overview of Superstructure</A>
+</H1>
+
+<P>
+ESMF superstructure classes define an architecture for assembling
+Earth system applications from modeling <B>components</B>.  A component
+may be defined in terms of the physical domain that it represents,
+such as an atmosphere or sea ice model.  It may also be defined in terms
+of a computational function, such as a data assimilation system.
+Earth system research often requires that such components be <B>coupled</B> 
+together to create an application.  By coupling we mean the data 
+transformations and, on parallel computing systems, data transfers, 
+that are necessary to allow data from one component to be utilized by 
+another.  ESMF offers regridding methods and other tools to simplify 
+the organization and execution of inter-component data exchanges.  
+
+<P>
+In addition to components defined at the level of major physical 
+domains and computational functions, components may be defined that 
+represent smaller computational functions within larger components, 
+such as the transformation of data between the physics and dynamics 
+in a spectral atmosphere model, 
+or the creation of nested higher resolution regions 
+within a coarser grid.  The objective is to couple components at varying 
+scales both flexibly and efficiently.  ESMF encourages a hierarchical
+application structure, in which large components branch into 
+smaller sub-components (see Figure <A HREF="#fig:GEOS5">2</A>).  ESMF also makes 
+it easier for the same component to be used in multiple contexts 
+without changes to its source code.
+
+<P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=432>
+<BR>
+<B>Key Features</B></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=432>Modular, component-based architecture.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=432>Hierarchical assembly of components into applications.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=432>Use of components in multiple contexts without modification.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=432>Sequential or concurrent component execution.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=432>Single program, multiple datastream (SPMD) applications for 
+maximum portability and reconfigurability.</TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=432>Multiple program, multiple datastream (MPMD) option for 
+flexibility.</TD>
+</TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H2><A NAME="SECTION04011000000000000000">
+<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">1</SPAN> Superstructure Classes</A>
+</H2>
+
+<P>
+There are a small number of classes in the ESMF superstructure:
+
+<P>
+
+<UL>
+<LI><B>Component</B>  An ESMF component has two parts, one that is 
+supplied by ESMF and one that is supplied by the user.  The
+part that is supplied by the framework is an ESMF derived type that
+is either a Gridded Component (<B>GridComp</B>) or a Coupler 
+Component (<B>CplComp</B>).  A Gridded Component typically represents
+a physical domain in which data is associated with one or more 
+grids - for example, a sea ice model.  A Coupler Component 
+arranges and executes data transformations and transfers between
+one or more Gridded Components. Gridded Components and Coupler 
+Components have standard methods, which include initialize, run,
+and finalize.  These methods can be multi-phase.
+
+<P>
+The second part of an ESMF Component is user code, such as a
+model or data assimilation system.  Users set entry points 
+within their code so that it is callable by the framework.  
+In practice, setting entry points means that within user code 
+there are calls to ESMF methods that associate the name of a 
+Fortran subroutine with a corresponding standard ESMF operation.  
+For example, a user-written initialization routine called 
+<TT>myOceanInit</TT> might be associated with the standard 
+initialize routine of an ESMF Gridded Component named &ldquo;myOcean&rdquo; 
+that represents an ocean model.
+
+<P>
+</LI>
+<LI><B>State</B>  ESMF Components exchange information with other 
+Components only through States.  A State is an ESMF derived
+type that can contain Fields, FieldBundles, Arrays, ArrayBundles,
+and other States.  A Component is associated with two States, an 
+<B>Import State</B> and an <B>Export State</B>.  Its Import State 
+holds the data that it receives from other Components.  
+Its Export State contains data that it makes available to 
+other Components. 
+
+<P>
+</LI>
+</UL>
+
+<P>
+An ESMF coupled application typically involves a parent Gridded Component, 
+two or more child Gridded Components and one or more Coupler 
+Components. 
+
+<P>
+The parent Gridded Component is responsible for creating the child 
+Gridded Components that are exchanging data, for creating the Coupler, 
+for creating the necessary Import and Export States, and for 
+setting up the desired sequencing.  The application's &ldquo;main&rdquo; routine
+calls the parent Gridded Component's initialize, run, and finalize 
+methods in order to execute the application.  For each of these
+standard methods, the parent Gridded Component in turn calls the 
+corresponding methods in the child Gridded Components and the 
+Coupler Component.  For example, consider a simple coupled 
+ocean/atmosphere simulation.  When the initialize method of the 
+parent Gridded Component is called by the application, it in turn 
+calls the initialize methods of its child atmosphere and ocean 
+Gridded Components, and the initialize method of an 
+ocean-to-atmosphere Coupler Component.  Figure <A HREF="#fig:appunit">3</A>
+shows this schematically.
+
+<P>
+<DIV ALIGN="CENTER">
+</DIV>
+<DIV ALIGN="CENTER"><A NAME="fig:GEOS5"></A><A NAME="830"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2:</STRONG>
+ESMF enables applications such as the atmospheric general
+circulation model GEOS-5 to be structured hierarchically, and 
+reconfigured and extended easily.  Each box in this diagram is an
+ESMF Gridded Component.</CAPTION>
+<TR><TD><!-- MATH
+ $\scalebox{0.9}{\includegraphics{ESMF_GEOS5}}$
+ -->
+<IMG
+ WIDTH="708" HEIGHT="395" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="\scalebox{0.9}{\includegraphics{ESMF_GEOS5}}"></TD></TR>
+</TABLE>
+</DIV>
+<DIV ALIGN="CENTER">
+</DIV>
+
+<P>
+
+<H2><A NAME="SECTION04012000000000000000"></A>
+<A NAME="sec:hierarchy"></A>
+<BR>
+<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">2</SPAN> Hierarchical Creation of Components
+</H2>
+
+<P>
+Components are allocated computational resources in the form of
+<B>Persistent Execution Threads</B>, or <B>PET</B>s.  A list of a Component's
+PETs is contained in a structure called a <B>Virtual Machine</B>,
+or <B>VM</B>.  The VM also contains information about the topology and
+characteristics of the underlying computer.
+Components are created hierarchically, with parent Components creating
+child Components and allocating some or all of their PETs to each one.
+By default ESMF creates a new VM for each child Component, which 
+allows Components to tailor their VM resources to match their needs.
+In some cases, a child may want to share its parent's VM - ESMF
+supports this, too.
+
+<P>
+A Gridded Component may exist across all the PETs in an application. 
+A Gridded Component may also reside on a subset of PETs in an
+application.  These PETs may wholly coincide with, be wholly contained
+within, or wholly contain another Component.
+
+<P>
+<DIV ALIGN="CENTER">
+</DIV>
+<DIV ALIGN="CENTER"><A NAME="fig:appunit"></A><A NAME="844"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3:</STRONG>
+A call to a standard ESMF initialize (run, finalize) method
+by a parent component triggers calls to initialize (run, finalize)
+all of its child components.</CAPTION>
+<TR><TD><!-- MATH
+ $\scalebox{1.0}{\includegraphics{ESMF_appunit}}$
+ -->
+<IMG
+ WIDTH="723" HEIGHT="498" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="\scalebox{1.0}{\includegraphics{ESMF_appunit}}"></TD></TR>
+</TABLE>
+</DIV>
+<DIV ALIGN="CENTER">
+</DIV>
+
+<P>
+
+<H2><A NAME="SECTION04013000000000000000"></A>
+<A NAME="sec:concurrency"></A>
+<BR>
+<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">3</SPAN> Sequential and Concurrent Execution of Components
+</H2>
+
+<P>
+When a set of Gridded Components and a Coupler runs in sequence
+on the same set of PETs the application is executing in a <B>sequential</B>
+mode. When Gridded Components are created and run on mutually exclusive
+sets of PETs, and are coupled by a Coupler Component that extends over
+the union of these sets, the mode of execution is <B>concurrent</B>.
+
+<P>
+Figure <A HREF="#fig:serial">4</A> illustrates a typical configuration for 
+a simple coupled sequential
+application, and Figure <A HREF="#fig:concurrent">5</A> shows a possible 
+configuration for the same application running in a concurrent mode.
+
+<P>
+Parent Components can select if and when to wait for concurrently
+executing child Components, synchronizing only when required.
+
+<P>
+It is possible for ESMF applications to contain some Component sets
+that are executing sequentially and others that are executing concurrently.
+We might have, for example, atmosphere and land Components created
+on the same subset of PETs, ocean and sea ice Components created on
+the remainder of PETs, and a Coupler created across all the PETs in
+the application.
+
+<P>
+<DIV ALIGN="CENTER">
+</DIV>
+<DIV ALIGN="CENTER"><A NAME="fig:serial"></A><A NAME="858"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4:</STRONG>
+Schematic of the run method of a coupled application, with an
+&ldquo;Atmosphere&rdquo; and an &ldquo;Ocean&rdquo; Gridded Component running sequentially with 
+an &ldquo;Atm-Ocean Coupler.&rdquo;  The top-level &ldquo;Hurricane Model&rdquo; 
+Gridded Component contains the sequencing information and time 
+advancement loop.  The application driver, Coupler, and all Gridded Components 
+are distributed over nine PETs.</CAPTION>
+<TR><TD><!-- MATH
+ $\scalebox{1.0}{\includegraphics{ESMF_serial}}$
+ -->
+<IMG
+ WIDTH="587" HEIGHT="677" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="\scalebox{1.0}{\includegraphics{ESMF_serial}}"></TD></TR>
+</TABLE>
+</DIV>
+<DIV ALIGN="CENTER">
+</DIV>
+
+<P>
+<DIV ALIGN="CENTER">
+</DIV>
+<DIV ALIGN="CENTER"><A NAME="fig:concurrent"></A><A NAME="866"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5:</STRONG>
+Schematic of the run method of a coupled application, with an
+&ldquo;Atmosphere&rdquo; and an &ldquo;Ocean&rdquo; Gridded Component running concurrently with 
+an &ldquo;Atm-Ocean Coupler.&rdquo;  The top-level &ldquo;Hurricane Model&rdquo; 
+Gridded Component contains the sequencing information and time 
+advancement loop.  The application driver, Coupler, and top-level &ldquo;Hurricane
+Model&rdquo; Gridded Component are distributed over nine PETs.  The
+&ldquo;Atmosphere&rdquo; Gridded Component is distributed over three PETs and
+the &ldquo;Ocean&rdquo; Gridded Component is distributed over six PETs.</CAPTION>
+<TR><TD><!-- MATH
+ $\scalebox{1.0}{\includegraphics{ESMF_concurrent}}$
+ -->
+<IMG
+ WIDTH="587" HEIGHT="576" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="\scalebox{1.0}{\includegraphics{ESMF_concurrent}}"></TD></TR>
+</TABLE>
+</DIV>
+<DIV ALIGN="CENTER">
+</DIV>
+
+<P>
+
+<H2><A NAME="SECTION04014000000000000000"></A>
+<A NAME="sec:localcomm"></A>
+<BR>
+<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">4</SPAN> Intra-Component Communication
+</H2>
+
+<P>
+All data transfers within an ESMF application occur <I>within</I> a
+component.  For example, a Gridded Component may contain halo updates.
+Another example is that a Coupler Component may redistribute
+data between two Gridded Components.  As a result,
+the architecture of ESMF does not depend on any particular data
+communication mechanism, and new communication schemes can be
+introduced without affecting the overall structure of the application.
+
+<P>
+Since all data communication happens within a component, a Coupler
+Component must be created on the union of the PETs of all
+the Gridded Components that it couples.  
+
+<P>
+
+<H2><A NAME="SECTION04015000000000000000"></A>
+<A NAME="sec:scoping"></A>
+<BR>
+<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">5</SPAN> Data Distribution and Scoping in Components
+</H2>
+
+<P>
+The scope of distributed objects is the VM of the currently 
+executing Component.  For this reason, all
+PETs in the current VM must make the same distributed object
+creation calls.   When a Coupler Component running on a superset
+of a Gridded Component's PETs needs to make communication calls
+involving objects created by the Gridded Component,
+an ESMF-supplied function called <TT>ESMF_StateReconcile()</TT> creates proxy
+objects for those PETs that had no previous information about the
+distributed objects.  Proxy objects contain no local data but
+can be used in communication calls (such as regrid or redistribute)
+to describe the remote source for data being moved to the current PET,
+or to describe the remote destination for data being moved from the local PET.
+Figure <A HREF="#fig:reconcile">6</A> is a simple schematic that shows the 
+sequence of events in a reconcile call.
+
+<P>
+<DIV ALIGN="CENTER">
+</DIV>
+<DIV ALIGN="CENTER"><A NAME="fig:reconcile"></A><A NAME="902"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6:</STRONG>
+An <TT>ESMF_StateReconcile()</TT> call creates proxy 
+objects for use in subsequent communication calls.  The reconcile 
+call would normally be made during Coupler initialization.</CAPTION>
+<TR><TD><!-- MATH
+ $\scalebox{1.0}{\includegraphics{ESMF_reconcile}}$
+ -->
+<IMG
+ WIDTH="585" HEIGHT="627" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="\scalebox{1.0}{\includegraphics{ESMF_reconcile}}"></TD></TR>
+</TABLE>
+</DIV>
+<DIV ALIGN="CENTER">
+</DIV>
+
+<P>
+
+<H2><A NAME="SECTION04016000000000000000"></A>
+<A NAME="sec:performance"></A>
+<BR>
+<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">6</SPAN> Performance
+</H2>
+
+<P>
+The ESMF design enables the user to configure ESMF
+applications so that data is transferred directly from one component 
+to another, without requiring that it be copied or sent to a different data
+buffer as an interim step.  This is likely to be the most efficient way 
+of performing inter-component coupling.  However, if desired, an 
+application can also be configured so that data from a source component 
+is sent to a distinct set of Coupler Component PETs for processing 
+before being sent to its destination.
+
+<P>
+The ability to overlap computation with communication is essential for
+performance.  When running with ESMF the user can initiate data 
+sends during Gridded Component execution, as soon as the data is ready.
+Computations can then proceed simultaneously with the data transfer.
+
+<P>
+
+<H2><A NAME="SECTION04017000000000000000">
+<SPAN CLASS="arabic">9</SPAN>.<SPAN CLASS="arabic">7</SPAN> Object Model</A>
+</H2>
+
+<P>
+The following is a simplified Unified Modeling Language (UML) diagram showing the relationships among
+ESMF superstructure classes.  See Appendix A, <I>A Brief Introduction 
+to UML</I>, for a translation table that lists the symbols in the diagram 
+and their meaning.
+
+<P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="623" HEIGHT="191" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="\includegraphics{Comp_obj}">   
+
+</DIV>
+
+<P>
+
+<H1><A NAME="SECTION04020000000000000000">
+<SPAN CLASS="arabic">10</SPAN> Application Driver and Required ESMF Methods</A>
+</H1>
+
+<H2><A NAME="SECTION04021000000000000000">
+<SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+Every ESMF application needs a driver code. Typically the driver layer is
+implemented as the "main" of the application, although this is not strictly an
+ESMF requirement. For most ESMF applications the task of the application driver
+will be very generic: Initialize ESMF, create a top-level Component and call its
+Initialize, Run and Finalize methods, before destroying the top-level Component
+again and calling ESMF Finalize.
+
+<P>
+ESMF provides a number of different application driver templates in the
+<TT>$ESMF_DIR/src/Superstructure/AppDriver</TT> directory. An appropriate one 
+can be chosen depending on how the application is to be structured:
+
+<P>
+<DL>
+<DT><STRONG>Sequential vs. Concurrent Execution</STRONG></DT>
+<DD><P>
+In a sequential execution model, every Component executes
+on all PETs, with each Component completing execution before
+the next Component begins.  This has the appeal of 
+simplicity of data consumption and production: when a Gridded 
+Component starts, all required data is available for use, and when
+a Gridded Component finishes, all data produced is ready for consumption
+by the next Gridded Component.  This approach also has
+the possibility of less data movement if the grid and
+data decomposition is done such that each processor's memory contains
+the data needed by the next Component.
+
+<P>
+In a concurrent execution model, subgroups of PETs run
+Gridded Components and multiple Gridded Components are active at the 
+same time.  Data exchange must be coordinated between Gridded 
+Components so that data deadlock does not occur.  This strategy 
+has the advantage of allowing coupling to other Gridded Components 
+at any time during the computational process, including not 
+having to return to the calling level of code before making 
+data available.  
+
+<P>
+</DD>
+<DT><STRONG>Pairwise vs. Hub and Spoke</STRONG></DT>
+<DD><P>
+Coupler Components are responsible for taking data from one
+Gridded Component and putting it into the form expected by another 
+Gridded Component.  This might include regridding, change of units, 
+averaging, or binning.
+
+<P>
+Coupler Components can be written for <I>pairwise</I> data exchange: 
+the Coupler Component takes data from a single Component and transforms 
+it for use by another single Gridded Component.  This simplifies the 
+structure of the Coupler Component code.
+
+<P>
+Couplers can also be written using a <I>hub and spoke</I> model where a
+single Coupler accepts data from all other Components, can do data
+merging or splitting, and formats data for all other Components.
+
+<P>
+Multiple Couplers, using either of the above two models or some mixture of
+these approaches, are also possible.
+
+<P>
+</DD>
+<DT><STRONG>Implementation Language</STRONG></DT>
+<DD><P>
+The ESMF framework currently has Fortran interfaces for all public functions. 
+Some functions also have C interfaces, and the number of these is expected to 
+increase over time. 
+
+<P>
+</DD>
+<DT><STRONG>Number of Executables</STRONG></DT>
+<DD><P>
+The simplest way to run an application
+is to run the same executable program on all PETs.  Different Components
+can still be run on mutually exclusive PETs by using branching
+(e.g., if this is PET 1, 2, or 3, run Component A, if it is
+PET 4, 5, or 6 run Component B).  This is a <B>SPMD</B> model, 
+Single Program Multiple Data.  
+
+<P>
+The alternative is to start a different executable program on different
+PETs.  This is a <B>MPMD</B> model, Multiple Program Multiple Data.
+There are complications with many job control systems on multiprocessor
+machines in getting the different executables started, and getting
+inter-process communications established.  ESMF currently has some
+support for MPMD: different Components can run as separate executables,
+but the Coupler that transfers data between the Components must still
+run on the union of their PETs. This means that the Coupler Component
+must be linked into all of the executables.
+
+<P>
+</DD>
+</DL>
+
+<P>
+
+<H2><A NAME="SECTION04022000000000000000">
+<SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">2</SPAN> Required ESMF Methods</A>
+</H2>
+
+<P>
+There are a few methods that every ESMF application must contain. First,
+<TT>ESMC_Initialize()</TT> and <TT>ESMC_Finalize()</TT> are in complete analogy 
+to <TT>MPI_Init()</TT> and <TT>MPI_Finalize()</TT> known from MPI. All ESMF
+programs, serial or parallel, must initialize the ESMF system at the beginning,
+and finalize it at the end of execution. The behavior of calling any
+ESMF method before <TT>ESMC_Initialize()</TT>, or after <TT>ESMC_Finalize()</TT>
+is undefined.
+
+<P>
+Second, every ESMF Component that is accessed by an ESMF application requires
+that its set services routine is called through
+<TT>ESMC_&lt;Grid/Cpl&gt;CompSetServices()</TT>. The Component must implement
+one public entry point, its set services routine, that can be called
+through the <TT>ESMC_&lt;Grid/Cpl&gt;CompSetServices()</TT> library routine. The
+Component set services routine is responsible for setting entry points
+for the standard ESMF Component methods Initialize, Run, and Finalize.
+
+<P>
+Finally, the Component can optionally call <TT>ESMC_&lt;Grid/Cpl&gt;CompSetVM()</TT>
+<EM>before</EM> calling
+<TT>ESMC_&lt;Grid/Cpl&gt;CompSetServices()</TT>. Similar to 
+<TT>ESMC_&lt;Grid/Cpl&gt;CompSetServices()</TT>, the 
+<BR>
+<TT>ESMC_&lt;Grid/Cpl&gt;CompSetVM()</TT>
+call requires a public entry point into the Component. It allows the Component
+to adjust certain aspects of its execution environment, i.e. its own VM, before
+it is started up.
+
+<P>
+The following sections discuss the above mentioned aspects in more detail.
+
+<P>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04022100000000000000">
+<SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_Initialize - Initialize ESMF</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   int ESMC_Initialize(
+     int *rc,        // return code
+     ...);           // optional arguments (see below)
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Initialize the ESMF.  This method must be called before
+    any other ESMF methods are used.  The method contains a
+    barrier before returning, ensuring that all processes
+    made it successfully through initialization.
+
+<P>
+Typically <TT>ESMC_Initialize()</TT> will call <TT>MPI_Init()</TT> 
+    internally unless MPI has been initialized by the user code before
+    initializing the framework. If the MPI initialization is left to
+    <TT>ESMC_Initialize()</TT> it inherits all of the MPI implementation 
+    dependent limitations of what may or may not be done before 
+    <TT>MPI_Init()</TT>. For instance, it is unsafe for some MPI implementations,
+    such as MPICH1, to do I/O before the MPI environment is initialized. Please
+    consult the documentation of your MPI implementation for details.
+
+<P>
+Optional arguments are recognised.  To indicate the end of the optional
+    argument list, <TT>ESMC_ArgLast</TT> must be used.  A minimal call to
+    <TT>ESMC_Initialize()</TT> would be:
+   <PRE>
+      ESMC_Initialize (NULL, ESMC_ArgLast);
+</PRE>
+    The optional arguments are specified using the <TT>ESMC_InitArg</TT> macros.
+    For example, to turn off logging so that no log files would be created, the
+    <TT>ESMC_Initialize()</TT> call would be coded as:
+   <PRE>
+      ESMC_Initialize (&amp;rc,
+        ESMC_InitArgLogKindFlag(ESMC_LOGKIND_NONE),
+        ESMC_ArgLast);
+</PRE>
+    Before exiting the application the user must call <TT>ESMC_Finalize()</TT>
+    to release resources and clean up the ESMF gracefully.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>[rc]</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+      <TT>NULL</TT> may be passed when the return code is not desired.
+    
+</DD>
+<DT><STRONG>[ESMC_InitArgDefaultCalKind(ARG)]</STRONG></DT>
+<DD>Macro specifying the default calendar kind for the entire
+      application.  Valid values for <TT>ARG</TT> are documented in section
+      <A HREF="node6.html#const:calkindflag_c">26.2.1</A>.
+      If not specified, defaults to <TT>ESMC_CALKIND_NOCALENDAR</TT>.
+    
+</DD>
+<DT><STRONG>[ESMC_InitArgDefaultConfigFilename(ARG)]</STRONG></DT>
+<DD>Macro specifying the name of the default configuration file for the
+      Config class.  If not specified, no default file is used.
+    
+</DD>
+<DT><STRONG>[ESMC_InitArgLogFilename(ARG)]</STRONG></DT>
+<DD>Macro specifying the name used as part of the default log file name for
+      the default log.  If not specified, defaults to <TT>ESMF_LogFile</TT>.
+    
+</DD>
+<DT><STRONG>[ESMC_InitArgLogKindFlag(ARG)]</STRONG></DT>
+<DD>Macro specifying the default Log kind to be used by ESMF Log Manager.
+      Valid values for <TT>ARG</TT> are  documented in section
+      <A HREF="node6.html#const:clogkindflag">31.2.1</A>.
+      If not specified, defaults to <TT>ESMC_LOGKIND_MULTI</TT>.
+    
+</DD>
+<DT><STRONG>ESMC_ArgLast</STRONG></DT>
+<DD>Macro indicating the end of the optional argument list.  This must be
+      provided even when there are no optional arguments.
+    
+</DD>
+</DL> 
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04022200000000000000">
+<SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_FinalizeWithFlag - Finalize the ESMF Framework and specify the type of finalization.</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   int ESMC_FinalizeWithFlag(
+     ESMC_End_Flag endFlag); // enumerator for exit action (see below)
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This must be called once on each PET before the application exits to
+   allow ESMF to flush buffers, close open connections, and release
+   internal resources cleanly.
+
+<P>
+The <TT>endFlag</TT> argument has one of three options:
+   <DL>
+<DT><STRONG><TT>ESMC_END_NORMAL</TT></STRONG></DT>
+<DD>Finalize normally.
+     
+</DD>
+<DT><STRONG><TT>ESMC_END_KEEPMPI</TT></STRONG></DT>
+<DD>Finalize normally without finalizing MPI.
+     
+</DD>
+<DT><STRONG><TT>ESMC_END_ABORT</TT></STRONG></DT>
+<DD>Abort on finalization.
+   
+</DD>
+</DL> 
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04022300000000000000">
+<SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_Finalize - Finalize the ESMF Framework</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   int ESMC_Finalize(void);
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This must be called once on each PET before the application exits to
+   allow ESMF to flush buffers, close open connections, and release
+   internal resources cleanly.
+
+
+<H1><A NAME="SECTION04030000000000000000">
+<SPAN CLASS="arabic">11</SPAN> GridComp Class</A>
+</H1>
+
+<H2><A NAME="SECTION04031000000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+<A NAME="sec:GridComp"></A>
+<P>
+In Earth system modeling, the most natural way to think about an ESMF 
+Gridded Component, or <TT>ESMC_GridComp</TT>, is as a piece of code 
+representing a particular physical domain, such as an atmospheric 
+model or an ocean model.  Gridded Components may also represent individual
+processes, such as radiation or chemistry.  It's up to the application
+writer to decide how deeply to &ldquo;componentize.&rdquo;
+
+<P>
+Earth system software components tend to share a number of basic 
+features.  Most ingest and produce a variety of physical fields, refer to 
+a (possibly noncontiguous) spatial region and a grid that is 
+partitioned across a set of computational resources, and require 
+a clock for things like stepping a governing set of PDEs forward in time.  
+Most can also be divided into distinct initialize, run, and finalize 
+computational phases.  These common characteristics are used 
+within ESMF to define a Gridded Component data structure that 
+is tailored for Earth system modeling and yet is still flexible
+enough to represent a variety of domains.
+
+<P>
+A well designed Gridded Component does not store information 
+internally about how it couples to other Gridded Components.  That
+allows it to be used in different contexts without changes to source
+code.  The idea here is to avoid situations in which slightly
+different versions of the same model source are maintained for use in 
+different contexts - standalone vs. coupled versions, for example.
+Data is passed in and out of Gridded Components using an ESMF State,
+this is described in Section&nbsp;<A HREF="#sec:State">14.1</A>.
+
+<P>
+An ESMF Gridded Component has two parts, one which is user-written
+and another which is part of the framework.  The user-written
+part is software that represents a physical domain or performs some
+other computational function.  It forms the body of the Gridded 
+Component.  It may be a piece of legacy code, or it may be developed 
+expressly for use with ESMF.  It must contain routines with
+standard ESMF interfaces that can be called to initialize, run, and
+finalize the Gridded Component.  These routines can have separate 
+callable phases, such as distinct first and second initialization steps.
+
+<P>
+ESMF provides the Gridded Component derived type, 
+<TT>ESMC_GridComp</TT>.  An <TT>ESMC_GridComp</TT> must be created 
+for every portion of the application that will be represented 
+as a separate component.  For example, in a climate model, there may 
+be Gridded Components representing the land, ocean, sea ice, and 
+atmosphere.  If the application contains an ensemble of identical 
+Gridded Components, every one has its own associated <TT>ESMC_GridComp</TT>.
+Each Gridded Component has its own name and is allocated
+a set of computational resources, in the form of an ESMF Virtual
+Machine, or <TT>VM</TT>.
+
+<P>
+The user-written part of a Gridded Component is associated with an
+<TT>ESMC_GridComp</TT> derived type through a routine called 
+<TT>ESMC_SetServices()</TT>.
+This is a routine that the user must write, and declare public.
+Inside the SetServices routine the user must call  
+<TT>ESMC_SetEntryPoint()</TT> methods that associate a standard ESMF 
+operation with the name of the corresponding Fortran subroutine 
+in their user code.
+
+<H2><A NAME="SECTION04032000000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+</H2>
+
+<P>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04032100000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_GridCompCreate - Create a Gridded Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> ESMC_GridComp ESMC_GridCompCreate(
+   const char *name,                    // in 
+   const char *configFile,              // in
+   ESMC_Clock clock,                    // in
+   int *rc                              // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Newly created ESMC_GridComp object.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This interface creates an <TT>ESMC_GridComp</TT> object. By default, a
+    separate VM context will be created for each component.  This implies
+    creating a new MPI communicator and allocating additional memory to
+    manage the VM resources.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>name</STRONG></DT>
+<DD>Name of the newly-created <TT>ESMC_GridComp</TT>.
+    
+</DD>
+<DT><STRONG>configFile</STRONG></DT>
+<DD>The filename of an <TT>ESMC_Config</TT> format file. If specified, this file
+     is opened an <TT>ESMC_Config</TT>  configuration object is created for the
+     file, and attached to the new component. 
+    
+</DD>
+<DT><STRONG>clock</STRONG></DT>
+<DD>Component-specific <TT>ESMC_Clock</TT>. This clock is available to be queried
+     and updated by the new <TT>ESMC_GridComp</TT> as it chooses. This should not
+     be the parent component clock, which should be maintained and passed down
+     to the initialize/run/finalize routines separately. 
+    
+</DD>
+<DT><STRONG>[rc]</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04032200000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_GridCompDestroy - Destroy a Gridded Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_GridCompDestroy(
+   ESMC_GridComp *comp               // inout
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Releases all resources associated with this <TT>ESMC_GridComp</TT>.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>Release all resources associated with this <TT>ESMC_GridComp</TT> and mark
+      the object as invalid. It is an error to pass this object into any other
+      routines after being destroyed. 
+   
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04032300000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_GridCompFinalize - Finalize a Gridded Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_GridCompFinalize(
+   ESMC_GridComp comp,           // inout
+   ESMC_State importState,       // inout
+   ESMC_State exportState,       // inout 
+   ESMC_Clock clock,             // in
+   int phase,                    // in
+   int *userRc                   // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Call the associated user finalize code for a GridComp.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD><TT>ESMC_GridComp</TT> to call finalize routine for.
+    
+</DD>
+<DT><STRONG>importState</STRONG></DT>
+<DD><TT>ESMC_State</TT> containing import data for coupling.
+    
+</DD>
+<DT><STRONG>exportState</STRONG></DT>
+<DD><TT>ESMC_State</TT> containing export data for coupling.
+    
+</DD>
+<DT><STRONG>clock</STRONG></DT>
+<DD>External <TT>ESMC_Clock</TT> for passing in time information. This is 
+      generally the parent component's clock, and will be treated as read-only
+      by the child component. The child component can maintain a private clock
+      for its own internal time computations.
+    
+</DD>
+<DT><STRONG>phase</STRONG></DT>
+<DD>Component providers must document whether each of their routines are 
+      <TT>single-phase</TT> or <TT>multi-phase</TT>. Single-phase routines require 
+      only one invocation to complete their work. Multi-phase routines provide
+      multiple subroutines to accomplish the work, accommodating components
+      which must complete part of their work, return to the caller and allow 
+      other processing to occur, and then continue the original operation. 
+      For multiple-phase child components, this is the integer phase number to
+      be invoked. For single-phase child components this argument must be 1.
+    
+</DD>
+<DT><STRONG>[userRc]</STRONG></DT>
+<DD>Return code set by <TT>userRoutine</TT> before returning.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04032400000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> ESMC_GridCompGetInternalState - Get the Internal State of a Gridded Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> void *ESMC_GridCompGetInternalState(
+   ESMC_GridComp comp,           // in
+   int *rc                       // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Pointer to private data block that is stored in the internal state.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Available to be called by an <TT>ESMC_GridComp</TT> at any time after 
+    <TT>ESMC_GridCompSetInternalState</TT> has been called. Since init, run, and
+    finalize must be separate subroutines, data that they need to share in 
+    common can either be global data, or can be allocated in a private data
+    block and the address of that block can be registered with the framework 
+    and retrieved by this call. When running multiple instantiations of an 
+    <TT>ESMC_GridComp</TT>, for example during ensemble runs, it may be simpler 
+    to maintain private data specific to each run with private data blocks. A 
+    corresponding <TT>ESMC_GridCompSetInternalState</TT> call sets the data
+    pointer to this block, and this call retrieves the data pointer. 
+
+<P>
+Only the <EM>last</EM> data block set via <TT>ESMC_GridCompSetInternalState</TT>
+    will be accessible. 
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>An <TT>ESMC_GridComp</TT> object.
+    
+</DD>
+<DT><STRONG>[rc]</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+   
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04032500000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> ESMC_GridCompInitialize - Initialize a Gridded Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_GridCompInitialize(
+   ESMC_GridComp comp,           // inout
+   ESMC_State importState,       // inout
+   ESMC_State exportState,       // inout 
+   ESMC_Clock clock,             // in
+   int phase,                    // in
+   int *userRc                   // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Call the associated user initialization code for a GridComp.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD><TT>ESMC_GridComp</TT> to call initialize routine for.
+    
+</DD>
+<DT><STRONG>importState</STRONG></DT>
+<DD><TT>ESMC_State</TT> containing import data for coupling.
+    
+</DD>
+<DT><STRONG>exportState</STRONG></DT>
+<DD><TT>ESMC_State</TT> containing export data for coupling.
+    
+</DD>
+<DT><STRONG>clock</STRONG></DT>
+<DD>External <TT>ESMC_Clock</TT> for passing in time information. This is 
+      generally the parent component's clock, and will be treated as read-only
+      by the child component. The child component can maintain a private clock
+      for its own internal time computations.
+    
+</DD>
+<DT><STRONG>phase</STRONG></DT>
+<DD>Component providers must document whether each of their routines are 
+      <TT>single-phase</TT> or <TT>multi-phase</TT>. Single-phase routines require 
+      only one invocation to complete their work. Multi-phase routines provide
+      multiple subroutines to accomplish the work, accommodating components
+      which must complete part of their work, return to the caller and allow 
+      other processing to occur, and then continue the original operation. 
+      For multiple-phase child components, this is the integer phase number to
+      be invoked. For single-phase child components this argument must be 1.
+    
+</DD>
+<DT><STRONG>[userRc]</STRONG></DT>
+<DD>Return code set by <TT>userRoutine</TT> before returning.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04032600000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN> ESMC_GridCompPrint - Print the contents of a GridComp</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_GridCompPrint(
+   ESMC_GridComp comp     // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Prints information about an <TT>ESMC_GridComp</TT> to <TT>stdout</TT>.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>An <TT>ESMC_GridComp</TT> object.
+   
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04032700000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">7</SPAN> ESMC_GridCompRun - Run a Gridded Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_GridCompRun(
+   ESMC_GridComp comp,           // inout
+   ESMC_State importState,       // inout
+   ESMC_State exportState,       // inout 
+   ESMC_Clock clock,             // in
+   int phase,                    // in
+   int *userRc                   // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Call the associated user run code for a GridComp.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD><TT>ESMC_GridComp</TT> to call run routine for.
+    
+</DD>
+<DT><STRONG>importState</STRONG></DT>
+<DD><TT>ESMC_State</TT> containing import data for coupling.
+    
+</DD>
+<DT><STRONG>exportState</STRONG></DT>
+<DD><TT>ESMC_State</TT> containing export data for coupling.
+    
+</DD>
+<DT><STRONG>clock</STRONG></DT>
+<DD>External <TT>ESMC_Clock</TT> for passing in time information. This is 
+      generally the parent component's clock, and will be treated as read-only
+      by the child component. The child component can maintain a private clock
+      for its own internal time computations.
+    
+</DD>
+<DT><STRONG>phase</STRONG></DT>
+<DD>Component providers must document whether each of their routines are 
+      <TT>single-phase</TT> or <TT>multi-phase</TT>. Single-phase routines require 
+      only one invocation to complete their work. Multi-phase routines provide
+      multiple subroutines to accomplish the work, accommodating components
+      which must complete part of their work, return to the caller and allow 
+      other processing to occur, and then continue the original operation. 
+      For multiple-phase child components, this is the integer phase number to
+      be invoked. For single-phase child components this argument must be 1.
+    
+</DD>
+<DT><STRONG>[userRc]</STRONG></DT>
+<DD>Return code set by <TT>userRoutine</TT> before returning.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04032800000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN> ESMC_GridCompSetEntryPoint - Set user routine as entry point for standard Component method</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_GridCompSetEntryPoint(
+   ESMC_GridComp comp,                                               // in
+   enum ESMC_Method method,                                          // in
+   void (*userRoutine)                                               // in
+     (ESMC_GridComp, ESMC_State, ESMC_State, ESMC_Clock *, int *),
+   int phase                                                         // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Registers a user-supplied <TT>userRoutine</TT> as the entry point for one of 
+    the predefined Component methods. After this call the <TT>userRoutine</TT> 
+    becomes accessible via the standard Component method API.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>An <TT>ESMC_GridComp</TT> object. 
+    
+</DD>
+<DT><STRONG>method</STRONG></DT>
+<DD>One of a set of predefined Component methods 
+      - e.g. <TT>ESMF_METHOD_INITIALIZE</TT>, <TT>ESMF_METHOD_RUN</TT>,
+      <TT>ESMF_METHOD_FINALIZE</TT>. See section&nbsp;<A HREF="node9.html#const:cmethod">34.12</A>
+      for a complete list of valid method options.
+
+</DD>
+<DT><STRONG>userRoutine</STRONG></DT>
+<DD>The user-supplied subroutine to be associated for this Component 
+      <TT>method</TT>. This subroutine does not have to be public. 
+    
+</DD>
+<DT><STRONG>phase</STRONG></DT>
+<DD>The phase number for multi-phase methods.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04032900000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">9</SPAN> ESMC_GridCompSetInternalState - Set the Internal State of a Gridded Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_GridCompSetInternalState(
+   ESMC_GridComp comp,           // inout
+   void *data                    // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Available to be called by an <TT>ESMC_GridComp</TT> at any time, but
+    expected to be most useful when called during the registration process, 
+    or initialization. Since init, run, and finalize must be separate
+    subroutines, data that they need to share in common can either be global
+    data, or can be allocated in a private data block and the address of that 
+    block can be registered with the framework and retrieved by subsequent
+    calls.
+    When running multiple instantiations of an <TT>ESMC_GridComp</TT>, 
+    for example during ensemble runs, it may be simpler to maintain private 
+    data specific to each run with private data blocks.  A corresponding 
+    <TT>ESMC_GridCompGetInternalState</TT> call retrieves the data pointer.
+
+<P>
+Only the <EM>last</EM> data block set via
+    <TT>ESMC_GridCompSetInternalState</TT> will be accessible.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>An <TT>ESMC_GridComp</TT> object.
+    
+</DD>
+<DT><STRONG>data</STRONG></DT>
+<DD>Pointer to private data block to be stored.
+   
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION040321000000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">10</SPAN> ESMC_GridCompSetServices - Call user routine to register GridComp methods</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_GridCompSetServices(
+   ESMC_GridComp comp,                           // in
+   void (*userRoutine)(ESMC_GridComp, int *),    // in
+   int *userRc                                   // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Call into user provided <TT>userRoutine</TT> which is responsible for setting
+    Component's Initialize(), Run() and Finalize() services.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>Gridded Component. 
+    
+</DD>
+<DT><STRONG>userRoutine</STRONG></DT>
+<DD>Routine to be called.
+    
+</DD>
+<DT><STRONG>userRc</STRONG></DT>
+<DD>Return code set by <TT>userRoutine</TT> before returning.
+    
+</DD>
+</DL>
+
+<P>
+The Component writer must supply a subroutine with the exact interface shown
+    above for the <TT>userRoutine</TT> argument.
+
+<P>
+The <TT>userRoutine</TT>, when called by the framework, must make successive
+    calls to <TT>ESMC_GridCompSetEntryPoint()</TT> to preset callback routines for
+    standard Component Initialize(), Run() and Finalize() methods. 
+
+<P>
+
+
+<H1><A NAME="SECTION04040000000000000000">
+<SPAN CLASS="arabic">12</SPAN> CplComp Class</A>
+</H1>
+
+<H2><A NAME="SECTION04041000000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+<A NAME="sec:CplComp"></A>
+<P>
+In a large, multi-component application such as a weather 
+forecasting or climate prediction system running within ESMF, 
+physical domains and major system functions are represented 
+as Gridded Components 
+(see Section <A HREF="#sec:GridComp">11.1</A>).  A Coupler Component, or 
+<TT>ESMC_CplComp</TT>, arranges and executes the data 
+transformations between the Gridded Components.  Ideally, 
+Coupler Components should contain all the information 
+about inter-component communication for an application.
+This enables the Gridded Components in the application to be 
+used in multiple contexts; that is, used in different coupled 
+configurations without changes to their source code. 
+For example, the same atmosphere might in one case be coupled 
+to an ocean in a hurricane prediction model, and to a 
+data assimilation system for numerical weather prediction in
+another.  A single Coupler Component can couple 
+two or more Gridded Components.
+
+<P>
+Like Gridded Components, Coupler Components have two parts, one
+that is provided by the user and another that is part of the 
+framework.  The user-written portion of the software is the coupling
+code necessary for a particular exchange between Gridded Components.  
+This portion of the Coupler Component code must be divided into 
+separately callable initialize, run, and finalize methods.  The 
+interfaces for these methods are prescribed by ESMF.
+
+<P>
+The term &ldquo;user-written&rdquo; is somewhat misleading here, since within 
+a Coupler Component the user can leverage ESMF infrastructure 
+software for regridding, redistribution, lower-level communications, 
+calendar management, and other functions.  However, ESMF is unlikely 
+to offer all the software necessary to customize a data transfer
+between Gridded Components.  For instance, ESMF does not currently 
+offer tools for unit tranformations or time averaging operations, 
+so users must manage those operations themselves.
+
+<P>
+The second part of a Coupler Component is the <TT>ESMC_CplComp</TT>
+derived type within ESMF.  The user must create one of these types
+to represent a specific coupling function, such as the regular
+transfer of data between a data assimilation system and an 
+atmospheric model.  <A NAME="tex2html14"
+  HREF="footnode.html#foot1982"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A>
+<P>
+The user-written part of a Coupler Component is associated with an
+<TT>ESMC_CplComp</TT> derived type through a routine called 
+<TT>ESMC_SetServices()</TT>.
+This is a routine that the user must write and declare public.
+Inside the <TT>ESMC_SetServices()</TT> routine the user must call 
+<TT>ESMC_SetEntryPoint()</TT> methods that associate a standard ESMF 
+operation with the name of the corresponding Fortran subroutine in 
+their user code.  For example, a user routine called &ldquo;couplerInit&rdquo;
+might be associated with the standard initialize routine in a 
+Coupler Component.
+
+<H2><A NAME="SECTION04042000000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+</H2>
+
+<P>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04042100000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_CplCompCreate - Create a Coupler Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> ESMC_CplComp ESMC_CplCompCreate(
+   const char *name,                   // in
+   const char *configFile,             // in
+   ESMC_Clock clock,                   // in
+   int *rc                             // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Newly created ESMC_CplComp object.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This interface creates an <TT>ESMC_CplComp</TT> object. By default, a
+    separate VM context will be created for each component.  This implies
+    creating a new MPI communicator and allocating additional memory to
+    manage the VM resources.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>name</STRONG></DT>
+<DD>Name of the newly-created <TT>ESMC_CplComp</TT>.
+    
+</DD>
+<DT><STRONG>configFile</STRONG></DT>
+<DD>The filename of an <TT>ESMC_Config</TT> format file. If specified, this file
+     is opened an <TT>ESMC_Config</TT>  configuration object is created for the
+     file, and attached to the new component. 
+    
+</DD>
+<DT><STRONG>clock</STRONG></DT>
+<DD>Component-specific <TT>ESMC_Clock</TT>. This clock is available to be queried
+     and updated by the new <TT>ESMC_CplComp</TT> as it chooses. This should not
+     be the parent component clock, which should be maintained and passed down
+     to the initialize/run/finalize routines separately. 
+    
+</DD>
+<DT><STRONG>[rc]</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04042200000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_CplCompDestroy - Destroy a Coupler Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_CplCompDestroy(
+   ESMC_CplComp *comp              // inout
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Releases all resources associated with this <TT>ESMC_CplComp</TT>.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>Release all resources associated with this <TT>ESMC_CplComp</TT> and mark
+      the object as invalid. It is an error to pass this object into any other
+      routines after being destroyed. 
+   
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04042300000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_CplCompFinalize - Finalize a Coupler Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_CplCompFinalize(
+   ESMC_CplComp comp,            // inout
+   ESMC_State importState,       // inout
+   ESMC_State exportState,       // inout 
+   ESMC_Clock clock,             // in
+   int phase,                    // in
+   int *userRc                   // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Call the associated user finalize code for a CplComp.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD><TT>ESMC_CplComp</TT> to call finalize routine for.
+    
+</DD>
+<DT><STRONG>importState</STRONG></DT>
+<DD><TT>ESMC_State</TT> containing import data for coupling.
+    
+</DD>
+<DT><STRONG>exportState</STRONG></DT>
+<DD><TT>ESMC_State</TT> containing export data for coupling.
+    
+</DD>
+<DT><STRONG>clock</STRONG></DT>
+<DD>External <TT>ESMC_Clock</TT> for passing in time information. This is 
+      generally the parent component's clock, and will be treated as read-only
+      by the child component. The child component can maintain a private clock
+      for its own internal time computations.
+    
+</DD>
+<DT><STRONG>phase</STRONG></DT>
+<DD>Component providers must document whether each of their routines are 
+      <TT>single-phase</TT> or <TT>multi-phase</TT>. Single-phase routines require 
+      only one invocation to complete their work. Multi-phase routines provide
+      multiple subroutines to accomplish the work, accommodating components
+      which must complete part of their work, return to the caller and allow 
+      other processing to occur, and then continue the original operation. 
+      For multiple-phase child components, this is the integer phase number to
+      be invoked. For single-phase child components this argument must be 1.
+    
+</DD>
+<DT><STRONG>[userRc]</STRONG></DT>
+<DD>Return code set by <TT>userRoutine</TT> before returning.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04042400000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> ESMC_CplCompGetInternalState - Get the internal State of a Coupler Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> void *ESMC_CplCompGetInternalState(
+   ESMC_CplComp comp,            //in
+   int *rc                       // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Pointer to private data block that is stored in the internal state.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Available to be called by an <TT>ESMC_CplComp</TT> at any time after 
+    <TT>ESMC_CplCompSetInternalState</TT> has been called. Since init, run, and
+    finalize must be separate subroutines, data that they need to share in 
+    common can either be global data, or can be allocated in a private data
+    block and the address of that block can be registered with the framework 
+    and retrieved by this call. When running multiple instantiations of an 
+    <TT>ESMC_CplComp</TT>, for example during ensemble runs, it may be simpler 
+    to maintain private data specific to each run with private data blocks. A 
+    corresponding <TT>ESMC_CplCompSetInternalState</TT> call sets the data
+    pointer to this block, and this call retrieves the data pointer. 
+
+<P>
+Only the <EM>last</EM> data block set via <TT>ESMC_CplCompSetInternalState</TT>
+    will be accessible. 
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>An <TT>ESMC_CplComp</TT> object.
+    
+</DD>
+<DT><STRONG>[rc]</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+   
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04042500000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> ESMC_CplCompInitialize - Initialize a Coupler Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_CplCompInitialize(
+   ESMC_CplComp comp,            // inout
+   ESMC_State importState,       // inout
+   ESMC_State exportState,       // inout 
+   ESMC_Clock clock,             // in
+   int phase,                    // in
+   int *userRc                   // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Call the associated user initialize code for a CplComp.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD><TT>ESMC_CplComp</TT> to call initialize routine for.
+    
+</DD>
+<DT><STRONG>importState</STRONG></DT>
+<DD><TT>ESMC_State</TT> containing import data for coupling.
+    
+</DD>
+<DT><STRONG>exportState</STRONG></DT>
+<DD><TT>ESMC_State</TT> containing export data for coupling.
+    
+</DD>
+<DT><STRONG>clock</STRONG></DT>
+<DD>External <TT>ESMC_Clock</TT> for passing in time information. This is 
+      generally the parent component's clock, and will be treated as read-only
+      by the child component. The child component can maintain a private clock
+      for its own internal time computations.
+    
+</DD>
+<DT><STRONG>phase</STRONG></DT>
+<DD>Component providers must document whether each of their routines are 
+      <TT>single-phase</TT> or <TT>multi-phase</TT>. Single-phase routines require 
+      only one invocation to complete their work. Multi-phase routines provide
+      multiple subroutines to accomplish the work, accommodating components
+      which must complete part of their work, return to the caller and allow 
+      other processing to occur, and then continue the original operation. 
+      For multiple-phase child components, this is the integer phase number to
+      be invoked. For single-phase child components this argument must be 1.
+    
+</DD>
+<DT><STRONG>[userRc]</STRONG></DT>
+<DD>Return code set by <TT>userRoutine</TT> before returning.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04042600000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN> ESMC_CplCompPrint - Print a Coupler Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_CplCompPrint(
+   ESMC_CplComp comp      // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Prints information about an <TT>ESMC_CplComp</TT> to <TT>stdout</TT>.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>An <TT>ESMC_CplComp</TT> object.
+   
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04042700000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">7</SPAN> ESMC_CplCompRun - Run a Coupler Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_CplCompRun(
+   ESMC_CplComp comp,            // inout
+   ESMC_State importState,       // inout
+   ESMC_State exportState,       // inout 
+   ESMC_Clock clock,             // in
+   int phase,                    // in
+   int *userRc                   // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Call the associated user run code for a CplComp.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD><TT>ESMC_CplComp</TT> to call run routine for.
+    
+</DD>
+<DT><STRONG>importState</STRONG></DT>
+<DD><TT>ESMC_State</TT> containing import data for coupling.
+    
+</DD>
+<DT><STRONG>exportState</STRONG></DT>
+<DD><TT>ESMC_State</TT> containing export data for coupling.
+    
+</DD>
+<DT><STRONG>clock</STRONG></DT>
+<DD>External <TT>ESMC_Clock</TT> for passing in time information. This is 
+      generally the parent component's clock, and will be treated as read-only
+      by the child component. The child component can maintain a private clock
+      for its own internal time computations.
+    
+</DD>
+<DT><STRONG>phase</STRONG></DT>
+<DD>Component providers must document whether each of their routines are 
+      <TT>single-phase</TT> or <TT>multi-phase</TT>. Single-phase routines require 
+      only one invocation to complete their work. Multi-phase routines provide
+      multiple subroutines to accomplish the work, accommodating components
+      which must complete part of their work, return to the caller and allow 
+      other processing to occur, and then continue the original operation. 
+      For multiple-phase child components, this is the integer phase number to
+      be invoked. For single-phase child components this argument must be 1.
+    
+</DD>
+<DT><STRONG>[userRc]</STRONG></DT>
+<DD>Return code set by <TT>userRoutine</TT> before returning.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04042800000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN> ESMC_CplCompSetEntryPoint - Set the Entry point of a Coupler Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_CplCompSetEntryPoint(
+   ESMC_CplComp comp,                                                // in
+   enum ESMC_Method method,                                          // in
+   void (*userRoutine)                                               // in
+     (ESMC_CplComp, ESMC_State, ESMC_State, ESMC_Clock *, int *),
+   int phase                                                         // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Registers a user-supplied <TT>userRoutine</TT> as the entry point for one of 
+    the predefined Component methods. After this call the <TT>userRoutine</TT> 
+    becomes accessible via the standard Component method API.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>An <TT>ESMC_CplComp</TT> object. 
+    
+</DD>
+<DT><STRONG>method</STRONG></DT>
+<DD>One of a set of predefined Component methods 
+      - e.g. <TT>ESMF_METHOD_INITIALIZE</TT>, <TT>ESMF_METHOD_RUN</TT>,
+      <TT>ESMF_METHOD_FINALIZE</TT>. See section&nbsp;<A HREF="node9.html#const:cmethod">34.12</A>
+      for a complete list of valid method options. 
+    
+</DD>
+<DT><STRONG>userRoutine</STRONG></DT>
+<DD>The user-supplied subroutine to be associated for this Component 
+      <TT>method</TT>. This subroutine does not have to be public. 
+    
+</DD>
+<DT><STRONG>phase</STRONG></DT>
+<DD>The phase number for multi-phase methods.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04042900000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">9</SPAN> ESMC_CplCompSetInternalState - Set the internal State of a Coupler Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_CplCompSetInternalState(
+   ESMC_CplComp comp,            // inout
+   void *data                    // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Available to be called by an <TT>ESMC_CplComp</TT> at any time, but
+    expected to be most useful when called during the registration process, 
+    or initialization. Since init, run, and finalize must be separate
+    subroutines, data that they need to share in common can either be global
+    data, or can be allocated in a private data block and the address of that 
+    block can be registered with the framework and retrieved by subsequent
+    calls.
+    When running multiple instantiations of an <TT>ESMC_CplComp</TT>, 
+    for example during ensemble runs, it may be simpler to maintain private 
+    data specific to each run with private data blocks.  A corresponding 
+    <TT>ESMC_CplCompGetInternalState</TT> call retrieves the data pointer.
+
+<P>
+Only the <EM>last</EM> data block set via
+    <TT>ESMC_CplCompSetInternalState</TT> will be accessible.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>An <TT>ESMC_CplComp</TT> object.
+    
+</DD>
+<DT><STRONG>data</STRONG></DT>
+<DD>Pointer to private data block to be stored.
+   
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION040421000000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">10</SPAN> ESMC_CplCompSetServices - Destroy a Coupler Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_CplCompSetServices(
+   ESMC_CplComp comp,                            // in
+   void (*userRoutine)(ESMC_CplComp, int *),     // in
+   int *userRc                                   // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Call into user provided <TT>userRoutine</TT> which is responsible for setting
+    Component's Initialize(), Run() and Finalize() services.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>Gridded Component. 
+    
+</DD>
+<DT><STRONG>userRoutine</STRONG></DT>
+<DD>Routine to be called.
+    
+</DD>
+<DT><STRONG>userRc</STRONG></DT>
+<DD>Return code set by <TT>userRoutine</TT> before returning.
+    
+</DD>
+</DL>
+
+<P>
+The Component writer must supply a subroutine with the exact interface shown
+    above for the <TT>userRoutine</TT> argument.
+
+<P>
+The <TT>userRoutine</TT>, when called by the framework, must make successive
+    calls to <TT>ESMC_CplCompSetEntryPoint()</TT> to preset callback routines for
+    standard Component Initialize(), Run() and Finalize() methods. 
+
+<P>
+
+
+<H1><A NAME="SECTION04050000000000000000">
+<SPAN CLASS="arabic">13</SPAN> SciComp Class</A>
+</H1>
+
+<H2><A NAME="SECTION04051000000000000000">
+<SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+<A NAME="sec:SciComp"></A>
+<P>
+In Earth system modeling, a particular piece of code representing a physical 
+domain, such as an atmospheric model or an ocean model, is typically 
+implemented as an ESMF Gridded Component, or <TT>ESMC_GridComp</TT>.  
+However, there are times when physical domains, or realms, need to be 
+represented, but aren't actual pieces of code, or software.  These domains 
+can be implemented as ESMF Science Components, or <TT>ESMC_SciComp</TT>.
+
+<P>
+Unlike Gridded and Coupler Components, Science Components are not associated 
+with software; they don't include execution routines such as initialize, 
+run and finalize.  
+
+<H2><A NAME="SECTION04052000000000000000">
+<SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">2</SPAN> Class API</A>
+</H2>
+
+<P>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04052100000000000000">
+<SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_SciCompCreate - Create a Science Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> ESMC_SciComp ESMC_SciCompCreate(
+   const char *name,                    // in 
+   int *rc                              // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Newly created ESMC_SciComp object.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This interface creates an <TT>ESMC_SciComp</TT> object. 
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>name</STRONG></DT>
+<DD>Name of the newly-created <TT>ESMC_SciComp</TT>.
+    
+</DD>
+<DT><STRONG>[rc]</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04052200000000000000">
+<SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_SciCompDestroy - Destroy a Science Component</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_SciCompDestroy(
+   ESMC_SciComp *comp               // inout
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Releases all resources associated with this <TT>ESMC_SciComp</TT>.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>Release all resources associated with this <TT>ESMC_SciComp</TT> and mark
+      the object as invalid. It is an error to pass this object into any other
+      routines after being destroyed. 
+   
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04052300000000000000">
+<SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_SciCompPrint - Print the contents of a SciComp</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_SciCompPrint(
+   ESMC_SciComp comp     // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Prints information about an <TT>ESMC_SciComp</TT> to <TT>stdout</TT>.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>comp</STRONG></DT>
+<DD>An <TT>ESMC_SciComp</TT> object.
+   
+</DD>
+</DL>
+
+<P>
+
+
+<H1><A NAME="SECTION04060000000000000000">
+<SPAN CLASS="arabic">14</SPAN> State Class</A>
+</H1>
+
+<H2><A NAME="SECTION04061000000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">1</SPAN> Description</A>
+</H2>
+
+<P>
+<A NAME="sec:State"></A>
+<P>
+A State contains the data and metadata to be transferred between 
+ESMF Components.  It is an important class, because it defines a 
+standard for how data is represented in data transfers between Earth
+science components.  The 
+State construct is a rational compromise between a fully prescribed 
+interface - one that would dictate what specific fields should be 
+transferred between components - and an interface in which data structures
+are completely ad hoc.
+
+<P>
+There are two types of States, import and export.
+An import State contains data that is necessary for a Gridded Component
+or Coupler Component to execute, and an export State contains the data
+that a Gridded Component or Coupler Component can make available.
+
+<P>
+States can contain Arrays, ArrayBundles, Fields, FieldBundles, 
+and other States. However, the current C API only provides State access to
+Arrays, Fields and nested States.
+States cannot directly contain native language arrays
+(i.e. Fortran or C style arrays).  Objects in a State must span
+the VM on which they are running.  For sequentially executing components
+which run on the same set of PETs this happens by calling the object
+create methods on each PET, creating the object in unison.   For
+concurrently executing components which are running on subsets of PETs,
+an additional method, called <TT>ESMF_StateReconcile()</TT>, is provided by
+ESMF to broadcast information
+about objects which were created in sub-components.
+Currently this method is only available through the ESMF Fortran API. Hence
+the Coupler Component reponsible for reconciling States from Component that 
+execute on subsets of PETs must be written in Fortran.
+
+<P>
+State methods include creation and deletion, adding and retrieving 
+data items, and performing queries.  
+
+<P>
+
+<H2><A NAME="SECTION04062000000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">2</SPAN> Restrictions and Future Work</A>
+</H2>
+
+<P>
+
+<OL>
+<LI><B>No synchronization of object IDs at object create time.</B>
+Object IDs are used during the reconcile process to identify objects
+which are unknown to some subset of the PETs in the currently running VM.
+Object IDs are assigned in sequential order at object create time.
+
+<P>
+One important request by the user community during the ESMF object design was
+that there be no communication overhead or synchronization when creating
+distributed ESMF objects. As a consequence it is required to create these
+objects in <B>unison</B> across all PETs in order to keep the ESMF object
+identification in sync.
+
+<P>
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION04063000000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN> Class API</A>
+</H2>
+
+<P>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04063100000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> ESMC_StateAddArray - Add an Array object to a State</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_StateAddArray(
+   ESMC_State state,   // in
+   ESMC_Array array    // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Add an Array object to a <TT>ESMC_State</TT> object.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>state</STRONG></DT>
+<DD>The State object.
+    
+</DD>
+<DT><STRONG>array</STRONG></DT>
+<DD>The Array object to be included within the State.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04063200000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> ESMC_StateAddField - Add a Field object to a State</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_StateAddField(
+   ESMC_State state,   // in
+   ESMC_Field field    // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Add an Array object to a <TT>ESMC_State</TT> object.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>state</STRONG></DT>
+<DD>The State object.
+    
+</DD>
+<DT><STRONG>array</STRONG></DT>
+<DD>The Array object to be included within the State.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04063300000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> ESMC_StateCreate - Create an Array</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> ESMC_State ESMC_StateCreate(
+   const char *name,  // in
+   int *rc            // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Newly created ESMC_State object.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Create an <TT>ESMC_State</TT> object.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>[name]</STRONG></DT>
+<DD>The name for the State object. If not specified, i.e. NULL,
+      a default unique name will be generated: "StateNNN" where NNN
+      is a unique sequence number from 001 to 999.
+    
+</DD>
+<DT><STRONG>rc</STRONG></DT>
+<DD>Return code; equals <TT>ESMF_SUCCESS</TT> if there are no errors.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04063400000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> ESMC_StateDestroy - Destroy a State</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_StateDestroy(
+   ESMC_State *state    // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Destroy a <TT>ESMC_State</TT> object.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>state</STRONG></DT>
+<DD>The State to be destroyed.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04063500000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> ESMC_StateGetArray - Obtains an Array object from a State</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_StateGetArray(
+   ESMC_State state,    // in
+   const char *name,    // in
+   ESMC_Array *array    // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Obtain a pointer to an <TT>ESMC_Array</TT> object contained within
+    a State.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>state</STRONG></DT>
+<DD>The State object.
+    
+</DD>
+<DT><STRONG>name</STRONG></DT>
+<DD>The name of the desired Array object.
+    
+</DD>
+<DT><STRONG>array</STRONG></DT>
+<DD>A pointer to the Array object.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04063600000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> ESMC_StateGetField - Obtains a Field object from a State</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_StateGetField(
+   ESMC_State state,    // in
+   const char *name,    // in
+   ESMC_Field *field    // out
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Obtain a pointer to a <TT>ESMC_Field</TT> object contained within
+    a State.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>state</STRONG></DT>
+<DD>The State object.
+    
+</DD>
+<DT><STRONG>name</STRONG></DT>
+<DD>The name of the desired Field object.
+    
+</DD>
+<DT><STRONG>array</STRONG></DT>
+<DD>A pointer to the Field object.
+    
+</DD>
+</DL>
+
+<P>
+
+<P>
+
+<H3><A NAME="SECTION04063700000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">7</SPAN> ESMC_StatePrint - Print the contents of a State</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> int ESMC_StatePrint(
+   ESMC_State state    // in
+ );
+</PRE><EM>RETURN VALUE:</EM>
+<PRE>    Return code; equals ESMF_SUCCESS if there are no errors.
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Prints the contents of a <TT>ESMC_State</TT> object.
+
+<P>
+The arguments are:
+    <DL>
+<DT><STRONG>state</STRONG></DT>
+<DD>The State to be printed.
+    
+</DD>
+</DL>
+
+<P>
+
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html562"
+  HREF="node5.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html558"
+  HREF="ESMC_crefdoc.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html552"
+  HREF="node3.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html560"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html563"
+  HREF="node5.html">4 Infrastructure: Fields and</A>
+<B> Up:</B> <A NAME="tex2html559"
+  HREF="ESMC_crefdoc.html">ESMC_crefdoc</A>
+<B> Previous:</B> <A NAME="tex2html553"
+  HREF="node3.html">2 Command Line Tools</A>
+ &nbsp; <B>  <A NAME="tex2html561"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<A HREF=mailto:esmf_support@ucar.edu>esmf_support@ucar.edu</A>
+</ADDRESS>
+</BODY>
+</HTML>

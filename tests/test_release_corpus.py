@@ -39,6 +39,15 @@ class ReleaseTests(unittest.TestCase):
             self.assertEqual(result['provenance']['revision'],'bd03a249df907464fdad91b7c43985dedbc472c7')
             if result['parent']:
                 self.assertIn('use NUOPC',self.store.get(result['parent'],max_characters=32000)['text'])
+    def test_c_reference_sections_retrieve_with_pinned_urls(self):
+        hits=self.store.search('ESMC_ArraySpecSet','documentation',8,library='esmf')
+        cref=[hit for hit in hits if 'ESMC_crefdoc' in hit['source']]
+        self.assertTrue(cref,'ESMC_crefdoc section not discoverable')
+        result=self.store.get(cref[0]['id'],include_subsections=True,max_characters=32000)
+        self.assertIn('INTERFACE:',result['text'])
+        self.assertIn('RETURN VALUE:',result['text'])
+        self.assertIn('ESMF_8_9_1/ESMC_crefdoc',result['url'])
+        self.assertIn('#SECTION',result['url'])
     def test_context_evidence_categories(self):
         result=self.store.context('NUOPC_DriverAddComp','driver')
         self.assertTrue(result['documentation']);self.assertTrue(result['examples'])

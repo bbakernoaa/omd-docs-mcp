@@ -148,7 +148,7 @@ class PrototypeAndCcppCountTests(unittest.TestCase):
         con=sqlite3.connect(f'file:{regression_database()}?mode=ro',uri=True)
         counts={(r[0],r[1],r[2]):r[3] for r in con.execute('SELECT library,version,kind,count(*) FROM units GROUP BY 1,2,3')}
         con.close()
-        self.assertEqual(counts[('esmf','8.9.1','documentation')],1764)
+        self.assertEqual(counts[('esmf','8.9.1','documentation')],2085)
         self.assertEqual(counts[('esmf','8.9.1','implementation')],356)
         self.assertEqual(counts[('esmf','8.9.1','example')],1039)
         self.assertEqual(counts[('kokkos','snapshot-3cf2e0638b24','documentation')],1610)

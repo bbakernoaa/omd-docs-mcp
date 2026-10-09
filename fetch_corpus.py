@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 ROOT=Path(__file__).resolve().parent
 COMMIT='bd03a249df907464fdad91b7c43985dedbc472c7'
 BASE='https://earthsystemmodeling.org/docs/release/ESMF_8_9_1/'
-MANUALS=('NUOPC_refdoc','NUOPC_howtodoc','ESMF_refdoc')
+MANUALS=('NUOPC_refdoc','NUOPC_howtodoc','ESMF_refdoc','ESMC_crefdoc')
 PROTOS_REPO='https://github.com/esmf-org/nuopc-app-prototypes.git'
 PROTOS_REF='patch/8.9.1'
 PROTOS_COMMIT='1645f4471da271e518213ceb574b0ada0ff3a169'
