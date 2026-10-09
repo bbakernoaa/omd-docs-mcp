@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from knowledge import Knowledge, build, markup_sections
-from build_manifest import generate
+from tests.regression_index import regression_database, regression_store
 
 RST='''KokkosBlas::gemm
 ################
@@ -63,11 +63,7 @@ ROOT=Path(__file__).resolve().parents[1]
 class KokkosReleaseTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.temp=tempfile.TemporaryDirectory();cls.db=Path(cls.temp.name)/'index.sqlite3'
-        manifest=ROOT/'corpus.json';generate(ROOT/'corpus.catalog.json',manifest)
-        build(manifest,cls.db);cls.store=Knowledge(cls.db)
-    @classmethod
-    def tearDownClass(cls):cls.temp.cleanup()
+        cls.store=regression_store()
     def test_core_api_section(self):
         hit=self.store.search('Kokkos::parallel_for','documentation',library='kokkos')[0]
         result=self.store.get(hit['id'],include_subsections=True)
@@ -99,11 +95,7 @@ class KokkosReleaseTests(unittest.TestCase):
 class StandardsReleaseTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.temp=tempfile.TemporaryDirectory();cls.db=Path(cls.temp.name)/'index.sqlite3'
-        manifest=ROOT/'corpus.json';generate(ROOT/'corpus.catalog.json',manifest)
-        build(manifest,cls.db);cls.store=Knowledge(cls.db)
-    @classmethod
-    def tearDownClass(cls):cls.temp.cleanup()
+        cls.store=regression_store()
     def test_nws_environment_variables(self):
         lock=json.loads((ROOT/'standards-lock.json').read_text())
         revision=lock['nws-hpc-standards']['commit'];version=lock['nws-hpc-standards']['version']
@@ -153,8 +145,7 @@ class StandardsReleaseTests(unittest.TestCase):
 class PrototypeAndCcppCountTests(unittest.TestCase):
     def test_counts_isolated_to_new_sources(self):
         import sqlite3
-        db=ROOT/'data'/'nuopc.sqlite3'
-        con=sqlite3.connect(f'file:{db}?mode=ro',uri=True)
+        con=sqlite3.connect(f'file:{regression_database()}?mode=ro',uri=True)
         counts={(r[0],r[1],r[2]):r[3] for r in con.execute('SELECT library,version,kind,count(*) FROM units GROUP BY 1,2,3')}
         con.close()
         self.assertEqual(counts[('esmf','8.9.1','documentation')],1764)

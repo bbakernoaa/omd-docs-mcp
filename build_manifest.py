@@ -7,14 +7,15 @@ ROOT = Path(__file__).resolve().parent
 FETCHED_LIBRARIES = {'pytorch', 'pytorch-forecasting'}
 
 
-def generate(catalog_path, output_path):
+def generate(catalog_path, output_path, exclude=frozenset()):
     catalog_path = Path(catalog_path)
     output_path = Path(output_path)
     manifest = json.loads(catalog_path.read_text())
     sources = [
         entry for entry in manifest.get('sources', [])
-        if entry.get('library') not in FETCHED_LIBRARIES
-        or (catalog_path.parent / entry['path']).exists()
+        if entry.get('library') not in exclude
+        and (entry.get('library') not in FETCHED_LIBRARIES
+             or (catalog_path.parent / entry['path']).exists())
     ]
     if not sources:
         raise ValueError('Catalog has no sources; existing manifest preserved')

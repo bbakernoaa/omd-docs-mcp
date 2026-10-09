@@ -390,7 +390,7 @@ regression coverage now pins prototype discoverability plus CCPP included-code
 and auxiliary-file handling.
 Further tests cover collection/version isolation across all nine libraries,
 Markdown and RST parsing, included-code retrieval, fetcher helpers, and real
-documentation from the Kokkos, NWS, JEDI and CCPP collections (38 unit tests total).
+documentation from the Kokkos, NWS, JEDI and CCPP collections (39 unit tests total).
 The smoke test exercises all thirteen tools through a real MCP stdio client/server;
 `tests.smoke_docker` replays the same calls inside the built image.
 

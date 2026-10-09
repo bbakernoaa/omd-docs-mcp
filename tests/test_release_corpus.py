@@ -1,9 +1,7 @@
 """Retrieval regression checks against the bundled official corpus (no Fortran compilation)."""
-import tempfile
 import unittest
 from pathlib import Path
-from knowledge import build, Knowledge
-from build_manifest import generate
+from tests.regression_index import regression_store
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -11,11 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 class ReleaseTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.temp=tempfile.TemporaryDirectory();cls.db=Path(cls.temp.name)/'index.sqlite3'
-        manifest=ROOT/'corpus.json';generate(ROOT/'corpus.catalog.json',manifest)
-        build(manifest,cls.db);cls.store=Knowledge(cls.db)
-    @classmethod
-    def tearDownClass(cls):cls.temp.cleanup()
+        cls.store=regression_store()
     def test_api_overloads_have_signatures_arguments_and_urls(self):
         for name in ('NUOPC_CompSpecialize','NUOPC_DriverAddComp','NUOPC_Advertise'):
             hits=self.store.search(name,'documentation',6)

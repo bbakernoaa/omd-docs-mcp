@@ -22,6 +22,23 @@ class ManifestBuildTests(unittest.TestCase):
             self.assertEqual(generate(catalog, output), 1)
             self.assertEqual(json.loads(output.read_text()), {'sources': sources[:1]})
 
+    def test_exclude_drops_libraries_even_when_present(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            catalog = root / 'corpus.catalog.json'
+            output = root / 'corpus.json'
+            (root / 'manual.html').write_text('<h1>Manual</h1>')
+            (root / 'tensor.html').write_text('<h1>Tensor</h1>')
+            sources = [{'name': 'manual', 'path': 'manual.html', 'library': 'esmf',
+                        'version': '8.9.1', 'kind': 'documentation'},
+                       {'name': 'pytorch-docs', 'path': 'tensor.html',
+                        'library': 'pytorch', 'version': '2.14', 'kind': 'documentation'}]
+            catalog.write_text(json.dumps({'sources': sources}))
+
+            self.assertEqual(generate(catalog, output, exclude={'pytorch'}), 1)
+            manifest = json.loads(output.read_text())
+            self.assertEqual([s['library'] for s in manifest['sources']], ['esmf'])
+
     def test_rejects_an_empty_catalog_without_overwriting_existing_manifest(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
