@@ -7,3 +7,5 @@ corpus/pytorch/
 corpus/pytorch-forecasting/
 data/*
 !data/.gitkeep
+build/
+dist/
