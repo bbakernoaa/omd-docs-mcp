@@ -91,13 +91,19 @@ its own managed set).
      this PDF (all bookmarks resolve to page 0), so anchoring is
      **title-based**: walk the outline in document order and locate each
      title in the stripped page text via whitespace-collapsed,
-     case-folded, prefix-tolerant line matching, with a cursor that moves
-     forward and a global fallback pass. Validated on the real file:
-     65/67 anchored.
-   - **Unmatched headings** (the two known back-matter entries "Become an
-     OpenMP ARB Member" and "Index" collide with footer/TOC dot-leader
-     noise): merge into the preceding section and append a per-file entry
-     to `build()`'s existing `warnings` channel. No silent loss.
+     case-folded, prefix-tolerant line matching, advancing strictly
+     forward from a `(page, line)` cursor. Dot-leader lines (TOC entries
+     like `Clauses . . . 9`) are excluded from matching so contents noise
+     cannot anchor a heading. Validated on the real file: 62/67 anchored
+     with strictly monotonic page spans. A global fallback was rejected:
+     it anchored 3 more titles but into the page-0 contents block, which
+     inverted page spans and fabricated coverage.
+   - **Unmatched headings** (5 known: `Data environment directives`,
+     `Memory management directives`, `Parallel region support routines`
+     — whose body headings interleave with the broken first-page contents
+     block — plus the back-matter `Become an OpenMP ARB Member` and
+     `Index`): merge into the preceding section and append a per-file
+     entry to `build()`'s existing `warnings` channel. No silent loss.
    - A PDF with **no outline** falls back to one whole-document unit,
      mirroring `html_sections`.
 4. Unit metadata: `start_line`/`end_line` carry the 1-based PDF page span;
@@ -152,7 +158,7 @@ its own managed set).
 ## Validation
 
 - New `tests/test_pdf.py`: anchor matcher on synthetic page lists + outline
-  (exact match, prefix-tolerant, cursor advance, global fallback,
+  (exact match, prefix-tolerant, cursor advance, dot-leader exclusion,
   unanchored merge into preceding section, empty-outline whole-document
   fallback, header/footer stripping); `sha256` verification failure aborts
   `build()`; `.pdf` never reaches `read_text`.
@@ -167,15 +173,16 @@ its own managed set).
   retains `omp_copyright.txt` and defines an `examples` copy config.
 - Live index build: run `fetch_weather.py --only rdhpcs,openmp-examples`,
   download the pinned refguide PDF once, run `ingest.py`, then pin exact
-  unit counts into the shared-regression-index count test (expect ~48
-  RDHPCS markup files, ~137 tex + ~609 code files, ~65 PDF units).
+  unit counts into the shared-regression-index count test (48 RDHPCS
+  markup files, 151 tex + 3 md + 676 code files, 62 PDF units before
+  per-file section splitting).
 - `tests/smoke_mcp.py`: fifteen-tool line; `get_rdhpcs_context` and
   `get_openmp_context` return `collections` dicts on the synthetic corpus.
 - `tests/smoke_docker.py`: after image rebuild, assert
-  `search_docs(library='rdhpcs')` finds a known section (e.g. "lifespan"
-  or "Gaea"), `get_openmp_context` returns both non-empty collection lists,
-  and `list_collections` rows include the three new (library, version)
-  pairs.
+  `search_docs(library='rdhpcs')` finds the Gaea user guide section, a
+  `library='openmp-examples'` `search_code` query finds a `tile` example,
+  `get_openmp_context` returns both non-empty collection lists, and
+  `list_collections` rows include the three new (library, version) pairs.
 - Full suite (`unittest discover -s tests -t .`) passes before each commit;
   measure the shared regression index rebuild-time growth and record it.
 
